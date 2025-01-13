@@ -1,16 +1,3 @@
-import comp from "/works/note/docs/.vuepress/.temp/pages/learn/vue/jifdakxk3s/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/vue/jifdakxk3s/\",\"title\":\"关于vuepress\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"关于vuepress\",\"createTime\":\"2024-10-11T08:24:36.000Z\",\"permalink\":\"/learn/vue/jifdakxk3s/\",\"author\":\"JamesLeo\",\"categories\":[\"vue\",\"vuepress\"],\"tags\":[\"技术\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.71,\"words\":212},\"filePathRelative\":\"notes/学习/Vue/关于vuepress.md\",\"bulletin\":false}")
+import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/vue/jifdakxk3s/index.html.vue"
+const data = JSON.parse("{\"path\":\"/learn/vue/jifdakxk3s/\",\"title\":\"关于vuepress\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"关于vuepress\",\"createTime\":\"2024-10-11T08:24:36.000Z\",\"permalink\":\"/learn/vue/jifdakxk3s/\",\"author\":\"JamesLeo\",\"categories\":[\"vue\",\"vuepress\"],\"tags\":[\"技术\"],\"description\":null},\"headers\":[],\"readingTime\":{\"minutes\":0.71,\"words\":212},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"notes/学习/Vue/关于vuepress.md\",\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

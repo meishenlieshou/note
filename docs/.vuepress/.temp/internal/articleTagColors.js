@@ -1,15 +1,2 @@
 import './articleTagColors.css'
-export const articleTagColors = {"AI":"can8","预览":"8wgy","组件":"42me","markdown":"migk","混合编程":"can8","性能优化":"4tup","Vue3":"p64a","Vuex":"164f","A股":"4roh","经济":"n94r","NAS":"42me","问题解决":"4tup","梯子":"p64a","NPM":"wv7v","科学上网":"u4vv","技术":"wv7v"}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updateArticleTagColors) {
-    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ articleTagColors }) => {
-    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
-  })
-}
+export const articleTagColors = {"A股":"isvq","经济":"gd0p","临时":"0v19","简单测试页面":"9h1c","React":"a8za","React19":"9br3","AI":"bv68","ChatGPT":"20p1","OpenAI":"0v19","Gemini":"9br3","大模型":"szyo","人工智能":"9h1c","Flutter":"9h1c","前端开发":"gd0p","UI":"0v19","人机交互":"w7yo","跨平台":"a8za","技术":"szyo","Web前端开发":"s91n","JavaScript":"mulb","Typescript":"s91n","全栈开发":"20p1","Wasm":"lo83","性能优化":"xztt","NodeJs":"s91n","Python":"lo83","大数据":"s91n","开源":"xztt","软件开发":"yjwe","运维":"py94","反向代理服务器":"9br3","代理":"gd0p","树莓派":"9h1c","ARM":"isvq","NAS":"py94","Linux":"yjwe","影音服务器":"yjwe","梯子":"20p1","NPM":"szyo","科学上网":"9h1c"}

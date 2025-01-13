@@ -1,16 +1,3 @@
-import comp from "/works/note/docs/.vuepress/.temp/pages/read/IDCKSXEWCMZZ/index.html.vue"
-const data = JSON.parse("{\"path\":\"/read/IDCKSXEWCMZZ/\",\"title\":\"《Effective TypeScript》\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"《Effective TypeScript》\",\"createTime\":\"2024-10-17T18:17:29.000Z\",\"permalink\":\"/read/IDCKSXEWCMZZ/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.64,\"words\":793},\"filePathRelative\":\"阅读/《Effective TypeScript》.md\",\"categoryList\":[{\"id\":\"687a7e\",\"sort\":10006,\"name\":\"阅读\"}],\"bulletin\":false}")
+import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/read/IDCKSXEWCMZZ/index.html.vue"
+const data = JSON.parse("{\"path\":\"/read/IDCKSXEWCMZZ/\",\"title\":\"《Effective TypeScript》\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"《Effective TypeScript》\",\"createTime\":\"2024-10-17T18:17:29.000Z\",\"permalink\":\"/read/IDCKSXEWCMZZ/\"},\"headers\":[],\"readingTime\":{\"minutes\":2.64,\"words\":793},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"阅读/《Effective TypeScript》.md\",\"categoryList\":[{\"id\":\"687a7e\",\"sort\":10004,\"name\":\"阅读\"}],\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

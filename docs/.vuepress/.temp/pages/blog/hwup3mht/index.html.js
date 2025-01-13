@@ -1,16 +1,3 @@
-import comp from "/works/note/docs/.vuepress/.temp/pages/blog/hwup3mht/index.html.vue"
-const data = JSON.parse("{\"path\":\"/blog/hwup3mht/\",\"title\":\"月开支预算\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"月开支预算\",\"createTime\":\"2024-11-03T05:46:53.000Z\",\"permalink\":\"/blog/hwup3mht/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":3.04,\"words\":912},\"filePathRelative\":\"感悟/月开支预算.md\",\"categoryList\":[{\"id\":\"70bca7\",\"sort\":10005,\"name\":\"感悟\"}],\"bulletin\":false}")
+import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/blog/hwup3mht/index.html.vue"
+const data = JSON.parse("{\"path\":\"/blog/hwup3mht/\",\"title\":\"月开支预算\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"月开支预算\",\"createTime\":\"2024-11-03T05:46:53.000Z\",\"permalink\":\"/blog/hwup3mht/\"},\"headers\":[],\"readingTime\":{\"minutes\":3.04,\"words\":912},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"感悟/月开支预算.md\",\"categoryList\":[{\"id\":\"70bca7\",\"sort\":10003,\"name\":\"感悟\"}],\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

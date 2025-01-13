@@ -1,10 +1,10 @@
 import { defineClientConfig } from 'vuepress/client'
-import Tabs from '/works/note/node_modules/vuepress-plugin-md-power/lib/client/components/Tabs.vue'
-import CodeTabs from '/works/note/node_modules/vuepress-plugin-md-power/lib/client/components/CodeTabs.vue'
-import Plot from '/works/note/node_modules/vuepress-plugin-md-power/lib/client/components/Plot.vue'
-import FileTreeItem from '/works/note/node_modules/vuepress-plugin-md-power/lib/client/components/FileTreeItem.vue'
+import Tabs from 'C:/Users/Administrator/Desktop/workspace/note/node_modules/vuepress-plugin-md-power/lib/client/components/Tabs.vue'
+import CodeTabs from 'C:/Users/Administrator/Desktop/workspace/note/node_modules/vuepress-plugin-md-power/lib/client/components/CodeTabs.vue'
+import Plot from 'C:/Users/Administrator/Desktop/workspace/note/node_modules/vuepress-plugin-md-power/lib/client/components/Plot.vue'
+import FileTreeItem from 'C:/Users/Administrator/Desktop/workspace/note/node_modules/vuepress-plugin-md-power/lib/client/components/FileTreeItem.vue'
 
-import '/works/note/node_modules/vuepress-plugin-md-power/lib/client/styles/index.css'
+import 'C:/Users/Administrator/Desktop/workspace/note/node_modules/vuepress-plugin-md-power/lib/client/styles/index.css'
 
 export default defineClientConfig({
   enhance({ router, app }) {

@@ -1,16 +1,3 @@
-import comp from "/works/note/docs/.vuepress/.temp/pages/pit/on5h7so2/index.html.vue"
-const data = JSON.parse("{\"path\":\"/pit/on5h7so2/\",\"title\":\"Webpack+requireJS项目ts改造\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"Webpack+requireJS项目ts改造\",\"createTime\":\"2024/11/01 02:36:44\",\"permalink\":\"/pit/on5h7so2/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":1.79,\"words\":536},\"filePathRelative\":\"notes/问题是如何解决的/Webpack+requireJS项目ts改造.md\",\"bulletin\":false}")
+import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/pit/on5h7so2/index.html.vue"
+const data = JSON.parse("{\"path\":\"/pit/on5h7so2/\",\"title\":\"Webpack+requireJS项目ts改造\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"Webpack+requireJS项目ts改造\",\"createTime\":\"2024/11/01 02:36:44\",\"permalink\":\"/pit/on5h7so2/\"},\"headers\":[],\"readingTime\":{\"minutes\":1.79,\"words\":536},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"notes/问题/IT/Webpack+requireJS项目ts改造.md\",\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}
