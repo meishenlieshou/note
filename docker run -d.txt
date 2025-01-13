@@ -1,0 +1,10 @@
+docker run -d \
+  --name=aliyun-ddns \
+  --restart=always \
+  --network=host \
+  -e accessKey=LTAI5t8RYJc9w6wcKy3BseQi \
+  -e accessKeySecret=jaVIhmItwac7HkWehXZetVEEiMCl93 \
+  -e domain="duduainy.top,*.duduainy.top" \
+  -e interval=300 \
+  -e webHook="https://webhook.example.com?text={msg}"
+  lnkyan/aliyun-ddns
