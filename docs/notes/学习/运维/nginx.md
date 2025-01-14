@@ -117,9 +117,34 @@ sudo nginx -t    #检查配置文件是否正常
 sudo systemctl enable nginx  # 设置开机启动
 ```
 
+## 配置静态站点
+
+修改/etc/nginx/sites-available/default文件，可以配置可用站点
+
+
+
 ## 配置SSL证书
 
+
 * 步骤1. 申请证书，并下载
-* 步骤2. 在nginx配置目录下，创建放置证书的目录
-* 步骤3. 
+* 步骤2. 在nginx配置目录下，创建放置证书的目录。比如/etc/nginx/ssl
+* 步骤3. 将证书放置在上述目录下
+* 步骤4. 在nginx配置文件里，添加如下配置
+
+```nginx
+#...
+#...
+server {
+    listen 443 ssl;
+    server_name www.nginxdocs.com;
+
+    ssl_certificate /etc/nginx/ssl/nginxdocs.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginxdocs.key;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+    }
+}
+```
 
