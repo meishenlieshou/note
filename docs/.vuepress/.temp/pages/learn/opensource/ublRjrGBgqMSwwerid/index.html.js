@@ -1,3 +1,16 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/opensource/ublRjrGBgqMSwwerid/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"title\":\"README\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:00:33\",\"permalink\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"author\":\"JackSim\",\"categories\":[\"opensource\"],\"tags\":[\"开源\",\"软件开发\"],\"description\":null},\"headers\":[],\"readingTime\":{\"minutes\":2.51,\"words\":753},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"notes/学习/开源项目/README.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"title\":\"README\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:00:33\",\"permalink\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"author\":\"JackSim\",\"categories\":[\"opensource\"],\"tags\":[\"开源\",\"软件开发\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.51,\"words\":753},\"filePathRelative\":\"notes/学习/开源项目/README.md\",\"bulletin\":false}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

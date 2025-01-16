@@ -106,7 +106,30 @@
 <span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    #检查配置文件是否正常</span></span>
 <span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> systemctl</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> enable</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  # 设置开机启动</span></span></code></pre>
 
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="配置ssl证书" tabindex="-1"><a class="header-anchor" href="#配置ssl证书"><span>配置SSL证书</span></a></h2>
-</div></template>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="配置静态站点" tabindex="-1"><a class="header-anchor" href="#配置静态站点"><span>配置静态站点</span></a></h2>
+<p>修改/etc/nginx/sites-available/default文件，可以配置可用站点</p>
+<h2 id="配置ssl证书" tabindex="-1"><a class="header-anchor" href="#配置ssl证书"><span>配置SSL证书</span></a></h2>
+<ul>
+<li>步骤1. 申请证书，并下载</li>
+<li>步骤2. 在nginx配置目录下，创建放置证书的目录。比如/etc/nginx/ssl</li>
+<li>步骤3. 将证书放置在上述目录下</li>
+<li>步骤4. 在nginx配置文件里，添加如下配置</li>
+</ul>
+<div class="language-nginx line-numbers-mode" data-ext="nginx" data-title="nginx"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">#...</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">#...</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    listen </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">443</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> ssl</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    server_name </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">www.nginxdocs.com</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    ssl_certificate </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/etc/nginx/ssl/nginxdocs.crt</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    ssl_certificate_key </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/etc/nginx/ssl/nginxdocs.key</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> / </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        root </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/usr/share/nginx/html</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        index </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">index.html index.htm</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">}</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
 
 

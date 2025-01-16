@@ -17,55 +17,56 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
-			text: "开源项目",		//类别名称
-			prefix: "/notes/学习/开源项目/",  //限定目录
-			items: 'auto',		//自动获取目录下的文件
+			text: "开源项目", //类别名称
+			prefix: "/notes/学习/开源项目/", //限定目录
+			items: "auto", //自动获取目录下的文件
 			collapsed: true,
 		},
-		{ 
-			text: 'VueJS',
+		{
+			text: "VueJS",
 			items: [
-				{ text: 'Vuepress', link: '/notes/学习/Vue/关于vuepress.md' },
-				{ text: 'Vuex', link: '/notes/学习/Vue/学习vuex.md' },
+				{ text: "Vuepress", link: "/notes/学习/Vue/关于vuepress.md" },
+				{ text: "Vuex", link: "/notes/学习/Vue/学习vuex.md" },
+				{ text: "Vue知识点", link: "/notes/学习/Vue/vue要点.md" },
 			],
 			collapsed: true,
 		},
 		{
-			text: '数据库',
-			items: 'auto',
+			text: "数据库",
+			items: "auto",
 			prefix: "/notes/学习/数据库/",
 			collapsed: true,
 		},
 		{
-			text: 'React',
+			text: "React",
 			prefix: "/notes/学习/React/",
-			items: 'auto',
+			items: "auto",
 			collapsed: true,
 		},
 		{
-			text: 'Flutter',
+			text: "Flutter",
 			prefix: "/notes/学习/Flutter/",
-			items: 'auto',
+			items: "auto",
 			collapsed: true,
 		},
 		{
 			text: "人机交互",
 			prefix: "/notes/学习/人机交互/",
-			items: 'auto',
+			items: "auto",
 			collapsed: true,
 		},
 		{
-			text: '前端工程化',
+			text: "前端工程化",
 			prefix: "/notes/学习/编译工具链/",
-			items: 'auto',
+			items: "auto",
 			collapsed: true,
 		},
 		{
 			text: "运维",
 			prefix: "/notes/学习/运维/",
-			items: 'auto',
+			items: "auto",
 			collapsed: true,
-		}
+		},
 	],
 });
 
@@ -74,13 +75,13 @@ const pitNote = defineNoteConfig({
 	link: "/pit",
 	sidebar: [
 		{
-			text: 'IT问题',
+			text: "IT问题",
 			items: "auto",
 			prefix: "/notes/问题/IT/",
 			collapsed: true,
 		},
 		{
-			text: '日常问题',
+			text: "日常问题",
 			items: "auto",
 			prefix: "/notes/问题/日常问题/",
 			collapsed: true,
@@ -90,16 +91,14 @@ const pitNote = defineNoteConfig({
 			items: "auto",
 			prefix: "/notes/问题/生活分享/",
 			collapsed: true,
-		}
+		},
 	],
 });
 
 const researchNote = defineNoteConfig({
 	dir: "调研",
 	link: "/research",
-	sidebar: [
-		{ text: '历史调研', items: 'auto'},
-	],
+	sidebar: [{ text: "历史调研", items: "auto" }],
 });
 
 export const notes = defineNotesConfig({

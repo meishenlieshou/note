@@ -1,3 +1,16 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/pit/i2ijx6ql/index.html.vue"
-const data = JSON.parse("{\"path\":\"/pit/i2ijx6ql/\",\"title\":\"为什么走了VPN代理地址\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"为什么走了VPN代理地址\",\"createTime\":\"2024/10/09 23:01:20\",\"permalink\":\"/pit/i2ijx6ql/\",\"tags\":[\"梯子\",\"NPM\",\"科学上网\",\"NAS\"]},\"headers\":[],\"readingTime\":{\"minutes\":2.81,\"words\":843},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"notes/问题/IT/为什么走了VPN代理地址.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/pit/i2ijx6ql/\",\"title\":\"为什么走了VPN代理地址\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"为什么走了VPN代理地址\",\"createTime\":\"2024/10/09 23:01:20\",\"permalink\":\"/pit/i2ijx6ql/\",\"tags\":[\"梯子\",\"NPM\",\"科学上网\",\"NAS\"],\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.81,\"words\":843},\"filePathRelative\":\"notes/问题/IT/为什么走了VPN代理地址.md\",\"bulletin\":false}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

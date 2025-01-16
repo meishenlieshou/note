@@ -450,6 +450,23 @@ readonly 用于创建一个只读的响应式对象，它使得对象的所有�
 2. shallowReactive 的作用
 shallowReactive 用于创建一个浅响应式对象，它与 reactive 类似，但只会使对象的顶层属性变为响应式，而不会递归地将对象的嵌套属性变成响应式。这意味着，如果对象包含嵌套的子对象，嵌套对象本身不会变为响应式，只有对象的直接属性会变成响应式。
 
+## watchEffect 与普通 watch 的区别
+
+watchEffect 和 watch 都是用于响应式数据的副作用管理，它们都能够监听和响应响应式数据的变化。
+
+1. **watchEffect**
+
+watchEffect 是 Vue 3 提供的一个 API，它会立即运行，并且自动追踪响应式数据的变化。它的主要特点是能够自动地“依赖收集”并执行副作用。也就是说，watchEffect 不需要明确指定要监听的响应式数据，而是自动地追踪其内部的所有响应式数据。
+
+2. **watch 的特点**
+
+允许你手动指定需要监听的响应式数据。当指定的响应式数据发生变化时，watch 会执行回调函数。与 watchEffect 不同，watch 需要显式指定监听的数据，并且你可以通过回调函数获取到新值和旧值。
+
+
+
+
+
+
 
 # 组件通信
 
@@ -459,22 +476,234 @@ shallowReactive 用于创建一个浅响应式对象，它与 reactive 类似，
 
 ### 兄弟组件：事件总线
 
-即消息的订阅发布模式概念
+  事件总线，即消息的订阅发布模式概念
 
 ### 跨层级组件：provide 和 inject
 
-参考[示例](#provice-inject)
+  参考[示例](#provice-inject)
+
+## 自定义修饰符
+
+vue3 允许你为事件监听器或指令添加自定义修饰符。
+```JavaScript
+<template>
+  <input v-on:keyup.enter="handleEnter" placeholder="Press Enter">
+</template>
+
+<script>
+export default {
+  methods: {
+    handleEnter() {
+      console.log('Enter key was pressed');
+    }
+  }
+};
+</script>
+```
+在这个例子中，.enter 是 Vue 3 内置的事件修饰符，它表示仅当 keyup 事件的 key 为 'Enter' 时才触发 handleEnter 方法。
+
+假设你想要监听某个自定义事件，比如仅在某个特定的 input 元素按下某个键时触发事件，你可以定义一个自定义事件修饰符来实现这一点。
+```JavaScript
+<template>
+  <input v-on:keyup.shift="handleShiftKey" placeholder="Press Shift key">
+</template>
+
+<script>
+export default {
+  methods: {
+    handleShiftKey() {
+      console.log('Shift key was pressed');
+    }
+  }
+};
+</script>
+```
+在这个例子中，我们使用了 .shift 来作为一个自定义修饰符。这个修饰符会监听 keyup 事件，并且只有在按下 Shift 键时才会触发事件。
+
+除了事件修饰符，Vue 还允许为自定义指令添加修饰符。
+
+例如
+```JavaScript
+// main.js 或 app.js
+import { createApp } from 'vue';
+import App from './App.vue';
+
+const app = createApp(App);
+
+app.directive('focus', {
+  beforeMount(el, binding) {
+    if (binding.modifiers.autofocus) {
+      el.focus();
+    }
+  }
+});
+
+app.mount('#app');
+
+
+<template>
+  <!-- 只有当 autofocus 修饰符存在时，元素才会自动聚焦 -->
+  <input v-focus.autofocus placeholder="This will auto-focus on load">
+</template>
+```
+- v-focus 是自定义的指令名称。
+- autofocus 是自定义修饰符，表示只有当这个修饰符存在时，元素才会在挂载时自动聚焦。
+- 在 beforeMount 钩子中，我们检查是否有 autofocus 修饰符，如果有就执行 el.focus() 来使元素获得焦点。
+
 
 ### 全局状态管理：Vuex、Pinia
 
+  更多Pinia介绍，参考[这里](#pinia-part)
+  
 # 生命周期钩子
+
+## 选项式 API（Options API）生命周期钩子
+**beforeCreate**  实例创建之前，数据和事件等还没有初始化，这个阶段不能访问到 data 和 props
+
+**created** 组件实例已创建，数据和事件已设置 
+
+**beforeMount**  组件将要挂载到 DOM 上，但还没有完成渲染。此时 template 已被解析
+
+**mounted** 组件挂载完成，DOM 已经生成。此时可以执行与 DOM 交互的操作
+
+**beforeUpdate** 组件的数据已发生变化，但视图还没有更新
+
+**updated** 组件的数据已变化，视图已更新
+
+**activated** 组件被激活（例如使用 keep-alive 包裹的组件）。这个钩子仅适用于通过 keep-alive 缓存的组件
+
+**deactivated** 组件被停用（keep-alive 中的缓存组件会触发此钩子）。用于处理缓存组件的清理
+
+**beforeUnmount** 组件实例将要销毁，但 DOM 还未移除
+
+**unmounted** 组件实例已销毁，DOM 被移除。用于执行清理操作
+
+**errorCaptured** 捕获子组件的错误并处理。这个钩子会在子组件发生错误时被触发，可以捕获并处理错误，防止它们传播到父组件。
+
+## 组合式API生命周期钩子
+
+- 在 setup 函数中使用生命周期钩子，而这些钩子是通过 on 前缀来调用的。钩子函数和选项式API基本一致。
+- created 钩子 和 beforeCreate 钩子 不再存在于 Vue 3 的组合式 API 中。相应的逻辑可以放入 setup 函数中来处理。
 
 
 # 模板语法
 
+## v-bind 的基本语法
+```JavaScript
+<img v-bind:src="imageSrc" /> 
+
+<div v-bind="objectProps"></div>
+```
+
+objectProps 是一个对象，它的键值对会被动态绑定到 div 的属性上。
+
+## 新增 v-bind 的动态参数 [key]
+```JavaScript
+<template>
+  <div>
+    <button v-bind="[buttonProps]">Click me</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      buttonProps: {
+        [this.dynamicKey]: 'Click me!',
+      },
+      dynamicKey: 'title',
+    };
+  }
+};
+</script>
+```
+在这个例子中，v-bind="[buttonProps]" 会把 buttonProps 对象中的所有键值对动态绑定到按钮上，且键（title）是动态的。
+
+## 支持多个 v-model 绑定
+
+### 单一绑定示例
+```JavaScript
+<template>
+  <input v-model="inputValue" />
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      inputValue: ''
+    };
+  }
+};
+</script>
+```
+在这个例子中，input 的值会与 inputValue 进行双向绑定。
+
+### 多个绑定示例
+```JavaScript
+<template>
+  <custom-input
+    v-model:title="title"
+    v-model:content="content"
+  />
+</template>
+
+<script>
+import { ref } from 'vue';
+import CustomInput from './CustomInput.vue';
+
+export default {
+  components: {
+    CustomInput
+  },
+  setup() {
+    const title = ref('Hello');
+    const content = ref('This is some content.');
+
+    return { title, content };
+  }
+};
+</script>
+```
+### 自定义组件中的实现
+
+在自定义组件中，v-model 会根据绑定的 prop 和事件来进行双向绑定。通过为每个 prop 使用 v-model:propName，你可以在组件内部明确地处理这些不同的值。
+```JavaScript
+<template>
+  <input
+    :value="title"
+    @input="$emit('update:title', $event)"
+  />
+  <textarea
+    :value="content"
+    @input="$emit('update:content', $event)"
+  />
+</template>
+
+<script>
+export default {
+  props: {
+    title: String,
+    content: String
+  }
+};
+</script>
+```
+
+### 总结
+
+- 多个 v-model：Vue 3 允许同一个组件有多个 v-model 绑定。通过自定义的 modelValue 和事件名称，你可以在一个组件中处理多个双向绑定的数据。
+- 语法：在父组件中，使用 v-model:propName 来绑定每个属性。
+- 自定义事件：在子组件中，使用 update:propName 来触发更新事件，进行双向绑定。
+
+
 # Vue Router 4
 
 # 状态管理
+
+## Pinia
+{#pinia-part}
 
 # 性能优化
 

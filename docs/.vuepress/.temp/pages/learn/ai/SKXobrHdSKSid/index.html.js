@@ -1,3 +1,16 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/ai/SKXobrHdSKSid/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/ai/SKXobrHdSKSid/\",\"title\":\"Gemini\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"Gemini\",\"createTime\":\"2025/01/08 22:42:32\",\"permalink\":\"/learn/ai/SKXobrHdSKSid/\",\"author\":\"JackSim\",\"categories\":[\"人工智能\"],\"tags\":[\"AI\",\"Gemini\",\"大模型\"],\"description\":null},\"headers\":[],\"readingTime\":{\"minutes\":3.97,\"words\":1190},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"notes/学习/人工智能/Gemini.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/ai/SKXobrHdSKSid/\",\"title\":\"Gemini\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"Gemini\",\"createTime\":\"2025/01/08 22:42:32\",\"permalink\":\"/learn/ai/SKXobrHdSKSid/\",\"author\":\"JackSim\",\"categories\":[\"人工智能\"],\"tags\":[\"AI\",\"Gemini\",\"大模型\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":3.97,\"words\":1190},\"filePathRelative\":\"notes/学习/人工智能/Gemini.md\",\"bulletin\":false}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

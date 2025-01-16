@@ -1,2 +1,15 @@
 import './articleTagColors.css'
-export const articleTagColors = {"A股":"isvq","经济":"gd0p","临时":"0v19","简单测试页面":"9h1c","React":"a8za","React19":"9br3","AI":"bv68","ChatGPT":"20p1","OpenAI":"0v19","Gemini":"9br3","大模型":"szyo","人工智能":"9h1c","Flutter":"9h1c","前端开发":"gd0p","UI":"0v19","人机交互":"w7yo","跨平台":"a8za","技术":"szyo","Web前端开发":"s91n","JavaScript":"mulb","Typescript":"s91n","全栈开发":"20p1","Wasm":"lo83","性能优化":"xztt","NodeJs":"s91n","Python":"lo83","大数据":"s91n","开源":"xztt","软件开发":"yjwe","运维":"py94","反向代理服务器":"9br3","代理":"gd0p","树莓派":"9h1c","ARM":"isvq","NAS":"py94","Linux":"yjwe","影音服务器":"yjwe","梯子":"20p1","NPM":"szyo","科学上网":"9h1c"}
+export const articleTagColors = {"A股":"0ei4","经济":"o7t2","临时":"9ln8","简单测试页面":"6oz1","React":"3dom","React19":"y1li","Flutter":"6oz1","前端开发":"o7t2","UI":"9ln8","人机交互":"sf4f","跨平台":"3dom","Vue3":"9i9n","响应式":"zk2x","技术":"rmfu","AI":"8jal","ChatGPT":"9i9n","OpenAI":"9ln8","Gemini":"y1li","大模型":"rmfu","人工智能":"6oz1","Web前端开发":"4j5i","JavaScript":"jt1o","Typescript":"4j5i","全栈开发":"9i9n","Wasm":"jpbl","性能优化":"gpj6","NodeJs":"4j5i","Python":"jpbl","大数据":"4j5i","开源":"gpj6","软件开发":"zk2x","运维":"sxsm","反向代理服务器":"y1li","代理":"o7t2","树莓派":"6oz1","ARM":"0ei4","NAS":"sxsm","Linux":"zk2x","影音服务器":"zk2x","梯子":"9i9n","NPM":"rmfu","科学上网":"6oz1"}
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateArticleTagColors) {
+    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ articleTagColors }) => {
+    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
+  })
+}

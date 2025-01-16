@@ -1,3 +1,16 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/vue/m7j8raxn/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/vue/m7j8raxn/\",\"title\":\"学习vuex\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"学习vuex\",\"createTime\":\"2024/11/20 06:02:23\",\"permalink\":\"/learn/vue/m7j8raxn/\"},\"headers\":[],\"readingTime\":{\"minutes\":0.11,\"words\":33},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://gravatar.com/avatar/5d1a4fec85720add76bf0030cdc023587458051b1fc9d718b2bc9998517379dc?d=retro\"}]},\"filePathRelative\":\"notes/学习/Vue/学习vuex.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/vue/m7j8raxn/\",\"title\":\"学习vuex\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"学习vuex\",\"createTime\":\"2024/11/20 06:02:23\",\"permalink\":\"/learn/vue/m7j8raxn/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.11,\"words\":33},\"filePathRelative\":\"notes/学习/Vue/学习vuex.md\",\"bulletin\":false}")
 export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
