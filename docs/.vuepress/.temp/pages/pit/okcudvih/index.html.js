@@ -1,16 +1,3 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/pit/okcudvih/index.html.vue"
-const data = JSON.parse("{\"path\":\"/pit/okcudvih/\",\"title\":\"README\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/07 23:46:25\",\"permalink\":\"/pit/okcudvih/\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.03,\"words\":9},\"filePathRelative\":\"notes/问题/IT/README.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/pit/okcudvih/\",\"title\":\"README\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/07 23:46:25\",\"permalink\":\"/pit/okcudvih/\"},\"headers\":[],\"readingTime\":{\"minutes\":0.03,\"words\":9},\"git\":{\"updatedTime\":1736767200000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/meishenlieshou?v=4\",\"url\":\"https://github.com/meishenlieshou\"}]},\"filePathRelative\":\"notes/问题/IT/README.md\",\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

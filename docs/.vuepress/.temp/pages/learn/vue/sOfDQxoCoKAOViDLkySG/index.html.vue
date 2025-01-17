@@ -351,7 +351,12 @@
 </li>
 </ol>
 <h3 id="emits-选项用于定义事件" tabindex="-1"><a class="header-anchor" href="#emits-选项用于定义事件"><span>emits 选项用于定义事件</span></a></h3>
-<p>即setup模式里的defineEmits方法，用来定义事件。</p>
+<p>即setup模式里的defineEmits方法，用来定义事件。实际上，通过传参回调也能起到定义事件的作用，二者的差异在于：</p>
+<ul>
+<li><strong>语义明确性</strong>：defineEmits 在定义事件时，语义上更明确，表明该组件会触发某些事件。这让组件的行为更加清晰，且与 Vue 的事件系统高度集成。</li>
+<li><strong>灵活性</strong>：通过传参回调的方式可以更加灵活，因为父组件和子组件的通信不依赖于 Vue 的事件机制，父组件直接控制回调函数的传递和执行顺序。然而，这样的方式可能会失去一些事件的可追溯性和结构化，尤其是在较为复杂的组件树中。</li>
+<li><strong>用途</strong>：defineEmits 适合在组件之间通过标准的事件通信（例如：点击、提交、更新数据等）。而通过回调的方式更多用于父组件直接控制子组件的行为（例如：父组件控制子组件某些方法的执行时机）。</li>
+</ul>
 <h3 id="全新的-v-model-语法-支持多个绑定。" tabindex="-1"><a class="header-anchor" href="#全新的-v-model-语法-支持多个绑定。"><span>全新的 v-model 语法，支持多个绑定。</span></a></h3>
 <h3 id="typescript-的更好支持。" tabindex="-1"><a class="header-anchor" href="#typescript-的更好支持。"><span>Typescript 的更好支持。</span></a></h3>
 <h1 id="响应式系统" tabindex="-1"><a class="header-anchor" href="#响应式系统"><span>响应式系统</span></a></h1>
@@ -368,6 +373,9 @@
 </div>
 <p><strong>Proxy 的工作机制</strong></p>
 <p>Proxy 是一种 ES6 新增的对象机制，它允许我们定义自定义的行为来拦截和修改对对象的操作。Proxy 的构造函数接受两个参数：目标对象和处理器对象（handler）。</p>
+<p><strong>与Proxy配合使用的Reflect</strong></p>
+<p>简而言之，Proxy用于拦截对象的操作行为，在Proxy函数的第二个参数里定义如何拦截。当需要执行操作的默认行为时，就需要用到Reflect反射。</p>
+<p>反射提供一系列静态方法，这些方法和原生操作方法一一对应。需要在拦截操作里执行原生操作时，调用相应的反射静态方法并返回即可。</p>
 <p><strong>为什么 Vue 3 使用 Proxy 而不是 Object.defineProperty</strong></p>
 <p>Vue 2 使用的是 Object.defineProperty 来实现响应式，然而这个方法有一些缺点：</p>
 <ul>
@@ -451,7 +459,7 @@ shallowReactive 用于创建一个浅响应式对象，它与 reactive 类似，
 </ol>
 <p>允许你手动指定需要监听的响应式数据。当指定的响应式数据发生变化时，watch 会执行回调函数。与 watchEffect 不同，watch 需要显式指定监听的数据，并且你可以通过回调函数获取到新值和旧值。</p>
 <h1 id="组件通信" tabindex="-1"><a class="header-anchor" href="#组件通信"><span>组件通信</span></a></h1>
-<h2 id="常见方式" tabindex="-1"><a class="header-anchor" href="#常见方式"><span>常见方式</span></a></h2>
+<h2 id="组件通信常见方式" tabindex="-1"><a class="header-anchor" href="#组件通信常见方式"><span>组件通信常见方式</span></a></h2>
 <h3 id="父子组件-props-和-emit" tabindex="-1"><a class="header-anchor" href="#父子组件-props-和-emit"><span>父子组件：props 和 emit</span></a></h3>
 <h3 id="兄弟组件-事件总线" tabindex="-1"><a class="header-anchor" href="#兄弟组件-事件总线"><span>兄弟组件：事件总线</span></a></h3>
 <p>事件总线，即消息的订阅发布模式概念</p>
