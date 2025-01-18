@@ -23,11 +23,23 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
-			text: "VueJS",
+			text: "原生技术", //类别名称
+			prefix: "/notes/学习/原生技术/", //限定目录
+			items: "auto", //自动获取目录下的文件
+			collapsed: true,
+		},
+		{
+			text: "Vue生态",
 			items: [
 				{ text: "Vuepress", link: "/notes/学习/Vue/关于vuepress.md" },
-				{ text: "Vuex", link: "/notes/学习/Vue/学习vuex.md" },
-				{ text: "Vue知识点", link: "/notes/学习/Vue/vue要点.md" },
+				{ text: "Pipia", link: "/notes/学习/Vue/学习Pipia.md" },
+				{
+					text: "Vue知识点",
+					items: "auto",
+					prefix: "/notes/学习/Vue/Vue知识点/",
+					collapsed: false,
+				},
+				{ text: "Vite", link: "/notes/学习/Vue/Vite.md" },
 			],
 			collapsed: true,
 		},
@@ -38,7 +50,7 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
-			text: "React",
+			text: "React生态",
 			prefix: "/notes/学习/React/",
 			items: "auto",
 			collapsed: true,
