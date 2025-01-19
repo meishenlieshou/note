@@ -1,2 +1,15 @@
 import './articleTagColors.css'
-export const articleTagColors = {"A股":"pwcn","经济":"p512","临时":"fie8","简单测试页面":"yzfl","Flutter":"yzfl","前端开发":"p512","UI":"fie8","人机交互":"0h2b","跨平台":"en73","React":"en73","React19":"9m8i","Vite":"erb4","前端工程化":"0h2b","技术":"5nlc","AI":"ufat","ChatGPT":"xp8n","OpenAI":"fie8","Gemini":"9m8i","大模型":"5nlc","人工智能":"yzfl","Web前端开发":"4h64","JavaScript":"v3tq","Typescript":"4h64","全栈开发":"xp8n","Wasm":"erb4","性能优化":"93a9","Meteor":"ufat","mongoDB":"ufat","redis":"4h64","NodeJs":"4h64","Python":"erb4","大数据":"4h64","GraphQL":"4h64","图查询":"en73","Less":"5nlc","CSS预处理器":"5nlc","Monorepo":"xjtx","微前端":"0h2b","Service worker":"3w1k","原生技术":"5nlc","Web Worker":"erb4","WebAssembly":"0h2b","前端原生技术":"en73","C编程":"0h2b","客户端存储":"0h2b","localStorage":"kcr4","IndexedDB":"v3tq","开源":"93a9","软件开发":"kcr4","运维":"985d","反向代理服务器":"9m8i","代理":"p512","树莓派":"yzfl","ARM":"pwcn","NAS":"985d","Linux":"kcr4","影音服务器":"kcr4","梯子":"xp8n","NPM":"5nlc","科学上网":"yzfl","Vue3":"xp8n","回顾":"ufat","组件通信":"5nlc","模板":"fie8","状态管理":"ufat","Pipia":"xp8n","Vue":"0h2b","Router4":"en73","vue":"0h2b","服务器端渲染":"985d","SSR":"kcr4","CSR":"ufat"}
+export const articleTagColors = {"A股":"vg1s","经济":"l14m","临时":"usut","简单测试页面":"3my2","Flutter":"3my2","前端开发":"l14m","UI":"usut","人机交互":"hkru","跨平台":"b47u","React":"b47u","React19":"b25j","Vite":"y4ui","前端工程化":"hkru","技术":"f4er","AI":"ccz5","ChatGPT":"3s32","OpenAI":"usut","Gemini":"b25j","大模型":"f4er","人工智能":"3my2","Web前端开发":"caeh","JavaScript":"669d","Typescript":"caeh","全栈开发":"3s32","Wasm":"y4ui","性能优化":"col3","Meteor":"ccz5","mongoDB":"ccz5","redis":"caeh","NodeJs":"caeh","Python":"y4ui","大数据":"caeh","GraphQL":"caeh","图查询":"b47u","Less":"f4er","CSS预处理器":"f4er","Monorepo":"rvcp","微前端":"hkru","Service worker":"hc3h","原生技术":"f4er","Web Worker":"y4ui","WebAssembly":"hkru","前端原生技术":"b47u","C编程":"hkru","Web安全":"b47u","浏览器":"l14m","客户端存储":"hkru","localStorage":"un02","IndexedDB":"669d","开源":"col3","软件开发":"un02","Mongodb":"ccz5","数据库":"rvcp","Redis":"caeh","内存数据库":"usut","运维":"t7ag","反向代理服务器":"b25j","代理":"l14m","树莓派":"3my2","ARM":"vg1s","NAS":"t7ag","Linux":"un02","影音服务器":"un02","梯子":"3s32","NPM":"f4er","科学上网":"3my2","Vue3":"3s32","回顾":"ccz5","组件通信":"f4er","模板":"usut","状态管理":"ccz5","Pipia":"3s32","Vue":"hkru","Router4":"b47u","vue":"hkru","服务器端渲染":"t7ag","SSR":"un02","CSR":"ccz5","Javascript":"669d"}
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateArticleTagColors) {
+    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ articleTagColors }) => {
+    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
+  })
+}
