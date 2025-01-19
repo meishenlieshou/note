@@ -52,10 +52,10 @@
 <li>缓存： 只有当依赖数据发生变化时，计算属性才会重新计算。</li>
 <li>只读： 默认情况下，计算属性是只读的，但可以通过 set 定义可写计算属性。</li>
 </ul>
-<div class="hint-container note">
-<p class="hint-container-title">注</p>
-<p>可写计算属性，即computed方法定义时传入一个对象，对象里指定set和get方法。计算属性值被修改时会触发set方法，如果修改了get里依赖的变量，依赖了计算属性的地方会被更新</p>
-</div>
+<blockquote>
+<p>[!NOTE]{#writable_computed}
+可写计算属性，即computed方法定义时传入一个对象，对象里指定set和get方法。计算属性值被修改时会触发set方法，如果修改了get里依赖的变量，依赖了计算属性的地方会被更新</p>
+</blockquote>
 </li>
 </ul>
 <h3 id="computed-和-watch-的用法及实际应用场景" tabindex="-1"><a class="header-anchor" href="#computed-和-watch-的用法及实际应用场景"><span>computed 和 watch 的用法及实际应用场景</span></a></h3>

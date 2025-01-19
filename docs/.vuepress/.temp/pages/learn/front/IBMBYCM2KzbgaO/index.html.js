@@ -1,16 +1,3 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/front/IBMBYCM2KzbgaO/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/front/IBMBYCM2KzbgaO/\",\"title\":\"GraphQL\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"GraphQL\",\"createTime\":\"2025/01/18 07:33:02\",\"permalink\":\"/learn/front/IBMBYCM2KzbgaO/\",\"author\":\"JackSim\",\"tags\":[\"GraphQL\",\"图查询\"],\"description\":\"description\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.07,\"words\":21},\"filePathRelative\":\"notes/学习/原生技术/GraphQL.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/front/IBMBYCM2KzbgaO/\",\"title\":\"GraphQL\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"GraphQL\",\"createTime\":\"2025/01/18 07:33:02\",\"permalink\":\"/learn/front/IBMBYCM2KzbgaO/\",\"author\":\"JackSim\",\"tags\":[\"GraphQL\",\"图查询\"],\"description\":\"description\"},\"headers\":[],\"readingTime\":{\"minutes\":0.07,\"words\":21},\"git\":{\"updatedTime\":1737195346000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/meishenlieshou?v=4\",\"url\":\"https://github.com/meishenlieshou\"}]},\"filePathRelative\":\"notes/学习/原生技术/GraphQL.md\",\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}
