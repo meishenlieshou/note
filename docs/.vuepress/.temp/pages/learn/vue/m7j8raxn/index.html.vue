@@ -1,8 +1,4 @@
-<template><div><div class="hint-container tip">
-<p class="hint-container-title">提示</p>
-<p>The official state management library for Vue has changed to Pinia.</p>
-</div>
-<h2 id="pinia" tabindex="-1"><a class="header-anchor" href="#pinia"><span>Pinia</span></a></h2>
+<template><div><h2 id="pinia" tabindex="-1"><a class="header-anchor" href="#pinia"><span>Pinia</span></a></h2>
 <p>Pinia 是 Vue 官方推荐的状态管理库，作为 Vuex 的现代替代品。它拥有更简单的 API、更少的样板代码，并支持 TypeScript 和模块化开发，非常适合 Vue 3 应用</p>
 <h2 id="特点" tabindex="-1"><a class="header-anchor" href="#特点"><span>特点</span></a></h2>
 <ol>
@@ -51,7 +47,7 @@
 <p>所谓持久化，本质上就是将状态同步到localStorage、sessionStorage，或者其它介质中。可借助于插件，或者手动维护。</p>
 <h3 id="如何在多个-store-之间共享状态或方法" tabindex="-1"><a class="header-anchor" href="#如何在多个-store-之间共享状态或方法"><span>如何在多个 Store 之间共享状态或方法？</span></a></h3>
 <ol>
-<li>通过import，然后在actions、getters方法里直接使用即可</li>
+<li>通过import，然后在actions、getters方法里直接引用即可</li>
 <li><strong><code v-pre>通过Pinia 的插件</code></strong></li>
 </ol>
 <div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">//定义插件 plugins/global.js</span></span>
@@ -73,23 +69,23 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="pinia-是否支持动态注册-store-如果支持-如何实现" tabindex="-1"><a class="header-anchor" href="#pinia-是否支持动态注册-store-如果支持-如何实现"><span>Pinia 是否支持动态注册 Store？如果支持，如何实现？</span></a></h3>
 <p>支持，且支持动态加载，例如：</p>
-<div class="language-vue line-numbers-mode" data-ext="vue" data-title="vue"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span>&#x3C;script setup></span></span>
-<span class="line"><span>import { createPinia } from 'pinia';</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>const pinia = createPinia();</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>// 动态导入和注册 Store</span></span>
-<span class="line"><span>async function loadUserStore() {</span></span>
-<span class="line"><span>  const { useUserStore } = await import('@/stores/user');</span></span>
-<span class="line"><span>  pinia.use(() => useUserStore()); // 动态注册 Store</span></span>
-<span class="line"><span>}</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>loadUserStore();</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>// 在组件中使用 Store</span></span>
-<span class="line"><span>const userStore = useUserStore();</span></span>
-<span class="line"><span>userStore.setUser('Alice', 'alice@example.com');</span></span>
-<span class="line"><span>&#x3C;/script></span></span></code></pre>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setup</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">import </span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> createPinia</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> from 'pinia';</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">const pinia = createPinia();</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">// 动态导入和注册 Store</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">async function loadUserStore() </span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useUserStore</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> await</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> import</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">@/stores/user</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">;</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  pinia</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">use</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =></span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useUserStore</span><span style="--shiki-light:#999999;--shiki-dark:#666666">())</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">; </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 动态注册 Store</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">loadUserStore();</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">// 在组件中使用 Store</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">const userStore = useUserStore();</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">userStore.setUser('Alice', 'alice@example.com');</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="如何在-pinia-中实现服务端渲染-ssr-支持-需要注意哪些事项" tabindex="-1"><a class="header-anchor" href="#如何在-pinia-中实现服务端渲染-ssr-支持-需要注意哪些事项"><span>如何在 Pinia 中实现服务端渲染（SSR）支持？需要注意哪些事项？</span></a></h3>
 <p>和客户端使用相比，需要额外处理</p>
@@ -98,25 +94,25 @@
 <li>如果Store中有异常报错，确保页面渲染时所有的异常操作均已完成。</li>
 </ol>
 <p>可以通过在组件的生命周期钩子中进行异步操作，或者在服务端进行预先数据加载。例如</p>
-<div class="language-vue line-numbers-mode" data-ext="vue" data-title="vue"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span>&#x3C;template></span></span>
-<span class="line"><span>  &#x3C;div></span></span>
-<span class="line"><span>    &#x3C;h1>{{ user.name }}&#x3C;/h1></span></span>
-<span class="line"><span>  &#x3C;/div></span></span>
-<span class="line"><span>&#x3C;/template></span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>&#x3C;script setup></span></span>
-<span class="line"><span>import { ref, onMounted } from 'vue';</span></span>
-<span class="line"><span>import { useUserStore } from '@/stores/user';</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>const userStore = useUserStore();</span></span>
-<span class="line"><span>const user = ref({ name: '' });</span></span>
-<span class="line"><span></span></span>
-<span class="line"><span>// 在 onMounted 钩子中加载数据</span></span>
-<span class="line"><span>onMounted(async () => {</span></span>
-<span class="line"><span>  await userStore.fetchUserData();  // 假设这是一个异步请求</span></span>
-<span class="line"><span>  user.value = userStore.user;  // 获取异步请求结果并设置到组件的 `user` 状态中</span></span>
-<span class="line"><span>});</span></span>
-<span class="line"><span>&#x3C;/script></span></span></code></pre>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">div</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">h1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{{ user.name }}</span><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">h1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  &#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">div</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setup</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">import </span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> ref</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> onMounted</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> from 'vue';</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">import </span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useUserStore</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> from '@/stores/user';</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">const userStore = useUserStore();</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">const user = ref(</span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> name</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">: </span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">''</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">// 在 onMounted 钩子中加载数据</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">onMounted(async () => </span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">  await</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> userStore</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">fetchUserData</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">;  </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 假设这是一个异步请求</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  user</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">value</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> userStore</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">user</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">;  </span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 获取异步请求结果并设置到组件的 `user` 状态中</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">);</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>服务器端预加载</p>
 <div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// server.js (服务端入口文件)</span></span>

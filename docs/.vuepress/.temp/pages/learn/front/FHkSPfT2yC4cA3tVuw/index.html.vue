@@ -46,7 +46,7 @@
 </ol>
 </li>
 </ul>
-<h3 id="clickjacking" tabindex="-1"><a class="header-anchor" href="#clickjacking"><span>Clickjacking</span></a></h3>
+<h3 id="clickjacking-点击劫持" tabindex="-1"><a class="header-anchor" href="#clickjacking-点击劫持"><span>Clickjacking(点击劫持)</span></a></h3>
 <ul>
 <li>
 <p><strong><code v-pre>描述</code></strong>
@@ -58,7 +58,7 @@
 <li>使用 X-Frame-Options HTTP 响应头。 X-Frame-Options 是一种 HTTP 响应头，它可以控制页面是否允许通过 <code v-pre>&lt;iframe&gt;</code> 标签嵌套在其他页面中</li>
 <li>使用 Content Security Policy (CSP) 的 frame-ancestors 指令。frame-ancestors 指令，可以控制哪些源可以嵌套当前页面</li>
 </ol>
-<div class="language-http line-numbers-mode" data-ext="http" data-title="http"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span>Content-Security-Policy: frame-ancestors 'self';</span></span></code></pre>
+<div class="language-http line-numbers-mode" data-ext="http" data-title="http"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">Content-Security-Policy:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> frame-ancestors 'self';</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ol start="3">
 <li>使用防点击劫持的 UI 设计</li>

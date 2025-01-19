@@ -1,12 +1,16 @@
 ---
-title: 学习vuex
+title: 学习Pinia
 createTime: 2024/11/20 06:02:23
 permalink: /learn/vue/m7j8raxn/
+author: JackSim
+tags:
+  - Vue
+  - 状态容器
+
+description: description
+
 ---
 
-::: tip
-The official state management library for Vue has changed to Pinia.
-:::
 
 ## Pinia
 
@@ -32,7 +36,7 @@ Pinia 是 Vue 官方推荐的状态管理库，作为 Vuex 的现代替代品。
 
 Pinia **`支持按需加载 Store`**，通过 Vue 的懒加载机制实现。
 
-```JavaScript
+```Javascript
 <script setup>
   import { defineAsyncComponent } from 'vue';
 
@@ -69,8 +73,9 @@ Pinia **`支持按需加载 Store`**，通过 Vue 的懒加载机制实现。
 
 ### 如何在多个 Store 之间共享状态或方法？
 
-1. 通过import，然后在actions、getters方法里直接使用即可
+1. 通过import，然后在actions、getters方法里直接引用即可
 2. **`通过Pinia 的插件`**
+   
 ```JavaScript
 //定义插件 plugins/global.js
 export const globalPlugin = (context) => {
@@ -93,7 +98,7 @@ pinia.use(globalPlugin);
 ### Pinia 是否支持动态注册 Store？如果支持，如何实现？
 
 支持，且支持动态加载，例如：
-```Vue
+```Javascript
 <script setup>
 import { createPinia } from 'pinia';
 
@@ -121,7 +126,7 @@ userStore.setUser('Alice', 'alice@example.com');
 
 可以通过在组件的生命周期钩子中进行异步操作，或者在服务端进行预先数据加载。例如
 
-```Vue
+```Javascript
 <template>
   <div>
     <h1>{{ user.name }}</h1>

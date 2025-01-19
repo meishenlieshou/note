@@ -168,6 +168,16 @@
 <li>如果通知的点击事件发生时，页面未处于前台，您可以通过 self.clients.openWindow() 打开一个新的窗口或标签页。</li>
 </ul>
 </div>
+<div class="hint-container note">
+<p class="hint-container-title">注</p>
+<p>相比较Websocket的推送</p>
+<ol>
+<li>Service Worker是单向推</li>
+<li>只适合低频推送</li>
+<li>受通知权限限制</li>
+<li>客户端页面最小化也能推</li>
+</ol>
+</div>
 <h3 id="后台同步" tabindex="-1"><a class="header-anchor" href="#后台同步"><span>后台同步</span></a></h3>
 <p>使用 Background Sync API 在网络恢复时自动完成数据同步。</p>
 <p>Background Sync API 是一个浏览器 API，允许在用户设备的网络连接恢复时，自动完成之前因网络问题而未能成功执行的网络请求。</p>

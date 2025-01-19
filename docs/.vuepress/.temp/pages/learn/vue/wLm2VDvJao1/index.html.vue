@@ -91,7 +91,7 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在上面的例子中，/user/:id 是父路由，而 profile 和 posts 是它的子路由。子路由会被渲染到父路由组件中的 <code v-pre>&lt;router-view&gt;</code>。</p>
 <h3 id="路由守卫-route-guards" tabindex="-1"><a class="header-anchor" href="#路由守卫-route-guards"><span>路由守卫（Route Guards）</span></a></h3>
-<p>路由守卫用于控制页面访问权限，确保用户在访问特定路由时符合预期的条件。Vue Router 提供了几种不同类型的路由守卫�?/p&gt;</p>
+<p>路由守卫用于控制页面访问权限，确保用户在访问特定路由时符合预期的条件。Vue Router 提供了几种不同类型的路由守卫</p>
 <ul>
 <li><strong>全局守卫</strong>：适用于所有路由</li>
 <li><strong>路由独享守卫</strong>：仅适用于特定路由</li>
@@ -101,11 +101,11 @@
 <p>路由守卫，本质上就是通过路由配置里的各类事件，绑定守卫逻辑。相关事件(或者说路由生命周期)包括：</p>
 <ul>
 <li><strong><code v-pre>beforeEach</code></strong>（全局前置守卫）</li>
+<li><strong><code v-pre>afterEach</code></strong>（全局后置守卫）</li>
 <li><strong><code v-pre>beforeEnter</code></strong>（路由独享守卫）</li>
 <li><strong><code v-pre>beforeRouteEnter</code></strong>（组件内守卫）</li>
 <li><strong><code v-pre>beforeRouteUpdate</code></strong>（组件内守卫）</li>
 <li><strong><code v-pre>beforeRouteLeave</code></strong>（组件内守卫）</li>
-<li><strong><code v-pre>afterEach</code></strong>（全局后置守卫）</li>
 </ul>
 <p>一般而言，各个生命周期传参都会指定路由从哪来、去哪里，以及一个next函数。next可以传参跳转到指定页面（路由），不传则允许通过当前路由。</p>
 </div></template>

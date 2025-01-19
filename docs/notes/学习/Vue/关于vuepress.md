@@ -1,6 +1,6 @@
 ---
 title: 关于vuepress
-createTime: 2024-10-11 08:24:36
+createTime: 2024/10/11 08:24:36
 permalink: /learn/vue/jifdakxk3s/
 author: JamesLeo
 categories:

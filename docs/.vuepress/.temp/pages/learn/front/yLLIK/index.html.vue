@@ -1,8 +1,8 @@
 <template><div><h2 id="typescript-如何进行类型推断" tabindex="-1"><a class="header-anchor" href="#typescript-如何进行类型推断"><span>TypeScript 如何进行类型推断</span></a></h2>
-<p>TypeScript 可以根据赋值、函数返回值等上下文自动推断类型，如果没有明确指定类型，TypeScript 会根据赋值、函数参数等来推断类型</p>
+<p>TypeScript 可以根据赋值、函数返回值等上下文自动推断类型。如果没有明确指定类型，TypeScript 会根据赋值、函数参数等来推断类型</p>
 <h2 id="typescript-如何进行类型缩小-type-narrowing" tabindex="-1"><a class="header-anchor" href="#typescript-如何进行类型缩小-type-narrowing"><span>TypeScript 如何进行类型缩小（Type Narrowing）</span></a></h2>
 <p>类型缩小是指在条件语句（如 if、switch）中，TypeScript 会通过类型保护（如 typeof、instanceof、用户自定义的类型保护）来缩小类型的范围</p>
-<h2 id="解释-typescript-泛型的工作原理-并给出一个例子" tabindex="-1"><a class="header-anchor" href="#解释-typescript-泛型的工作原理-并给出一个例子"><span>解释 TypeScript 泛型的工作原理，并给出一个例子</span></a></h2>
+<h2 id="解释-typescript-泛型的工作原理" tabindex="-1"><a class="header-anchor" href="#解释-typescript-泛型的工作原理"><span>解释 TypeScript 泛型的工作原理</span></a></h2>
 <p>泛型允许我们在定义函数、类、接口时，不指定具体的类型，而是使用类型参数来让类型在使用时确定。</p>
 <h2 id="解释-extends-关键字在泛型中的作用" tabindex="-1"><a class="header-anchor" href="#解释-extends-关键字在泛型中的作用"><span>解释 extends 关键字在泛型中的作用</span></a></h2>
 <p>在泛型中，extends 用于约束泛型参数的类型，指定泛型参数必须是某个类型或其子类型。</p>
@@ -61,6 +61,7 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="什么是装饰器-decorator" tabindex="-1"><a class="header-anchor" href="#什么是装饰器-decorator"><span>什么是装饰器（Decorator）？</span></a></h2>
 <p>装饰器是 TypeScript 中的一种特殊类型的声明，可以附加到类、方法、属性或参数上，修改其行为。装饰器的功能可以通过函数来实现，并且是 TypeScript 提供的元编程机制。</p>
+<p>TypeScript 中的装饰器功能是实验性特性，需启用编译选项。</p>
 <div class="language-typescript line-numbers-mode" data-ext="typescript" data-title="typescript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">any</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> key</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  let </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">value</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">[</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">key</span><span style="--shiki-light:#999999;--shiki-dark:#666666">];</span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">  </span></span>
@@ -94,17 +95,308 @@
 <p><strong><code v-pre>分类</code></strong></p>
 <ul>
 <li>类装饰器 (Class Decorators)</li>
+</ul>
+<div class="language-typescript line-numbers-mode" data-ext="typescript" data-title="typescript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> ClassDecorator</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">constructor</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">Function</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Class decorator is called</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  // 返回一个新的构造函数</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">  return</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> class</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> extends</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> constructor</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    newMethod</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">      console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">This is a new method added by the decorator</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    }</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  };</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">@</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">ClassDecorator</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">class</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> MyClass</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  constructor</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">    console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">MyClass constructor</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  }</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">instance</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> new </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">MyClass</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">instance</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">newMethod</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  // 调用装饰器添加的方法</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>方法装饰器 (Method Decorators)</li>
+</ul>
+<div class="language-typescript line-numbers-mode" data-ext="typescript" data-title="typescript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> MethodDecorator</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">any</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> key</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> descriptor</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">PropertyDescriptor</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Method decorator is called</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  // 修改方法描述符，替换原来的方法实现</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  const </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">originalMethod</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> descriptor</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">value</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  descriptor</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">value</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> function</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(...</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">args</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">any</span><span style="--shiki-light:#999999;--shiki-dark:#666666">[])</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">    console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Method </span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">${</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">key</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">}</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> is called with arguments: </span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">${</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">args</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">}</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    return</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> originalMethod</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">apply</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076">this</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> args</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  };</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">  return</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> descriptor</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 必须返回修改后的描述符</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">class</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> MyClass</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  @</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">MethodDecorator</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  greet</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">name</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">    console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Hello, </span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">${</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">name</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">}</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  }</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>属性装饰器 (Property Decorators)</li>
+</ul>
+<div class="language-typescript line-numbers-mode" data-ext="typescript" data-title="typescript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> PropertyDecorator</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">any</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> propertyKey</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Property </span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">${</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">propertyKey</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">}</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> is decorated</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  // 不需要返回值。因为属性装饰器只能用于类的属性，通常它的任务是将某些元数据添加到类的原型上。属性装饰器不接收 descriptor，因此它没有返回值的修改能力</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">class</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> MyClass</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  @</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">PropertyDecorator</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  name</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">instance</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> new </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">MyClass</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>参数装饰器 (Parameter Decorators)</li>
 </ul>
-<p><strong><code v-pre>装饰器的原理</code></strong></p>
+<div class="language-typescript line-numbers-mode" data-ext="typescript" data-title="typescript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> ParameterDecorator</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">target</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">any</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> methodName</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> parameterIndex</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">number</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">  console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Parameter at index </span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">${</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">parameterIndex</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">}</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> in method </span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">${</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">methodName</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">}</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> is decorated</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  // 参数装饰器不需要返回值，而是用于添加元数据</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">class</span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994"> MyClass</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  greet</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(@</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">ParameterDecorator</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> name</span><span style="--shiki-light:#999999;--shiki-dark:#666666">: </span><span style="--shiki-light:#2E8F82;--shiki-dark:#5DA994">string</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">    console</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">log</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Hello, </span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">${</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">name</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">}</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">`</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  }</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">instance</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> new </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">MyClass</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span></span>
+<span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">instance</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">greet</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">Alice</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="装饰器的执行顺序是什么" tabindex="-1"><a class="header-anchor" href="#装饰器的执行顺序是什么"><span>装饰器的执行顺序是什么？</span></a></h2>
+<p>对于同一目标上的多个装饰器，从下到上依次执行。</p>
+<p>装饰器执行的顺序如下：</p>
 <ul>
-<li>装饰器本质上是一个函数，它会在被装饰的元素 定义时 执行，而非使用时</li>
-<li>它允许对类、方法、属性或参数进行动态修改或增强</li>
+<li>参数装饰器</li>
+<li>方法装饰器</li>
+<li>属性装饰器</li>
+<li>类装饰器</li>
 </ul>
-<h2 id="装饰器的执行顺序是什么" tabindex="-1"><a class="header-anchor" href="#装饰器的执行顺序是什么"><span>装饰器的执行顺序是什么？</span></a></h2>
-<p>装饰器的执行顺序通常是自上而下的，先声明的装饰器先执行，并且对于类、方法、属性、参数等装饰器，执行顺序可能会有所不同。</p>
+<h2 id="typescript-的-tsconfig-json-文件中有哪些常用的配置项-作用是什么" tabindex="-1"><a class="header-anchor" href="#typescript-的-tsconfig-json-文件中有哪些常用的配置项-作用是什么"><span>TypeScript 的 tsconfig.json 文件中有哪些常用的配置项？作用是什么</span></a></h2>
+<ul>
+<li><strong><code v-pre>compilerOptions</code></strong>: 配置编译选项，包括:</li>
+</ul>
+<h3 id="基础选项" tabindex="-1"><a class="header-anchor" href="#基础选项"><span>基础选项</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>target</code></td>
+<td>字符串</td>
+<td><code v-pre>es3</code></td>
+<td>指定编译的 ECMAScript 目标版本，如 <code v-pre>es5</code>, <code v-pre>es6</code> (等价于 <code v-pre>es2015</code>), <code v-pre>es2020</code> 等。</td>
+</tr>
+<tr>
+<td><code v-pre>module</code></td>
+<td>字符串</td>
+<td><code v-pre>commonjs</code></td>
+<td>指定ts编译后生成何种模块系统的代码，如 <code v-pre>commonjs</code>, <code v-pre>esnext</code>, <code v-pre>amd</code>, <code v-pre>umd</code>, <code v-pre>system</code> 等。</td>
+</tr>
+<tr>
+<td><code v-pre>lib</code></td>
+<td>字符串[]</td>
+<td><code v-pre>[]</code></td>
+<td>指定需要包含的库文件，如 <code v-pre>[&quot;dom&quot;, &quot;es2015&quot;, &quot;esnext.asynciterable&quot;]</code>。</td>
+</tr>
+<tr>
+<td><code v-pre>allowJs</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否允许编译 <code v-pre>.js</code> 文件。</td>
+</tr>
+<tr>
+<td><code v-pre>checkJs</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否对 <code v-pre>.js</code> 文件启用类型检查，需配合 <code v-pre>allowJs</code> 使用。</td>
+</tr>
+<tr>
+<td><code v-pre>jsx</code></td>
+<td>字符串</td>
+<td><code v-pre>preserve</code></td>
+<td>指定 JSX 的处理方式：<code v-pre>preserve</code>, <code v-pre>react</code>, <code v-pre>react-jsx</code> (React 17+ 支持)。</td>
+</tr>
+<tr>
+<td><code v-pre>declaration</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否生成 <code v-pre>.d.ts</code> 声明文件。</td>
+</tr>
+<tr>
+<td><code v-pre>declarationMap</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否生成 <code v-pre>.d.ts</code> 文件的 source map。</td>
+</tr>
+<tr>
+<td><code v-pre>sourceMap</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否生成 <code v-pre>.js.map</code> 文件。</td>
+</tr>
+<tr>
+<td><code v-pre>outDir</code></td>
+<td>字符串</td>
+<td>无</td>
+<td>指定输出目录，用于存放编译后的文件。</td>
+</tr>
+<tr>
+<td><code v-pre>rootDir</code></td>
+<td>字符串</td>
+<td>自动推断</td>
+<td>指定输入文件的根目录，影响输出文件结构。</td>
+</tr>
+<tr>
+<td><code v-pre>removeComments</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否移除注释。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="严格检查选项-strict-checks" tabindex="-1"><a class="header-anchor" href="#严格检查选项-strict-checks"><span>严格检查选项（Strict Checks）</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>strict</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否启用所有严格模式选项的总开关。</td>
+</tr>
+<tr>
+<td><code v-pre>strictNullChecks</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>禁止将 <code v-pre>null</code> 和 <code v-pre>undefined</code> 分配给其他类型。</td>
+</tr>
+<tr>
+<td><code v-pre>strictFunctionTypes</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>启用函数参数和返回值的严格检查。</td>
+</tr>
+<tr>
+<td><code v-pre>noImplicitAny</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>禁止隐式的 <code v-pre>any</code> 类型。</td>
+</tr>
+<tr>
+<td><code v-pre>noImplicitThis</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>检查是否有隐式的 <code v-pre>this</code>。</td>
+</tr>
+<tr>
+<td><code v-pre>alwaysStrict</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>在生成的 JavaScript 中始终启用严格模式（<code v-pre>use strict</code>）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="代码质量控制相关选项" tabindex="-1"><a class="header-anchor" href="#代码质量控制相关选项"><span>代码质量控制相关选项</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>noUnusedLocals</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否报错未使用的局部变量。</td>
+</tr>
+<tr>
+<td><code v-pre>noUnusedParameters</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否报错未使用的函数参数。</td>
+</tr>
+<tr>
+<td><code v-pre>noImplicitReturns</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>如果函数中的某些分支没有返回值，是否报错。</td>
+</tr>
+<tr>
+<td><code v-pre>forceConsistentCasingInFileNames</code></td>
+<td>布尔值</td>
+<td><code v-pre>true</code></td>
+<td>是否强制文件名大小写一致性。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="高级选项" tabindex="-1"><a class="header-anchor" href="#高级选项"><span>高级选项</span></a></h3>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>experimentalDecorators</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否启用实验性的装饰器特性。</td>
+</tr>
+<tr>
+<td><code v-pre>emitDecoratorMetadata</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否为装饰器生成元数据，常用于依赖注入框架。</td>
+</tr>
+<tr>
+<td><code v-pre>esModuleInterop</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>启用对 CommonJS 和 ES 模块的兼容性支持。</td>
+</tr>
+<tr>
+<td><code v-pre>skipLibCheck</code></td>
+<td>布尔值</td>
+<td><code v-pre>false</code></td>
+<td>是否跳过声明文件（<code v-pre>.d.ts</code>）的类型检查。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong><code v-pre>include 和 exclude</code></strong>: 指定编译文件的路径或目录。</li>
+<li><strong><code v-pre>paths</code></strong>: 设置路径别名。</li>
+</ul>
 </div></template>
 
 

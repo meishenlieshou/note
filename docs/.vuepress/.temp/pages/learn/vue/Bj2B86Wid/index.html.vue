@@ -151,6 +151,17 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>客户端代码也是在my-nuxt3-app下编写，并一同编译、构建</p>
 </div>
+<h2 id="nuxt-js目录结构" tabindex="-1"><a class="header-anchor" href="#nuxt-js目录结构"><span>Nuxt.js目录结构</span></a></h2>
+<p>Nuxt 项目采用约定优于配置的原则，默认目录结构如下：</p>
+<ul>
+<li>pages/：自动生成路由的页面组件。</li>
+<li>components/：可复用的 Vue 组件。</li>
+<li>layouts/：页面布局文件。</li>
+<li>middleware/：中间件，处理页面或路由访问权限。</li>
+<li>plugins/：用于注册 Vue 插件。</li>
+<li>store/：Pinia 状态管理。</li>
+<li>nuxt.config.ts：项目的全局配置文件。</li>
+</ul>
 </div></template>
 
 

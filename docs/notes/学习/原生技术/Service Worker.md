@@ -190,6 +190,14 @@ self.addEventListener('push', (event) => {
 >- 你可以使用 Notification.requestPermission() 请求权限，允许浏览器弹推送通知窗口。 
 >- 如果通知的点击事件发生时，页面未处于前台，您可以通过 self.clients.openWindow() 打开一个新的窗口或标签页。
 
+>[!NOTE]
+>相比较Websocket的推送
+>1. Service Worker是单向推
+>2. 只适合低频推送
+>3. 受通知权限限制
+>4. 客户端页面最小化也能推
+
+
 ### 后台同步
 
 使用 Background Sync API 在网络恢复时自动完成数据同步。

@@ -32,7 +32,7 @@ const learnNote = defineNoteConfig({
 			text: "Vue生态",
 			items: [
 				{ text: "Vuepress", link: "/notes/学习/Vue/关于vuepress.md" },
-				{ text: "Pipia", link: "/notes/学习/Vue/学习Pipia.md" },
+				{ text: "Pinia", link: "/notes/学习/Vue/学习Pinia.md" },
 				{
 					text: "Vue知识点",
 					items: "auto",
