@@ -230,7 +230,7 @@
 <td><code v-pre>jsx</code></td>
 <td>字符串</td>
 <td><code v-pre>preserve</code></td>
-<td>指定 JSX 的处理方式：<code v-pre>preserve</code>, <code v-pre>react</code>, <code v-pre>react-jsx</code> (React 17+ 支持)。</td>
+<td>指定 <mark>JSX 的处理方式</mark>：<code v-pre>preserve</code>, <code v-pre>react</code>, <code v-pre>react-jsx</code> (React 17+ 支持)。</td>
 </tr>
 <tr>
 <td><code v-pre>declaration</code></td>

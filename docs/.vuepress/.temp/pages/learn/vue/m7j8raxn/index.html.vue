@@ -9,6 +9,8 @@
 </ol>
 <h2 id="基本使用" tabindex="-1"><a class="header-anchor" href="#基本使用"><span>基本使用</span></a></h2>
 <p>具体可参考<RouteLink to="/learn/vue/SLAu3fcLNid/">示例</RouteLink></p>
+<h2 id="销毁" tabindex="-1"><a class="header-anchor" href="#销毁"><span>销毁</span></a></h2>
+<p>当应用中存在多个pinia实例时，可能需要销毁实例的情况，调用 <strong><code v-pre>disposePinia(pinia)</code></strong> 用于销毁指定的Pinia实例。</p>
 <h2 id="常见pinia相关问题" tabindex="-1"><a class="header-anchor" href="#常见pinia相关问题"><span>常见pinia相关问题</span></a></h2>
 <h3 id="如何在-pinia-中使用模块化-store-是否支持按需加载" tabindex="-1"><a class="header-anchor" href="#如何在-pinia-中使用模块化-store-是否支持按需加载"><span>如何在 Pinia 中使用模块化 Store？是否支持按需加载？</span></a></h3>
 <p><strong><code v-pre>通过创建多个 Store 来实现的</code></strong>，每个 Store 都可以管理一个独立的状态和逻辑。</p>
@@ -26,7 +28,14 @@
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">// 现在可以在代码中使用这些 Store</span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
 
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="pinia-的-getters-与-vue-组件的-computed-有什么相同点和不同点" tabindex="-1"><a class="header-anchor" href="#pinia-的-getters-与-vue-组件的-computed-有什么相同点和不同点"><span>Pinia 的 Getters 与 Vue 组件的 Computed 有什么相同点和不同点？</span></a></h3>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong><code v-pre>defineAsyncComponent</code></strong>  用于加载按需加载的组件（比如路由组件），或者某些组件较大且并非总是需要在页面初始加载时呈现。方法支持传入配置对象，通过对象指定占位组件，错误处理等。</p>
+<p>和普通的()=&gt;import('something')相比，defineAsyncComponent内置了生命周期管理，占位显示，延迟加载、错误处理等。而后者只是简单翻译各Promise。</p>
+<div class="hint-container note">
+<p class="hint-container-title">注</p>
+<p>它和Suspense区别
+Suspense是一个组件，用于在父组件中等待多个异步内容完成加载，同时对整个异步子树进行控制，允许嵌套。更多<RouteLink to="/learn/vue/SjtYkCII3u0BI/#Suspense">参考</RouteLink></p>
+</div>
+<h3 id="pinia-的-getters-与-vue-组件的-computed-有什么相同点和不同点" tabindex="-1"><a class="header-anchor" href="#pinia-的-getters-与-vue-组件的-computed-有什么相同点和不同点"><span>Pinia 的 Getters 与 Vue 组件的 Computed 有什么相同点和不同点？</span></a></h3>
 <ul>
 <li>相同点：</li>
 </ul>

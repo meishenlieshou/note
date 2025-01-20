@@ -284,7 +284,7 @@
 <span class="line"><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">&#x3C;/template></span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>to 的值可以动态改变，以便将内容移动到不同的目标。</p>
-<h3 id="suspense-处理异步组件加载" tabindex="-1"><a class="header-anchor" href="#suspense-处理异步组件加载"><span>Suspense 处理异步组件加载</span></a></h3>
+<h3 id="Suspense" tabindex="-1"><a class="header-anchor" href="#Suspense"><span>Suspense 处理异步组件加载</span></a></h3>
 <p>Suspense 是 Vue 3 提供的一个新组件，用于优雅地处理异步组件加载或异步操作。它允许在异步任务完成前显示一个占位内容，并在任务完成后切换到真实内容。</p>
 <div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  &#x3C;</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">Suspense</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>

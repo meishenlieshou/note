@@ -234,7 +234,7 @@ instance.greet("Alice");
 | `lib`              | 字符串[]  | `[]`        | 指定需要包含的库文件，如 `["dom", "es2015", "esnext.asynciterable"]`。                             |
 | `allowJs`          | 布尔值    | `false`     | 是否允许编译 `.js` 文件。                                                                          |
 | `checkJs`          | 布尔值    | `false`     | 是否对 `.js` 文件启用类型检查，需配合 `allowJs` 使用。                                              |
-| `jsx`              | 字符串    | `preserve`  | 指定 JSX 的处理方式：`preserve`, `react`, `react-jsx` (React 17+ 支持)。                           |
+| `jsx`              | 字符串    | `preserve`  | 指定 ==JSX 的处理方式==：`preserve`, `react`, `react-jsx` (React 17+ 支持)。                           |
 | `declaration`      | 布尔值    | `false`     | 是否生成 `.d.ts` 声明文件。                                                                        |
 | `declarationMap`   | 布尔值    | `false`     | 是否生成 `.d.ts` 文件的 source map。                                                              |
 | `sourceMap`        | 布尔值    | `false`     | 是否生成 `.js.map` 文件。                                                                         |

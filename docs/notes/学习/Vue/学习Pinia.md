@@ -28,6 +28,10 @@ Pinia 是 Vue 官方推荐的状态管理库，作为 Vuex 的现代替代品。
 具体可参考[示例](/learn/vue/SLAu3fcLNid/)
 
 
+## 销毁
+
+当应用中存在多个pinia实例时，可能需要销毁实例的情况，调用 **`disposePinia(pinia)`** 用于销毁指定的Pinia实例。
+
 ## 常见pinia相关问题
 
 ### 如何在 Pinia 中使用模块化 Store？是否支持按需加载？
@@ -50,6 +54,16 @@ Pinia **`支持按需加载 Store`**，通过 Vue 的懒加载机制实现。
 // 现在可以在代码中使用这些 Store
 </script>
 ```
+**`defineAsyncComponent`**  用于加载按需加载的组件（比如路由组件），或者某些组件较大且并非总是需要在页面初始加载时呈现。方法支持传入配置对象，通过对象指定占位组件，错误处理等。
+
+和普通的()=>import('something')相比，defineAsyncComponent内置了生命周期管理，占位显示，延迟加载、错误处理等。而后者只是简单翻译各Promise。
+
+
+
+>[!NOTE]
+>它和Suspense区别
+>Suspense是一个组件，用于在父组件中等待多个异步内容完成加载，同时对整个异步子树进行控制，允许嵌套。更多[参考](/learn/vue/SjtYkCII3u0BI/#Suspense)
+
 
 ### Pinia 的 Getters 与 Vue 组件的 Computed 有什么相同点和不同点？
 
@@ -231,3 +245,4 @@ export async function renderPage() {
 5. **`避免过渡的依赖全局状态`**，单一引用状态，下放到组件或者模块
 6. **`懒加载store`**
 7. **`集中错误处理`**
+

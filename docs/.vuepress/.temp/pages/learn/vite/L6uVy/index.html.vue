@@ -3,15 +3,15 @@
 <ul>
 <li><strong><code v-pre>快速启动</code></strong>：</li>
 </ul>
-<p>Vite 使用原生 ES 模块（ESM）来加速开发服务器的启动速度。在开发模式下不需要构建整个项目，而是通过按需加载和转译来实现即时预览。（基于esbuild）</p>
+<p>基于 <mark>ESM</mark> 来加速开发服务器的启动速度。<mark>不需要构建整个项目</mark>，而是通过<mark>按需加载和转译</mark>来实现即时预览。（基于esbuild）</p>
 <ul>
 <li><strong><code v-pre>热替换(HMR)</code></strong>：</li>
 </ul>
-<p>Vite 的 HMR 非常快速，因为它只会替换改变的模块，而不是重新打包整个项目。</p>
+<p>Vite 的 HMR 非常快速，因为它<mark>只替换改变的模块</mark>，而不是重新打包整个项目。</p>
 <ul>
 <li><strong><code v-pre>构建优化</code></strong>：</li>
 </ul>
-<p>Vite 内置了对现代浏览器的优化，并且在生产构建时使用了 Rollup，这使得构建的速度和输出的体积都得到优化。</p>
+<p>Vite 内置了对现代浏览器的优化，并且在生产构建时使用了 Rollup，这使得<mark>构建的速度</mark>和<mark>输出体积</mark>都得到优化。</p>
 <h2 id="vite-与-webpack-的区别是什么" tabindex="-1"><a class="header-anchor" href="#vite-与-webpack-的区别是什么"><span>Vite 与 Webpack 的区别是什么</span></a></h2>
 <ul>
 <li><strong><code v-pre>启动速度</code></strong></li>
@@ -40,7 +40,7 @@
 </ul>
 <p>Vite 的 HMR 比 Webpack 快，尤其是在处理大型项目时，Webpack 的 HMR 性能会逐渐下降。</p>
 <h2 id="如何配置-vite-来支持多页面应用" tabindex="-1"><a class="header-anchor" href="#如何配置-vite-来支持多页面应用"><span>如何配置 Vite 来支持多页面应用</span></a></h2>
-<p>Vite 默认是为单页面应用（SPA）优化的，但通过一些配置，Vite 也能够很好地支持多页面应用。Vite 的多页面应用配置主要是通过 build.rollupOptions.input 来实现的.</p>
+<p>Vite 默认是为单页面应用（SPA）优化的，但通过一些配置，Vite 也能够很好地支持多页面应用。Vite 的多页面应用配置主要是通过 <mark>build.rollupOptions.input</mark> 来实现的.</p>
 <h2 id="vite-如何实现快速热更新" tabindex="-1"><a class="header-anchor" href="#vite-如何实现快速热更新"><span>Vite 如何实现快速热更新？</span></a></h2>
 <p>Vite 利用原生 ES 模块和增量编译技术，只编译和更新修改过的模块，避免了传统工具需要重新构建整个应用的性能瓶颈。</p>
 <h2 id="vite-与-webpack-哪个更适合生产环境" tabindex="-1"><a class="header-anchor" href="#vite-与-webpack-哪个更适合生产环境"><span>Vite 与 Webpack 哪个更适合生产环境？</span></a></h2>
