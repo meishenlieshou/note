@@ -7,7 +7,7 @@
 <h3 id="状态容器" tabindex="-1"><a class="header-anchor" href="#状态容器"><span>状态容器</span></a></h3>
 <h3 id="全局状态管理-vuex、pinia" tabindex="-1"><a class="header-anchor" href="#全局状态管理-vuex、pinia"><span>全局状态管理：Vuex、Pinia</span></a></h3>
 <p>更多Pinia介绍，参考<a href="#pinia-part">这里</a></p>
-<h2 id="选项式-api-options-api-生命周期钩子" tabindex="-1"><a class="header-anchor" href="#选项式-api-options-api-生命周期钩子"><span>选项式 API（Options API）生命周期钩子</span></a></h2>
+<h2 id="lifecycle" tabindex="-1"><a class="header-anchor" href="#lifecycle"><span>选项式 API（Options API）生命周期钩子</span></a></h2>
 <p><strong>beforeCreate</strong>  实例创建之前，数据和事件等还没有初始化，这个阶段不能访问到 data 和 props</p>
 <p><strong>created</strong> 组件实例已创建，数据和事件已设置</p>
 <p><strong>beforeMount</strong>  组件将要挂载到 DOM 上，但还没有完成渲染。此时 template 已被解析</p>

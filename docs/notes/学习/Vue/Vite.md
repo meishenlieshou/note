@@ -71,18 +71,25 @@ Vite 使用了浏览器原生的模块系统，在开发过程中直接请求 ES
 
 Vite 在生产环境中使用 Rollup 进行优化，包括代码分割、树摇、懒加载等特性，从而生成高效、优化过的生产代码。
 
+## Vite 如何处理非ESM模块的兼容？{#none-esm}
+
+开发模式，Vite会尝试==自动将CommonJS模块转换为ESM==；复杂模块可以结合==optimizeDeps==配置；或者直接引入==vite-plugin-commonjs==插件进行处理。
+
+构建模式，需要引入插件==vite-plugin-commonjs==进行处理。
+
+对于动态引入的非ESM模块，可以借助==vite-plugin-dynamic-import-polyfill==进行处理
 
 ## Rollup
 
 Rollup 是一个现代的 JavaScript 打包工具，特别适用于库和框架的打包，因其对 ES6 模块的原生支持以及高度的构建优化（如树摇、代码分割）而受到广泛欢迎.
 
-### Rollup 如何处理 ES6 模块和 CommonJS 模块之间的兼容性
+### Rollup 如何处理 ES6 模块和 CommonJS 模块之间的兼容性 
 
 Rollup 提供了 @rollup/plugin-commonjs 插件，它能够将 CommonJS 模块转为 ES6 模块，从而让 Rollup 能够进行优化.
 
 ### 什么是树摇（tree shaking）？Rollup 如何实现它
 
-树摇（Tree Shaking）是一种通过静态分析代码的方式，去除未被引用的代码（即死代码）的方法。
+树摇（Tree Shaking）是一种==基于ESM==进行代码静态分析的方式，去除==未引用的代码==（即死代码）的方法。
 
 Rollup 在打包时，能够分析 ES6 模块的 import 和 export，并在生成最终的 bundle 时移除不被使用的模块或代码段，从而减少最终输出文件的体积。为了实现树摇，模块必须使用 ES6 的静态语法（import 和 export），而不是 CommonJS 的 require 和 module.exports。
 
