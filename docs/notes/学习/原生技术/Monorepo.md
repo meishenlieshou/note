@@ -17,7 +17,7 @@ Monorepo（Monolithic Repository，单体代码仓库）是一种代码管理模
 典型应用场景包括：微前端架构、微服务架构等。
 
 ## 典型的Monorepo项目结构
-
+```
 my-monorepo/
 ├── package.json  # 顶层依赖和脚本
 ├── packages/
@@ -33,6 +33,7 @@ my-monorepo/
 │       ├── package.json
 │       └── src/
 └── lerna.json      # Lerna 配置（如使用）
+```
 
 lerna.json文件
 ```json
@@ -47,7 +48,7 @@ lerna.json文件
 ```
 
 ## 协同工作的图解
-
+```
 Root (workspace root)
 ├── package.json
 ├── lerna.json
@@ -63,7 +64,7 @@ Root (workspace root)
     └── shared/
         ├── package.json
         └── node_modules/ <-- 链接到根目录
-
+```
 
 ## 它的优点和缺点是什么？
 
@@ -77,8 +78,8 @@ Root (workspace root)
 
 ## Monorepo + Lerna + Yarn 的组合
 
-- Lerna 提供工具管理版本、发布和增量构建
-- Yarn Workspaces 专注于依赖管理和工作区链接
+- Lerna 提供工具**`管理版本`**、 **`发布`** 和 **`增量构建`**
+- Yarn Workspaces 专注于 **`依赖管理`** 和 **`工作区链接`**
 
 ### 配置步骤
 

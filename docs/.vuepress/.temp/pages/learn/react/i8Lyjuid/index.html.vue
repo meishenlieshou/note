@@ -82,7 +82,7 @@
 </div>
 </li>
 </ul>
-<h3 id="上下文钩子" tabindex="-1"><a class="header-anchor" href="#上下文钩子"><span>上下文钩子</span></a></h3>
+<h3 id="context" tabindex="-1"><a class="header-anchor" href="#context"><span>上下文钩子 </span></a></h3>
 <p>上下文让一个组件从远处的父级那里接收信息而不将其作为属性传递。</p>
 <ul>
 <li><mark>useContext</mark> 读取并订阅上下文。</li>
