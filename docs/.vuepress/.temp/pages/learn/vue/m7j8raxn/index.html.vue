@@ -57,7 +57,7 @@ Suspense是一个组件，用于在父组件中等待多个异步内容完成加
 <h3 id="如何在多个-store-之间共享状态或方法" tabindex="-1"><a class="header-anchor" href="#如何在多个-store-之间共享状态或方法"><span>如何在多个 Store 之间共享状态或方法？</span></a></h3>
 <ol>
 <li>通过import，然后在actions、getters方法里直接引用即可</li>
-<li><strong><code v-pre>通过Pinia 的插件</code></strong></li>
+<li><strong><code v-pre>通过Pinia 的插件</code></strong>   一个 Pinia 插件是一个函数，它接收 Pinia 实例和选项作为参数，并可以返回一个对象，这个对象会被合并到每个 store 中</li>
 </ol>
 <div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">//定义插件 plugins/global.js</span></span>
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">export</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> const</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> globalPlugin</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> (</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">context</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =></span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>

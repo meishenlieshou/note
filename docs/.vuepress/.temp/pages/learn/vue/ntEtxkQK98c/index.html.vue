@@ -15,6 +15,11 @@
 <li>函数式组件里通过内置hook替代实现部分生命周期、类组件有完整的生命周期</li>
 <li>自定义hook里抽象独立于UI的逻辑，需关注闭包等JS特性</li>
 </ul>
+<div class="hint-container note">
+<p class="hint-container-title">注</p>
+<p>双向数据流</p>
+<p>数据从父到子、也能从给子到父直接传。vue3的defineModel进一步简化v-model的使用</p>
+</div>
 </div></template>
 
 

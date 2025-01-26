@@ -1,7 +1,7 @@
 <template><div><h2 id="响应式系统优化" tabindex="-1"><a class="header-anchor" href="#响应式系统优化"><span>响应式系统优化</span></a></h2>
 <ol>
 <li><strong><code v-pre>避免不必要的响应式数据</code></strong></li>
-<li><strong><code v-pre>合理使用 computed 和 避免不要的watch</code></strong>   尽量避免watch中不必要操作，初始化尽量避免立即触发watch执行，<RouteLink to="/learn/vue/27zpUq4W6kPrGTR5dz/#watch&amp;watchEffect">watchEffect会立即执行</RouteLink></li>
+<li><strong><code v-pre>合理使用 computed 和 避免不要的watch</code></strong>   尽量避免watch中不必要操作，初始化尽量避免立即触发watch执行，[watchEffect会立即执行](/learn/vue/27zpUq4W6kPrGTR5dz       /#watch&amp;watchEffect)</li>
 <li><strong><code v-pre>响应式对象的选择性访问</code></strong>   当需要从响应式对象中获取特定属性时，尽量手动解构属性而不是传递整个对象。这样可以避免不必要的依赖跟踪</li>
 </ol>
 <h2 id="组件渲染优化" tabindex="-1"><a class="header-anchor" href="#组件渲染优化"><span>组件渲染优化</span></a></h2>

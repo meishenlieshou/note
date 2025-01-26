@@ -1,17 +1,17 @@
 <template><div><h2 id="typescript-如何进行类型推断" tabindex="-1"><a class="header-anchor" href="#typescript-如何进行类型推断"><span>TypeScript 如何进行类型推断</span></a></h2>
 <p>TypeScript 可以根据赋值、函数返回值等上下文自动推断类型。如果没有明确指定类型，TypeScript 会根据赋值、函数参数等来推断类型</p>
 <h2 id="typescript-如何进行类型缩小-type-narrowing" tabindex="-1"><a class="header-anchor" href="#typescript-如何进行类型缩小-type-narrowing"><span>TypeScript 如何进行类型缩小（Type Narrowing）</span></a></h2>
-<p>类型缩小是指在条件语句（如 if、switch）中，TypeScript 会通过类型保护（如 typeof、instanceof、用户自定义的类型保护）来缩小类型的范围</p>
+<p>类型缩小是指在<mark>条件语句</mark>（如 if、switch）中，TypeScript 会通过<mark>类型保护</mark>（如 typeof、instanceof、用户自定义的类型保护）来缩小类型的范围</p>
 <h2 id="解释-typescript-泛型的工作原理" tabindex="-1"><a class="header-anchor" href="#解释-typescript-泛型的工作原理"><span>解释 TypeScript 泛型的工作原理</span></a></h2>
-<p>泛型允许我们在定义函数、类、接口时，不指定具体的类型，而是使用类型参数来让类型在使用时确定。</p>
+<p>泛型允许我们在定义函数、类、接口时，<mark>不指定具体的类型</mark>，而是使用<mark>类型参数</mark>来让类型在<mark>使用时确定</mark>。</p>
 <h2 id="解释-extends-关键字在泛型中的作用" tabindex="-1"><a class="header-anchor" href="#解释-extends-关键字在泛型中的作用"><span>解释 extends 关键字在泛型中的作用</span></a></h2>
-<p>在泛型中，extends 用于约束泛型参数的类型，指定泛型参数必须是某个类型或其子类型。</p>
+<p>在泛型中，extends 用于<mark>约束泛型参数</mark>的类型，指定泛型参数必须是<mark>某个类型或其子类型</mark>。</p>
 <h2 id="typescript-中如何实现-条件类型" tabindex="-1"><a class="header-anchor" href="#typescript-中如何实现-条件类型"><span>TypeScript 中如何实现“条件类型</span></a></h2>
-<p>条件类型是基于类型的条件进行选择的类型。例如，可以通过 T extends U ? X : Y 语法，表示如果类型 T 是类型 U 的子类型，则返回类型 X，否则返回类型 Y</p>
+<p>条件类型是基于类型的条件进行选择的类型。例如，可以通过 <mark>T extends U ? X : Y</mark> 语法，表示如果类型 T 是类型 U 的子类型，则返回类型 X，否则返回类型 Y</p>
 <h2 id="解释-mapped-types-和-infer" tabindex="-1"><a class="header-anchor" href="#解释-mapped-types-和-infer"><span>解释 Mapped Types 和 Infer</span></a></h2>
 <ul>
 <li>
-<p><strong><code v-pre>Mapped Types</code></strong>：通过遍历已有类型的所有键来创建新的类型，可以进行属性的修改或添加。</p>
+<p><strong><code v-pre>Mapped Types</code></strong>：通过遍历已有类型的<mark>所有键</mark>来创建新的类型，可以进行属性的修改或添加。</p>
 </li>
 <li>
 <p><strong><code v-pre>Infer</code></strong>：在条件类型中，infer 关键字用来推导类型。</p>

@@ -188,8 +188,8 @@ description:
 副作用让组件 连接到外部系统并与之同步。这包括处理网络、浏览器 DOM、动画、使用不同的 UI 库编写的小部件，以及其他非 React 代码。
 
 - ==useEffect== 将组件连接到外部系统。
-- ==useLayoutEffect== 在浏览器重新绘制屏幕之前触发。你可以在此处测量布局。
-- ==useInsertionEffect== 在 React 更改 DOM 之前触发。库可以在此处插入动态 CSS。
+- ==useLayoutEffect== 在DOM更新完成，浏览器绘制开始之前触发，你可以在此处测量布局。==每次更新DOM都触发==
+- ==useInsertionEffect== 在 React 更改 DOM 之前触发。库可以在此处插入动态 CSS，避免闪屏。
 
 
 ### 性能钩子
@@ -198,6 +198,9 @@ description:
 - ==useMemo== 允许你缓存昂贵计算的结果。
 - ==useCallback== 允许你在将函数定义传递给优化组件之前缓存它。
 - ==useTransition== 允许你将状态转场标记为非阻塞，并允许其他更新中断它。
+
+  >[!NOTE]
+  >startTransition作用和useTranstion类似。其包裹的函数里，放置优先级低的执行代码。这个方法全局可用，后者只是一个hook。
   
   >[!IMPORTANT] 
   >**作用**   

@@ -1,6 +1,6 @@
 <template><div><h2 id="react-的-fiber-架构是什么-解决了哪些问题" tabindex="-1"><a class="header-anchor" href="#react-的-fiber-架构是什么-解决了哪些问题"><span>React 的 Fiber 架构是什么？解决了哪些问题？</span></a></h2>
 <ul>
-<li>React 组件的工作单元</li>
+<li>Reac16 引入的协调引擎，用于改善渲染性能。</li>
 <li>Fiber 架构将渲染过程分解为多个小任务单元，这样可以在任务中断后恢复，避免主线程长时间被阻塞</li>
 <li>Fiber 可以区分优先级</li>
 </ul>
@@ -89,14 +89,60 @@
 </ol>
 <h2 id="react-context-api-的原理是什么-如何避免-context-的性能问题" tabindex="-1"><a class="header-anchor" href="#react-context-api-的原理是什么-如何避免-context-的性能问题"><span>React Context API 的原理是什么？如何避免 Context 的性能问题？</span></a></h2>
 <p>使用请<RouteLink to="/learn/react/i8Lyjuid/#context">参考</RouteLink></p>
-<p>Context 的性能问题，主要是Provider 的 value 发生变化时，无论 Consumer 是否实际使用了更新的数据，都会重新渲染。</p>
-<p>优化手段jj</p>
+<p><strong><code v-pre>性能问题描述</code></strong></p>
+<p>Provider 的 value 发生变化时，无论 Consumer 是否实际使用了更新的数据，都会重新渲染。</p>
+<ol>
+<li>如果Provider的value没有变化，Provider包裹的所有子组件，不会执行，即使父组件渲染任意多次。</li>
+<li>如果Provider的value有变化，但是子组件没有使用context，组件也不会执行，即使父组件渲染任意多次。</li>
+<li>如果子组件里订阅了context，无论用到的属性值是否变化，组件都会执行，也会更新DOM。</li>
+<li>如果使用了useContextSelector的Selector模式，组件依然会执行，只是在Commit提交阶段会跳过DOM更新。</li>
+</ol>
+<p>优化手段</p>
 <ol>
 <li>引用类型数据或函数，使用useMemo、useCallback缓存</li>
 <li>拆分Context</li>
 <li>局部共享的状态，优先考虑useState、useReducer</li>
 <li>多个context嵌套时，考虑聚合成一个</li>
 <li>使用 useContextSelector 实现 Selector 模式</li>
+</ol>
+<h2 id="react状态跟踪机制" tabindex="-1"><a class="header-anchor" href="#react状态跟踪机制"><span>React状态跟踪机制</span></a></h2>
+<ol>
+<li>React通过内部链表结构，管理每个组件的状态（Hook相关），组件的上下文通过Context系统单独管理</li>
+<li>每次setState或者dispatch执行后，React会标记需要更新的组件，并将更新任务添加到调度队列</li>
+<li>React调度器会基于调度优先级，确定任务的执行顺序、以及时间分片。并将任务分发给Fiber执行</li>
+<li>Fiber执行中，根据状态链表获取对应的状态，重新计算虚拟DOM</li>
+<li>根据diff算法，比较新旧虚拟DOM，生成最小更新操作</li>
+<li>将最小操作应用到真实DOM</li>
+</ol>
+<h2 id="调度器的启动条件" tabindex="-1"><a class="header-anchor" href="#调度器的启动条件"><span>调度器的启动条件</span></a></h2>
+<ol>
+<li>setState或者dispatch触发状态更新</li>
+<li>Context值变化</li>
+<li>Props传参变化</li>
+<li>React.startTransition</li>
+</ol>
+<h2 id="如何控制任务的优先级" tabindex="-1"><a class="header-anchor" href="#如何控制任务的优先级"><span>如何控制任务的优先级</span></a></h2>
+<ol>
+<li>使用useDeferredValue、startTransition、useTransition等可以降级优先级</li>
+<li>通过React scheduler精确控制</li>
+</ol>
+<h2 id="什么是-react-的高阶组件-hoc-与-render-props-的区别是什么" tabindex="-1"><a class="header-anchor" href="#什么是-react-的高阶组件-hoc-与-render-props-的区别是什么"><span>什么是 React 的高阶组件（HOC）？与 Render Props 的区别是什么？</span></a></h2>
+<ul>
+<li>HOC即：组件包组件</li>
+<li>Render Props: 传个函数给容器组件，函数控制渲染内容。有点类似vue里的作用域插槽</li>
+</ul>
+<h2 id="什么是-concurrent-mode-它解决了哪些问题" tabindex="-1"><a class="header-anchor" href="#什么是-concurrent-mode-它解决了哪些问题"><span>什么是 Concurrent Mode？它解决了哪些问题？</span></a></h2>
+<p>并发模式，允许任务切片、中断、排优先级等。</p>
+<p>React18 createRoot替代ReactDOM.render自动开启</p>
+<h2 id="react-的-forwardref-是什么-有哪些实际应用场景" tabindex="-1"><a class="header-anchor" href="#react-的-forwardref-是什么-有哪些实际应用场景"><span>React 的 forwardRef 是什么？有哪些实际应用场景？</span></a></h2>
+<p>高阶组件（HOC），解决了父组件直接访问子组件DOM 或实例的问题</p>
+<h2 id="react-route相关" tabindex="-1"><a class="header-anchor" href="#react-route相关"><span>React Route相关</span></a></h2>
+<ol>
+<li>提供BrowerRouter、HashRouter</li>
+<li>支持动态路由/user/:id</li>
+<li>导航跳转Link、NavLink，前者简单普通跳转，后者支持复杂效果。Navigate无交互，直接跳转</li>
+<li>useNavigate编程式跳转、useNavigate获取当前导航信息，useParams获取动态路由参数，useSearchParams获取查询参数，useOutlet获取嵌套路由中的内容</li>
+<li>路由守卫：通过Route定时时指定element属性来实现</li>
 </ol>
 </div></template>
 

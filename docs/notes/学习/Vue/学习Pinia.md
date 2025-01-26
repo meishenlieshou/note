@@ -88,7 +88,7 @@ Pinia **`支持按需加载 Store`**，通过 Vue 的懒加载机制实现。
 ### 如何在多个 Store 之间共享状态或方法？
 
 1. 通过import，然后在actions、getters方法里直接引用即可
-2. **`通过Pinia 的插件`**
+2. **`通过Pinia 的插件`**   一个 Pinia 插件是一个函数，它接收 Pinia 实例和选项作为参数，并可以返回一个对象，这个对象会被合并到每个 store 中
    
 ```JavaScript
 //定义插件 plugins/global.js
