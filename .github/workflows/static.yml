@@ -27,6 +27,11 @@ jobs:
    - name: Install esbuild
      run: npm install -g esbuild
 
+   - name: Clean install dependencies
+     run: |
+      rm -rf node_modules package-lock.json
+      npm install
+
    - name: Grant execute permissions to esbuild
      run: chmod +x node_modules/@vuepress/cli/node_modules/@esbuild/linux-x64/bin/esbuild
 
