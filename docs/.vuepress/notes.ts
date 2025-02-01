@@ -1,81 +1,66 @@
 import { defineNoteConfig, defineNotesConfig } from "vuepress-theme-plume";
 
 const learnNote = defineNoteConfig({
-	dir: "学习",
+	dir: "Learnings",
 	link: "/learn",
 	sidebar: [
 		{
-			text: "人工智能",
-			prefix: "/notes/学习/人工智能/",
+			text: "AI",
+			prefix: "/notes/learn/ai/",
 			items: "auto",
 			collapsed: true,
 		},
 		{
-			text: "全栈技术",
-			prefix: "/notes/学习/全栈技术/",
+			text: "Fullstack",
+			prefix: "/notes/learn/fullstack/",
 			items: "auto",
 			collapsed: true,
 		},
 		{
-			text: "开源项目", //类别名称
-			prefix: "/notes/学习/开源项目/", //限定目录
+			text: "Open Source",
+			prefix: "/notes/learn/open-source/",
 			items: "auto", //自动获取目录下的文件
 			collapsed: true,
 		},
 		{
-			text: "原生技术", //类别名称
-			prefix: "/notes/学习/原生技术/", //限定目录
+			text: "Programming",
+			prefix: "/notes/learn/techs/",
 			items: "auto", //自动获取目录下的文件
 			collapsed: true,
 		},
 		{
-			text: "Vue生态",
-			items: [
-				{ text: "Vuepress", link: "/notes/学习/Vue/关于vuepress.md" },
-				{ text: "Pinia", link: "/notes/学习/Vue/学习Pinia.md" },
-				{
-					text: "Vue知识点",
-					items: "auto",
-					prefix: "/notes/学习/Vue/Vue知识点/",
-					collapsed: false,
-				},
-				{ text: "Vite", link: "/notes/学习/Vue/Vite.md" },
-			],
-			collapsed: true,
-		},
-		{
-			text: "数据库",
+			text: "VueJS",
 			items: "auto",
-			prefix: "/notes/学习/数据库/",
+			prefix: "/notes/learn/vue/",
 			collapsed: true,
 		},
 		{
-			text: "React生态",
-			prefix: "/notes/学习/React/",
+			text: "Database",
+			items: "auto",
+			prefix: "/notes/learn/db/",
+			collapsed: true,
+		},
+		{
+			text: "ReactJS",
+			prefix: "/notes/learn/react/",
 			items: "auto",
 			collapsed: true,
 		},
 		{
 			text: "Flutter",
-			prefix: "/notes/学习/Flutter/",
+			prefix: "/notes/learn/flutter/",
 			items: "auto",
 			collapsed: true,
 		},
 		{
-			text: "人机交互",
-			prefix: "/notes/学习/人机交互/",
+			text: "Build Tools",
+			prefix: "/notes/learn/buildTools/",
 			items: "auto",
 			collapsed: true,
 		},
 		{
-			text: "前端工程化",
-			prefix: "/notes/学习/编译工具链/",
-			items: "auto",
-			collapsed: true,
-		},
-		{
-			text: "运维",
-			prefix: "/notes/学习/运维/",
+			text: "Operation&Maintenance",
+			prefix: "/notes/learn/om",
 			items: "auto",
 			collapsed: true,
 		},
@@ -83,34 +68,34 @@ const learnNote = defineNoteConfig({
 });
 
 const pitNote = defineNoteConfig({
-	dir: "问题",
+	dir: "Problems",
 	link: "/pit",
 	sidebar: [
 		{
-			text: "IT问题",
+			text: "IT",
 			items: "auto",
-			prefix: "/notes/问题/IT/",
+			prefix: "/notes/problems/IT/",
 			collapsed: true,
 		},
 		{
-			text: "日常问题",
+			text: "Daily",
 			items: "auto",
-			prefix: "/notes/问题/日常问题/",
+			prefix: "/notes/problems/daily/",
 			collapsed: true,
 		},
 		{
-			text: "分享",
+			text: "Share",
 			items: "auto",
-			prefix: "/notes/问题/生活分享/",
+			prefix: "/notes/problems/share/",
 			collapsed: true,
 		},
 	],
 });
 
 const researchNote = defineNoteConfig({
-	dir: "调研",
+	dir: "Research",
 	link: "/research",
-	sidebar: [{ text: "历史调研", items: "auto" }],
+	sidebar: [{ text: "Evers", items: "auto" }],
 });
 
 export const notes = defineNotesConfig({

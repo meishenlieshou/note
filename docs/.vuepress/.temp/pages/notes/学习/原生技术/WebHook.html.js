@@ -1,3 +1,0 @@
-import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/notes/学习/原生技术/WebHook.html.vue"
-const data = JSON.parse("{\"path\":\"/notes/%E5%AD%A6%E4%B9%A0/%E5%8E%9F%E7%94%9F%E6%8A%80%E6%9C%AF/WebHook.html\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"headers\":[],\"readingTime\":{\"minutes\":0,\"words\":0},\"git\":{},\"filePathRelative\":\"notes/学习/原生技术/WebHook.md\",\"categoryList\":[{\"id\":\"4358b5\",\"sort\":10000,\"name\":\"notes\"},{\"id\":\"014e12\",\"sort\":10001,\"name\":\"学习\"},{\"id\":\"1c5999\",\"sort\":10003,\"name\":\"原生技术\"}],\"bulletin\":false}")
-export { comp, data }
