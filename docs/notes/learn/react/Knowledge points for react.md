@@ -11,159 +11,131 @@ description: description
 ---
 
 
-## React 的 Fiber 架构是什么？解决了哪些问题？
+## What is React Fiber?
 
-- Reac16 引入的协调引擎，用于改善渲染性能。
-- Fiber 架构将渲染过程分解为多个小任务单元，这样可以在任务中断后恢复，避免主线程长时间被阻塞
-- Fiber 可以区分优先级
+React Fiber is the reconciliation engine introduced in React 16, designed to improve the way React updates the Virtual DOM and renders components.
 
-Fiber 的渲染过程分为两个阶段:
+Before React Fiber, React used a synchronous reconciliation algorithm that blocked rendering updates until all work was completed. This led to performance issues, especially for large applications. React Fiber solves this by making rendering asynchronous, interruptible, and more efficient.
 
-- Render 阶段，计算虚拟 DOM 树，可以被中断
-- Commit阶段，将更新应用到真是DOM
+**Key Features of React Fiber**
+1. --`Incremental Rendering (Time-Slicing)`--    React Fiber can pause and resume rendering, breaking work into smaller chunks, making the UI more responsive.
+2. --`Concurrency (Concurrent Mode)`--    It allows React to work on multiple tasks simultaneously, prioritizing updates dynamically. High-priority updates (like user input) can be processed before lower-priority updates (like data fetching).
+3. --`Error Boundaries`--  Introduced a better error-handling mechanism using error boundaries, preventing entire apps from crashing due to component failures.
+4. --`Suspense`--  Improved support for React Portals and the Suspense API (for handling async rendering).
 
-## React 中的生命周期方法有哪些？在函数组件中如何模拟这些生命周期？
+**How React Fiber Works**
 
-**挂载阶段**
+React Fiber splits rendering into two phases
+1. --`Render Phase`--
+
+React determines what changes need to be made to the UI. This phase can be interrupted if there are higher-priority tasks.
+
+2. --`Commit Phase`--
+
+Make the final changes  apply to the DOM. This phase is synchronous and cannot be interrupted.
+
+
+## ### What are the lifecycle methods in React? How to simulate these lifecycle methods in functional components?
+
+**Step for mount**
 - ==constructor()==
 - ==static getDerivedStateFromProps(props, state)==
 - ==render()==
 - ==componentDidMount()==
 
-**更新阶段**
+**Step for update**
 - ==static getDerivedStateFromProps(props, state)==
 - ==shouldComponentUpdate(nextProps, nextState)==
 - ==render()==
 - ==getSnapshotBeforeUpdate(prevProps, prevState)==
 - ==getSnapshotBeforeUpdate(prevProps, prevState)==
   
-**卸载阶段**
+**Step for unmount**
 - ==componentWillUnmount()==
 
-**错误处理**
+**Step for error**
 - ==static getDerivedStateFromError(error)==
+
+This method catches errors from child components and updates state to trigger a fallback UI. It does not log errors; for that, use **`componentDidCatch`**.
+
 - ==componentDidCatch(error, info)==
 
-函数组件里，通过useEffect模拟各个阶段的事件
+In function component,  lifecycle behaviors can be simulated using React Hooks, primarily **`useEffect`**.
 
 
-## 什么是 React 的合成事件？它与原生事件的区别是什么？
+## What is React's Synthetic Event? How does it differ from native events?
 
-React 对浏览器的原生事件的封装。屏蔽跨平台差异、优化性能。
+A Synthetic Event in React is a wrapper around native browser events, providing a consistent and cross-browser event system. React creates these events to ensure compatibility across different browsers and improve performance.
 
->[!NOTE]
->优化性能主要是指
->- 使用事件池重复利用事件
->- 事件委托到根节点
->- 事件回收会清空相关事件属性值，因此异步访问事件属性需要手动存储属性值
+Since React recycles Synthetic Events, if you need to use the event object asynchronously (e.g., in a setTimeout), call event.persist().
 
-## React 如何处理状态更新的异步性？
-
-**目的**： 
-1. 优化性能
-2. 保持批量状态更新时UI的一致性
-3. 适配并发，区分更新优先级
-
-**异步性表现**:
-1. 批量更新
-2. 更新state后不是立即生效
-
-由于 setState 是异步的，直接读取 state 可能会得到旧值。如果需要基于最新状态进行更新，可以使用 函数式更新。
-```Javascript
-import React, { useState } from 'react';
-
-function App() {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount((prevCount) => prevCount + 1);
-    setCount((prevCount) => prevCount + 1);
-    console.log(count); // 输出旧值，但最终 count 增加 2
+```JavaScript
+function MyComponent() {
+  const handleClick = (event) => {
+    event.persist(); // Prevents event pooling
+    setTimeout(() => {
+      console.log(event.type); // Still accessible
+    }, 1000);
   };
 
-  return (
-    <button onClick={handleClick}>
-      Count: {count}
-    </button>
-  );
+  return <button onClick={handleClick}>Click Me</button>;
 }
-export default App;
 ```
 
+## What are the characteristics of React state updates?
 
-## 自定义 Hook 的最佳实践是什么？如何避免逻辑复杂性？
+React state updates have several key characteristics that affect how components render and behave. Understanding these characteristics helps optimize performance and avoid common pitfalls.
 
-1. 命名以 use 开头
-2. 每个自定义 Hook 应完成一个明确的任务，避免将多种逻辑混合在一个 Hook 中
-3. 自定义 Hook 的返回值应清晰且易用
-4. 推荐使用对象返回，便于解构和扩展
-5. 自定义 Hook 应尽量通过参数接收所需数据，而不是直接依赖组件外部状态
-6. 使用 useEffect 时，明确依赖项，避免不必要的重新执行
+1. **`State Updates are Asynchronous`**
+
+React batches state updates for performance reasons, meaning that setState (in class components) and the state updater function from useState (in functional components) do not update the state immediately. 
+
+To ensure you're working with **the latest state**, use the functional updater. 
+```JavaScript
+//Function Component
+setCount(prevCount => prevCount + 1);
+
+//Class component
+this.setState((prevState) => ({ count: prevState.count + 1 }));
+```
+
+2. **`State Updates are Merged (Class Components Only)`**
+3. **`State Updates May Be Batching`**
+4. **`State Updates Trigger Re-renders`**
+5. **`State Should be Immutable`**
+
+
+## What are the best practices for custom Hooks? How to avoid logic complexity?
+
+Custom Hooks in React allow you to reuse stateful logic across multiple components. However, poorly structured Hooks can lead to complex, hard-to-maintain code. Following best practices can help maintain clarity and avoid excessive complexity.
+
+1. Name Custom Hooks with use Prefix.
+2. Keep Hooks Focused on a Single Responsibility.
+3. Use useCallback and useMemo to Optimize Performance.
+4. Handle Side Effects Properly (useEffect Cleanup)
+5. Make Hooks Configurable with Parameters
+6. Break down large Hooks into smaller Hooks
+7. Prefer returning objects { data, isLoading, error } instead of multiple values.
+8. Limit the number of dependencies in useEffect
+
+
    
-## React Context API 的原理是什么？如何避免 Context 的性能问题？
+## What is the principle of React Context API? How to avoid performance issues with Context? 
 
-使用请[参考](/learn/react/i8Lyjuid/#context)
+The React Context API is a built-in feature that allows components to share state without prop drilling. It provides a way to pass data globally through a component tree.
 
-**`性能问题描述`**
+React Context consists of three main parts:
 
-Provider 的 value 发生变化时，无论 Consumer 是否实际使用了更新的数据，都会重新渲染。
+1️⃣ React.createContext() → Creates a Context object.
+2️⃣ Provider (Context.Provider) → Wraps components and provides values.
+3️⃣ Consumer (Context.Consumer or useContext) → Accesses the provided values.
 
-1. 如果Provider的value没有变化，Provider包裹的所有子组件，不会执行，即使父组件渲染任意多次。
-2. 如果Provider的value有变化，但是子组件没有使用context，组件也不会执行，即使父组件渲染任意多次。
-3. 如果子组件里订阅了context，无论用到的属性值是否变化，组件都会执行，也会更新DOM。
-4. 如果使用了useContextSelector的Selector模式，组件依然会执行，只是在Commit提交阶段会跳过DOM更新。
+Best Practices to Optimize Context Performance
 
-优化手段
-1. 引用类型数据或函数，使用useMemo、useCallback缓存
-2. 拆分Context
-3. 局部共享的状态，优先考虑useState、useReducer
-4. 多个context嵌套时，考虑聚合成一个
-5. 使用 useContextSelector 实现 Selector 模式
+1. Use Separate Contexts for Different Values
+2. Use useMemo to Prevent Unnecessary Re-Renders. Wrap the context value in useMemo to avoid recreating objects unnecessarily.
+3. For complex state logic, use useReducer instead of useState to prevent unnecessary updates.
+4. Use Context Selectors with Libraries(e.g., Zustand, Recoil)
 
 
-## React状态跟踪机制
-
-1. React通过内部链表结构，管理每个组件的状态（Hook相关），组件的上下文通过Context系统单独管理
-2. 每次setState或者dispatch执行后，React会标记需要更新的组件，并将更新任务添加到调度队列
-3. React调度器会基于调度优先级，确定任务的执行顺序、以及时间分片。并将任务分发给Fiber执行
-4. Fiber执行中，根据状态链表获取对应的状态，重新计算虚拟DOM
-5. 根据diff算法，比较新旧虚拟DOM，生成最小更新操作
-6. 将最小操作应用到真实DOM
-
-## 调度器的启动条件
-
-1. setState或者dispatch触发状态更新
-2. Context值变化
-3. Props传参变化
-4. React.startTransition
-
-## 如何控制任务的优先级
-
-1. 使用useDeferredValue、startTransition、useTransition等可以降级优先级
-2. 通过React scheduler精确控制
-
-## 什么是 React 的高阶组件（HOC）？与 Render Props 的区别是什么？
-
-- HOC即：组件包组件
-- Render Props: 传个函数给容器组件，函数控制渲染内容。有点类似vue里的作用域插槽
-
-
-## 什么是 Concurrent Mode？它解决了哪些问题？
-
-并发模式，允许任务切片、中断、排优先级等。
-
-React18 createRoot替代ReactDOM.render自动开启
-
-## React 的 forwardRef 是什么？有哪些实际应用场景？
-
-高阶组件（HOC），解决了父组件直接访问子组件DOM 或实例的问题
-
-
-## React Route相关
-
-1. 提供BrowerRouter、HashRouter
-2. 支持动态路由/user/:id
-3. 导航跳转Link、NavLink，前者简单普通跳转，后者支持复杂效果。Navigate无交互，直接跳转
-4. useNavigate编程式跳转、useNavigate获取当前导航信息，useParams获取动态路由参数，useSearchParams获取查询参数，useOutlet获取嵌套路由中的内容
-5. 路由守卫：通过Route定时时指定element属性来实现
 
