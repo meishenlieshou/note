@@ -9,7 +9,7 @@
 <li>
 <p><mark>useReducer</mark> 在 reducer 函数 中声明了一个带有更新逻辑的状态变量。</p>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>作用</strong> useReducer 是 React 提供的一个用于管理复杂组件状态的钩子。它类似于 useState，但更适合在以下场景中使用：</p>
 <ul>
 <li>状态逻辑复杂且包含多个子值。</li>
@@ -18,9 +18,9 @@
 </ul>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>用法</strong></p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">state</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> dispatch</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useReducer</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">reducer</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> initialState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span></code></pre>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">state</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> dispatch</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useReducer</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">reducer</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> initialState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
 <li>reducer：一个函数，接收当前状态 state 和一个描述如何更新状态的 action，返回新的状态。</li>
@@ -30,7 +30,7 @@
 </ul>
 </div>
 <p>例如</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useReducer</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useReducer</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 定义 reducer 函数</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> reducer</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">state</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> action</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
@@ -62,7 +62,7 @@
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">export</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> default</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> Counter</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>最佳实践</strong></p>
 <ul>
 <li>将 reducer 函数提取到组件外部，以便复用和单元测试。</li>
@@ -71,7 +71,7 @@
 </ul>
 </div>
 <div class="hint-container tip">
-<p class="hint-container-title">提示</p>
+<p class="hint-container-title">Tips</p>
 <p><strong>useReducer vs useState</strong>：</p>
 <ul>
 <li>useState 更适合简单状态：<br>
@@ -88,7 +88,7 @@
 <li><mark>useContext</mark> 读取并订阅上下文。</li>
 </ul>
 <p>例如</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">  import</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> createContext</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useContext</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">  import</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> createContext</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useContext</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
 <span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  //父级组件</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  const</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> ThemeContext</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> createContext</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">null</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
 <span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  //...</span></span>
@@ -115,7 +115,7 @@
 <li>
 <p><mark>useImperativeHandle</mark> 允许你自定义组件公开的引用。这很少使用。</p>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>作用</strong></p>
 <ul>
 <li>useImperativeHandle 是 React 提供的一个钩子，用于自定义暴露给父组件的实例值。它允许你通过 ref 来控制子组件的行为或访问子组件中的特定方法，从而实现更灵活的组件交互。</li>
@@ -123,9 +123,9 @@
 </ul>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>用法</strong></p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">useImperativeHandle</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">ref</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> createHandle</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">deps</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]);</span></span></code></pre>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">useImperativeHandle</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">ref</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> createHandle</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">deps</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]);</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
 <li><strong>ref</strong>：从父组件传递下来的 ref 对象。</li>
@@ -134,7 +134,7 @@
 </ul>
 </div>
 <p id="forwardRef-demo">例如</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useRef</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useImperativeHandle</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> forwardRef</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useRef</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useImperativeHandle</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> forwardRef</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">// 定义子组件，并使用 forwardRef 传递 ref</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> CustomInput</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> forwardRef</span><span style="--shiki-light:#999999;--shiki-dark:#666666">((</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">props</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> ref</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =></span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
@@ -168,7 +168,7 @@
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">export</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> default</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> Parent</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li><strong>forwardRef</strong>： React 的 forwardRef 用于将父组件传入的 ref 转发给子组件内部的某个元素或 useImperativeHandle。</li>
 <li><strong>useRef</strong>：子组件内部使用 useRef 创建一个引用，指向 input 元素。</li>
@@ -176,7 +176,7 @@
 </ul>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>最佳实践</strong>：</p>
 <ul>
 <li><strong>仅在必要时使用</strong>：useImperativeHandle 主要用于需要 手动控制子组件行为 的场景。如果可以通过 props 或 state 实现组件交互，优先选择这些方式，而不是使用 useImperativeHandle。</li>
@@ -205,21 +205,21 @@
 <li>
 <p><mark>useTransition</mark> 允许你将状态转场标记为非阻塞，并允许其他更新中断它。</p>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <p>startTransition作用和useTranstion类似。其包裹的函数里，放置优先级低的执行代码。这个方法全局可用，后者只是一个hook。</p>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>作用</strong><br>
 useTransition 是 React 18 中引入的一个钩子，用来 控制更新的优先级，特别是在处理那些 耗时的操作（比如页面渲染或数据加载）时，确保 UI 响应流畅，避免因大量更新导致界面卡顿。具体来说，useTransition 可以让你把某些任务标记为 非紧急的（low priority），让 React 先处理紧急任务（如用户输入、点击等），然后再处理那些非紧急任务。这样用户体验就更流畅了，因为高优先级任务会先完成，低优先级任务会被延迟。</p>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>原理</strong><br>
 React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念。React 会将任务分成多个阶段，高优先级任务（如用户交互）会优先处理，低优先级任务（如页面渲染）会被延后。useTransition 就是通过提供一个 过渡状态，将某些任务标记为低优先级任务，从而让 React 在保证 UI 响应的同时，也能处理这些低优先级的任务。</p>
 </div>
 <p>例如：</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useTransition</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useTransition</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> MyComponent</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">isPending</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> startTransition</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useTransition</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span></span>
@@ -242,7 +242,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <p><strong>startTransition</strong> 包裹了 setInput(value)，将它标记为低优先级更新。即使用户不断输入，React 会尽量让用户的输入即时响应，等到输入完成后再更新数据。</p>
 <p><strong>isPending</strong> 用来跟踪过渡任务是否仍在进行中。当 startTransition 中的任务还在进行时，可以显示一个“加载中”提示。</p>
 </div>
@@ -250,12 +250,12 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 <li>
 <p><mark>useDeferredValue</mark> 允许你推迟更新 UI 的非关键部分，让其他部分先更新。useDeferredValue 会返回一个“延迟版本”的状态值，这个值不会立即更新，而是稍后在 React 空闲时更新，确保高优先级任务（如输入框的实时响应）能更快完成，改善用户体验。</p>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <p>通俗理解：<br>
 当用户在输入框中输入文字时，如果输入内容会触发一个复杂的筛选或渲染操作，可能导致卡顿。使用 useDeferredValue 后，React 会优先更新输入框内容（高优先级任务），而筛选或渲染操作（低优先级任务）会稍后进行，保证输入的实时响应。</p>
 </div>
 <p>例如：</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useDeferredValue</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useDeferredValue</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> SearchComponent</span><span style="--shiki-light:#999999;--shiki-dark:#666666">({</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> items</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> })</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">query</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setQuery</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">''</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
@@ -283,7 +283,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li>用户输入时，query 会立即更新，但 deferredQuery 的更新会稍有延迟。</li>
 <li>这种延迟可以防止频繁的 filter 操作，优先让用户的输入框得到即时响应。</li>
@@ -291,7 +291,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 </ul>
 </div>
 <div class="hint-container tip">
-<p class="hint-container-title">提示</p>
+<p class="hint-container-title">Tips</p>
 <ul>
 <li>useDeferredValue 提供了一个“延迟更新的状态值”，让 React 优先处理高优先级任务，而将非紧急的任务稍后执行，提升用户体验。</li>
 <li>适用于实时搜索、长列表渲染等场景，帮助避免输入或交互卡顿。</li>
@@ -313,7 +313,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 <li>
 <p><mark>useId</mark> 允许组件将唯一 ID 与自身相关联。通常与可访问性 API 一起使用。</p>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li>useId 是 React 提供的一个简单钩子，专门用于生成全局唯一且稳定的 ID，主要用于表单字段的关联或组件内部需要唯一标识符的场景。</li>
 <li>它在服务端渲染时也能保证 ID 的一致性，解决了 SSR 中可能出现的 ID 不匹配问题。</li>
@@ -321,7 +321,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 </ul>
 </div>
 <p>例如：</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useId</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useId</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> FormField</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  const</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> id</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useId</span><span style="--shiki-light:#999999;--shiki-dark:#666666">();</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> // 生成唯一 ID</span></span>
@@ -335,7 +335,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li>useId 生成了一个唯一的 ID，用于将 label 和 input 关联起来，确保表单的可访问性。</li>
 <li>如果页面上有多个 FormField 组件实例，每个实例都会生成不同的 ID，避免冲突。</li>
@@ -346,11 +346,11 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 <li>
 <p><mark>useSyncExternalStore</mark> 允许组件订阅外部存储。</p>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <p>专门用于 订阅外部数据源，并在外部数据源发生变化时触发组件更新。它主要用于解决 外部状态管理 的订阅问题，比如订阅 Redux Store、Zustand Store，或者浏览器的全局状态（如 window 的宽度、浏览器的 navigator 状态等）。</p>
 </div>
 <p>例如：</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useSyncExternalStore</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useSyncExternalStore</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useWindowWidth</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  const</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> getSnapshot</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> ()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =></span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> window</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">innerWidth</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
@@ -369,7 +369,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li>getSnapshot 返回当前窗口的宽度。</li>
 <li>subscribe 订阅 window 的 resize 事件，并在窗口大小变化时调用回调来触发组件更新。</li>
@@ -377,7 +377,7 @@ React 中的 更新优先级 是基于 时间切片（time-slicing） 的概念�
 </ul>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>为什么需要 useSyncExternalStore？</strong><br>
 React 18 引入了 并发模式（Concurrent Mode），并发模式允许 React 在渲染过程中中断和恢复渲染。如果组件依赖于外部状态（如全局变量、外部 store），在渲染过程中外部状态可能发生变化，这会导致 UI 和外部状态之间出现 不一致性问题。</p>
 <p><strong>useSyncExternalStore 通过以下机制解决了这个问题</strong>：</p>
@@ -387,7 +387,7 @@ React 18 引入了 并发模式（Concurrent Mode），并发模式允许 React 
 </ul>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>与 useEffect 和 useState 的区别</strong>：</p>
 <ul>
 <li><strong>useEffect + useState 的问题</strong>： 如果使用 useEffect 和 useState 来订阅外部数据源，可能会在并发模式下导致状态更新与渲染不一致。例如，组件在渲染过程中，外部状态发生变化，但 useEffect 的回调直到渲染结束后才会执行，导致 UI 显示的是旧的状态。</li>
@@ -395,7 +395,7 @@ React 18 引入了 并发模式（Concurrent Mode），并发模式允许 React 
 </ul>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>最佳实践</strong>：</p>
 <ul>
 <li><strong>使用 useSyncExternalStore 替代自定义订阅逻辑</strong>： 如果你的组件依赖于外部数据源（如全局状态、第三方库的状态等），优先使用 useSyncExternalStore 代替手写的订阅逻辑，尤其是在并发模式下。</li>
@@ -406,15 +406,15 @@ React 18 引入了 并发模式（Concurrent Mode），并发模式允许 React 
 <li>
 <p><mark>useOptimistic</mark> 乐观地更新 UI。</p>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <p><strong>作用</strong><br>
 useOptimistic 是 React 18.2 引入的一个实验性 API，主要用于处理乐观更新场景。它允许你在执行异步操作时，立即更新 UI，即使操作尚未完成，能够显著提升用户体验。<br>
 乐观更新是一种常见的前端模式，用户的操作会立即反映在界面上，同时在后台执行实际的异步操作（如网络请求）。如果操作成功，则 UI 保持不变；如果操作失败，则回滚到先前的状态或显示错误消息。</p>
 </div>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <p><strong>用法</strong></p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">optimisticState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> updateOptimisticState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useOptimistic</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">initialState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> updater</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span></code></pre>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">optimisticState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> updateOptimisticState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useOptimistic</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">initialState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> updater</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
 <li><strong>initialState</strong>：初始状态值。</li>
@@ -424,7 +424,7 @@ useOptimistic 是 React 18.2 引入的一个实验性 API，主要用于处理�
 </ul>
 </div>
 <p>例如</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useOptimistic</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> React</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useOptimistic</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">react</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">function</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> TodoApp</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">  const</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> [</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">todos</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setTodos</span><span style="--shiki-light:#999999;--shiki-dark:#666666">]</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> useState</span><span style="--shiki-light:#999999;--shiki-dark:#666666">([</span></span>
@@ -479,7 +479,7 @@ useOptimistic 是 React 18.2 引入的一个实验性 API，主要用于处理�
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">export</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> default</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> TodoApp</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li><strong>useOptimistic 管理乐观状态</strong>：<br>
 useOptimistic 初始化状态为 todos，并定义了一个 updater 函数，当有新的待办项时，将其追加到现有列表中。</li>
@@ -497,12 +497,12 @@ fakeApiAddTodo 模拟一个异步请求，如果请求失败，则通过 setTodo
 <h3 id="profiler" tabindex="-1"><a class="header-anchor" href="#profiler"><span><code v-pre>&lt;Profiler&gt;</code></span></a></h3>
 <p>将组件树封装在 <code v-pre>&lt;Profiler&gt;</code> 中以测量其渲染性能。</p>
 <p>例如</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">Profiler</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">App</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> onRender</span><span style="--shiki-light:#999999;--shiki-dark:#666666">={</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">onRender</span><span style="--shiki-light:#999999;--shiki-dark:#666666">}></span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">Profiler</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> id</span><span style="--shiki-light:#999999;--shiki-dark:#666666">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">App</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> onRender</span><span style="--shiki-light:#999999;--shiki-dark:#666666">={</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">onRender</span><span style="--shiki-light:#999999;--shiki-dark:#666666">}></span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  &#x3C;</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">App</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> /></span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">Profiler</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li><strong>id</strong>：标识你正在测量的 UI 部分的字符串。</li>
 <li><strong>onRender</strong>：每次分析树中的组件更新时 React 调用的 onRender 回调。它接收有关渲染内容和花费时间的信息。</li>
@@ -512,14 +512,14 @@ fakeApiAddTodo 模拟一个异步请求，如果请求失败，则通过 setTodo
 <p>严格模式允许对 <code v-pre>&lt;StrictMode&gt;</code> 组件内的整个组件树进行额外的仅开发检查。这些检查可帮助你在开发过程的早期发现组件中的常见错误</p>
 <h3 id="suspense" tabindex="-1"><a class="header-anchor" href="#suspense"><span><code v-pre>&lt;Suspense&gt;</code></span></a></h3>
 <div class="hint-container important">
-<p class="hint-container-title">重要</p>
+<p class="hint-container-title">Important</p>
 <ul>
 <li><strong>children</strong>：你打算渲染的实际 UI。如果 children 在渲染时暂停，则 Suspense 边界将切换到渲染 fallback。</li>
 <li><strong>fallback</strong>：如果尚未完成加载，则替代实际 UI 进行渲染。接受任何有效的 React 节点，但在实践中，回退是一个轻量级的占位符视图，例如加载加载控件或骨架。当 children 挂起时 Suspense 会自动切换到 fallback，当数据准备好后又回到 children。如果 fallback 在渲染时挂起，它将激活最近的父 Suspense 边界。</li>
 </ul>
 </div>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li>React 不会为第一次挂载之前挂起的渲染保留任何状态。组件加载后，React 将重新尝试从头开始渲染挂起的树。</li>
 <li>如果 Suspense 正在显示树的内容，但随后再次暂停，则 fallback 将再次显示，除非导致它的更新是由 startTransition 或 useDeferredValue 引起的。</li>

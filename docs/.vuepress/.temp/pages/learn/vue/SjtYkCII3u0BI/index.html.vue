@@ -7,7 +7,7 @@
 <li>context：包含组件的上下文对象。包括emit等方法触发自定义事件</li>
 </ul>
 <p>可以在setup里定义生命周期钩子，从vue引入钩子函数，然后在setup里调用钩子函数定义声明周期逻辑。同时依然支持vue2版本的用法。</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  //vue3版本</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  //vue3版本</span></span>
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">  import</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">onMounted</span><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">vue</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">  export</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> default</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">    setup</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(){</span></span>
@@ -96,7 +96,7 @@
 </table>
 <h3 id="provider-inject跨层级组件通信" tabindex="-1"><a class="header-anchor" href="#provider-inject跨层级组件通信"><span>Provider/Inject跨层级组件通信</span></a></h3>
 <p id="provice-inject">provide 和 inject 是一对用于跨层级组件通信的功能。它们可以在祖先组件中提供数据（通过 provide），并在后代组件中获取数据（通过 inject），即使这些组件之间相隔多层级。</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"></span>
 <span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">//祖先组件</span></span>
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">export</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> default</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">  provide</span><span style="--shiki-light:#999999;--shiki-dark:#666666">()</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
@@ -117,7 +117,7 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>provide 支持响应式数据。如果提供的值是一个响应式对象，后代组件会自动感知到变化。provide 和 inject 是一种轻量级的状态共享机制，非常适合处理特定上下文数据，而非作为全局状态管理工具的替代品。</p>
 <h3 id="lifecycle-hooks" tabindex="-1"><a class="header-anchor" href="#lifecycle-hooks"><span>lifecycle hooks</span></a></h3>
-<p>详情<RouteLink to="/learn/vue/BAkBN/#lifecycle">参考</RouteLink></p>
+<p>详情<a href="/learn/vue/BAkBN/#lifecycle" target="_blank" rel="noopener noreferrer">参考</a></p>
 <h3 id="script-setup-语法糖及其优势" tabindex="-1"><a class="header-anchor" href="#script-setup-语法糖及其优势"><span>script setup 语法糖及其优势</span></a></h3>
 <p><code v-pre>&lt;script setup&gt;</code> 是一种语法糖，进一步简化了组件的书写方式，同时提升了性能。它结合了组合式 API和setup函数的功能，使代码更简洁、更直观。</p>
 <ul>
@@ -141,7 +141,7 @@
 <ol>
 <li>顶层 defineProps 和 defineEmits： 用于定义组件的 props 和 emits，使语法更简单。</li>
 </ol>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setup</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setup</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">defineProps(</span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> name</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">: </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">String</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">);</span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">defineEmits(['submit']);</span></span>
 <span class="line"></span>
@@ -151,7 +151,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2">
 <li>useSlots 和 useAttrs： 直接访问插槽和属性，无需通过 setup 参数。</li>
 </ol>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setup</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> setup</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">import </span><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useSlots</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> useAttrs</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> from 'vue';</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">const slots = useSlots();  //slots 是一个对象，其中的每个键对应一个插槽的名称，值是一个函数，用于渲染对应的插槽内容</span></span>
@@ -172,7 +172,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3">
 <li>支持多个<code v-pre>&lt;script&gt;</code>标签</li>
 </ol>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">// 普通逻辑或导出内容</span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">export const globalVar = "Hello!";</span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">script</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
@@ -225,7 +225,7 @@
 <li><strong><code v-pre>createRenderer</code></strong></li>
 </ol>
 <p>createRenderer 是创建自定义渲染器的核心函数。它接收一个 renderer options 对象作为渲染器选项，定义在目标平台中如何操作节点。</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> createRenderer</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">@vue/runtime-core</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">import</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> createRenderer</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> }</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> from</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> '</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">@vue/runtime-core</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> rendererOptions</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
 <span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  //实现渲染器选项</span></span>
@@ -272,7 +272,7 @@
 <h3 id="fragment-允许组件返回多个根节点。" tabindex="-1"><a class="header-anchor" href="#fragment-允许组件返回多个根节点。"><span>Fragment 允许组件返回多个根节点。</span></a></h3>
 <h3 id="teleport-将子组件渲染到-dom-的其他位置。" tabindex="-1"><a class="header-anchor" href="#teleport-将子组件渲染到-dom-的其他位置。"><span>Teleport 将子组件渲染到 DOM 的其他位置。</span></a></h3>
 <p>Teleport 通过指定目标 DOM 节点（to 属性），将其子组件内容移动到目标位置。</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">div</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">button</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic"> @click="showModal</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic"> =</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic"> true">Open</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic"> Modal&#x3C;/button></span></span>
 <span class="line"><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">    &#x3C;Teleport</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> to</span><span style="--shiki-light:#999999;--shiki-dark:#666666">=</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">body</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
@@ -287,7 +287,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>to 的值可以动态改变，以便将内容移动到不同的目标。</p>
 <h3 id="Suspense" tabindex="-1"><a class="header-anchor" href="#Suspense"><span>Suspense 处理异步组件加载</span></a></h3>
 <p>Suspense 是 Vue 3 提供的一个新组件，用于优雅地处理异步组件加载或异步操作。它允许在异步任务完成前显示一个占位内容，并在任务完成后切换到真实内容。</p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">  &#x3C;</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">Suspense</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    &#x3C;!-- 异步内容 --></span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    &#x3C;</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic"> #default></span></span>
@@ -322,7 +322,7 @@
 <li>onResolve：当所有异步任务完成时触发</li>
 </ol>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <ul>
 <li>Vue组件<mark>setup模式</mark>下，可以直接编写async/await异步逻辑。如果使用了<mark>await操作</mark>，组件setup实际上会返回一个Promise。</li>
 <li>Suspense组件会搜集所有返回Promise的子组件并维护相应队列。通过监听这些Promise状态，可以判断子组件是否加载完成。</li>
@@ -360,7 +360,7 @@
 </li>
 <li>
 <p>第三方库</p>
-<p>一些老旧的第三方库未使用 ES Module 或未正确声明 sideEffects，可能阻碍 Tree-shaking。Vite中如何支持非ESM模块，请<RouteLink to="/learn/vite/L6uVy/#none-esm">参考</RouteLink></p>
+<p>一些老旧的第三方库未使用 ES Module 或未正确声明 sideEffects，可能阻碍 Tree-shaking。Vite中如何支持非ESM模块，请<a href="/learn/vite/L6uVy/#none-esm" target="_blank" rel="noopener noreferrer">参考</a></p>
 </li>
 <li>
 <p>作用范围</p>
@@ -375,7 +375,7 @@
 <li><strong>用途</strong>：defineEmits 适合在组件之间通过标准的事件通信（例如：点击、提交、更新数据等）。而通过回调的方式更多用于父组件直接控制子组件的行为（例如：父组件控制子组件某些方法的执行时机）。</li>
 </ul>
 <h3 id="全新的-v-model-语法-支持多个绑定。" tabindex="-1"><a class="header-anchor" href="#全新的-v-model-语法-支持多个绑定。"><span>全新的 v-model 语法，支持多个绑定。</span></a></h3>
-<p>详情<RouteLink to="/learn/vue/U5yAadLd1PMOZzr3Dyq2/#mul-bind">参考</RouteLink></p>
+<p>详情<a href="/learn/vue/U5yAadLd1PMOZzr3Dyq2/#mul-bind" target="_blank" rel="noopener noreferrer">参考</a></p>
 <h3 id="typescript-的更好支持。" tabindex="-1"><a class="header-anchor" href="#typescript-的更好支持。"><span>Typescript 的更好支持。</span></a></h3>
 </div></template>
 

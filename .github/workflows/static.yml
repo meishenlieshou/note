@@ -41,19 +41,20 @@ jobs:
    - name: 🔨 Build VuePress
      run: npm run docs:build # VuePress 默认构建命令
 
-   - name: Deploy to GitHub Pages
-     run: |
-      git config --global user.email "github-actions[bot]@users.noreply.github.com"   
-      git config --global user.name "github-actions[bot]"
-      git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/HobbiesTime/note.git
+   #  - name: Deploy to GitHub Pages
+   #    run: |
+   #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+   #     git config --global user.name "github-actions[bot]"
+   #     git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/HobbiesTime/note.git
 
-      npm install -g gh-pages
-      gh-pages -d docs/.vuepress/dist
+   #     npm install -g gh-pages
+   #     gh-pages -d docs/.vuepress/dist
 
-  # git push origin gh-pages
+   #git push origin gh-pages
 
-  #  - name: 🚀 Deploy to GitHub Pages
-  #    uses: peaceiris/actions-gh-pages@v4
-  #    with:
-  #     github_token: ${{ secrets.GH_PAT }}
-  #     publish_dir: docs/.vuepress/dist
+   - name: 🚀 Deploy to GitHub Pages
+     uses: peaceiris/actions-gh-pages@v4
+     with:
+      github_token: ${{ secrets.GH_PAT }}
+      publish_dir: docs/.vuepress/dist
+      publish_branch: gh-pages

@@ -1,5 +1,5 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/pit/index.html.vue"
-const data = JSON.parse("{\"path\":\"/pit/\",\"title\":\"README\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:57:20\",\"permalink\":\"/pit/\",\"author\":\"JackSim\",\"categories\":[\"问题\"],\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.05,\"words\":16},\"filePathRelative\":\"notes/问题/README.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/pit/\",\"title\":\"README\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:57:20\",\"permalink\":\"/pit/\",\"author\":\"JackSim\",\"categories\":[\"问题\"],\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.05,\"words\":16},\"filePathRelative\":\"notes/problems/README.md\",\"bulletin\":false}")
 export { comp, data }
 
 if (import.meta.webpackHot) {

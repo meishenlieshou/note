@@ -4,7 +4,7 @@
 <p>Flutter 的框架代码是开源的，遵循 <mark>BSD</mark> 开源协议。</p>
 <h2 id="架构" tabindex="-1"><a class="header-anchor" href="#架构"><span>架构</span></a></h2>
 <p>Flutter 被设计为一个可扩展的分层系统。它可以被看作是各个独立的组件的系列合集，上层组件各自依赖下层组件。组件无法越权访问更底层的内容，并且框架层中的各个部分都是可选且可替代的。</p>
-<p><img src="@source/notes/学习/Flutter/image.png" alt="Flutter架构图"></p>
+<p><img src="@source/notes/learn/flutter/image.png" alt="Flutter架构图"></p>
 <p><strong>嵌入层</strong> 采用了适合当前平台的语言编写，例如 Android 使用的是 Java 和 C++， iOS 和 macOS 使用的是 Objective-C 和 Objective-C++，Windows 和 Linux 使用的是 C++。 Flutter 代码可以通过嵌入层，以模块方式集成到现有的应用中，也可以作为应用的主体。</p>
 <p><strong>Flutter引擎</strong>  毫无疑问是 Flutter 的核心，它主要使用 C++ 编写，并提供了 Flutter 应用所需的原语。引擎将底层 C++ 代码包装成 Dart 代码，通过 dart:ui 暴露给 Flutter 框架层。</p>
 <p><strong>Flutter框架层</strong> 以 <mark>Dart 语言编写的现代响应式框架</mark> ，它包括由一系列层组成的一组丰富的平台，布局和基础库。从下层到上层，依次有：</p>
@@ -17,7 +17,7 @@
 <p>Flutter 框架相对较小，因为一些开发者可能会使用到的更高层级的功能已经被拆分到不同的软件包中，使用 Dart 和 Flutter 的核心库实现，其中包括平台插件，例如 <a href="https://pub-web.flutter-io.cn/packages/camera?_gl=1*1b186je*_ga*MTE5ODkzODczNS4xNzM1OTg4MzE3*_ga_HPSFTRXK91*MTczNjM4MDMxNS42LjEuMTczNjM4MDkxNi42MC4wLjA." target="_blank" rel="noopener noreferrer">camera</a> 和 <a href="https://pub-web.flutter-io.cn/packages/webview_flutter?_gl=1*dsllib*_ga*MTE5ODkzODczNS4xNzM1OTg4MzE3*_ga_HPSFTRXK91*MTczNjM4Mzc2Ni43LjEuMTczNjM4Mzc2OC41OC4wLjA." target="_blank" rel="noopener noreferrer">webview</a>；与平台无关的功能，例如 characters、 <a href="https://pub-web.flutter-io.cn/packages/http?_gl=1*dsllib*_ga*MTE5ODkzODczNS4xNzM1OTg4MzE3*_ga_HPSFTRXK91*MTczNjM4Mzc2Ni43LjEuMTczNjM4Mzc2OC41OC4wLjA." target="_blank" rel="noopener noreferrer">http</a> 和 <a href="https://pub-web.flutter-io.cn/packages/animations?_gl=1*dsllib*_ga*MTE5ODkzODczNS4xNzM1OTg4MzE3*_ga_HPSFTRXK91*MTczNjM4Mzc2Ni43LjEuMTczNjM4Mzc2OC41OC4wLjA." target="_blank" rel="noopener noreferrer">animations</a>。还有一些软件包来自于更为宽泛的生态系统中，例如 应用内支付、 <a href="https://pub-web.flutter-io.cn/packages/sign_in_with_apple?_gl=1*wibskh*_ga*MTE5ODkzODczNS4xNzM1OTg4MzE3*_ga_HPSFTRXK91*MTczNjM4MDMxNS42LjEuMTczNjM4MDkxNi42MC4wLjA." target="_blank" rel="noopener noreferrer">Apple 认证</a> 和 <a href="https://pub-web.flutter-io.cn/packages/lottie?_gl=1*1l2xz9c*_ga*MTE5ODkzODczNS4xNzM1OTg4MzE3*_ga_HPSFTRXK91*MTczNjM4MDMxNS42LjEuMTczNjM4MDkxNi42MC4wLjA." target="_blank" rel="noopener noreferrer">Lottie 动画</a>。</p>
 <h2 id="应用剖析" tabindex="-1"><a class="header-anchor" href="#应用剖析"><span>应用剖析</span></a></h2>
 <p>通过flutter create命令创建的应用的结构如图所示</p>
-<p><img src="@source/notes/学习/Flutter/flutter-app.svg" alt="应用结构"></p>
+<p><img src="@source/notes/learn/flutter/flutter-app.svg" alt="应用结构"></p>
 <p><strong>Dart 应用</strong></p>
 <ul>
 <li>将 widget 合成预期的 UI。</li>
@@ -63,7 +63,7 @@
 <li>
 <p><strong><code v-pre>Element</code></strong> 代表了 Widget 在屏幕上的实际实例，Widget 可能会发生变化，但 Element 通常是存在的，直到 Widget 被销毁。</p>
 <div class="hint-container note">
-<p class="hint-container-title">注</p>
+<p class="hint-container-title">Note</p>
 <p>在 Flutter 中，每当界面状态发生变化（比如用户交互或状态刷新），Flutter 会调用 build 方法重新生成新的 Widget 树。这些新的 Widget 替代了旧的 Widget，但不会直接影响对应的 Element。
 虽然 Widget 会变化，Element 通常会被复用，并且只在必要时才会被销毁或替换（例如某些节点从树中被移除）。它通过维护与新旧 Widget 的引用关系，避免了每次重建树时都重新创建所有 Element 和对应的渲染对象，从而优化了性能。</p>
 </div>

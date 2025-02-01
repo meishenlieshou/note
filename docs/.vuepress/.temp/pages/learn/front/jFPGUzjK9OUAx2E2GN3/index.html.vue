@@ -44,7 +44,7 @@
 </li>
 </ul>
 <p><strong><code v-pre>IndexedDB 的常用操作</code></strong></p>
-<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="复制代码" data-copied="已复制"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"></span>
+<div class="language-javascript line-numbers-mode" data-ext="javascript" data-title="javascript"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"></span>
 <span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">//创建数据库，并创建对象存储</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">const</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> request</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A"> indexedDB</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">open</span><span style="--shiki-light:#999999;--shiki-dark:#666666">(</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">MyDatabase</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">'</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 1</span><span style="--shiki-light:#999999;--shiki-dark:#666666">);</span></span>
 <span class="line"><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">request</span><span style="--shiki-light:#999999;--shiki-dark:#666666">.</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665">onupgradeneeded</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> (</span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">event</span><span style="--shiki-light:#999999;--shiki-dark:#666666">)</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> =></span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
@@ -80,7 +80,7 @@
 <li>不直接存储数据，而是存储 HTTP 请求的响应</li>
 <li>缓存内容大小通常在 50MB 到 1GB 之间</li>
 </ol>
-<p>更多详情参考<RouteLink to="/learn/front/gi23I/#cache_api">这里</RouteLink></p>
+<p>更多详情参考<a href="/learn/front/gi23I/#cache_api" target="_blank" rel="noopener noreferrer">这里</a></p>
 </div></template>
 
 
