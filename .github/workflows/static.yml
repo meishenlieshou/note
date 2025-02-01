@@ -41,6 +41,9 @@ jobs:
    - name: 🔨 Build VuePress
      run: npm run docs:build # VuePress 默认构建命令
 
+   - name: 🧹 Clean up
+     run: git push origin --delete gh-pages
+
    #  - name: Deploy to GitHub Pages
    #    run: |
    #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
