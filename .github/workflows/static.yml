@@ -21,6 +21,12 @@ jobs:
    - name: 📦 Install Dependencies
      run: npm install # 或者 yarn install
 
+   - name: Grant execute permissions
+     run: chmod +x node_modules/.bin/vuepress
+
+   - name: Verify VuePress installation
+     run: npx vuepress -V
+
    - name: 🔨 Build VuePress
      run: npm run docs:build # VuePress 默认构建命令
 
