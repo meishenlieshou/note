@@ -1,31 +1,31 @@
 name: Deploy VuePress to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main  # 触发部署的分支
+ push:
+  branches:
+   - main # 触发部署的分支
 
 jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
+ build-deploy:
+  runs-on: ubuntu-latest
 
-    steps:
-      - name: 🚀 Checkout Repository
-        uses: actions/checkout@v4
+  steps:
+   - name: 🚀 Checkout Repository
+     uses: actions/checkout@v4
 
-      - name: ⚡ Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+   - name: ⚡ Set up Node.js
+     uses: actions/setup-node@v4
+     with:
+      node-version: 21 # 使用 Node.js 21.x
 
-      - name: 📦 Install Dependencies
-        run: npm install  # 或者 yarn install
+   - name: 📦 Install Dependencies
+     run: npm install # 或者 yarn install
 
-      - name: 🔨 Build VuePress
-        run: npm run docs:build  # VuePress 默认构建命令
+   - name: 🔨 Build VuePress
+     run: npm run docs:build # VuePress 默认构建命令
 
-      - name: 🚀 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vuepress/dist
+   - name: 🚀 Deploy to GitHub Pages
+     uses: peaceiris/actions-gh-pages@v4
+     with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+      publish_dir: docs/.vuepress/dist

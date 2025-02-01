@@ -3,8 +3,8 @@ import { defineUserConfig } from "vuepress";
 import { plumeTheme } from "vuepress-theme-plume";
 
 export default defineUserConfig({
-	base: "/",
-	lang: "zh-CN",
+	base: "/note/",
+	lang: "en-US",
 	title: "JackSimNote",
 	description: "",
 
