@@ -26,6 +26,9 @@ export default defineUserConfig({
 		sourceDir = path.resolve(__dirname, "../plume.svg");
 		destDir = path.resolve(app.dir.dest(), "plume.svg");
 		await fs.copy(sourceDir, destDir);
+		sourceDir = path.resolve(__dirname, "../../CNAME");
+		destDir = path.resolve(app.dir.dest(), "CNAME");
+		await fs.copy(sourceDir, destDir);
 		console.log(`>>> Copy favicon.ico and plume.svg to ${app.dir.dest()}`);
 	},
 
