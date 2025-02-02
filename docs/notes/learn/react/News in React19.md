@@ -116,7 +116,7 @@ function BlogPost({post}) {
   );
 }
 ```
-When React renders this component, it will see the `<title><link>`and `<meta>`tags, and automatically hoist them to the `<head>`section of document.
+When React renders this component, it will see the `<title> <link>`and `<meta>`tags, and automatically hoist them to the `<head>`section of document.
 
 >[!NOTE]
 >**You may still want a Metadata library**
