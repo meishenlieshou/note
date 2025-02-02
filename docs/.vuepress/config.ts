@@ -11,7 +11,7 @@ export default defineUserConfig({
 	description: "",
 
 	head: [
-		["link", { rel: "icon", href: "/note/favicon.ico" }],
+		["link", { rel: "icon", href: "/favicon.ico" }],
 		["meta", { name: "author", content: "Jack" }],
 		["meta", { name: "keywords", content: "vuepress, theme, plume" }],
 	],
