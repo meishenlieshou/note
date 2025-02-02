@@ -3,12 +3,13 @@ pageLayout: home
 externalLinkIcon: false
 config:
   -
-    type: hero
+    type: banner
     full: true
-    background: https://raw.githubusercontent.com/meishenlieshou/note/refs/heads/main/images/0ac58e8df16be00aec603e000c530c586f422d85ff5420a56b5d9e438908d732.png
+    bannerMask: 0.5
+    banner: https://raw.githubusercontent.com/meishenlieshou/note/refs/heads/main/images/bg.jpg
     hero:
       name: DIARY SPACE
-      tagline: 
+      tagline: Jack
       text: A diary is a quiet river where thoughts flow freely, carrying whispers of yesterday into the hands of tomorrow.      
       actions:
         -

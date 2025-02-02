@@ -10,10 +10,7 @@ export default defineThemeConfig({
 
 	appearance: true, // 配置 深色模式
 
-	footer: {
-		message: "This is Jack's note",
-		copyright: ``,
-	},
+	footer: false,
 
 	social: [
 		{ icon: "github", link: "https://github.com/meishenlieshou" },
