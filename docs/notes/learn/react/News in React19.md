@@ -13,7 +13,7 @@ description:
 
 ==By convention, functions that use async transitions are called “Actions”.== 
 
-Building on top of Actions, React 19 introduces new hook **useOptimistic**(#useOptimisitc) to manage optimistic updates, and a new hook **React.useActionState**(#useActionState) to handle common cases for Actions. In react-dom we’re adding form Actions to manage forms automatically and **useFormStatus**(#useFormStatus) to support the common cases for Actions in forms.
+Building on top of Actions, React 19 introduces new hook **useOptimistic**(#useOptimisitc) to manage optimistic updates, and a new hook **React.useActionState**(#useActionState) to handle common cases for Actions. In react-dom we’re adding `<form>`Actions to manage forms automatically and **useFormStatus**(#useFormStatus) to support the common cases for Actions in forms.
 
 
 ## useOptimisitc {#useOptimisitc}
@@ -116,7 +116,7 @@ function BlogPost({post}) {
   );
 }
 ```
-When React renders this component, it will see the '<title>' '<link>' and '<meta>' tags, and automatically hoist them to the '<head>' section of document.
+When React renders this component, it will see the `<title>``<link>`and `<meta>`tags, and automatically hoist them to the `<head>`section of document.
 
 >[!NOTE]
 >**You may still want a Metadata library**
