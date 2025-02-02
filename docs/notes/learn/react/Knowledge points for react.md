@@ -35,7 +35,7 @@ React determines what changes need to be made to the UI. This phase can be inter
 Make the final changes  apply to the DOM. This phase is synchronous and cannot be interrupted.
 
 
-## ### What are the lifecycle methods in React? How to simulate these lifecycle methods in functional components?
+## What are the lifecycle methods in React? How to simulate these lifecycle methods in functional components?
 
 **Step for mount**
 - ==constructor()==
