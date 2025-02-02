@@ -5,7 +5,7 @@ import path from "path";
 import fs from "fs-extra";
 
 export default defineUserConfig({
-	base: "/note/",
+	base: "/",
 	lang: "en-US",
 	title: "It's Jack",
 	description: "",
