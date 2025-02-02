@@ -127,7 +127,9 @@ The React Context API is a built-in feature that allows components to share stat
 React Context consists of three main parts:
 
 1️⃣ React.createContext() → Creates a Context object.
+
 2️⃣ Provider (Context.Provider) → Wraps components and provides values.
+
 3️⃣ Consumer (Context.Consumer or useContext) → Accesses the provided values.
 
 Best Practices to Optimize Context Performance

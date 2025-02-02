@@ -8,8 +8,9 @@ import * as clientConfig6 from 'C:/Users/Administrator/Desktop/workspace/note/do
 import * as clientConfig7 from 'C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/md-enhance/config.js'
 import * as clientConfig8 from 'C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/md-power/config.js'
 import * as clientConfig9 from 'C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/markdown-math/config.js'
-import * as clientConfig10 from 'C:/Users/Administrator/Desktop/workspace/note/node_modules/vuepress-theme-plume/lib/client/config.js'
-import * as clientConfig11 from 'C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/client.ts'
+import * as clientConfig10 from 'C:/Users/Administrator/Desktop/workspace/note/node_modules/@vuepress/plugin-comment/lib/client/config.js'
+import * as clientConfig11 from 'C:/Users/Administrator/Desktop/workspace/note/node_modules/vuepress-theme-plume/lib/client/config.js'
+import * as clientConfig12 from 'C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/client.ts'
 
 export const clientConfigs = [
   clientConfig0,
@@ -24,4 +25,5 @@ export const clientConfigs = [
   clientConfig9,
   clientConfig10,
   clientConfig11,
+  clientConfig12,
 ].map((m) => m.default).filter(Boolean)

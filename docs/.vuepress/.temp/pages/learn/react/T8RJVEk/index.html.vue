@@ -95,9 +95,9 @@
 <h2 id="what-is-the-principle-of-react-context-api-how-to-avoid-performance-issues-with-context" tabindex="-1"><a class="header-anchor" href="#what-is-the-principle-of-react-context-api-how-to-avoid-performance-issues-with-context"><span>What is the principle of React Context API? How to avoid performance issues with Context?</span></a></h2>
 <p>The React Context API is a built-in feature that allows components to share state without prop drilling. It provides a way to pass data globally through a component tree.</p>
 <p>React Context consists of three main parts:</p>
-<p>1️⃣ React.createContext() → Creates a Context object.
-2️⃣ Provider (Context.Provider) → Wraps components and provides values.
-3️⃣ Consumer (Context.Consumer or useContext) → Accesses the provided values.</p>
+<p>1️⃣ React.createContext() → Creates a Context object.</p>
+<p>2️⃣ Provider (Context.Provider) → Wraps components and provides values.</p>
+<p>3️⃣ Consumer (Context.Consumer or useContext) → Accesses the provided values.</p>
 <p>Best Practices to Optimize Context Performance</p>
 <ol>
 <li>Use Separate Contexts for Different Values</li>
