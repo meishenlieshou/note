@@ -117,7 +117,7 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>provide 支持响应式数据。如果提供的值是一个响应式对象，后代组件会自动感知到变化。provide 和 inject 是一种轻量级的状态共享机制，非常适合处理特定上下文数据，而非作为全局状态管理工具的替代品。</p>
 <h3 id="lifecycle-hooks" tabindex="-1"><a class="header-anchor" href="#lifecycle-hooks"><span>lifecycle hooks</span></a></h3>
-<p>详情<a href="/learn/vue/BAkBN/#lifecycle" target="_blank" rel="noopener noreferrer">参考</a></p>
+<p>详情<RouteLink to="/learn/vue/BAkBN/#lifecycle">参考</RouteLink></p>
 <h3 id="script-setup-语法糖及其优势" tabindex="-1"><a class="header-anchor" href="#script-setup-语法糖及其优势"><span>script setup 语法糖及其优势</span></a></h3>
 <p><code v-pre>&lt;script setup&gt;</code> 是一种语法糖，进一步简化了组件的书写方式，同时提升了性能。它结合了组合式 API和setup函数的功能，使代码更简洁、更直观。</p>
 <ul>
@@ -360,7 +360,7 @@
 </li>
 <li>
 <p>第三方库</p>
-<p>一些老旧的第三方库未使用 ES Module 或未正确声明 sideEffects，可能阻碍 Tree-shaking。Vite中如何支持非ESM模块，请<a href="/learn/vite/L6uVy/#none-esm" target="_blank" rel="noopener noreferrer">参考</a></p>
+<p>一些老旧的第三方库未使用 ES Module 或未正确声明 sideEffects，可能阻碍 Tree-shaking。Vite中如何支持非ESM模块，请<RouteLink to="/learn/vite/L6uVy/#none-esm">参考</RouteLink></p>
 </li>
 <li>
 <p>作用范围</p>
@@ -375,7 +375,7 @@
 <li><strong>用途</strong>：defineEmits 适合在组件之间通过标准的事件通信（例如：点击、提交、更新数据等）。而通过回调的方式更多用于父组件直接控制子组件的行为（例如：父组件控制子组件某些方法的执行时机）。</li>
 </ul>
 <h3 id="全新的-v-model-语法-支持多个绑定。" tabindex="-1"><a class="header-anchor" href="#全新的-v-model-语法-支持多个绑定。"><span>全新的 v-model 语法，支持多个绑定。</span></a></h3>
-<p>详情<a href="/learn/vue/U5yAadLd1PMOZzr3Dyq2/#mul-bind" target="_blank" rel="noopener noreferrer">参考</a></p>
+<p>详情<RouteLink to="/learn/vue/U5yAadLd1PMOZzr3Dyq2/#mul-bind">参考</RouteLink></p>
 <h3 id="typescript-的更好支持。" tabindex="-1"><a class="header-anchor" href="#typescript-的更好支持。"><span>Typescript 的更好支持。</span></a></h3>
 </div></template>
 

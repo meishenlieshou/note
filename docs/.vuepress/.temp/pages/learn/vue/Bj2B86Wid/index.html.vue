@@ -103,7 +103,7 @@
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="使用-nuxt-3-实现-ssr" tabindex="-1"><a class="header-anchor" href="#使用-nuxt-3-实现-ssr"><span>使用 Nuxt 3 实现 SSR</span></a></h2>
 <p>Nuxt 是 Vue 生态中专为 SSR 提供的框架，提供了开箱即用的 SSR 功能。Nuxt 会自动处理页面渲染、路由管理、静态资源优化等工作，开发者可以专注于业务逻辑。</p>
-<p>请<a href="/learn/vue/LvymtQUA/" target="_blank" rel="noopener noreferrer">参考</a></p>
+<p>请<RouteLink to="/learn/vue/LvymtQUA/">参考</RouteLink></p>
 <h2 id="nuxt-相关问题" tabindex="-1"><a class="header-anchor" href="#nuxt-相关问题"><span>Nuxt 相关问题</span></a></h2>
 <ol>
 <li>

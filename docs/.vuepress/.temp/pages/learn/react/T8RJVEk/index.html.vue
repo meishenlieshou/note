@@ -3,22 +3,22 @@
 <p>Before React Fiber, React used a synchronous reconciliation algorithm that blocked rendering updates until all work was completed. This led to performance issues, especially for large applications. React Fiber solves this by making rendering asynchronous, interruptible, and more efficient.</p>
 <p><strong>Key Features of React Fiber</strong></p>
 <ol>
-<li>--<code v-pre>Incremental Rendering (Time-Slicing)</code>--    React Fiber can pause and resume rendering, breaking work into smaller chunks, making the UI more responsive.</li>
-<li>--<code v-pre>Concurrency (Concurrent Mode)</code>--    It allows React to work on multiple tasks simultaneously, prioritizing updates dynamically. High-priority updates (like user input) can be processed before lower-priority updates (like data fetching).</li>
-<li>--<code v-pre>Error Boundaries</code>--  Introduced a better error-handling mechanism using error boundaries, preventing entire apps from crashing due to component failures.</li>
-<li>--<code v-pre>Suspense</code>--  Improved support for React Portals and the Suspense API (for handling async rendering).</li>
+<li><mark>Incremental Rendering (Time-Slicing)</mark>    React Fiber can pause and resume rendering, breaking work into smaller chunks, making the UI more responsive.</li>
+<li><mark>Concurrency (Concurrent Mode)</mark>    It allows React to work on multiple tasks simultaneously, prioritizing updates dynamically. High-priority updates (like user input) can be processed before lower-priority updates (like data fetching).</li>
+<li><mark>Error Boundaries</mark>  Introduced a better error-handling mechanism using error boundaries, preventing entire apps from crashing due to component failures.</li>
+<li><mark>Suspense</mark>  Improved support for React Portals and the Suspense API (for handling async rendering).</li>
 </ol>
 <p><strong>How React Fiber Works</strong></p>
 <p>React Fiber splits rendering into two phases</p>
 <ol>
-<li>--<code v-pre>Render Phase</code>--</li>
+<li><mark>Render Phase</mark></li>
 </ol>
 <p>React determines what changes need to be made to the UI. This phase can be interrupted if there are higher-priority tasks.</p>
 <ol start="2">
-<li>--<code v-pre>Commit Phase</code>--</li>
+<li><mark>Commit Phase</mark></li>
 </ol>
 <p>Make the final changes  apply to the DOM. This phase is synchronous and cannot be interrupted.</p>
-<h2 id="what-are-the-lifecycle-methods-in-react-how-to-simulate-these-lifecycle-methods-in-functional-components" tabindex="-1"><a class="header-anchor" href="#what-are-the-lifecycle-methods-in-react-how-to-simulate-these-lifecycle-methods-in-functional-components"><span>### What are the lifecycle methods in React? How to simulate these lifecycle methods in functional components?</span></a></h2>
+<h2 id="what-are-the-lifecycle-methods-in-react-how-to-simulate-these-lifecycle-methods-in-functional-components" tabindex="-1"><a class="header-anchor" href="#what-are-the-lifecycle-methods-in-react-how-to-simulate-these-lifecycle-methods-in-functional-components"><span>What are the lifecycle methods in React? How to simulate these lifecycle methods in functional components?</span></a></h2>
 <p><strong>Step for mount</strong></p>
 <ul>
 <li><mark>constructor()</mark></li>

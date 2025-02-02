@@ -1,5 +1,5 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/blog/IAFDKLDSDSXX/index.html.vue"
-const data = JSON.parse("{\"path\":\"/blog/IAFDKLDSDSXX/\",\"title\":\"大A疯了\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"大A疯了\",\"createTime\":\"2024-10-16T18:26:26.000Z\",\"permalink\":\"/blog/IAFDKLDSDSXX/\",\"author\":\"JamesLeo\",\"categories\":[\"股市\"],\"tags\":[\"A股\",\"经济\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":1.25,\"words\":375},\"filePathRelative\":\"thoughts/大A疯了.md\",\"categoryList\":[{\"id\":\"eea645\",\"sort\":10001,\"name\":\"thoughts\"}],\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/blog/IAFDKLDSDSXX/\",\"title\":\"大A疯了\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"大A疯了\",\"createTime\":\"2024-10-16T18:26:26.000Z\",\"permalink\":\"/blog/IAFDKLDSDSXX/\",\"author\":\"JamesLeo\",\"categories\":[\"股市\"],\"tags\":[\"A股\",\"经济\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":1.25,\"words\":375},\"filePathRelative\":\"thoughts/大A疯了.md\",\"categoryList\":[{\"id\":\"eea645\",\"sort\":10000,\"name\":\"thoughts\"}],\"bulletin\":false}")
 export { comp, data }
 
 if (import.meta.webpackHot) {

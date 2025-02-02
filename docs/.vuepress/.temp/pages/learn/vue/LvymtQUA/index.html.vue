@@ -131,7 +131,7 @@
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">&#x3C;/</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">template</span><span style="--shiki-light:#999999;--shiki-dark:#666666">></span></span></code></pre>
 
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="中间件" tabindex="-1"><a class="header-anchor" href="#中间件"><span>中间件</span></a></h2>
-<p>请<a href="/learn/vue/Bj2B86Wid/#nuxt_middle_ware" target="_blank" rel="noopener noreferrer">参考</a></p>
+<p>请<RouteLink to="/learn/vue/Bj2B86Wid/#nuxt_middle_ware">参考</RouteLink></p>
 </div></template>
 
 

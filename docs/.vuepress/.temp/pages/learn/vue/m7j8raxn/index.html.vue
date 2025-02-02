@@ -8,7 +8,7 @@
 <li><strong><code v-pre>与 Vue Devtools 集成，可追踪状态变化</code></strong></li>
 </ol>
 <h2 id="基本使用" tabindex="-1"><a class="header-anchor" href="#基本使用"><span>基本使用</span></a></h2>
-<p>具体可参考<a href="/learn/vue/SLAu3fcLNid/" target="_blank" rel="noopener noreferrer">示例</a></p>
+<p>具体可参考<RouteLink to="/learn/vue/SLAu3fcLNid/">示例</RouteLink></p>
 <h2 id="销毁" tabindex="-1"><a class="header-anchor" href="#销毁"><span>销毁</span></a></h2>
 <p>当应用中存在多个pinia实例时，可能需要销毁实例的情况，调用 <strong><code v-pre>disposePinia(pinia)</code></strong> 用于销毁指定的Pinia实例。</p>
 <h2 id="常见pinia相关问题" tabindex="-1"><a class="header-anchor" href="#常见pinia相关问题"><span>常见pinia相关问题</span></a></h2>
@@ -33,7 +33,7 @@
 <div class="hint-container note">
 <p class="hint-container-title">Note</p>
 <p>它和Suspense区别
-Suspense是一个组件，用于在父组件中等待多个异步内容完成加载，同时对整个异步子树进行控制，允许嵌套。更多<a href="/learn/vue/SjtYkCII3u0BI/#Suspense" target="_blank" rel="noopener noreferrer">参考</a></p>
+Suspense是一个组件，用于在父组件中等待多个异步内容完成加载，同时对整个异步子树进行控制，允许嵌套。更多<RouteLink to="/learn/vue/SjtYkCII3u0BI/#Suspense">参考</RouteLink></p>
 </div>
 <h3 id="pinia-的-getters-与-vue-组件的-computed-有什么相同点和不同点" tabindex="-1"><a class="header-anchor" href="#pinia-的-getters-与-vue-组件的-computed-有什么相同点和不同点"><span>Pinia 的 Getters 与 Vue 组件的 Computed 有什么相同点和不同点？</span></a></h3>
 <ul>
@@ -41,7 +41,7 @@ Suspense是一个组件，用于在父组件中等待多个异步内容完成加
 </ul>
 <ol>
 <li><strong><code v-pre>基于依赖的懒加载和缓存</code></strong>， 即依赖不变，返回值都不会变。</li>
-<li><strong><code v-pre>都只读</code></strong>，Computed可以配置为可读写，<a href="/learn/vue/SjtYkCII3u0BI/#%E5%9F%BA%E4%BA%8E%E4%BE%9D%E8%B5%96%E7%9A%84%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E7%BC%93%E5%AD%98" target="_blank" rel="noopener noreferrer">参考</a></li>
+<li><strong><code v-pre>都只读</code></strong>，Computed可以配置为可读写，<RouteLink to="/learn/vue/SjtYkCII3u0BI/#%E5%9F%BA%E4%BA%8E%E4%BE%9D%E8%B5%96%E7%9A%84%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E7%BC%93%E5%AD%98">参考</RouteLink></li>
 </ol>
 <ul>
 <li>不同点：</li>
@@ -51,7 +51,7 @@ Suspense是一个组件，用于在父组件中等待多个异步内容完成加
 <li><strong><code v-pre>作用域不一样</code></strong></li>
 </ol>
 <h3 id="如何在-pinia-中管理异步操作-比如从后端获取数据并更新状态。" tabindex="-1"><a class="header-anchor" href="#如何在-pinia-中管理异步操作-比如从后端获取数据并更新状态。"><span>如何在 Pinia 中管理异步操作？比如从后端获取数据并更新状态。</span></a></h3>
-<p>直接在actions里编写异步操作逻辑即可，<a href="/learn/vue/SLAu3fcLNid/#sync_action" target="_blank" rel="noopener noreferrer">参考</a></p>
+<p>直接在actions里编写异步操作逻辑即可，<RouteLink to="/learn/vue/SLAu3fcLNid/#sync_action">参考</RouteLink></p>
 <h3 id="pinia-支持哪些方式的持久化状态管理-如何实现状态持久化" tabindex="-1"><a class="header-anchor" href="#pinia-支持哪些方式的持久化状态管理-如何实现状态持久化"><span>Pinia 支持哪些方式的持久化状态管理？如何实现状态持久化？</span></a></h3>
 <p>所谓持久化，本质上就是将状态同步到localStorage、sessionStorage，或者其它介质中。可借助于插件，或者手动维护。</p>
 <h3 id="如何在多个-store-之间共享状态或方法" tabindex="-1"><a class="header-anchor" href="#如何在多个-store-之间共享状态或方法"><span>如何在多个 Store 之间共享状态或方法？</span></a></h3>

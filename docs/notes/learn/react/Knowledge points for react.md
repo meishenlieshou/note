@@ -18,19 +18,19 @@ React Fiber is the reconciliation engine introduced in React 16, designed to imp
 Before React Fiber, React used a synchronous reconciliation algorithm that blocked rendering updates until all work was completed. This led to performance issues, especially for large applications. React Fiber solves this by making rendering asynchronous, interruptible, and more efficient.
 
 **Key Features of React Fiber**
-1. --`Incremental Rendering (Time-Slicing)`--    React Fiber can pause and resume rendering, breaking work into smaller chunks, making the UI more responsive.
-2. --`Concurrency (Concurrent Mode)`--    It allows React to work on multiple tasks simultaneously, prioritizing updates dynamically. High-priority updates (like user input) can be processed before lower-priority updates (like data fetching).
-3. --`Error Boundaries`--  Introduced a better error-handling mechanism using error boundaries, preventing entire apps from crashing due to component failures.
-4. --`Suspense`--  Improved support for React Portals and the Suspense API (for handling async rendering).
+1. ==Incremental Rendering (Time-Slicing)==    React Fiber can pause and resume rendering, breaking work into smaller chunks, making the UI more responsive.
+2. ==Concurrency (Concurrent Mode)==    It allows React to work on multiple tasks simultaneously, prioritizing updates dynamically. High-priority updates (like user input) can be processed before lower-priority updates (like data fetching).
+3. ==Error Boundaries==  Introduced a better error-handling mechanism using error boundaries, preventing entire apps from crashing due to component failures.
+4. ==Suspense==  Improved support for React Portals and the Suspense API (for handling async rendering).
 
 **How React Fiber Works**
 
 React Fiber splits rendering into two phases
-1. --`Render Phase`--
+1. ==Render Phase==
 
 React determines what changes need to be made to the UI. This phase can be interrupted if there are higher-priority tasks.
 
-2. --`Commit Phase`--
+2. ==Commit Phase==
 
 Make the final changes  apply to the DOM. This phase is synchronous and cannot be interrupted.
 

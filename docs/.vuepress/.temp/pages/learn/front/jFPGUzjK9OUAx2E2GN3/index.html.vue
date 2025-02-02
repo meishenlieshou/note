@@ -80,7 +80,7 @@
 <li>不直接存储数据，而是存储 HTTP 请求的响应</li>
 <li>缓存内容大小通常在 50MB 到 1GB 之间</li>
 </ol>
-<p>更多详情参考<a href="/learn/front/gi23I/#cache_api" target="_blank" rel="noopener noreferrer">这里</a></p>
+<p>更多详情参考<RouteLink to="/learn/front/gi23I/#cache_api">这里</RouteLink></p>
 </div></template>
 
 

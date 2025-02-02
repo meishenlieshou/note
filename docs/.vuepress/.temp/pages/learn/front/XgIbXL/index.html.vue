@@ -31,7 +31,7 @@
 <ol>
 <li>用于拦截网络请求，实现离线缓存。</li>
 <li>不直接与 UI 线程通信，而是通过 postMessage 或消息通道。
-<a href="/learn/front/gi23I/" target="_blank" rel="noopener noreferrer">更多请参考</a></li>
+<RouteLink to="/learn/front/gi23I/">更多请参考</RouteLink></li>
 </ol>
 </li>
 </ol>
