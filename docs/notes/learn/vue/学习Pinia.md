@@ -2,7 +2,7 @@
 title: 学习Pinia
 createTime: 2024/11/20 06:02:23
 permalink: /learn/vue/m7j8raxn/
-author: JackSim
+author: Jack
 tags:
   - Vue
   - 状态容器

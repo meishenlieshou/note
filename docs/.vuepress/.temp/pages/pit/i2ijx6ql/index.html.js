@@ -1,5 +1,5 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/pit/i2ijx6ql/index.html.vue"
-const data = JSON.parse("{\"path\":\"/pit/i2ijx6ql/\",\"title\":\"为什么走了VPN代理地址\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"为什么走了VPN代理地址\",\"createTime\":\"2024/10/09 23:01:20\",\"permalink\":\"/pit/i2ijx6ql/\",\"tags\":[\"梯子\",\"NPM\",\"科学上网\",\"NAS\"],\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.81,\"words\":843},\"filePathRelative\":\"notes/problems/IT/为什么走了VPN代理地址.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/pit/i2ijx6ql/\",\"title\":\"为什么走了VPN代理地址\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"为什么走了VPN代理地址\",\"createTime\":\"2024/10/09 23:01:20\",\"permalink\":\"/pit/i2ijx6ql/\",\"tags\":[\"梯子\",\"NPM\",\"科学上网\",\"NAS\"],\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.81,\"words\":843},\"filePathRelative\":\"notes/pit/IT/为什么走了VPN代理地址.md\",\"bulletin\":false}")
 export { comp, data }
 
 if (import.meta.webpackHot) {

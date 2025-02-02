@@ -2,7 +2,7 @@
 title: hello
 createTime: 2025/01/08 21:41:31
 permalink: /research/yuXYcrEid/
-author: JackSim
+author: Jack
 categories:
  - 测试
 tags:

@@ -2,7 +2,7 @@
 title: vue常见问题
 createTime: 2025/01/21 13:43:03
 permalink: /learn/vue/b3JOg78/
-author: JackSim
+author: Jack
 tags:
   - Vue
   - 问题

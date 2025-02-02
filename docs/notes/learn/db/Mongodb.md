@@ -2,7 +2,7 @@
 title: Mongodb
 createTime: 2025/01/19 15:05:36
 permalink: /learn/db/JuxxNdMOF6Sk6/
-author: JackSim
+author: Jack
 tags:
   - Mongodb
   - 数据库

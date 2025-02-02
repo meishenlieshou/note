@@ -2,7 +2,7 @@
 title: ChatGPT
 createTime: 2025/01/08 22:41:39
 permalink: /learn/ai/egaEeohhbsdroOid/
-author: JackSim
+author: Jack
 categories:
  - 人工智能
 tags:

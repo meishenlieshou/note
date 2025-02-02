@@ -2,7 +2,7 @@
 title: Web storage techs 
 createTime: 2025/01/19 10:31:34
 permalink: /learn/front/jFPGUzjK9OUAx2E2GN3/
-author: JackSim
+author: Jack
 tags:
   - 客户端存储
   - localStorage

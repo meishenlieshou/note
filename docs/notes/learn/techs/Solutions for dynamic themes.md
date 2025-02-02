@@ -2,7 +2,7 @@
 title: Solutions for dynamic themes
 createTime: 2025/01/20 21:21:06
 permalink: /learn/front/fJJYokDUt0660/
-author: JackSim
+author: Jack
 tags:
   - 换肤
   - 主题

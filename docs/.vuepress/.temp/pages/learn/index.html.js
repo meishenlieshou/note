@@ -1,5 +1,5 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/\",\"title\":\"README\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:57:20\",\"permalink\":\"/learn/\",\"author\":\"JackSim\",\"categories\":[\"学习\"],\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.05,\"words\":16},\"filePathRelative\":\"notes/learn/README.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/\",\"title\":\"README\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:57:20\",\"permalink\":\"/learn/\",\"author\":\"Jack\",\"categories\":[\"学习\"],\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":0.05,\"words\":16},\"filePathRelative\":\"notes/learn/README.md\",\"bulletin\":false}")
 export { comp, data }
 
 if (import.meta.webpackHot) {

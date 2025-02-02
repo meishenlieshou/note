@@ -2,7 +2,7 @@
 title: Vue和React
 createTime: 2025/01/20 23:44:47
 permalink: /learn/vue/ntEtxkQK98c/
-author: JackSim
+author: Jack
 tags:
   - React
   - Vue

@@ -2,7 +2,7 @@
 title: WebAssembly
 createTime: 2025/01/18 07:30:40
 permalink: /learn/front/K8AbMwyElo/
-author: JackSim
+author: Jack
 tags:
   - WebAssembly
   - 前端原生技术

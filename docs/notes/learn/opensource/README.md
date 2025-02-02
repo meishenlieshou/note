@@ -2,7 +2,7 @@
 title: README
 createTime: 2025/01/08 22:00:33
 permalink: /learn/opensource/ublRjrGBgqMSwwerid/
-author: JackSim
+author: Jack
 categories:
  - opensource
 tags:

@@ -1,5 +1,5 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/vue/LvymtQUA/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/vue/LvymtQUA/\",\"title\":\"Nuxt使用\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"Nuxt使用\",\"createTime\":\"2025/01/20 20:23:07\",\"permalink\":\"/learn/vue/LvymtQUA/\",\"author\":\"JackSim\",\"tags\":[\"Nuxt\",\"服务器端渲染\",\"SSR\"],\"description\":\"description\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.51,\"words\":753},\"filePathRelative\":\"notes/learn/vue/10.Nuxt使用.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/vue/LvymtQUA/\",\"title\":\"Nuxt使用\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"Nuxt使用\",\"createTime\":\"2025/01/20 20:23:07\",\"permalink\":\"/learn/vue/LvymtQUA/\",\"author\":\"Jack\",\"tags\":[\"Nuxt\",\"服务器端渲染\",\"SSR\"],\"description\":\"description\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.51,\"words\":753},\"filePathRelative\":\"notes/learn/vue/10.Nuxt使用.md\",\"bulletin\":false}")
 export { comp, data }
 
 if (import.meta.webpackHot) {

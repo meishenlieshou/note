@@ -2,7 +2,7 @@
 title: README
 createTime: 2025/01/08 21:57:15
 permalink: /learn/ai/EkKWxXqWLKwwid/
-author: JackSim
+author: Jack
 categories:
  - 人工智能
 tags:

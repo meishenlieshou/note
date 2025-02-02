@@ -10,15 +10,15 @@ export const navbar = defineNavbarConfig([
 		text: "Notes",
 		items: [
 			{
-				text: "Learn",
+				text: "Learnings",
 				link: "/notes/learn/",
 			},
 			{
-				text: "Problem",
+				text: "Problems",
 				link: "/notes/problem/",
 			},
 			{
-				text: "Research",
+				text: "Researchs",
 				link: "/notes/research/",
 			},
 		],

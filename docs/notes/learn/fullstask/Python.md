@@ -2,7 +2,7 @@
 title: Python
 createTime: 2025/01/08 22:40:38
 permalink: /learn/fullstack/AnuYertJid/
-author: JackSim
+author: Jack
 categories:
  - Fullstack
 tags:

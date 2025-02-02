@@ -2,7 +2,7 @@
 title: Synology添加自启动命令
 createTime: 2025/10/16 21:27:18
 permalink: /pit/KwjCqLUMtvqsVBXqbfnFid/
-author: JackSim
+author: Jack
 tags:
   - NAS
   - Linux

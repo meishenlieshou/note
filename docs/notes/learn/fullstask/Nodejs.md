@@ -2,7 +2,7 @@
 title: Nodejs
 createTime: 2025/01/08 22:39:52
 permalink: /learn/fullstack/WdhCwMXdWzqGOvjtcGaf/
-author: JackSim
+author: Jack
 categories:
  - Fullstack 
 tags:

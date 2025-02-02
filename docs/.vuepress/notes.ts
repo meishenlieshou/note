@@ -5,8 +5,8 @@ const learnNote = defineNoteConfig({
 	link: "/learn",
 	sidebar: [
 		{
-			text: "AI",
-			prefix: "/notes/learn/ai/",
+			text: "ReactJS",
+			prefix: "/notes/learn/react/",
 			items: "auto",
 			collapsed: true,
 		},
@@ -23,7 +23,7 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
-			text: "Programming",
+			text: "Techs",
 			prefix: "/notes/learn/techs/",
 			items: "auto", //自动获取目录下的文件
 			collapsed: true,
@@ -41,12 +41,6 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
-			text: "ReactJS",
-			prefix: "/notes/learn/react/",
-			items: "auto",
-			collapsed: true,
-		},
-		{
 			text: "Flutter",
 			prefix: "/notes/learn/flutter/",
 			items: "auto",
@@ -59,8 +53,14 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
-			text: "Operation&Maintenance",
-			prefix: "/notes/learn/om",
+			text: "AI",
+			prefix: "/notes/learn/ai/",
+			items: "auto",
+			collapsed: true,
+		},
+		{
+			text: "Ops",
+			prefix: "/notes/learn/om/",
 			items: "auto",
 			collapsed: true,
 		},
@@ -74,19 +74,19 @@ const pitNote = defineNoteConfig({
 		{
 			text: "IT",
 			items: "auto",
-			prefix: "/notes/problems/IT/",
+			prefix: "/notes/pit/IT/",
 			collapsed: true,
 		},
 		{
 			text: "Daily",
 			items: "auto",
-			prefix: "/notes/problems/daily/",
+			prefix: "/notes/pit/daily/",
 			collapsed: true,
 		},
 		{
 			text: "Share",
 			items: "auto",
-			prefix: "/notes/problems/share/",
+			prefix: "/notes/pit/share/",
 			collapsed: true,
 		},
 	],

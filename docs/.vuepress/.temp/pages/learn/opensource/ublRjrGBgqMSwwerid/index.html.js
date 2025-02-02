@@ -1,5 +1,5 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/opensource/ublRjrGBgqMSwwerid/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"title\":\"README\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:00:33\",\"permalink\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"author\":\"JackSim\",\"categories\":[\"opensource\"],\"tags\":[\"开源\",\"软件开发\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.51,\"words\":753},\"filePathRelative\":\"notes/learn/opensource/README.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"title\":\"README\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"README\",\"createTime\":\"2025/01/08 22:00:33\",\"permalink\":\"/learn/opensource/ublRjrGBgqMSwwerid/\",\"author\":\"Jack\",\"categories\":[\"opensource\"],\"tags\":[\"开源\",\"软件开发\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.51,\"words\":753},\"filePathRelative\":\"notes/learn/opensource/README.md\",\"bulletin\":false}")
 export { comp, data }
 
 if (import.meta.webpackHot) {

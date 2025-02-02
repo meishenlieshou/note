@@ -2,7 +2,7 @@
 title: Web Worker
 createTime: 2025/01/18 07:28:43
 permalink: /learn/front/XgIbXL/
-author: JackSim
+author: Jack
 tags:
   - Web Worker
   - 原生技术

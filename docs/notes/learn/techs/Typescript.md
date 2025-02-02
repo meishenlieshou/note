@@ -2,7 +2,7 @@
 title: Typescript
 createTime: 2025/01/19 17:42:46
 permalink: /learn/front/yLLIK/
-author: JackSim
+author: Jack
 tags:
   - Typescript
   - Javascript

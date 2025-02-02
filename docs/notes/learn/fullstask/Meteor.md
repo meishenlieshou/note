@@ -2,7 +2,7 @@
 title: Meteor
 createTime: 2025/01/18 07:23:54
 permalink: /learn/fullstack/sUCpov/
-author: JackSim
+author: Jack
 tags:
   - Meteor
   - 全栈开发

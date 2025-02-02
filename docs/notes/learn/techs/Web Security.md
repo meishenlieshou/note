@@ -2,7 +2,7 @@
 title: Web Security
 createTime: 2025/01/19 17:00:48
 permalink: /learn/front/FHkSPfT2yC4cA3tVuw/
-author: JackSim
+author: Jack
 tags:
   - Web安全
   - 浏览器

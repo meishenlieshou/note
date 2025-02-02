@@ -2,7 +2,7 @@
 title: Gemini
 createTime: 2025/01/08 22:42:32
 permalink: /learn/ai/SKXobrHdSKSid/
-author: JackSim
+author: Jack
 categories:
  - 人工智能
 tags:

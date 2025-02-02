@@ -2,7 +2,7 @@
 title: Knowledge points for react
 createTime: 2025/01/21 20:55:27
 permalink: /learn/react/T8RJVEk/
-author: JackSim
+author: Jack
 tags:
   - react
   - 问题

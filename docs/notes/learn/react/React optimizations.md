@@ -2,7 +2,7 @@
 title: React optimizations
 createTime: 2025/01/22 14:06:44
 permalink: /learn/react/40YvoCb5TNcGQV1X3J/
-author: JackSim
+author: Jack
 tags:
   - React体系
   - React

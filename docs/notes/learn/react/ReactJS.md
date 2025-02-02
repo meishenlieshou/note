@@ -2,7 +2,7 @@
 title: ReactJS
 createTime: 2025/01/12 21:21:41
 permalink: /learn/react/i8Lyjuid/
-author: JackSim
+author: Jack
 tags:
   - React
   - React19

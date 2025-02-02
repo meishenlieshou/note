@@ -2,7 +2,7 @@
 title: Redis
 createTime: 2025/01/19 15:20:51
 permalink: /learn/db/2T5enzdd/
-author: JackSim
+author: Jack
 tags:
   - Redis
   - 数据库
