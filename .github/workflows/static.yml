@@ -41,8 +41,13 @@ jobs:
    - name: 🔨 Build VuePress
      run: npm run docs:build # VuePress 默认构建命令
 
-   - name: 🧹 Clean up
-     run: git push origin --delete gh-pages
+   #  - name: 🧹 Clean up
+   #    run: git push origin --delete gh-pages
+
+   - name: Delete gh-pages branch
+     run: |
+      git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/HobbiesTime/note.git
+      git push origin --delete gh-pages
 
    #  - name: Deploy to GitHub Pages
    #    run: |
