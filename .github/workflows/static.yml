@@ -46,7 +46,7 @@ jobs:
 
    - name: Delete gh-pages branch
      run: |
-      git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/HobbiesTime/note.git
+      git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/meishenlieshou/note.git
       git push origin --delete gh-pages
 
    #  - name: Deploy to GitHub Pages
