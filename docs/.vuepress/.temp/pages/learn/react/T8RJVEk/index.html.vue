@@ -32,7 +32,7 @@
 <li><mark>shouldComponentUpdate(nextProps, nextState)</mark></li>
 <li><mark>render()</mark></li>
 <li><mark>getSnapshotBeforeUpdate(prevProps, prevState)</mark></li>
-<li><mark>getSnapshotBeforeUpdate(prevProps, prevState)</mark></li>
+<li><mark>componentDidUpdate(prevProps, prevState, snapshot?)</mark></li>
 </ul>
 <p><strong>Step for unmount</strong></p>
 <ul>
