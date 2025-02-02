@@ -50,7 +50,7 @@ function MyInput({placeholder, ref}) {
 //...
 <MyInput ref={ref} />
 ```
-### <Context> as a provider
+### `<Context>`as a provider
 
 In React 19, you can render `<Context>` as a provider instead of `<Context.Provider>`
 ```Javascript
