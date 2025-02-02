@@ -48,6 +48,7 @@ Make the final changes  apply to the DOM. This phase is synchronous and cannot b
 - ==shouldComponentUpdate(nextProps, nextState)==
 - ==render()==
 - ==getSnapshotBeforeUpdate(prevProps, prevState)==
+- ==componentDidUpdate(prevProps, prevState, snapshot?)==
 
 **Step for unmount**
 - ==componentWillUnmount()==
