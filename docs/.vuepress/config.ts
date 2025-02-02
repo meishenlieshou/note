@@ -7,11 +7,11 @@ import fs from "fs-extra";
 export default defineUserConfig({
 	base: "/note/",
 	lang: "en-US",
-	title: "JackSimNote",
+	title: "It's Jack",
 	description: "",
 
 	head: [
-		["link", { rel: "icon", href: "/favicon.ico" }],
+		["link", { rel: "icon", href: "/note/favicon.ico" }],
 		["meta", { name: "author", content: "Jack" }],
 		["meta", { name: "keywords", content: "vuepress, theme, plume" }],
 	],

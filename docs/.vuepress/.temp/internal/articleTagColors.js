@@ -1,2 +1,15 @@
 import './articleTagColors.css'
-export const articleTagColors = {"typescript":"c6h8","English book":"jceg","A股":"k433","经济":"1jh6","临时":"br5z","简单测试页面":"j3x3","AI":"leam","ChatGPT":"int5","OpenAI":"br5z","Gemini":"9pj8","大模型":"fjc4","人工智能":"j3x3","Mongodb":"leam","数据库":"c6eh","Redis":"c6h8","内存数据库":"br5z","Flutter":"j3x3","前端开发":"1jh6","UI":"br5z","人机交互":"gxbo","跨平台":"l82i","Meteor":"leam","全栈开发":"int5","mongoDB":"leam","redis":"c6h8","NodeJs":"c6h8","JavaScript":"jceg","Typescript":"c6h8","Python":"i0o8","大数据":"c6h8","运维":"utn7","反向代理服务器":"9pj8","代理":"1jh6","树莓派":"j3x3","ARM":"k433","开源":"14i4","软件开发":"mqtn","react":"l82i","问题":"14i4","React体系":"jceg","React":"l82i","React19":"9pj8","Javascript":"jceg","Event Loop":"gxbo","GraphQL":"c6h8","图查询":"l82i","Less":"fjc4","CSS预处理器":"fjc4","Monorepo":"c6eh","微前端":"gxbo","Service worker":"klhj","原生技术":"fjc4","换肤":"j3x3","主题":"c6eh","CSS变量":"i0o8","Web安全":"l82i","浏览器":"1jh6","客户端存储":"gxbo","localStorage":"mqtn","IndexedDB":"jceg","Web Worker":"i0o8","WebAssembly":"gxbo","前端原生技术":"l82i","C编程":"gxbo","Vue3":"int5","回顾":"leam","Nuxt":"c6h8","服务器端渲染":"utn7","SSR":"mqtn","组件通信":"fjc4","模板":"br5z","状态管理":"leam","Pipia":"int5","Vue":"gxbo","Router4":"l82i","vue":"gxbo","CSR":"leam","性能优化":"14i4","插件":"gxbo","Vite":"i0o8","前端工程化":"gxbo","差异":"mqtn","技术":"fjc4","状态容器":"leam","NAS":"utn7","Linux":"mqtn","影音服务器":"mqtn","梯子":"int5","NPM":"fjc4","科学上网":"j3x3"}
+export const articleTagColors = {"typescript":"lom1","English book":"0rxc","A股":"8v6j","经济":"yw2l","临时":"l01y","简单测试页面":"kffw","AI":"ouwm","ChatGPT":"04mj","OpenAI":"l01y","Gemini":"korw","大模型":"4iew","人工智能":"kffw","Mongodb":"ouwm","数据库":"sfne","Redis":"lom1","内存数据库":"l01y","Flutter":"kffw","前端开发":"yw2l","UI":"l01y","人机交互":"9e5f","跨平台":"94xy","Meteor":"ouwm","全栈开发":"04mj","mongoDB":"ouwm","redis":"lom1","NodeJs":"lom1","JavaScript":"0rxc","Typescript":"lom1","Python":"4hn6","大数据":"lom1","运维":"wi1h","反向代理服务器":"korw","代理":"yw2l","树莓派":"kffw","ARM":"8v6j","开源":"s5ml","软件开发":"k3qk","react":"94xy","问题":"s5ml","React体系":"0rxc","React":"94xy","React19":"korw","Javascript":"0rxc","Event Loop":"9e5f","GraphQL":"lom1","图查询":"94xy","Less":"4iew","CSS预处理器":"4iew","Monorepo":"sfne","微前端":"9e5f","Service worker":"m984","原生技术":"4iew","换肤":"kffw","主题":"sfne","CSS变量":"4hn6","Web安全":"94xy","浏览器":"yw2l","客户端存储":"9e5f","localStorage":"k3qk","IndexedDB":"0rxc","Web Worker":"4hn6","WebAssembly":"9e5f","前端原生技术":"94xy","C编程":"9e5f","Vue3":"04mj","回顾":"ouwm","Nuxt":"lom1","服务器端渲染":"wi1h","SSR":"k3qk","组件通信":"4iew","模板":"l01y","状态管理":"ouwm","Pipia":"04mj","Vue":"9e5f","Router4":"94xy","vue":"9e5f","CSR":"ouwm","性能优化":"s5ml","插件":"9e5f","Vite":"4hn6","前端工程化":"9e5f","差异":"k3qk","技术":"4iew","状态容器":"ouwm","NAS":"wi1h","Linux":"k3qk","影音服务器":"k3qk","梯子":"04mj","NPM":"4iew","科学上网":"kffw"}
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateArticleTagColors) {
+    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ articleTagColors }) => {
+    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
+  })
+}

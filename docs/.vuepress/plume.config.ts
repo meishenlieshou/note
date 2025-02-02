@@ -10,7 +10,16 @@ export default defineThemeConfig({
 
 	appearance: true, // 配置 深色模式
 
-	social: [{ icon: "github", link: "/" }],
+	footer: {
+		message: "This is Jack's note",
+		copyright: ``,
+	},
+
+	social: [
+		{ icon: "github", link: "https://github.com/meishenlieshou" },
+		{ icon: "twitter", link: "https://x.com/meishenlieshou" },
+		{ icon: "youtube", link: "https://www.youtube.com/@lichengouyang7698" },
+	],
 	// navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
 	// aside: true, // 页内侧边栏， 默认显示在右侧
 	// outline: [2, 3], // 页内大纲， 默认显示 h2, h3
@@ -35,12 +44,12 @@ export default defineThemeConfig({
 	 * @see https://theme-plume.vuejs.press/config/basic/#profile
 	 */
 	profile: {
-		avatar: "https://theme-plume.vuejs.press/plume.png",
-		name: "Jack Note",
-		description: "",
-		// circle: true,
-		// location: '',
-		// organization: '',
+		avatar: "/plume.svg",
+		name: "I'm Jack",
+		description:
+			"I love fearlessly, wholly, endlessly. In laughter, in silence, in every fleeting moment—love is my truth, my gift, my promise. Always, everywhere, forever.",
+		circle: false,
+		location: "Toronto",
 	},
 
 	navbar,
