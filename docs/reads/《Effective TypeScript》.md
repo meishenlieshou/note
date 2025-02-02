@@ -1,8 +1,16 @@
 ---
 title: 《Effective TypeScript》
-createTime: 2024-10-17 18:17:29
-permalink: /read/IDCKSXEWCMZZ/
+createTime: 2025/02/02 08:40:05
+permalink: /read/Jo1uDAd76bLlvYid/
+author: JackSim
+tags:
+  - typescript
+  - English book
+
+description: description
 ---
+
+
 
 # 英文原版《Effective TypeScript》
 
