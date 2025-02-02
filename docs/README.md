@@ -8,15 +8,15 @@ config:
     background: tint-plate
     hero:
       name: JackSim
-      tagline: 日志空间
-      text: 日志是时间的印记，是心灵与世界对话的桥梁。
+      tagline: MyNote
+      text: A diary is a quiet river where thoughts flow freely, carrying whispers of yesterday into the hands of tomorrow.      
       actions:
         -
           theme: brand
-          text: 博客
+          text: Blog
           link: /blog/
         -
           theme: alt
           text: Github →
-          link: https://github.com/GodShareWorld 
+          link: https://github.com/meishenlieshou
 ---

@@ -1,15 +1,2 @@
 import './articleTagColors.css'
-export const articleTagColors = {"typescript":"yncq","English book":"w33h","A股":"tn58","经济":"0h7e","临时":"qjim","简单测试页面":"a9qt","AI":"ekst","ChatGPT":"y9v5","OpenAI":"qjim","Gemini":"sxh5","大模型":"3jnt","人工智能":"a9qt","Mongodb":"ekst","数据库":"khtd","Redis":"yncq","内存数据库":"qjim","Flutter":"a9qt","前端开发":"0h7e","UI":"qjim","人机交互":"ibnv","跨平台":"zbkn","Meteor":"ekst","全栈开发":"y9v5","mongoDB":"ekst","redis":"yncq","NodeJs":"yncq","JavaScript":"w33h","Typescript":"yncq","Python":"wpbd","大数据":"yncq","运维":"zetq","反向代理服务器":"sxh5","代理":"0h7e","树莓派":"a9qt","ARM":"tn58","开源":"5ddk","软件开发":"sgqf","react":"zbkn","问题":"5ddk","React体系":"w33h","React":"zbkn","React19":"sxh5","Javascript":"w33h","Event Loop":"ibnv","GraphQL":"yncq","图查询":"zbkn","Less":"3jnt","CSS预处理器":"3jnt","Monorepo":"khtd","微前端":"ibnv","Service worker":"bb2y","原生技术":"3jnt","换肤":"a9qt","主题":"khtd","CSS变量":"wpbd","Web安全":"zbkn","浏览器":"0h7e","客户端存储":"ibnv","localStorage":"sgqf","IndexedDB":"w33h","Web Worker":"wpbd","WebAssembly":"ibnv","前端原生技术":"zbkn","C编程":"ibnv","Vue3":"y9v5","回顾":"ekst","Nuxt":"yncq","服务器端渲染":"zetq","SSR":"sgqf","组件通信":"3jnt","模板":"qjim","状态管理":"ekst","Pipia":"y9v5","Vue":"ibnv","Router4":"zbkn","vue":"ibnv","CSR":"ekst","性能优化":"5ddk","插件":"ibnv","Vite":"wpbd","前端工程化":"ibnv","差异":"sgqf","技术":"3jnt","状态容器":"ekst","NAS":"zetq","Linux":"sgqf","影音服务器":"sgqf","梯子":"y9v5","NPM":"3jnt","科学上网":"a9qt"}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updateArticleTagColors) {
-    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ articleTagColors }) => {
-    __VUE_HMR_RUNTIME__.updateArticleTagColors(articleTagColors)
-  })
-}
+export const articleTagColors = {"typescript":"c6h8","English book":"jceg","A股":"k433","经济":"1jh6","临时":"br5z","简单测试页面":"j3x3","AI":"leam","ChatGPT":"int5","OpenAI":"br5z","Gemini":"9pj8","大模型":"fjc4","人工智能":"j3x3","Mongodb":"leam","数据库":"c6eh","Redis":"c6h8","内存数据库":"br5z","Flutter":"j3x3","前端开发":"1jh6","UI":"br5z","人机交互":"gxbo","跨平台":"l82i","Meteor":"leam","全栈开发":"int5","mongoDB":"leam","redis":"c6h8","NodeJs":"c6h8","JavaScript":"jceg","Typescript":"c6h8","Python":"i0o8","大数据":"c6h8","运维":"utn7","反向代理服务器":"9pj8","代理":"1jh6","树莓派":"j3x3","ARM":"k433","开源":"14i4","软件开发":"mqtn","react":"l82i","问题":"14i4","React体系":"jceg","React":"l82i","React19":"9pj8","Javascript":"jceg","Event Loop":"gxbo","GraphQL":"c6h8","图查询":"l82i","Less":"fjc4","CSS预处理器":"fjc4","Monorepo":"c6eh","微前端":"gxbo","Service worker":"klhj","原生技术":"fjc4","换肤":"j3x3","主题":"c6eh","CSS变量":"i0o8","Web安全":"l82i","浏览器":"1jh6","客户端存储":"gxbo","localStorage":"mqtn","IndexedDB":"jceg","Web Worker":"i0o8","WebAssembly":"gxbo","前端原生技术":"l82i","C编程":"gxbo","Vue3":"int5","回顾":"leam","Nuxt":"c6h8","服务器端渲染":"utn7","SSR":"mqtn","组件通信":"fjc4","模板":"br5z","状态管理":"leam","Pipia":"int5","Vue":"gxbo","Router4":"l82i","vue":"gxbo","CSR":"leam","性能优化":"14i4","插件":"gxbo","Vite":"i0o8","前端工程化":"gxbo","差异":"mqtn","技术":"fjc4","状态容器":"leam","NAS":"utn7","Linux":"mqtn","影音服务器":"mqtn","梯子":"int5","NPM":"fjc4","科学上网":"j3x3"}
