@@ -24,7 +24,7 @@ This json configs is a code snippet for vscode Markdown editor
 			"title: ${TM_FILENAME_BASE}",
 			"createTime: ${CURRENT_YEAR}/${CURRENT_MONTH}/${CURRENT_DATE} $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
 			"permalink: /${1:route}/${2:id}/",
-			"author: JackSim",
+			"author: Jack",
 			"tags:",
 			"  - ${3:tag}",
 			"  - ${4:tag}",
