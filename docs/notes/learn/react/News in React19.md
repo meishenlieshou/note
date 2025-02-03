@@ -11,31 +11,69 @@ description:
 
 ## Actions
 
-==By convention, functions that use async transitions are called “Actions”.== 
+==By convention, functions that use async transitions are called “Actions”== 
 
-Building on top of Actions, React 19 introduces new hook **useOptimistic**(#useOptimisitc) to manage optimistic updates, and a new hook **React.useActionState**(#useActionState) to handle common cases for Actions. In react-dom we’re adding `<form>`Actions to manage forms automatically and **useFormStatus**(#useFormStatus) to support the common cases for Actions in forms.
+Building on top of Actions, React 19 introduces new hook **useOptimistic**(#useOptimisitc) to manage optimistic updates, and a new hook **React.useActionState**(#useActionState) to handle common cases for Actions. In react-dom we’re adding `<form>`Actions to manage forms automatically and **useFormStatus**(#useFormStatus) to support the common cases for Actions in forms
 
+In the following section, we’ll break down each of the new Action features in React 19.
 
-## useOptimisitc {#useOptimisitc}
+### useOptimisitc {#useOptimisitc}
 
+const [optimisticState, addOptimistic] = useOptimistic(state, updateFn);
 
-## useActionState {#useActionState}
-
-
-## useFormStatus {#useFormStatus}
-
-
-## use {#use}
+useOptimistic is a React Hook that lets you show a different state while an async action is underway. It accepts some state as an argument and returns a copy of that state that can be different during the duration of an async action such as a network request. You provide a function that takes the current state and the input to the action, and returns the optimistic state to be used while the action is pending.
 
 
-## prerender 
+### useActionState {#useActionState}
+
+useActionState(action, initialState, permalink?)
+
+Call useActionState at the top level of your component to create component state that is updated when a form action is invoked. You pass useActionState an existing form action function as well as an initial state, and it returns a new action that you use in your form, along with the latest form state and whether the Action is still pending. The latest form state is also passed to the function that you provided
+```JavaScript 
+import { useActionState } from "react";
+
+async function increment(previousState, formData) {
+  return previousState + 1;
+}
+
+function StatefulForm({}) {
+  const [state, formAction] = useActionState(increment, 0);
+  return (
+    <form>
+      {state}
+      <button formAction={formAction}>Increment</button>
+    </form>
+  )
+}
+
+```
+The form state is the value returned by the action when the form was last submitted. If the form has not yet been submitted, it is the initial state that you pass.
 
 
-## prerenderToNodeStream
+### useFormStatus {#useFormStatus}
 
-## Server Components 
+A React DOM hook.In design systems, it’s common to write design components that need access to information about the <form> they’re in, without drilling props down to the component. This can be done via Context, but to make the common case easier, we’ve added a new hook useFormStatus
+```JavaScript
+import {useFormStatus} from 'react-dom';
 
-## Server Actions
+function DesignButton() {
+  const {pending} = useFormStatus();
+  return <button type="submit" disabled={pending} />
+}
+```
+useFormStatus reads the status of the parent `<form>` as if the form was a Context provider.
+
+### use {#use}
+
+## Other features
+
+### prerender 
+
+### prerenderToNodeStream
+
+### Server Components 
+
+### Server Actions
 
 
 ## Improvements in React 19
@@ -126,6 +164,18 @@ When React renders this component, it will see the `<title> <link>`and `<meta>`t
 
 ### Support for stylesheets
 
+
+### Support for async scripts
+
+
+
+### Support for preloading resources 
+
+### Compatibility with third-party scripts and extensions 
+
+### Better error reporting
+
+### Support for Custom Elements
 
 
 
