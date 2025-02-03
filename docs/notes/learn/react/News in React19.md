@@ -13,7 +13,7 @@ description:
 
 ==By convention, functions that use async transitions are called “Actions”== 
 
-Building on top of Actions, React 19 introduces new hook **useOptimistic**(#useOptimisitc) to manage optimistic updates, and a new hook **React.useActionState**(#useActionState) to handle common cases for Actions. In react-dom we’re adding `<form>`Actions to manage forms automatically and **useFormStatus**(#useFormStatus) to support the common cases for Actions in forms
+Building on top of Actions, React 19 introduces new hook [**useOptimistic**](#useOptimisitc) to manage optimistic updates, and a new hook [**React.useActionState**](#useActionState) to handle common cases for Actions. In react-dom we’re adding `<form>`Actions to manage forms automatically and [**useFormStatus**](#useFormStatus) to support the common cases for Actions in forms
 
 In the following section, we’ll break down each of the new Action features in React 19.
 
@@ -54,7 +54,7 @@ The form state is the value returned by the action when the form was last submit
 
 ### useFormStatus {#useFormStatus}
 
-A React DOM hook.In design systems, it’s common to write design components that need access to information about the <form> they’re in, without drilling props down to the component. This can be done via Context, but to make the common case easier, we’ve added a new hook useFormStatus
+A React DOM hook.In design systems, it’s common to write design components that need access to information about the `<form>` they’re in, without drilling props down to the component. This can be done via Context, but to make the common case easier, we’ve added a new hook useFormStatus
 ```JavaScript
 import {useFormStatus} from 'react-dom';
 
@@ -380,7 +380,7 @@ function App() {
 ```
 In all rendering environments, async scripts will be deduplicated so that React will only load and execute the script once even if it is rendered by multiple different components.
 
-In Server Side Rendering, async scripts will be included in the <head> and prioritized behind more critical resources that block paint such as stylesheets, fonts, and image preloads.
+In Server Side Rendering, async scripts will be included in the `<head>` and prioritized behind more critical resources that block paint such as stylesheets, fonts, and image preloads.
 
 
 
