@@ -13,7 +13,7 @@ description:
 
 ==By convention, functions that use async transitions are called “Actions”== 
 
-Building on top of Actions, React 19 introduces new hook **useOptimistic**(#useOptimisitc) to manage optimistic updates, and a new hook **React.useActionState**(#useActionState) to handle common cases for Actions. In react-dom we’re adding `<form>`Actions to manage forms automatically and **useFormStatus**(#useFormStatus) to support the common cases for Actions in forms
+Building on top of Actions, React 19 introduces new hook [**useOptimistic**](#useOptimisitc) to manage optimistic updates, and a new hook [**React.useActionState**](#useActionState) to handle common cases for Actions. In react-dom we’re adding `<form>`Actions to manage forms automatically and **useFormStatus**(#useFormStatus) to support the common cases for Actions in forms
 
 In the following section, we’ll break down each of the new Action features in React 19.
 
