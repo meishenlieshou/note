@@ -79,6 +79,11 @@ NPM 5 (released in 2017) brought several much-needed features to improve its per
 2. **Faster install times**: NPM’s caching mechanism was improved, making installations faster.
 3. **Automatic package installation**: npm install now automatically installs dependencies listed in package.json.
 
+### npx 
+
+npx is a package runner that comes with Node.js (since version 5.2.0 of npm). It allows you to run Node.js executables from npm packages without globally installing them.
+
+Use npx when you want to run a package once or avoid installing it globally. Use npm when you need to install dependencies for repeated use.
 
 ## Evolution of NPM and Package Management
 
