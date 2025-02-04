@@ -79,6 +79,11 @@ NPM 5 (released in 2017) brought several much-needed features to improve its per
 2. **Faster install times**: NPM’s caching mechanism was improved, making installations faster.
 3. **Automatic package installation**: npm install now automatically installs dependencies listed in package.json.
 
+### npx 
+
+npx is a package runner that comes with Node.js (since version 5.2.0 of npm). It allows you to run Node.js executables from npm packages without globally installing them.
+
+Use npx when you want to run a package once or avoid installing it globally. Use npm when you need to install dependencies for repeated use.
 
 ## Evolution of NPM and Package Management
 
@@ -110,3 +115,41 @@ The Node.js ecosystem is constantly evolving, and package management tools are a
 - **Better performance**: Faster installs, better caching, and more efficient disk usage are always a focus for package managers.
 - **Security**: Package managers are increasingly focused on security audits (e.g., npm audit) to identify vulnerabilities in dependencies.
 - **Monorepos and Workspaces**: As organizations build larger and more complex applications, the need for managing multiple packages in a single repository has driven the development of workspace features in NPM, Yarn, and PNPM.
+
+
+## Problems in npm
+
+### What Are Peer Dependencies?
+
+Peer dependencies in npm are packages that a module expects the consumer (your project) to provide. They are commonly used in plugins, libraries, or frameworks that require a specific version of another package to function properly.
+
+Imagine you are developing a React component library that requires React, but you don’t want to install React inside your library because the consuming project should already have it.
+
+### how to resolve peer dependency issues
+
+1. **The --legacy-peer-deps Flag**
+
+The --legacy-peer-deps flag tells npm to ignore peer dependency conflicts and install the dependencies as they were handled in older npm versions (prior to npm 7). This approach doesn’t strictly enforce peer dependency resolutions, which can help avoid installation failures while preserving the overall integrity of the dependency tree.
+
+Use it when
+
+- You are working with older packages that have not updated their peer dependency requirements.
+- You want to avoid breaking changes while maintaining some level of dependency integrity.
+- You’re installing a specific package, and peer dependency warnings are blocking the installation.
+
+2. **The --force Flag**
+
+The --force flag in npm does exactly what it sounds like: it forces npm to install the package, overriding any conflicts, including peer dependency and version mismatches. While this might seem like a quick fix, it comes with significant risks.
+
+Use it when 
+
+- You have no other option, and you understand the risks.
+- You’re working in a temporary environment, such as debugging or testing.
+- You plan to immediately address the root cause of the dependency conflict.
+
+
+
+
+
+
+
