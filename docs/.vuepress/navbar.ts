@@ -15,7 +15,7 @@ export const navbar = defineNavbarConfig([
 			},
 			{
 				text: "Problems",
-				link: "/notes/problem/",
+				link: "/notes/pit/",
 			},
 			{
 				text: "Researchs",

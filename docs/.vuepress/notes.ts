@@ -48,7 +48,7 @@ const learnNote = defineNoteConfig({
 		},
 		{
 			text: "Build Tools",
-			prefix: "/notes/learn/buildTools/",
+			prefix: "/notes/learn/build/",
 			items: "auto",
 			collapsed: true,
 		},
