@@ -62,21 +62,61 @@ Prompt engineering is essential because LLMs are highly sensitive to the phrasin
 
 ### ==Be Explicit and Specific==
 
+Vague prompts lead to ambiguous or irrelevant responses. Clear, specific instructions guide the model toward the desired output.
+
 ### ==Use Examples (Few-Shot Learning)==
+
+Providing examples helps the model understand the desired format, style, or structure.
 
 ### ==Chain of Thought (CoT) Prompting==
 
+Encouraging step-by-step reasoning improves the model's ability to solve complex problems.
+
 ### ==Role-Playing==
+
+Assigning a role to the AI helps tailor the tone, depth, and perspective of the response.
 
 ### ==Iterative Refinement==
 
+Rarely does the first prompt yield perfect results. Refine prompts based on outputs.
+
 ### ==Use Constraints==
+
+Constraints (e.g., word limits, formats) help focus the model's output.
+
+### ==Break Down Complex Tasks==
+
+Dividing a complex task into smaller, manageable steps improves accuracy.
+
+### ==Incorporate Context==
+
+Providing background information ensures the model understands the scenario.
+
+### ==Experiment with Temperature and Sampling Parameters==
+
+Adjusting parameters like temperature (randomness) and top-p (nucleus sampling) can influence creativity vs. determinism.
+
+### ==Use Templates for Consistency==
+
+Templates standardize prompts for recurring tasks, saving time and improving consistency.
+
+**Example**:
+- Template: "Explain [concept] in simple terms for a [audience]."
+- Application: "Explain quantum computing in simple terms for a high school student.
+
 
 ## Advanced Prompt Engineering Strategies
 
 ### ==Prompt Chaining==
 
+Encouraging step-by-step reasoning improves the model's ability to solve complex problems.
+
 ### ==Meta-Prompts==
+
+Asking the model to improve its own prompts can yield better results.
+
+**Example**:
+- "I need a prompt to generate a list of healthy breakfast ideas. Can you help me refine this prompt for better results?"
 
 ### ==System Messages==
 
