@@ -11,140 +11,239 @@ tags:
 description: 
 ---
 
+## What is Nginx?
 
-## 为什么要装Nginx
+NGINX (pronounced "Engine-X") is a high-performance web server, reverse proxy server, load balancer, and HTTP cache. It is widely used for serving static content, handling traffic routing, and distributing load across multiple servers. Originally developed by Igor Sysoev in 2004, NGINX was designed to address the C10K problem (handling 10,000 concurrent connections), and over time, it has become one of the most popular web servers in the world.
 
-### Nginx 是什么？
+## NGINX Use Cases
 
-**NGINX**（发音为"Engine-X"）是一款高性能的开源Web服务器软件，也可以作为反向代理服务器、负载均衡器和HTTP 缓存。NGINX 的主要特点包括：
+### Web Server
 
-1.  **高并发和高性能**
-    
-    * NGINX 采用事件驱动模型，与传统的基于线程或进程的模型不同，这使得它能够高效处理大量的并发连接，适用于高流量网站。
-    * 它能处理数以万计的并发连接，而不会占用过多的资源。
-2.  **反向代理与负载均衡**
-    
-    * 除了作为 Web 服务器，NGINX 还被广泛用于反向代理和负载均衡。
-1.  **缓存功能**
-    
-    * NGINX 具有强大的缓存机制，能够减少对后端服务器的请求，从而提升系统的性能。
-2.  **支持静态文件和动态内容**
-    
-    * NGINX 可以处理静态内容（如HTML、图片、视频）以及通过 FastCGI、uWSGI 等接口处理动态内容。
+NGINX can serve static files like HTML, CSS, JavaScript, images, etc., with high performance.
 
-### 反向代理是什么？
+### Reverse Proxy
 
-**反向代理**, 是指客户端（如浏览器）通过代理服务器访问其他服务器资源的过程。与正向代理不同，正向代理是代理客户端的请求，而反向代理则是代理服务器的请求。具体来说：
+It forwards client requests to other backend servers (e.g., application servers, databases)
 
-* **正向代理**：客户端通过代理服务器去访问外部资源。客户端知道代理服务器的存在，代理服务器代表客户端向外部资源发出请求，响应再返回给客户端。比如，有些公司内网会通过正向代理访问互联网。
+### Load Balancer
 
-* **反向代理**：客户端并不知道代理服务器的存在。客户端的请求被发送到反向代理服务器，然后反向代理服务器再转发请求到实际的后端服务器，并将响应返回给客户端。客户端以为它直接与后端服务器交互，但实际上是与反向代理服务器交互。
+NGINX can distribute incoming traffic across multiple backend servers to ensure high availability and scalability.
 
-**反向代理的工作流程**：
-1. 客户端发起请求：客户端（如浏览器）向某个域名发送请求。
-2. 反向代理接收到请求：请求首先到达反向代理服务器。反向代理服务器充当中介，将请求转发给真实的后端服务器。
-3. 后端服务器处理请求：后端服务器处理请求并生成响应。
-4. 反向代理转发响应：反向代理将后端服务器的响应返回给客户端。
+### API Gateway
 
-**反向代理的优点**：
+Acts as an intermediary between clients and backend services, often used for handling RESTful APIs.
 
-1. 负载均衡：
+### Content Caching
 
-    反向代理可以将来自客户端的请求分配到多个后端服务器上，从而平衡各个服务器的负载，提高系统的可扩展性和可靠性。
+NGINX can cache content from a backend server, improving response times and reducing the load on backend systems.
 
-2. 提高安全性：
+### SSL/TLS Termination
 
-    反向代理可以隐藏内部服务器的细节和网络架构，防止客户端直接访问后端服务器，提高系统的安全性。
+Handles encrypted traffic by terminating SSL/TLS connections at the proxy level, allowing for better security management and performance.
 
-3. SSL/TLS 终止：
+### HTTP/2 Support
 
-    反向代理服务器可以承担加密/解密（SSL/TLS 终止），从而减少后端服务器的负担。
+NGINX supports the HTTP/2 protocol, which allows for better performance by reducing latency. It achieves this through multiplexing multiple requests over a single connection, reducing the overhead of opening multiple TCP connections.
 
-4. 缓存：
+### WebSocket Support
 
-    反向代理可以缓存常用的请求响应，减少对后端服务器的访问，提升系统性能。
+NGINX supports WebSockets, allowing for full-duplex communication between the client and the server, which is essential for real-time applications (e.g., chat apps, online games, and stock tickers).
 
-5. 统一入口：
+### Microservices Support
 
-    通过反向代理，可以将多个后端服务统一暴露为一个入口，简化客户端访问路径。
+NGINX is often used in microservices architectures as an API gateway. It can route traffic to different services, handle authentication, and perform other intermediary tasks like rate limiting and logging.
+
+### Rate Limiting and Access Control
+
+NGINX provides mechanisms for controlling the rate of requests, which can protect backend servers from abuse or DoS (Denial of Service) attacks.
+
+Access control features allow NGINX to restrict access to specific resources based on IP addresses, geographic location, or other factors.
+
+### Logging and Monitoring
+
+NGINX provides detailed access logs and error logs, which can be used for monitoring traffic patterns, debugging issues, and optimizing performance.
+
+Tools like Prometheus, Grafana, and ELK stack (Elasticsearch, Logstash, and Kibana) can be used to gather and visualize NGINX metrics for performance monitoring and troubleshooting.
 
 
-## 安装nginx
+## NGINX vs Apache
 
-安装Nginx之前，先安装一些依赖。
+While both NGINX and Apache are popular web servers, they have distinct differences that make them suitable for different use cases
 
-- 步骤1. 安装gcc g++的依赖库
+1. **Architecture**
+
+NGINX uses an event-driven architecture, whereas Apache uses a process-based model (forking new processes for each request). This makes NGINX much more scalable for handling concurrent requests.
+
+2. **Performance**
+
+NGINX is known for its high performance and ability to handle many concurrent connections efficiently. Apache may struggle with performance under heavy traffic, especially when dealing with large numbers of simultaneous requests.
+
+3. **Flexibility**
+
+Apache provides more flexibility in handling dynamic content (via mod_php or mod_python), whereas NGINX is better suited for static content and reverse proxy use cases.
+
+4. **Configuration**
+
+NGINX configuration files are generally simpler and more concise than Apache’s, which tends to use .htaccess files and more complex configurations.
+
+##  Key Files
+
+### /etc/nginx/
+
+The /etc/nginx/ directory is the default configuration root for the NGINX server.Within this directory you will find configuration files that instruct NGINX on
+how to behave.
+
+### /etc/nginx/nginx.conf
+
+The /etc/nginx/nginx.conf file is the default configuration entry point used by the NGINX service. This configuration file sets up global settings for things like worker processes, tuning, logging, loading dynamic modules, and references to other NGINX configuration files. In a default configuration, the /etc/nginx/ nginx.conf file includes the top-level http block, or context, which includes all configuration files in the directory described next.
+
+### /etc/nginx/conf.d/
+
+The /etc/nginx/conf.d/ directory contains the default HTTP server configuration file. Files in this directory ending in .conf are included in the top-level
+http block from within the /etc/nginx/nginx.conf file. It’s best practice to utilize include statements and organize your configuration in this way to keep
+your configuration files concise. In some package repositories, this folder is named sites-enabled, and configuration files are linked from a folder named
+site-available; this convention is deprecated.
+
+### /var/log/nginx/
+
+The /var/log/nginx/ directory is the default log location for NGINX. Within this directory you will find an access.log file and an error.log file. The access log contains an entry for each request NGINX serves. The error logfile contains error events and debug information if the debug module is enabled.
+
+## NGINX commands
 
 ```shell
-sudo apt-get install build-essential
-sudo apt-get install libtool
+nginx -h #Shows the NGINX help menu.
+nginx -v #Shows the NGINX version.
+nginx -V #Shows the NGINX version, build information, and configuration arguments, which show the modules built into the NGINX binary.
+nginx -t #Tests the NGINX configuration.
+nginx -T #Tests the NGINX configuration and prints the validated configuration to the screen. This command is useful when seeking support.
+nginx -s signal  #The -s flag sends a signal to the NGINX master process. You can send signals such as stop, quit, reload, and reopen. The stop signal discontinues the NGINX process immediately. The quit signal stops the NGINX process after it finishes processing in-flight requests. The reload signal reloads the NGINX to achieve a graceful reload of the configuration without stopping the server. The reopen signal instructs NGINX to reopen logfiles.
 ```
 
-- 步骤2. 安装pcre依赖库
 
-```shell
-sudo apt-get update
-sudo apt-get install libpcre3 libpcre3-dev
-```
+## Serving Static Content
 
-- 步骤3. 安装zlib依赖库
+### server {...}
 
-```shell
-apt-get install zlib1g-dev
-```
-
-- 步骤4. 安装ssl依赖库
-
-```shell
-apt-get install openssl
-```
-
-- 步骤5. 安装Nginx
-
-```shell
-sudo apt-get install nginx
-```
-
-## nginx常用命令
-
-```shell
-sudo systemctl start nginx  # 启动nginx
-sudo systemctl stop nginx   # 停用nginx
-sudo systemctl restart nginx  # 重启nginx
-sudo systemctl reload nginx   # 修改配置后，重新加载配置，不重启服务
-sudo systemctl status nginx   # 查看nginx运行状态
-sudo nginx -t    #检查配置文件是否正常
-sudo systemctl enable nginx  # 设置开机启动
-```
-
-## 配置静态站点
-
-修改/etc/nginx/sites-available/default文件，可以配置可用站点
-
-
-
-## 配置SSL证书
-
-
-* 步骤1. 申请证书，并下载
-* 步骤2. 在nginx配置目录下，创建放置证书的目录。比如/etc/nginx/ssl
-* 步骤3. 将证书放置在上述目录下
-* 步骤4. 在nginx配置文件里，添加如下配置
+The server block is the basic building block in NGINX configuration, where you define how NGINX should respond to HTTP requests for specific domains or IPs.
 
 ```nginx
-#...
-#...
 server {
-    listen 443 ssl;
-    server_name www.nginxdocs.com;
-
-    ssl_certificate /etc/nginx/ssl/nginxdocs.crt;
-    ssl_certificate_key /etc/nginx/ssl/nginxdocs.key;
-
+    listen 80 default_server; 
+    server_name www.example.com;
     location / {
         root /usr/share/nginx/html;
+        # alias /usr/share/nginx/html;
         index index.html index.htm;
     }
 }
 ```
+- If a request comes to this server for **www.example.com**, this block will process the request.
+- You could add multiple domain names or subdomains here, separated by spaces. For example, server_name www.example.com example.com; would handle both www.example.com and example.com
+- The location block is used to define how to handle specific URL paths (or URI) that are part of the request. The / means "the root" or the main path, and the configuration inside this block applies to all requests to the root of the server or domain.
+- When a user visits http://www.example.com, NGINX will serve the content from the directory specified here: /usr/share/nginx/html. For example, if someone visits http://www.example.com/index.html, NGINX will look for the file /usr/share/nginx/html/index.html and serve it.
+- **alias** is typically used when you want to map a different directory structure to the requested URL.For example, if /usr/share/nginx/html contained subdirectories like /images and /css, the alias directive would be useful to map those paths directly.
+- **index index.html index.htm** directive specifies which files to look for as the default index file in a directory.
 
+### alias usage
+
+```nginx
+server {
+    listen 80;
+    server_name www.example.com;
+
+    # Root location for general web content (HTML, JS, etc.)
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+    }
+
+    # Serve images from /var/www/images when the URL starts with /images/
+    location /images/ {
+        alias /var/www/images/;
+    }
+
+    # Serve CSS files from /var/www/css when the URL starts with /css/
+    location /css/ {
+        alias /var/www/css/;
+    }
+
+    # Handle other types of content (e.g., JavaScript, etc.)
+    location /js/ {
+        alias /var/www/js/;
+    }
+
+    # Error page customization
+    error_page 404 /404.html;
+    location = /404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+}
+```
+
+## High-Performance Load Balancing
+
+- Load balancing aims to improve performance and availability.
+- It enables horizontal scaling by distributing traffic across multiple servers.
+- A dynamic load-balancing solution is needed for different infrastructures, including HTTP, TCP, and UDP load balancing
+
+### HTTP Load Balancing
+
+You need to distribute load between two or more HTTP servers. Use NGINX’s HTTP module to load balance over HTTP servers using the **upstream block**.
+
+```nginx
+upstream backend {
+    server 10.10.12.45:80 weight=1;
+    server app.example.com:80 weight=2;
+    server spare.example.com:80 backup;
+}
+server {
+    location / {
+        proxy_pass http://backend;
+    }
+}
+```
+This configuration balances load across two HTTP servers on port 80, and defines one as a backup, which is used when the primary two are unavailable. The **weight** parameter instructs NGINX to pass twice as many requests to the second server, and the weight parameter defaults to 1.
+
+
+### TCP Load Balancing
+
+You need to distribute load between two or more TCP servers. 
+- Many database systems, such as MySQL or PostgreSQL, use TCP connections to handle queries.
+- Applications like chat services use TCP servers to manage live messaging.
+- Online multiplayer games use TCP or UDP servers to maintain player state and game synchronization.
+
+**TCP Server vs. UDP Server**
+
+- **TCP**: Reliable, connection-oriented, ordered, error-checked delivery of data. Great for applications that require data integrity and order (like HTTP, FTP, etc.).
+- **UDP**: Unreliable, connectionless, no guarantee of order or delivery. Used in real-time applications where speed is more important than reliability (e.g., video streaming, DNS queries, gaming).
+- **HTTP**: An HTTP server is a specialized type of TCP server that follows the HTTP (Hypertext Transfer Protocol), which is an application-layer protocol (Layer 7 in the OSI model). HTTP is used primarily for web communication, allowing clients (typically web browsers) to request resources like web pages, images, and data from the server.
+
+Use NGINX’s stream module to load balance over TCP servers using the upstream block
+```nginx
+stream {
+    upstream mysql_read {
+        server read1.example.com:3306 weight=5;
+        server read2.example.com:3306;
+        server 10.10.12.34:3306 backup;
+    }
+    server {
+        listen 3306;
+        proxy_pass mysql_read;
+    }
+}
+```
+
+### UDP Load Balancing
+```nginx
+stream {
+    upstream ntp {
+        server ntp1.example.com:123 weight=2;
+        server ntp2.example.com:123;
+    }
+    server {
+        listen 123 udp;
+        proxy_pass ntp;
+    }
+}
+```
