@@ -7,7 +7,7 @@ import fs from "fs-extra";
 export default defineUserConfig({
 	base: "/",
 	lang: "en-US",
-	title: "Technically seasoned Jack",
+	title: "Seasoned Jack",
 	description: "",
 
 	head: [
