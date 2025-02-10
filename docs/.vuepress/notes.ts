@@ -53,6 +53,12 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
+			text: "SEO",
+			prefix: "/notes/learn/seo/",
+			items: "auto",
+			collapsed: true,
+		},
+		{
 			text: "AI",
 			prefix: "/notes/learn/ai/",
 			items: "auto",
@@ -95,7 +101,7 @@ const pitNote = defineNoteConfig({
 const researchNote = defineNoteConfig({
 	dir: "Research",
 	link: "/research",
-	sidebar: [{ text: "Evers", items: "auto" }],
+	sidebar: [{ text: "Evers", items: [] }],
 });
 
 export const notes = defineNotesConfig({

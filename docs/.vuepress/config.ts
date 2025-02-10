@@ -7,13 +7,19 @@ import fs from "fs-extra";
 export default defineUserConfig({
 	base: "/",
 	lang: "en-US",
-	title: "It's Jack",
+	title: "Technically seasoned Jack",
 	description: "",
 
 	head: [
 		["link", { rel: "icon", href: "/favicon.ico" }],
 		["meta", { name: "author", content: "Jack" }],
-		["meta", { name: "keywords", content: "vuepress, theme, plume" }],
+		[
+			"meta",
+			{
+				name: "keywords",
+				content: "Javascript, React, Vue, Front, Web, WebAssembly, GraphQL",
+			},
+		],
 	],
 
 	bundler: viteBundler(),
@@ -34,7 +40,7 @@ export default defineUserConfig({
 
 	theme: plumeTheme({
 		/* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-		// hostname: 'https://your_site_url',
+		hostname: "https://duduainy.top",
 
 		/* 文档仓库配置，用于 editLink */
 		docsRepo: "https://github.com/meishenlieshou/note",
