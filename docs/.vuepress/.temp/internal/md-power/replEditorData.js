@@ -234,7 +234,7 @@ export default {
                       "name": "variable.parameter.kotlin"
                     }
                   },
-                  "match": "{(@link)\\s+(\\S+)?#([\\w$]+\\s*\\([^()]*\\)).*}"
+                  "match": "{(@link)\\s+(\\S+)?#([\\w$]+\\s*\\([^\\(\\)]*\\)).*}"
                 }
               ]
             }
@@ -393,7 +393,7 @@ export default {
         "operators": {
           "patterns": [
             {
-              "match": "(===?|!==?|<=|>=|<|>)",
+              "match": "(===?|\\!==?|<=|>=|<|>)",
               "name": "keyword.operator.comparison.kotlin"
             },
             {
@@ -611,8 +611,7 @@ export default {
               ]
             }
           },
-          "comment": "After control variables, to not highlight as a struct/interface (before formatting with gofmt)",
-          "match": "(?:(?<=\\brange\\b|\\bswitch\\b|\\;|\\bif\\b|\\bfor\\b|<|>|<=|>=|==|!=|\\w(?:\\+|/|-|\\*|\\%)|\\w(?:\\+|/|-|\\*|\\%)=|\\|\\||\\&\\&)(?:\\s*)((?![\\[\\]]+)[0-9A-Za-z\\-_!\\.\\[\\]<>=\\*/+\\%:]+)(?:\\s*)(?=\\{))"
+          "match": "(?:(?<=\\brange\\b|\\bswitch\\b|\\;|\\bif\\b|\\bfor\\b|\\<|\\>|\\<\\=|\\>\\=|\\=\\=|\\!\\=|\\w(?:\\+|/|\\-|\\*|\\%)|\\w(?:\\+|/|\\-|\\*|\\%)\\=|\\|\\||\\&\\&)(?:\\s*)((?![\\[\\]]+)[[:alnum:]\\-\\_\\!\\.\\[\\]\\<\\>\\=\\*/\\+\\%\\:]+)(?:\\s*)(?=\\{))"
         },
         "brackets": {
           "patterns": [
@@ -676,7 +675,6 @@ export default {
           ]
         },
         "built_in_functions": {
-          "comment": "Built-in functions",
           "patterns": [
             {
               "match": "\\b(append|cap|close|complex|copy|delete|imag|len|panic|print|println|real|recover|min|max|clear)\\b(?=\\()",
@@ -692,7 +690,6 @@ export default {
                   "name": "punctuation.definition.begin.bracket.round.go"
                 }
               },
-              "comment": "new keyword",
               "end": "\\)",
               "endCaptures": {
                 "0": {
@@ -722,7 +719,7 @@ export default {
               ]
             },
             {
-              "begin": "(?:(\\bmake\\b)(?:(\\()((?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+(?:\\([^)]+\\))?)?(?:[\\[\\]\\*]+)?(?:(?!\\bmap\\b)(?:[\\w\\.]+))?(\\[(?:(?:[\\S]+)(?:(?:\\,\\s*(?:[\\S]+))*))?\\])?(?:\\,)?)?))",
+              "begin": "(?:(\\bmake\\b)(?:(\\()((?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+(?:\\([^\\)]+\\))?)?(?:[\\[\\]\\*]+)?(?:(?!\\bmap\\b)(?:[\\w\\.]+))?(\\[(?:(?:[\\S]+)(?:(?:\\,\\s*(?:[\\S]+))*))?\\])?(?:\\,)?)?))",
               "beginCaptures": {
                 "1": {
                   "name": "entity.name.function.support.builtin.go"
@@ -745,7 +742,6 @@ export default {
                   ]
                 }
               },
-              "comment": "make keyword",
               "end": "\\)",
               "endCaptures": {
                 "0": {
@@ -790,7 +786,6 @@ export default {
           ]
         },
         "const_assignment": {
-          "comment": "constant assignment with const keyword",
           "patterns": [
             {
               "captures": {
@@ -836,8 +831,7 @@ export default {
                   ]
                 }
               },
-              "comment": "single assignment",
-              "match": "(?:(?<=\\bconst\\b)(?:\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+(?:\\([^)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:=)?)?)"
+              "match": "(?:(?<=\\bconst\\b)(?:\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+(?:\\([^\\)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:\\=)?)?)"
             },
             {
               "begin": "(?:(?<=\\bconst\\b)(?:\\s*)(\\())",
@@ -846,7 +840,6 @@ export default {
                   "name": "punctuation.definition.begin.bracket.round.go"
                 }
               },
-              "comment": "multi assignment",
               "end": "\\)",
               "endCaptures": {
                 "0": {
@@ -898,7 +891,7 @@ export default {
                       ]
                     }
                   },
-                  "match": "(?:(?:^\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+(?:\\([^)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:=)?)?)"
+                  "match": "(?:(?:^\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+(?:\\([^\\)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:\\=)?)?)"
                 },
                 {
                   "include": "$self"
@@ -953,7 +946,6 @@ export default {
               ]
             }
           },
-          "comment": "double parentheses types",
           "match": "(?:(?<!\\w)(\\((?:[\\w\\.\\[\\]\\*\\&]+)\\))(?=\\())"
         },
         "field_hover": {
@@ -988,11 +980,10 @@ export default {
               ]
             }
           },
-          "comment": "struct field property and types when hovering with the mouse",
           "match": "(?:(?<=^\\bfield\\b)\\s+([\\w\\*\\.]+)\\s+([\\s\\S]+))"
         },
         "function_declaration": {
-          "begin": "(?:^(\\bfunc\\b)(?:\\s*(\\([^)]+\\)\\s*)?(?:(\\w+)(?=\\(|\\[))?))",
+          "begin": "(?:^(\\bfunc\\b)(?:\\s*(\\([^\\)]+\\)\\s*)?(?:(\\w+)(?=\\(|\\[))?))",
           "beginCaptures": {
             "1": {
               "name": "keyword.function.go"
@@ -1055,8 +1046,7 @@ export default {
               ]
             }
           },
-          "comment": "Function declarations",
-          "end": "(?:(?<=\\))\\s*((?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?!(?:[\\[\\]\\*]+)?(?:\\bstruct\\b|\\binterface\\b))[\\w\\.\\-\\*\\[\\]]+)?\\s*(?=\\{))",
+          "end": "(?:(?<=\\))\\s*((?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?!(?:[\\[\\]\\*]+)?(?:\\bstruct\\b|\\binterface\\b))[\\w\\.\\-\\*\\[\\]]+)?\\s*(?=\\{))",
           "endCaptures": {
             "1": {
               "patterns": [
@@ -1140,8 +1130,7 @@ export default {
                   ]
                 }
               },
-              "comment": "single function as a type returned type(s) declaration",
-              "match": "(?:(?<=\\))(?:\\s*)((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?[\\w\\*\\.\\[\\]<>\\-]+(?:\\s*)(?:\\/(?:\\/|\\*).*)?)$)"
+              "match": "(?:(?<=\\))(?:\\s*)((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?[\\w\\*\\.\\[\\]\\<\\>\\-]+(?:\\s*)(?:\\/(?:\\/|\\*).*)?)$)"
             },
             {
               "include": "$self"
@@ -1149,7 +1138,6 @@ export default {
           ]
         },
         "function_param_types": {
-          "comment": "function parameter variables and types",
           "patterns": [
             {
               "include": "#struct_variables_types"
@@ -1174,8 +1162,7 @@ export default {
                   ]
                 }
               },
-              "comment": "struct/interface type declaration",
-              "match": "((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)\\s+(?=(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:[\\[\\]\\*]+)?\\b(?:struct|interface)\\b\\s*\\{)"
+              "match": "((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)\\s+(?=(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\[\\]\\*]+)?\\b(?:struct|interface)\\b\\s*\\{)"
             },
             {
               "captures": {
@@ -1191,7 +1178,6 @@ export default {
                   ]
                 }
               },
-              "comment": "multiple parameters one type -with multilines",
               "match": "(?:(?:(?<=\\()|^\\s*)((?:(?:\\b\\w+\\,\\s*)+)(?:/(?:/|\\*).*)?)$)"
             },
             {
@@ -1222,8 +1208,7 @@ export default {
                   ]
                 }
               },
-              "comment": "multiple params and types | multiple params one type | one param one type",
-              "match": "(?:((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)(?:\\s+)((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:(?:(?:[\\w\\[\\]\\.\\*]+)?(?:(?:\\bfunc\\b\\((?:[^)]+)?\\))(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:\\s*))+(?:(?:(?:[\\w\\*\\.\\[\\]]+)|(?:\\((?:[^)]+)?\\))))?)|(?:(?:[\\[\\]\\*]+)?[\\w\\*\\.]+(?:\\[(?:[^\\]]+)\\])?(?:[\\w\\.\\*]+)?)+)))"
+              "match": "(?:((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)(?:\\s+)((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:(?:(?:[\\w\\[\\]\\.\\*]+)?(?:(?:\\bfunc\\b\\((?:[^\\)]+)?\\))(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:\\s*))+(?:(?:(?:[\\w\\*\\.\\[\\]]+)|(?:\\((?:[^\\)]+)?\\))))?)|(?:(?:[\\[\\]\\*]+)?[\\w\\*\\.]+(?:\\[(?:[^\\]]+)\\])?(?:[\\w\\.\\*]+)?)+)))"
             },
             {
               "begin": "(?:([\\w\\.\\*]+)?(\\[))",
@@ -1288,7 +1273,6 @@ export default {
                   ]
                 }
               },
-              "comment": "other types",
               "match": "([\\w\\.]+)"
             },
             {
@@ -1303,8 +1287,7 @@ export default {
               "name": "keyword.function.go"
             }
           },
-          "comment": "Functions",
-          "end": "(?:(?<=\\))(\\s*(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?((?:(?:\\s*(?:(?:[\\[\\]\\*]+)?[\\w\\.\\*]+)?(?:(?:\\[(?:(?:[\\w\\.\\*]+)?(?:\\[(?:[^\\]]+)?\\])?(?:\\,\\s+)?)+\\])|(?:\\((?:[^)]+)?\\)))?(?:[\\w\\.\\*]+)?)(?:\\s*)(?=\\{))|(?:\\s*(?:(?:(?:[\\[\\]\\*]+)?(?!\\bfunc\\b)(?:[\\w\\.\\*]+)(?:\\[(?:(?:[\\w\\.\\*]+)?(?:\\[(?:[^\\]]+)?\\])?(?:\\,\\s+)?)+\\])?(?:[\\w\\.\\*]+)?)|(?:\\((?:[^)]+)?\\)))))?)",
+          "end": "(?:(?<=\\))(\\s*(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?((?:(?:\\s*(?:(?:[\\[\\]\\*]+)?[\\w\\.\\*]+)?(?:(?:\\[(?:(?:[\\w\\.\\*]+)?(?:\\[(?:[^\\]]+)?\\])?(?:\\,\\s+)?)+\\])|(?:\\((?:[^\\)]+)?\\)))?(?:[\\w\\.\\*]+)?)(?:\\s*)(?=\\{))|(?:\\s*(?:(?:(?:[\\[\\]\\*]+)?(?!\\bfunc\\b)(?:[\\w\\.\\*]+)(?:\\[(?:(?:[\\w\\.\\*]+)?(?:\\[(?:[^\\]]+)?\\])?(?:\\,\\s+)?)+\\])?(?:[\\w\\.\\*]+)?)|(?:\\((?:[^\\)]+)?\\)))))?)",
           "endCaptures": {
             "1": {
               "patterns": [
@@ -1389,11 +1372,9 @@ export default {
               ]
             }
           },
-          "comment": "functions in-line with multi return types",
           "match": "(?:(\\bfunc\\b)((?:\\((?:[^/]*?)\\))(?:\\s+)(?:\\((?:[^/]*?)\\)))(?:\\s+)(?=\\{))"
         },
         "generic_param_types": {
-          "comment": "generic parameter variables and types",
           "patterns": [
             {
               "include": "#struct_variables_types"
@@ -1418,8 +1399,7 @@ export default {
                   ]
                 }
               },
-              "comment": "struct/interface type declaration",
-              "match": "((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)\\s+(?=(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:[\\[\\]\\*]+)?\\b(?:struct|interface)\\b\\s*\\{)"
+              "match": "((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)\\s+(?=(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\[\\]\\*]+)?\\b(?:struct|interface)\\b\\s*\\{)"
             },
             {
               "captures": {
@@ -1435,7 +1415,6 @@ export default {
                   ]
                 }
               },
-              "comment": "multiple parameters one type -with multilines",
               "match": "(?:(?:(?<=\\()|^\\s*)((?:(?:\\b\\w+\\,\\s*)+)(?:/(?:/|\\*).*)?)$)"
             },
             {
@@ -1477,8 +1456,7 @@ export default {
                   ]
                 }
               },
-              "comment": "multiple params and types | multiple types one param",
-              "match": "(?:((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)(?:\\s+)((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:(?:(?:[\\w\\[\\]\\.\\*]+)?(?:(?:\\bfunc\\b\\((?:[^)]+)?\\))(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:\\s*))+(?:(?:(?:[\\w\\*\\.]+)|(?:\\((?:[^)]+)?\\))))?)|(?:(?:(?:[\\w\\*\\.\\~]+)|(?:\\[(?:(?:[\\w\\.\\*]+)?(?:\\[(?:[^\\]]+)?\\])?(?:\\,\\s+)?)+\\]))(?:[\\w\\.\\*]+)?)+)))"
+              "match": "(?:((?:(?:\\b\\w+\\,\\s*)+)?\\b\\w+)(?:\\s+)((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:(?:(?:[\\w\\[\\]\\.\\*]+)?(?:(?:\\bfunc\\b\\((?:[^\\)]+)?\\))(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:\\s*))+(?:(?:(?:[\\w\\*\\.]+)|(?:\\((?:[^\\)]+)?\\))))?)|(?:(?:(?:[\\w\\*\\.\\~]+)|(?:\\[(?:(?:[\\w\\.\\*]+)?(?:\\[(?:[^\\]]+)?\\])?(?:\\,\\s+)?)+\\]))(?:[\\w\\.\\*]+)?)+)))"
             },
             {
               "begin": "(?:([\\w\\.\\*]+)?(\\[))",
@@ -1543,7 +1521,6 @@ export default {
                   ]
                 }
               },
-              "comment": "other types",
               "match": "(?:\\b([\\w\\.]+))"
             },
             {
@@ -1572,11 +1549,9 @@ export default {
               ]
             }
           },
-          "comment": "Generic support for all types",
           "match": "(?:([\\w\\.\\*]+)(\\[(?:[^\\]]+)?\\]))"
         },
         "group-functions": {
-          "comment": "all statements related to functions",
           "patterns": [
             {
               "include": "#function_declaration"
@@ -1596,7 +1571,6 @@ export default {
           ]
         },
         "group-types": {
-          "comment": "all statements related to types",
           "patterns": [
             {
               "include": "#other_struct_interface_expressions"
@@ -1631,7 +1605,6 @@ export default {
           ]
         },
         "group-variables": {
-          "comment": "all statements related to variables",
           "patterns": [
             {
               "include": "#const_assignment"
@@ -1660,7 +1633,6 @@ export default {
           ]
         },
         "import": {
-          "comment": "import",
           "patterns": [
             {
               "begin": "\\b(import)\\s+",
@@ -1669,7 +1641,6 @@ export default {
                   "name": "keyword.control.import.go"
                 }
               },
-              "comment": "import",
               "end": "(?!\\G)",
               "patterns": [
                 {
@@ -1680,7 +1651,6 @@ export default {
           ]
         },
         "imports": {
-          "comment": "import package(s)",
           "patterns": [
             {
               "captures": {
@@ -1747,7 +1717,6 @@ export default {
               "name": "punctuation.definition.begin.bracket.curly.go"
             }
           },
-          "comment": "interface variable types",
           "end": "\\}",
           "endCaptures": {
             "0": {
@@ -1764,7 +1733,6 @@ export default {
           ]
         },
         "interface_variables_types_field": {
-          "comment": "interface variable type fields",
           "patterns": [
             {
               "include": "#support_functions"
@@ -1835,7 +1803,6 @@ export default {
                   ]
                 }
               },
-              "comment": "other types",
               "match": "([\\w\\.]+)"
             }
           ]
@@ -1843,7 +1810,6 @@ export default {
         "keywords": {
           "patterns": [
             {
-              "comment": "Flow control keywords",
               "match": "\\b(break|case|continue|default|defer|else|fallthrough|for|go|goto|if|range|return|select|switch)\\b",
               "name": "keyword.control.go"
             },
@@ -1899,7 +1865,6 @@ export default {
               ]
             }
           },
-          "comment": "labeled loop variable name",
           "match": "((?:^\\s*\\w+:\\s*$)|(?:^\\s*(?:\\bbreak\\b|\\bgoto\\b|\\bcontinue\\b)\\s+\\w+(?:\\s*/(?:/|\\*)\\s*.*)?$))"
         },
         "language_constants": {
@@ -1914,7 +1879,6 @@ export default {
               "name": "constant.language.iota.go"
             }
           },
-          "comment": "Language constants",
           "match": "\\b(?:(true|false)|(nil)|(iota))\\b"
         },
         "map_types": {
@@ -1927,8 +1891,7 @@ export default {
               "name": "punctuation.definition.begin.bracket.square.go"
             }
           },
-          "comment": "map types",
-          "end": "(?:(\\])((?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?!(?:[\\[\\]\\*]+)?\\b(?:func|struct|map)\\b)(?:[\\*\\[\\]]+)?(?:[\\w\\.]+)(?:\\[(?:(?:[\\w\\.\\*\\[\\]{}]+)(?:(?:\\,\\s*(?:[\\w\\.\\*\\[\\]{}]+))*))?\\])?)?)",
+          "end": "(?:(\\])((?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?!(?:[\\[\\]\\*]+)?\\b(?:func|struct|map)\\b)(?:[\\*\\[\\]]+)?(?:[\\w\\.]+)(?:\\[(?:(?:[\\w\\.\\*\\[\\]\\{\\}]+)(?:(?:\\,\\s*(?:[\\w\\.\\*\\[\\]\\{\\}]+))*))?\\])?)?)",
           "endCaptures": {
             "1": {
               "name": "punctuation.definition.end.bracket.square.go"
@@ -2003,7 +1966,6 @@ export default {
               "name": "punctuation.definition.begin.bracket.round.go"
             }
           },
-          "comment": "multi type declaration",
           "end": "\\)",
           "endCaptures": {
             "0": {
@@ -2283,7 +2245,7 @@ export default {
                           "name": "keyword.other.unit.imaginary.go"
                         }
                       },
-                      "match": "(?:(?:(?:(?:(?:\\G(?=[0-9.])(?!0[xXbBoO])(\\d(?:\\d|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)((?:(?<=\\d)\\.|\\.(?=\\d)))(\\d(?:\\d|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)?(?:(?<!_)([eE])(\\+?)(-?)((?:\\d(?:\\d|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)))?(i(?!\\w))?(?:\\n|$)|\\G(?=[0-9.])(?!0[xXbBoO])(\\d(?:\\d|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?<!_)([eE])(\\+?)(-?)((?:\\d(?:\\d|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))|\\G((?:(?<=\\d)\\.|\\.(?=\\d)))(\\d(?:\\d|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?:(?<!_)([eE])(\\+?)(-?)((?:\\d(?:\\d|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)))?(i(?!\\w))?(?:\\n|$))|(\\G0[xX])_?([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)((?:(?<=[0-9a-fA-F])\\.|\\.(?=[0-9a-fA-F])))([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)?(?<!_)([pP])(\\+?)(-?)((?:\\d(?:\\d|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))|(\\G0[xX])_?([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?<!_)([pP])(\\+?)(-?)((?:\\d(?:\\d|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))|(\\G0[xX])((?:(?<=[0-9a-fA-F])\\.|\\.(?=[0-9a-fA-F])))([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?<!_)([pP])(\\+?)(-?)((?:\\d(?:\\d|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))"
+                      "match": "(?:(?:(?:(?:(?:\\G(?=[0-9.])(?!0[xXbBoO])([0-9](?:[0-9]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)((?:(?<=[0-9])\\.|\\.(?=[0-9])))([0-9](?:[0-9]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)?(?:(?<!_)([eE])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)))?(i(?!\\w))?(?:\\n|$)|\\G(?=[0-9.])(?!0[xXbBoO])([0-9](?:[0-9]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?<!_)([eE])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))|\\G((?:(?<=[0-9])\\.|\\.(?=[0-9])))([0-9](?:[0-9]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?:(?<!_)([eE])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)))?(i(?!\\w))?(?:\\n|$))|(\\G0[xX])_?([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)((?:(?<=[0-9a-fA-F])\\.|\\.(?=[0-9a-fA-F])))([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)?(?<!_)([pP])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))|(\\G0[xX])_?([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?<!_)([pP])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))|(\\G0[xX])((?:(?<=[0-9a-fA-F])\\.|\\.(?=[0-9a-fA-F])))([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(?<!_)([pP])(\\+?)(\\-?)((?:[0-9](?:[0-9]|(?:(?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*))(i(?!\\w))?(?:\\n|$))"
                     },
                     {
                       "captures": {
@@ -2357,7 +2319,7 @@ export default {
                           "name": "keyword.other.unit.imaginary.go"
                         }
                       },
-                      "match": "(?:(?:(?:\\G(?=[0-9.])(?!0[xXbBoO])(\\d(?:\\d|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(i(?!\\w))?(?:\\n|$)|(\\G0[bB])_?([01](?:[01]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(i(?!\\w))?(?:\\n|$))|(\\G0[oO]?)_?((?:[0-7]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))+)(i(?!\\w))?(?:\\n|$))|(\\G0[xX])_?([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(i(?!\\w))?(?:\\n|$))"
+                      "match": "(?:(?:(?:\\G(?=[0-9.])(?!0[xXbBoO])([0-9](?:[0-9]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(i(?!\\w))?(?:\\n|$)|(\\G0[bB])_?([01](?:[01]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(i(?!\\w))?(?:\\n|$))|(\\G0[oO]?)_?((?:[0-7]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))+)(i(?!\\w))?(?:\\n|$))|(\\G0[xX])_?([0-9a-fA-F](?:[0-9a-fA-F]|((?<=[0-9a-fA-F])_(?=[0-9a-fA-F])))*)(i(?!\\w))?(?:\\n|$))"
                     },
                     {
                       "match": "(?:(?:[0-9a-zA-Z_\\.])|(?<=[eEpP])[+-])+",
@@ -2371,18 +2333,17 @@ export default {
           "match": "(?<!\\w)\\.?\\d(?:(?:[0-9a-zA-Z_\\.])|(?<=[eEpP])[+-])*"
         },
         "operators": {
-          "comment": "Note that the order here is very important!",
           "patterns": [
             {
-              "match": "((?:\\*|\\&)+)(?:(?!\\d)(?=(?:[\\w\\[\\]])|(?:<-)))",
+              "match": "((?:\\*|\\&)+)(?:(?!\\d)(?=(?:[\\w\\[\\]])|(?:\\<\\-)))",
               "name": "keyword.operator.address.go"
             },
             {
-              "match": "<-",
+              "match": "<\\-",
               "name": "keyword.operator.channel.go"
             },
             {
-              "match": "--",
+              "match": "\\-\\-",
               "name": "keyword.operator.decrement.go"
             },
             {
@@ -2398,11 +2359,11 @@ export default {
               "name": "keyword.operator.logical.go"
             },
             {
-              "match": "(=|\\+=|-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)",
+              "match": "(=|\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)",
               "name": "keyword.operator.assignment.go"
             },
             {
-              "match": "(\\+|-|\\*|/|%)",
+              "match": "(\\+|\\-|\\*|/|%)",
               "name": "keyword.operator.arithmetic.go"
             },
             {
@@ -2416,10 +2377,8 @@ export default {
           ]
         },
         "other_struct_interface_expressions": {
-          "comment": "struct and interface expression in-line (before curly bracket)",
           "patterns": [
             {
-              "comment": "after control variables must be added exactly here, do not move it! (changing may not affect tests, so be careful!)",
               "include": "#after_control_variables"
             },
             {
@@ -2471,7 +2430,6 @@ export default {
           ]
         },
         "other_variables": {
-          "comment": "all other variables",
           "match": "\\w+",
           "name": "variable.other.go"
         },
@@ -2484,7 +2442,6 @@ export default {
                   "name": "keyword.package.go"
                 }
               },
-              "comment": "package name",
               "end": "(?!\\G)",
               "patterns": [
                 {
@@ -2500,7 +2457,6 @@ export default {
           ]
         },
         "parameter-variable-types": {
-          "comment": "function and generic parameter types",
           "patterns": [
             {
               "match": "\\{",
@@ -2575,8 +2531,7 @@ export default {
               ]
             }
           },
-          "comment": "Property variables in struct",
-          "match": "((?:\\b[\\w\\.]+)(?::(?!=)))"
+          "match": "((?:\\b[\\w\\.]+)(?:\\:(?!\\=)))"
         },
         "raw_string_literals": {
           "begin": "`",
@@ -2585,7 +2540,6 @@ export default {
               "name": "punctuation.definition.string.begin.go"
             }
           },
-          "comment": "Raw string literals",
           "end": "`",
           "endCaptures": {
             "0": {
@@ -2683,8 +2637,7 @@ export default {
                   ]
                 }
               },
-              "comment": "single type declaration",
-              "match": "(?:(?:^\\s*)(\\btype\\b)(?:\\s*)([\\w\\.\\*]+)(?:\\s+)(?!(?:=\\s*)?(?:[\\[\\]\\*]+)?\\b(?:struct|interface)\\b)([\\s\\S]+))"
+              "match": "(?:(?:^\\s*)(\\btype\\b)(?:\\s*)([\\w\\.\\*]+)(?:\\s+)(?!(?:\\=\\s*)?(?:[\\[\\]\\*]+)?\\b(?:struct|interface)\\b)([\\s\\S]+))"
             },
             {
               "begin": "(?:(?:^|\\s+)(\\btype\\b)(?:\\s*)([\\w\\.\\*]+)(?=\\[))",
@@ -2704,8 +2657,7 @@ export default {
                   ]
                 }
               },
-              "comment": "single type declaration with generics",
-              "end": "(?:(?<=\\])((?:\\s+)(?:=\\s*)?(?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:(?!(?:[\\[\\]\\*]+)?(?:\\bstruct\\b|\\binterface\\b|\\bfunc\\b))[\\w\\.\\-\\*\\[\\]]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*))?)",
+              "end": "(?:(?<=\\])((?:\\s+)(?:\\=\\s*)?(?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:(?!(?:[\\[\\]\\*]+)?(?:\\bstruct\\b|\\binterface\\b|\\bfunc\\b))[\\w\\.\\-\\*\\[\\]]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*))?)",
               "endCaptures": {
                 "1": {
                   "patterns": [
@@ -2783,8 +2735,7 @@ export default {
               ]
             }
           },
-          "comment": "slice index and capacity variables, to not scope them as property variables",
-          "match": "(?<=\\w\\[)((?:(?:\\b[\\w\\.\\*+/\\-\\%<>\\|\\&]+:)|(?::\\b[\\w\\.\\*+/\\-\\%<>\\|\\&]+))(?:\\b[\\w\\.\\*+/\\-\\%<>\\|\\&]+)?(?::\\b[\\w\\.\\*+/\\-\\%<>\\|\\&]+)?)(?=\\])"
+          "match": "(?<=\\w\\[)((?:(?:\\b[\\w\\.\\*\\+/\\-\\%\\<\\>\\|\\&]+\\:)|(?:\\:\\b[\\w\\.\\*\\+/\\-\\%\\<\\>\\|\\&]+))(?:\\b[\\w\\.\\*\\+/\\-\\%\\<\\>\\|\\&]+)?(?:\\:\\b[\\w\\.\\*\\+/\\-\\%\\<\\>\\|\\&]+)?)(?=\\])"
         },
         "statements": {
           "patterns": [
@@ -2868,7 +2819,6 @@ export default {
                   "name": "punctuation.definition.string.begin.go"
                 }
               },
-              "comment": "Interpreted string literals",
               "end": "\"",
               "endCaptures": {
                 "0": {
@@ -2890,7 +2840,7 @@ export default {
         "string_placeholder": {
           "patterns": [
             {
-              "match": "%(\\[\\d+\\])?([+#\\-0\\x20]{,2}((\\d+|\\*)?(\\.?(\\d+|\\*|(\\[\\d+\\])\\*?)?(\\[\\d+\\])?)?))?[vT%tbcdoqxXUbeEfFgGspw]",
+              "match": "%(\\[\\d+\\])?([\\+#\\-0\\x20]{,2}((\\d+|\\*)?(\\.?(\\d+|\\*|(\\[\\d+\\])\\*?)?(\\[\\d+\\])?)?))?[vT%tbcdoqxXUbeEfFgGspw]",
               "name": "constant.other.placeholder.go"
             }
           ]
@@ -2912,14 +2862,12 @@ export default {
               ]
             }
           },
-          "comment": "struct, interface type declarations (related to: struct_variables_types, interface_variables_types)",
           "match": "(?:(?:^\\s*)(\\btype\\b)(?:\\s*)([\\w\\.]+))"
         },
         "struct_variable_types_fields_multi": {
-          "comment": "struct variable and type fields with multi lines",
           "patterns": [
             {
-              "begin": "(?:((?:\\w+(?:\\,\\s*\\w+)*)(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:\\s+)(?:[\\[\\]\\*]+)?)(\\bstruct\\b)(?:\\s*)(\\{))",
+              "begin": "(?:((?:\\w+(?:\\,\\s*\\w+)*)(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:\\s+)(?:[\\[\\]\\*]+)?)(\\bstruct\\b)(?:\\s*)(\\{))",
               "beginCaptures": {
                 "1": {
                   "patterns": [
@@ -2939,7 +2887,6 @@ export default {
                   "name": "punctuation.definition.begin.bracket.curly.go"
                 }
               },
-              "comment": "struct in struct types",
               "end": "\\}",
               "endCaptures": {
                 "0": {
@@ -2956,7 +2903,7 @@ export default {
               ]
             },
             {
-              "begin": "(?:((?:\\w+(?:\\,\\s*\\w+)*)(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:\\s+)(?:[\\[\\]\\*]+)?)(\\binterface\\b)(?:\\s*)(\\{))",
+              "begin": "(?:((?:\\w+(?:\\,\\s*\\w+)*)(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:\\s+)(?:[\\[\\]\\*]+)?)(\\binterface\\b)(?:\\s*)(\\{))",
               "beginCaptures": {
                 "1": {
                   "patterns": [
@@ -2976,7 +2923,6 @@ export default {
                   "name": "punctuation.definition.begin.bracket.curly.go"
                 }
               },
-              "comment": "interface in struct types",
               "end": "\\}",
               "endCaptures": {
                 "0": {
@@ -2993,7 +2939,7 @@ export default {
               ]
             },
             {
-              "begin": "(?:((?:\\w+(?:\\,\\s*\\w+)*)(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:\\s+)(?:[\\[\\]\\*]+)?)(\\bfunc\\b)(?:\\s*)(\\())",
+              "begin": "(?:((?:\\w+(?:\\,\\s*\\w+)*)(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:\\s+)(?:[\\[\\]\\*]+)?)(\\bfunc\\b)(?:\\s*)(\\())",
               "beginCaptures": {
                 "1": {
                   "patterns": [
@@ -3013,7 +2959,6 @@ export default {
                   "name": "punctuation.definition.begin.bracket.round.go"
                 }
               },
-              "comment": "function in struct types",
               "end": "\\)",
               "endCaptures": {
                 "0": {
@@ -3044,7 +2989,6 @@ export default {
               "name": "punctuation.definition.begin.bracket.curly.go"
             }
           },
-          "comment": "Struct variable type",
           "end": "\\}",
           "endCaptures": {
             "0": {
@@ -3061,7 +3005,6 @@ export default {
           ]
         },
         "struct_variables_types_fields": {
-          "comment": "Struct variable type fields",
           "patterns": [
             {
               "include": "#struct_variable_types_fields_multi"
@@ -3080,8 +3023,7 @@ export default {
                   ]
                 }
               },
-              "comment": "one line - single type",
-              "match": "(?:(?<=\\{)\\s*((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:[\\w\\.\\*\\[\\]]+))\\s*(?=\\}))"
+              "match": "(?:(?<=\\{)\\s*((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\w\\.\\*\\[\\]]+))\\s*(?=\\}))"
             },
             {
               "captures": {
@@ -3108,8 +3050,7 @@ export default {
                   ]
                 }
               },
-              "comment": "one line - property variables and types",
-              "match": "(?:(?<=\\{)\\s*((?:(?:\\w+\\,\\s*)+)?(?:\\w+\\s+))((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:[\\w\\.\\*\\[\\]]+))\\s*(?=\\}))"
+              "match": "(?:(?<=\\{)\\s*((?:(?:\\w+\\,\\s*)+)?(?:\\w+\\s+))((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\w\\.\\*\\[\\]]+))\\s*(?=\\}))"
             },
             {
               "captures": {
@@ -3140,13 +3081,12 @@ export default {
                           ]
                         }
                       },
-                      "match": "(?:((?:(?:\\w+\\,\\s*)+)?(?:\\w+\\s+))?((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:[\\S]+)(?:\\;)?))"
+                      "match": "(?:((?:(?:\\w+\\,\\s*)+)?(?:\\w+\\s+))?((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\S]+)(?:\\;)?))"
                     }
                   ]
                 }
               },
-              "comment": "one line with semicolon(;) without formatting gofmt - single type | property variables and types",
-              "match": "(?:(?<=\\{)((?:\\s*(?:(?:(?:\\w+\\,\\s*)+)?(?:\\w+\\s+))?(?:(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:[\\S]+)(?:\\;)?))+)\\s*(?=\\}))"
+              "match": "(?:(?<=\\{)((?:\\s*(?:(?:(?:\\w+\\,\\s*)+)?(?:\\w+\\s+))?(?:(?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\S]+)(?:\\;)?))+)\\s*(?=\\}))"
             },
             {
               "captures": {
@@ -3162,8 +3102,7 @@ export default {
                   ]
                 }
               },
-              "comment": "one type only",
-              "match": "(?:((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?(?:[\\w\\.\\*]+)\\s*)(?:(?=\\`|\\/|\")|$))"
+              "match": "(?:((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?(?:[\\w\\.\\*]+)\\s*)(?:(?=\\`|\\/|\")|$))"
             },
             {
               "captures": {
@@ -3193,7 +3132,6 @@ export default {
                   ]
                 }
               },
-              "comment": "property variables and types",
               "match": "(?:((?:(?:\\w+\\,\\s*)+)?(?:\\w+\\s+))([^\\`\"\\/]+))"
             }
           ]
@@ -3246,8 +3184,7 @@ export default {
               ]
             }
           },
-          "comment": "Support Functions",
-          "match": "(?:(?:((?<=\\.)\\b\\w+)|(\\b\\w+))(\\[(?:(?:[\\w\\.\\*\\[\\]{}\"\\']+)(?:(?:\\,\\s*(?:[\\w\\.\\*\\[\\]{}]+))*))?\\])?(?=\\())"
+          "match": "(?:(?:((?<=\\.)\\b\\w+)|(\\b\\w+))(\\[(?:(?:[\\w\\.\\*\\[\\]\\{\\}\"\\']+)(?:(?:\\,\\s*(?:[\\w\\.\\*\\[\\]\\{\\}]+))*))?\\])?(?=\\())"
         },
         "switch_select_case_variables": {
           "captures": {
@@ -3272,11 +3209,10 @@ export default {
               ]
             }
           },
-          "comment": "variables after case control keyword in switch/select expression, to not scope them as property variables",
-          "match": "(?:(?:^\\s*(\\bcase\\b))(?:\\s+)([\\s\\S]+(?::)\\s*(?:/(?:/|\\*).*)?)$)"
+          "match": "(?:(?:^\\s*(\\bcase\\b))(?:\\s+)([\\s\\S]+(?:\\:)\\s*(?:/(?:/|\\*).*)?)$)"
         },
         "switch_types": {
-          "begin": "(?<=\\bswitch\\b)(?:\\s*)(?:(\\w+\\s*:=)?\\s*([\\w\\.\\*()\\[\\]+/\\-\\%<>\\|\\&]+))(\\.\\(\\btype\\b\\)\\s*)(\\{)",
+          "begin": "(?<=\\bswitch\\b)(?:\\s*)(?:(\\w+\\s*\\:\\=)?\\s*([\\w\\.\\*\\(\\)\\[\\]\\+/\\-\\%\\<\\>\\|\\&]+))(\\.\\(\\btype\\b\\)\\s*)(\\{)",
           "beginCaptures": {
             "1": {
               "patterns": [
@@ -3321,7 +3257,6 @@ export default {
               "name": "punctuation.definition.begin.bracket.curly.go"
             }
           },
-          "comment": "switch type assertions, only highlights types after case keyword",
           "end": "(?:\\})",
           "endCaptures": {
             "0": {
@@ -3356,8 +3291,7 @@ export default {
                   ]
                 }
               },
-              "comment": "types after case keyword with single line",
-              "match": "(?:^\\s*(\\bcase\\b))(?:\\s+)([\\w\\.\\,\\*=<>!\\s]+)(:)(\\s*/(?:/|\\*)\\s*.*)?$"
+              "match": "(?:^\\s*(\\bcase\\b))(?:\\s+)([\\w\\.\\,\\*\\=\\<\\>\\!\\s]+)(:)(\\s*/(?:/|\\*)\\s*.*)?$"
             },
             {
               "begin": "\\bcase\\b",
@@ -3366,8 +3300,7 @@ export default {
                   "name": "keyword.control.go"
                 }
               },
-              "comment": "types after case keyword with multi lines",
-              "end": ":",
+              "end": "\\:",
               "endCaptures": {
                 "0": {
                   "name": "punctuation.other.colon.go"
@@ -3396,23 +3329,19 @@ export default {
                   "name": "invalid.illegal.slice.go"
                 }
               },
-              "comment": "Syntax error using slices",
               "match": "\\[\\](\\s+)"
             },
             {
-              "comment": "Syntax error numeric literals",
               "match": "\\b0[0-7]*[89]\\d*\\b",
               "name": "invalid.illegal.numeric.go"
             }
           ]
         },
         "terminators": {
-          "comment": "Terminators",
           "match": ";",
           "name": "punctuation.terminator.go"
         },
         "type-declarations": {
-          "comment": "includes all type declarations",
           "patterns": [
             {
               "include": "#language_constants"
@@ -3456,7 +3385,6 @@ export default {
           ]
         },
         "type-declarations-without-brackets": {
-          "comment": "includes all type declarations without brackets (in some cases, brackets need to be captured manually)",
           "patterns": [
             {
               "include": "#language_constants"
@@ -3513,11 +3441,9 @@ export default {
               ]
             }
           },
-          "comment": "struct/interface types in-line (type assertion) | switch type keyword",
-          "match": "(?:(?<=\\.\\()(?:(\\btype\\b)|((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+)?[\\w\\.\\[\\]\\*]+))(?=\\)))"
+          "match": "(?:(?<=\\.\\()(?:(\\btype\\b)|((?:(?:\\s*(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+)?[\\w\\.\\[\\]\\*]+))(?=\\)))"
         },
         "var_assignment": {
-          "comment": "variable assignment with var keyword",
           "patterns": [
             {
               "captures": {
@@ -3563,8 +3489,7 @@ export default {
                   ]
                 }
               },
-              "comment": "single assignment",
-              "match": "(?:(?<=\\bvar\\b)(?:\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+(?:\\([^)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:=)?)?)"
+              "match": "(?:(?<=\\bvar\\b)(?:\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+(?:\\([^\\)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:\\=)?)?)"
             },
             {
               "begin": "(?:(?<=\\bvar\\b)(?:\\s*)(\\())",
@@ -3573,7 +3498,6 @@ export default {
                   "name": "punctuation.definition.begin.bracket.round.go"
                 }
               },
-              "comment": "multi assignment",
               "end": "\\)",
               "endCaptures": {
                 "0": {
@@ -3625,7 +3549,7 @@ export default {
                       ]
                     }
                   },
-                  "match": "(?:(?:^\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:<-\\s*)?\\bchan\\b(?:\\s*<-)?\\s*)+(?:\\([^)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:=)?)?)"
+                  "match": "(?:(?:^\\s*)(\\b[\\w\\.]+(?:\\,\\s*[\\w\\.]+)*)(?:\\s*)((?:(?:(?:[\\*\\[\\]]+)?(?:\\<\\-\\s*)?\\bchan\\b(?:\\s*\\<\\-)?\\s*)+(?:\\([^\\)]+\\))?)?(?!(?:[\\[\\]\\*]+)?\\b(?:struct|func|map)\\b)(?:[\\w\\.\\[\\]\\*]+(?:\\,\\s*[\\w\\.\\[\\]\\*]+)*)?(?:\\s*)(?:\\=)?)?)"
                 },
                 {
                   "include": "$self"
@@ -3635,7 +3559,6 @@ export default {
           ]
         },
         "variable_assignment": {
-          "comment": "variable assignment",
           "patterns": [
             {
               "captures": {
@@ -3655,7 +3578,6 @@ export default {
                   ]
                 }
               },
-              "comment": "variable assignment with :=",
               "match": "\\b\\w+(?:\\,\\s*\\w+)*(?=\\s*:=)"
             },
             {
@@ -3679,7 +3601,6 @@ export default {
                   ]
                 }
               },
-              "comment": "variable assignment with =",
               "match": "\\b[\\w\\.\\*]+(?:\\,\\s*[\\w\\.\\*]+)*(?=\\s*=(?!=))"
             }
           ]
@@ -3701,7 +3622,6 @@ export default {
               "name": "punctuation.brackets.square.rust"
             }
           },
-          "comment": "boxed slice literal",
           "end": ">",
           "endCaptures": {
             "0": {
@@ -3750,7 +3670,6 @@ export default {
               "name": "variable.other.metavariable.specifier.rust"
             }
           },
-          "comment": "macro type metavariables",
           "match": "(\\$)((crate)|([A-Z][A-Za-z0-9_]*))((:)(block|expr|ident|item|lifetime|literal|meta|path?|stmt|tt|ty|vis))?",
           "name": "meta.macro.metavariable.type.rust",
           "patterns": [
@@ -3774,7 +3693,6 @@ export default {
               "name": "variable.other.metavariable.specifier.rust"
             }
           },
-          "comment": "macro metavariables",
           "match": "(\\$)([a-z][A-Za-z0-9_]*)((:)(block|expr|ident|item|lifetime|literal|meta|path?|stmt|tt|ty|vis))?",
           "name": "meta.macro.metavariable.rust",
           "patterns": [
@@ -3798,7 +3716,6 @@ export default {
               "name": "punctuation.brackets.curly.rust"
             }
           },
-          "comment": "macro rules",
           "match": "\\b(macro_rules!)\\s+(([a-z0-9_]+)|([A-Z][a-z0-9_]*))\\s+(\\{)",
           "name": "meta.macro.rules.rust"
         },
@@ -3811,7 +3728,6 @@ export default {
               "name": "entity.name.module.rust"
             }
           },
-          "comment": "modules",
           "match": "(mod)\\s+((?:r#(?!crate|[Ss]elf|super))?[a-z][A-Za-z0-9_]*)"
         },
         {
@@ -3824,7 +3740,6 @@ export default {
               "name": "keyword.other.crate.rust"
             }
           },
-          "comment": "external crate imports",
           "end": ";",
           "endCaptures": {
             "0": {
@@ -3854,7 +3769,6 @@ export default {
               "name": "keyword.other.rust"
             }
           },
-          "comment": "use statements",
           "end": ";",
           "endCaptures": {
             "0": {
@@ -3934,7 +3848,7 @@ export default {
       ],
       "repository": {
         "attributes": {
-          "begin": "(#)(!?)(\\[)",
+          "begin": "(#)(\\!?)(\\[)",
           "beginCaptures": {
             "1": {
               "name": "punctuation.definition.attribute.rust"
@@ -3943,7 +3857,6 @@ export default {
               "name": "punctuation.brackets.attribute.rust"
             }
           },
-          "comment": "attributes",
           "end": "\\]",
           "endCaptures": {
             "0": {
@@ -3981,13 +3894,11 @@ export default {
         "block-comments": {
           "patterns": [
             {
-              "comment": "empty block comments",
               "match": "/\\*\\*/",
               "name": "comment.block.rust"
             },
             {
               "begin": "/\\*\\*",
-              "comment": "block documentation comments",
               "end": "\\*/",
               "name": "comment.block.documentation.rust",
               "patterns": [
@@ -3998,7 +3909,6 @@ export default {
             },
             {
               "begin": "/\\*(?!\\*)",
-              "comment": "block comments",
               "end": "\\*/",
               "name": "comment.block.rust",
               "patterns": [
@@ -4017,7 +3927,6 @@ export default {
                   "name": "punctuation.definition.comment.rust"
                 }
               },
-              "comment": "documentation comments",
               "match": "(///).*$",
               "name": "comment.line.documentation.rust"
             },
@@ -4027,7 +3936,6 @@ export default {
                   "name": "punctuation.definition.comment.rust"
                 }
               },
-              "comment": "line comments",
               "match": "(//).*$",
               "name": "comment.line.double-slash.rust"
             }
@@ -4036,7 +3944,6 @@ export default {
         "constants": {
           "patterns": [
             {
-              "comment": "ALL CAPS constants",
               "match": "\\b[A-Z]{2}[A-Z0-9_]*\\b",
               "name": "constant.other.caps.rust"
             },
@@ -4049,7 +3956,6 @@ export default {
                   "name": "constant.other.caps.rust"
                 }
               },
-              "comment": "constant declarations",
               "match": "\\b(const)\\s+([A-Z][A-Za-z0-9_]*)\\b"
             },
             {
@@ -4070,7 +3976,6 @@ export default {
                   "name": "entity.name.type.numeric.rust"
                 }
               },
-              "comment": "decimal integers and floats",
               "match": "\\b\\d[\\d_]*(\\.?)[\\d_]*(?:(E|e)([+-]?)([\\d_]+))?(f32|f64|i128|i16|i32|i64|i8|isize|u128|u16|u32|u64|u8|usize)?\\b",
               "name": "constant.numeric.decimal.rust"
             },
@@ -4080,7 +3985,6 @@ export default {
                   "name": "entity.name.type.numeric.rust"
                 }
               },
-              "comment": "hexadecimal integers",
               "match": "\\b0x[\\da-fA-F_]+(i128|i16|i32|i64|i8|isize|u128|u16|u32|u64|u8|usize)?\\b",
               "name": "constant.numeric.hex.rust"
             },
@@ -4090,7 +3994,6 @@ export default {
                   "name": "entity.name.type.numeric.rust"
                 }
               },
-              "comment": "octal integers",
               "match": "\\b0o[0-7_]+(i128|i16|i32|i64|i8|isize|u128|u16|u32|u64|u8|usize)?\\b",
               "name": "constant.numeric.oct.rust"
             },
@@ -4100,12 +4003,10 @@ export default {
                   "name": "entity.name.type.numeric.rust"
                 }
               },
-              "comment": "binary integers",
               "match": "\\b0b[01_]+(i128|i16|i32|i64|i8|isize|u128|u16|u32|u64|u8|usize)?\\b",
               "name": "constant.numeric.bin.rust"
             },
             {
-              "comment": "booleans",
               "match": "\\b(true|false)\\b",
               "name": "constant.language.bool.rust"
             }
@@ -4129,7 +4030,6 @@ export default {
               "name": "constant.character.escape.unicode.punctuation.rust"
             }
           },
-          "comment": "escapes: ASCII, byte, Unicode, quote, regex",
           "match": "(\\\\)(?:(?:(x[0-7][\\da-fA-F])|(u(\\{)[\\da-fA-F]{4,6}(\\}))|.))",
           "name": "constant.character.escape.rust"
         },
@@ -4144,7 +4044,6 @@ export default {
                   "name": "punctuation.brackets.round.rust"
                 }
               },
-              "comment": "pub as a function",
               "match": "\\b(pub)(\\()"
             },
             {
@@ -4163,7 +4062,6 @@ export default {
                   "name": "punctuation.brackets.angle.rust"
                 }
               },
-              "comment": "function definition",
               "end": "(\\{)|(;)",
               "endCaptures": {
                 "1": {
@@ -4229,7 +4127,6 @@ export default {
                   "name": "punctuation.brackets.round.rust"
                 }
               },
-              "comment": "function/method calls, chaining",
               "end": "\\)",
               "endCaptures": {
                 "0": {
@@ -4292,7 +4189,6 @@ export default {
                   "name": "entity.name.function.rust"
                 }
               },
-              "comment": "function/method calls with turbofish",
               "end": "\\)",
               "endCaptures": {
                 "0": {
@@ -4353,12 +4249,10 @@ export default {
         "gtypes": {
           "patterns": [
             {
-              "comment": "option types",
               "match": "\\b(Some|None)\\b",
               "name": "entity.name.type.option.rust"
             },
             {
-              "comment": "result types",
               "match": "\\b(Ok|Err)\\b",
               "name": "entity.name.type.result.rust"
             }
@@ -4373,99 +4267,80 @@ export default {
               "name": "punctuation.definition.interpolation.rust"
             }
           },
-          "comment": "curly brace interpolations",
           "match": "({)[^\"{}]*(})",
           "name": "meta.interpolation.rust"
         },
         "keywords": {
           "patterns": [
             {
-              "comment": "control flow keywords",
               "match": "\\b(await|break|continue|do|else|for|if|loop|match|return|try|while|yield)\\b",
               "name": "keyword.control.rust"
             },
             {
-              "comment": "storage keywords",
               "match": "\\b(extern|let|macro|mod)\\b",
               "name": "keyword.other.rust storage.type.rust"
             },
             {
-              "comment": "const keyword",
               "match": "\\b(const)\\b",
               "name": "storage.modifier.rust"
             },
             {
-              "comment": "type keyword",
               "match": "\\b(type)\\b",
               "name": "keyword.declaration.type.rust storage.type.rust"
             },
             {
-              "comment": "enum keyword",
               "match": "\\b(enum)\\b",
               "name": "keyword.declaration.enum.rust storage.type.rust"
             },
             {
-              "comment": "trait keyword",
               "match": "\\b(trait)\\b",
               "name": "keyword.declaration.trait.rust storage.type.rust"
             },
             {
-              "comment": "struct keyword",
               "match": "\\b(struct)\\b",
               "name": "keyword.declaration.struct.rust storage.type.rust"
             },
             {
-              "comment": "storage modifiers",
               "match": "\\b(abstract|static)\\b",
               "name": "storage.modifier.rust"
             },
             {
-              "comment": "other keywords",
               "match": "\\b(as|async|become|box|dyn|move|final|gen|impl|in|override|priv|pub|ref|typeof|union|unsafe|unsized|use|virtual|where)\\b",
               "name": "keyword.other.rust"
             },
             {
-              "comment": "fn",
               "match": "\\bfn\\b",
               "name": "keyword.other.fn.rust"
             },
             {
-              "comment": "crate",
               "match": "\\bcrate\\b",
               "name": "keyword.other.crate.rust"
             },
             {
-              "comment": "mut",
               "match": "\\bmut\\b",
               "name": "storage.modifier.mut.rust"
             },
             {
-              "comment": "logical operators",
               "match": "(\\^|\\||\\|\\||&&|<<|>>|!)(?!=)",
               "name": "keyword.operator.logical.rust"
             },
             {
-              "comment": "logical AND, borrow references",
               "match": "&(?![&=])",
               "name": "keyword.operator.borrow.and.rust"
             },
             {
-              "comment": "assignment operators",
               "match": "(\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<=|>>=)",
               "name": "keyword.operator.assignment.rust"
             },
             {
-              "comment": "single equal",
               "match": "(?<![<>])=(?!=|>)",
               "name": "keyword.operator.assignment.equal.rust"
             },
             {
-              "comment": "comparison operators",
               "match": "(=(=)?(?!>)|!=|<=|(?<!=)>=)",
               "name": "keyword.operator.comparison.rust"
             },
             {
-              "comment": "math operators",
               "match": "(([+%]|(\\*(?!\\w)))(?!=))|(-(?!>))|(/(?!/))",
               "name": "keyword.operator.math.rust"
             },
@@ -4493,11 +4368,9 @@ export default {
                   "name": "punctuation.brackets.curly.rust"
                 }
               },
-              "comment": "less than, greater than (special case)",
               "match": "(?:\\b|(?:(\\))|(\\])|(\\})))[ \\t]+([<>])[ \\t]+(?:\\b|(?:(\\()|(\\[)|(\\{)))"
             },
             {
-              "comment": "namespace operator",
               "match": "::",
               "name": "keyword.operator.namespace.rust"
             },
@@ -4507,46 +4380,37 @@ export default {
                   "name": "keyword.operator.dereference.rust"
                 }
               },
-              "comment": "dereference asterisk",
               "match": "(\\*)(?=\\w+)"
             },
             {
-              "comment": "subpattern binding",
               "match": "@",
               "name": "keyword.operator.subpattern.rust"
             },
             {
-              "comment": "dot access",
               "match": "\\.(?!\\.)",
               "name": "keyword.operator.access.dot.rust"
             },
             {
-              "comment": "ranges, range patterns",
               "match": "\\.{2}(=|\\.)?",
               "name": "keyword.operator.range.rust"
             },
             {
-              "comment": "colon",
               "match": ":(?!:)",
               "name": "keyword.operator.key-value.rust"
             },
             {
-              "comment": "dashrocket, skinny arrow",
               "match": "->|<-",
               "name": "keyword.operator.arrow.skinny.rust"
             },
             {
-              "comment": "hashrocket, fat arrow",
               "match": "=>",
               "name": "keyword.operator.arrow.fat.rust"
             },
             {
-              "comment": "dollar macros",
               "match": "\\$",
               "name": "keyword.operator.macro.dollar.rust"
             },
             {
-              "comment": "question mark operator, questionably sized, macro kleene matcher",
               "match": "\\?",
               "name": "keyword.operator.question.rust"
             }
@@ -4563,7 +4427,6 @@ export default {
                   "name": "entity.name.type.lifetime.rust"
                 }
               },
-              "comment": "named lifetime parameters",
               "match": "(['])([a-zA-Z_][0-9a-zA-Z_]*)(?!['])\\b"
             },
             {
@@ -4578,7 +4441,6 @@ export default {
                   "name": "entity.name.type.lifetime.rust"
                 }
               },
-              "comment": "borrowing references to named lifetimes",
               "match": "(\\&)(['])([a-zA-Z_][0-9a-zA-Z_]*)(?!['])\\b"
             }
           ]
@@ -4586,12 +4448,10 @@ export default {
         "lvariables": {
           "patterns": [
             {
-              "comment": "self",
               "match": "\\b[Ss]elf\\b",
               "name": "variable.language.self.rust"
             },
             {
-              "comment": "super",
               "match": "\\bsuper\\b",
               "name": "variable.language.super.rust"
             }
@@ -4608,7 +4468,6 @@ export default {
                   "name": "entity.name.type.macro.rust"
                 }
               },
-              "comment": "macros",
               "match": "(([a-z_][A-Za-z0-9_]*!)|([A-Z_][A-Za-z0-9_]*!))",
               "name": "meta.macro.rust"
             }
@@ -4625,7 +4484,6 @@ export default {
                   "name": "keyword.operator.namespace.rust"
                 }
               },
-              "comment": "namespace (non-type, non-function path segment)",
               "match": "(?<![A-Za-z0-9_])([A-Za-z0-9_]+)((?<!super|self)::)"
             }
           ]
@@ -4633,32 +4491,26 @@ export default {
         "punctuation": {
           "patterns": [
             {
-              "comment": "comma",
               "match": ",",
               "name": "punctuation.comma.rust"
             },
             {
-              "comment": "curly braces",
               "match": "[{}]",
               "name": "punctuation.brackets.curly.rust"
             },
             {
-              "comment": "parentheses, round brackets",
               "match": "[()]",
               "name": "punctuation.brackets.round.rust"
             },
             {
-              "comment": "semicolon",
               "match": ";",
               "name": "punctuation.semi.rust"
             },
             {
-              "comment": "square brackets",
               "match": "[\\[\\]]",
               "name": "punctuation.brackets.square.rust"
             },
             {
-              "comment": "angle brackets",
               "match": "(?<!=)[<>]",
               "name": "punctuation.brackets.angle.rust"
             }
@@ -4676,7 +4528,6 @@ export default {
                   "name": "punctuation.definition.string.rust"
                 }
               },
-              "comment": "double-quoted strings and byte strings",
               "end": "\"",
               "endCaptures": {
                 "0": {
@@ -4706,7 +4557,6 @@ export default {
                   "name": "punctuation.definition.string.rust"
                 }
               },
-              "comment": "double-quoted raw strings and raw byte strings",
               "end": "(\")(\\2)",
               "endCaptures": {
                 "1": {
@@ -4728,7 +4578,6 @@ export default {
                   "name": "punctuation.definition.char.rust"
                 }
               },
-              "comment": "characters and bytes",
               "end": "'",
               "endCaptures": {
                 "0": {
@@ -4752,7 +4601,6 @@ export default {
                   "name": "entity.name.type.numeric.rust"
                 }
               },
-              "comment": "numeric types",
               "match": "(?<![A-Za-z])(f32|f64|i128|i16|i32|i64|i8|isize|u128|u16|u32|u64|u8|usize)\\b"
             },
             {
@@ -4765,7 +4613,6 @@ export default {
                   "name": "punctuation.brackets.angle.rust"
                 }
               },
-              "comment": "parameterized types",
               "end": ">",
               "endCaptures": {
                 "0": {
@@ -4800,7 +4647,6 @@ export default {
               ]
             },
             {
-              "comment": "primitive types",
               "match": "\\b(bool|char|str)\\b",
               "name": "entity.name.type.primitive.rust"
             },
@@ -4813,7 +4659,6 @@ export default {
                   "name": "entity.name.type.trait.rust"
                 }
               },
-              "comment": "trait declarations",
               "match": "\\b(trait)\\s+(_?[A-Z][A-Za-z0-9_]*)\\b"
             },
             {
@@ -4825,7 +4670,6 @@ export default {
                   "name": "entity.name.type.struct.rust"
                 }
               },
-              "comment": "struct declarations",
               "match": "\\b(struct)\\s+(_?[A-Z][A-Za-z0-9_]*)\\b"
             },
             {
@@ -4837,7 +4681,6 @@ export default {
                   "name": "entity.name.type.enum.rust"
                 }
               },
-              "comment": "enum declarations",
               "match": "\\b(enum)\\s+(_?[A-Z][A-Za-z0-9_]*)\\b"
             },
             {
@@ -4849,11 +4692,9 @@ export default {
                   "name": "entity.name.type.declaration.rust"
                 }
               },
-              "comment": "type declarations",
               "match": "\\b(type)\\s+(_?[A-Z][A-Za-z0-9_]*)\\b"
             },
             {
-              "comment": "types",
               "match": "\\b_?[A-Z][A-Za-z0-9_]*\\b(?!!)",
               "name": "entity.name.type.rust"
             }
@@ -4862,7 +4703,6 @@ export default {
         "variables": {
           "patterns": [
             {
-              "comment": "variables",
               "match": "\\b(?<!(?<!\\.)\\.)(?:r#(?!(crate|[Ss]elf|super)))?[a-z0-9_]+\\b",
               "name": "variable.other.rust"
             }

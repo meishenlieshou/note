@@ -1,135 +1,182 @@
-<template><div><h2 id="为什么要装nginx" tabindex="-1"><a class="header-anchor" href="#为什么要装nginx"><span>为什么要装Nginx</span></a></h2>
-<h3 id="nginx-是什么" tabindex="-1"><a class="header-anchor" href="#nginx-是什么"><span>Nginx 是什么？</span></a></h3>
-<p><strong>NGINX</strong>（发音为&quot;Engine-X&quot;）是一款高性能的开源Web服务器软件，也可以作为反向代理服务器、负载均衡器和HTTP 缓存。NGINX 的主要特点包括：</p>
+<template><div><h2 id="what-is-nginx" tabindex="-1"><a class="header-anchor" href="#what-is-nginx"><span>What is Nginx?</span></a></h2>
+<p>NGINX (pronounced &quot;Engine-X&quot;) is a high-performance web server, reverse proxy server, load balancer, and HTTP cache. It is widely used for serving static content, handling traffic routing, and distributing load across multiple servers. Originally developed by Igor Sysoev in 2004, NGINX was designed to address the C10K problem (handling 10,000 concurrent connections), and over time, it has become one of the most popular web servers in the world.</p>
+<h2 id="nginx-use-cases" tabindex="-1"><a class="header-anchor" href="#nginx-use-cases"><span>NGINX Use Cases</span></a></h2>
+<h3 id="web-server" tabindex="-1"><a class="header-anchor" href="#web-server"><span>Web Server</span></a></h3>
+<p>NGINX can serve static files like HTML, CSS, JavaScript, images, etc., with high performance.</p>
+<h3 id="reverse-proxy" tabindex="-1"><a class="header-anchor" href="#reverse-proxy"><span>Reverse Proxy</span></a></h3>
+<p>It forwards client requests to other backend servers (e.g., application servers, databases)</p>
+<h3 id="load-balancer" tabindex="-1"><a class="header-anchor" href="#load-balancer"><span>Load Balancer</span></a></h3>
+<p>NGINX can distribute incoming traffic across multiple backend servers to ensure high availability and scalability.</p>
+<h3 id="api-gateway" tabindex="-1"><a class="header-anchor" href="#api-gateway"><span>API Gateway</span></a></h3>
+<p>Acts as an intermediary between clients and backend services, often used for handling RESTful APIs.</p>
+<h3 id="content-caching" tabindex="-1"><a class="header-anchor" href="#content-caching"><span>Content Caching</span></a></h3>
+<p>NGINX can cache content from a backend server, improving response times and reducing the load on backend systems.</p>
+<h3 id="ssl-tls-termination" tabindex="-1"><a class="header-anchor" href="#ssl-tls-termination"><span>SSL/TLS Termination</span></a></h3>
+<p>Handles encrypted traffic by terminating SSL/TLS connections at the proxy level, allowing for better security management and performance.</p>
+<h3 id="http-2-support" tabindex="-1"><a class="header-anchor" href="#http-2-support"><span>HTTP/2 Support</span></a></h3>
+<p>NGINX supports the HTTP/2 protocol, which allows for better performance by reducing latency. It achieves this through multiplexing multiple requests over a single connection, reducing the overhead of opening multiple TCP connections.</p>
+<h3 id="websocket-support" tabindex="-1"><a class="header-anchor" href="#websocket-support"><span>WebSocket Support</span></a></h3>
+<p>NGINX supports WebSockets, allowing for full-duplex communication between the client and the server, which is essential for real-time applications (e.g., chat apps, online games, and stock tickers).</p>
+<h3 id="microservices-support" tabindex="-1"><a class="header-anchor" href="#microservices-support"><span>Microservices Support</span></a></h3>
+<p>NGINX is often used in microservices architectures as an API gateway. It can route traffic to different services, handle authentication, and perform other intermediary tasks like rate limiting and logging.</p>
+<h3 id="rate-limiting-and-access-control" tabindex="-1"><a class="header-anchor" href="#rate-limiting-and-access-control"><span>Rate Limiting and Access Control</span></a></h3>
+<p>NGINX provides mechanisms for controlling the rate of requests, which can protect backend servers from abuse or DoS (Denial of Service) attacks.</p>
+<p>Access control features allow NGINX to restrict access to specific resources based on IP addresses, geographic location, or other factors.</p>
+<h3 id="logging-and-monitoring" tabindex="-1"><a class="header-anchor" href="#logging-and-monitoring"><span>Logging and Monitoring</span></a></h3>
+<p>NGINX provides detailed access logs and error logs, which can be used for monitoring traffic patterns, debugging issues, and optimizing performance.</p>
+<p>Tools like Prometheus, Grafana, and ELK stack (Elasticsearch, Logstash, and Kibana) can be used to gather and visualize NGINX metrics for performance monitoring and troubleshooting.</p>
+<h2 id="nginx-vs-apache" tabindex="-1"><a class="header-anchor" href="#nginx-vs-apache"><span>NGINX vs Apache</span></a></h2>
+<p>While both NGINX and Apache are popular web servers, they have distinct differences that make them suitable for different use cases</p>
 <ol>
-<li>
-<p><strong>高并发和高性能</strong></p>
-<ul>
-<li>NGINX 采用事件驱动模型，与传统的基于线程或进程的模型不同，这使得它能够高效处理大量的并发连接，适用于高流量网站。</li>
-<li>它能处理数以万计的并发连接，而不会占用过多的资源。</li>
-</ul>
-</li>
-<li>
-<p><strong>反向代理与负载均衡</strong></p>
-<ul>
-<li>除了作为 Web 服务器，NGINX 还被广泛用于反向代理和负载均衡。</li>
-</ul>
-</li>
-<li>
-<p><strong>缓存功能</strong></p>
-<ul>
-<li>NGINX 具有强大的缓存机制，能够减少对后端服务器的请求，从而提升系统的性能。</li>
-</ul>
-</li>
-<li>
-<p><strong>支持静态文件和动态内容</strong></p>
-<ul>
-<li>NGINX 可以处理静态内容（如HTML、图片、视频）以及通过 FastCGI、uWSGI 等接口处理动态内容。</li>
-</ul>
-</li>
+<li><strong>Architecture</strong></li>
 </ol>
-<h3 id="反向代理是什么" tabindex="-1"><a class="header-anchor" href="#反向代理是什么"><span>反向代理是什么？</span></a></h3>
-<p><strong>反向代理</strong>, 是指客户端（如浏览器）通过代理服务器访问其他服务器资源的过程。与正向代理不同，正向代理是代理客户端的请求，而反向代理则是代理服务器的请求。具体来说：</p>
-<ul>
-<li>
-<p><strong>正向代理</strong>：客户端通过代理服务器去访问外部资源。客户端知道代理服务器的存在，代理服务器代表客户端向外部资源发出请求，响应再返回给客户端。比如，有些公司内网会通过正向代理访问互联网。</p>
-</li>
-<li>
-<p><strong>反向代理</strong>：客户端并不知道代理服务器的存在。客户端的请求被发送到反向代理服务器，然后反向代理服务器再转发请求到实际的后端服务器，并将响应返回给客户端。客户端以为它直接与后端服务器交互，但实际上是与反向代理服务器交互。</p>
-</li>
-</ul>
-<p><strong>反向代理的工作流程</strong>：</p>
-<ol>
-<li>客户端发起请求：客户端（如浏览器）向某个域名发送请求。</li>
-<li>反向代理接收到请求：请求首先到达反向代理服务器。反向代理服务器充当中介，将请求转发给真实的后端服务器。</li>
-<li>后端服务器处理请求：后端服务器处理请求并生成响应。</li>
-<li>反向代理转发响应：反向代理将后端服务器的响应返回给客户端。</li>
+<p>NGINX uses an event-driven architecture, whereas Apache uses a process-based model (forking new processes for each request). This makes NGINX much more scalable for handling concurrent requests.</p>
+<ol start="2">
+<li><strong>Performance</strong></li>
 </ol>
-<p><strong>反向代理的优点</strong>：</p>
-<ol>
-<li>
-<p>负载均衡：</p>
-<p>反向代理可以将来自客户端的请求分配到多个后端服务器上，从而平衡各个服务器的负载，提高系统的可扩展性和可靠性。</p>
-</li>
-<li>
-<p>提高安全性：</p>
-<p>反向代理可以隐藏内部服务器的细节和网络架构，防止客户端直接访问后端服务器，提高系统的安全性。</p>
-</li>
-<li>
-<p>SSL/TLS 终止：</p>
-<p>反向代理服务器可以承担加密/解密（SSL/TLS 终止），从而减少后端服务器的负担。</p>
-</li>
-<li>
-<p>缓存：</p>
-<p>反向代理可以缓存常用的请求响应，减少对后端服务器的访问，提升系统性能。</p>
-</li>
-<li>
-<p>统一入口：</p>
-<p>通过反向代理，可以将多个后端服务统一暴露为一个入口，简化客户端访问路径。</p>
-</li>
+<p>NGINX is known for its high performance and ability to handle many concurrent connections efficiently. Apache may struggle with performance under heavy traffic, especially when dealing with large numbers of simultaneous requests.</p>
+<ol start="3">
+<li><strong>Flexibility</strong></li>
 </ol>
-<h2 id="安装nginx" tabindex="-1"><a class="header-anchor" href="#安装nginx"><span>安装nginx</span></a></h2>
-<p>安装Nginx之前，先安装一些依赖。</p>
-<ul>
-<li>步骤1. 安装gcc g++的依赖库</li>
-</ul>
-<div class="language-shell line-numbers-mode" data-ext="shell" data-title="shell"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> apt-get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> install</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> build-essential</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> apt-get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> install</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> libtool</span></span></code></pre>
+<p>Apache provides more flexibility in handling dynamic content (via mod_php or mod_python), whereas NGINX is better suited for static content and reverse proxy use cases.</p>
+<ol start="4">
+<li><strong>Configuration</strong></li>
+</ol>
+<p>NGINX configuration files are generally simpler and more concise than Apache’s, which tends to use .htaccess files and more complex configurations.</p>
+<h2 id="key-files" tabindex="-1"><a class="header-anchor" href="#key-files"><span>Key Files</span></a></h2>
+<h3 id="etc-nginx" tabindex="-1"><a class="header-anchor" href="#etc-nginx"><span>/etc/nginx/</span></a></h3>
+<p>The /etc/nginx/ directory is the default configuration root for the NGINX server.Within this directory you will find configuration files that instruct NGINX on
+how to behave.</p>
+<h3 id="etc-nginx-nginx-conf" tabindex="-1"><a class="header-anchor" href="#etc-nginx-nginx-conf"><span>/etc/nginx/nginx.conf</span></a></h3>
+<p>The /etc/nginx/nginx.conf file is the default configuration entry point used by the NGINX service. This configuration file sets up global settings for things like worker processes, tuning, logging, loading dynamic modules, and references to other NGINX configuration files. In a default configuration, the /etc/nginx/ nginx.conf file includes the top-level http block, or context, which includes all configuration files in the directory described next.</p>
+<h3 id="etc-nginx-conf-d" tabindex="-1"><a class="header-anchor" href="#etc-nginx-conf-d"><span>/etc/nginx/conf.d/</span></a></h3>
+<p>The /etc/nginx/conf.d/ directory contains the default HTTP server configuration file. Files in this directory ending in .conf are included in the top-level
+http block from within the /etc/nginx/nginx.conf file. It’s best practice to utilize include statements and organize your configuration in this way to keep
+your configuration files concise. In some package repositories, this folder is named sites-enabled, and configuration files are linked from a folder named
+site-available; this convention is deprecated.</p>
+<h3 id="var-log-nginx" tabindex="-1"><a class="header-anchor" href="#var-log-nginx"><span>/var/log/nginx/</span></a></h3>
+<p>The /var/log/nginx/ directory is the default log location for NGINX. Within this directory you will find an access.log file and an error.log file. The access log contains an entry for each request NGINX serves. The error logfile contains error events and debug information if the debug module is enabled.</p>
+<h2 id="nginx-commands" tabindex="-1"><a class="header-anchor" href="#nginx-commands"><span>NGINX commands</span></a></h2>
+<div class="language-shell line-numbers-mode" data-ext="shell" data-title="shell"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -h</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> #Shows the NGINX help menu.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -v</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> #Shows the NGINX version.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -V</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> #Shows the NGINX version, build information, and configuration arguments, which show the modules built into the NGINX binary.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> #Tests the NGINX configuration.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -T</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD"> #Tests the NGINX configuration and prints the validated configuration to the screen. This command is useful when seeking support.</span></span>
+<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -s</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> signal</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  #The -s flag sends a signal to the NGINX master process. You can send signals such as stop, quit, reload, and reopen. The stop signal discontinues the NGINX process immediately. The quit signal stops the NGINX process after it finishes processing in-flight requests. The reload signal reloads the NGINX to achieve a graceful reload of the configuration without stopping the server. The reopen signal instructs NGINX to reopen logfiles.</span></span></code></pre>
 
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li>步骤2. 安装pcre依赖库</li>
-</ul>
-<div class="language-shell line-numbers-mode" data-ext="shell" data-title="shell"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> apt-get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> update</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> apt-get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> install</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> libpcre3</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> libpcre3-dev</span></span></code></pre>
-
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li>步骤3. 安装zlib依赖库</li>
-</ul>
-<div class="language-shell line-numbers-mode" data-ext="shell" data-title="shell"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">apt-get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> install</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> zlib1g-dev</span></span></code></pre>
-
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
-<li>步骤4. 安装ssl依赖库</li>
-</ul>
-<div class="language-shell line-numbers-mode" data-ext="shell" data-title="shell"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">apt-get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> install</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> openssl</span></span></code></pre>
-
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
-<li>步骤5. 安装Nginx</li>
-</ul>
-<div class="language-shell line-numbers-mode" data-ext="shell" data-title="shell"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> apt-get</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> install</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span></span></code></pre>
-
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="nginx常用命令" tabindex="-1"><a class="header-anchor" href="#nginx常用命令"><span>nginx常用命令</span></a></h2>
-<div class="language-shell line-numbers-mode" data-ext="shell" data-title="shell"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> systemctl</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> start</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  # 启动nginx</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> systemctl</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> stop</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">   # 停用nginx</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> systemctl</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> restart</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  # 重启nginx</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> systemctl</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> reload</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">   # 修改配置后，重新加载配置，不重启服务</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> systemctl</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> status</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">   # 查看nginx运行状态</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A65E2B;--shiki-dark:#C99076"> -t</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    #检查配置文件是否正常</span></span>
-<span class="line"><span style="--shiki-light:#59873A;--shiki-dark:#80A665">sudo</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> systemctl</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> enable</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> nginx</span><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">  # 设置开机启动</span></span></code></pre>
-
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="配置静态站点" tabindex="-1"><a class="header-anchor" href="#配置静态站点"><span>配置静态站点</span></a></h2>
-<p>修改/etc/nginx/sites-available/default文件，可以配置可用站点</p>
-<h2 id="配置ssl证书" tabindex="-1"><a class="header-anchor" href="#配置ssl证书"><span>配置SSL证书</span></a></h2>
-<ul>
-<li>步骤1. 申请证书，并下载</li>
-<li>步骤2. 在nginx配置目录下，创建放置证书的目录。比如/etc/nginx/ssl</li>
-<li>步骤3. 将证书放置在上述目录下</li>
-<li>步骤4. 在nginx配置文件里，添加如下配置</li>
-</ul>
-<div class="language-nginx line-numbers-mode" data-ext="nginx" data-title="nginx"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">#...</span></span>
-<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">#...</span></span>
-<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
-<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    listen </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">443</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> ssl</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
-<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    server_name </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">www.nginxdocs.com</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    ssl_certificate </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/etc/nginx/ssl/nginxdocs.crt</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
-<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    ssl_certificate_key </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/etc/nginx/ssl/nginxdocs.key</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
-<span class="line"></span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="serving-static-content" tabindex="-1"><a class="header-anchor" href="#serving-static-content"><span>Serving Static Content</span></a></h2>
+<h3 css-module="." id="server" tabindex="-1"><a class="header-anchor" href="#server"><span>server</span></a></h3>
+<p>The server block is the basic building block in NGINX configuration, where you define how NGINX should respond to HTTP requests for specific domains or IPs.</p>
+<div class="language-nginx line-numbers-mode" data-ext="nginx" data-title="nginx"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    listen </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">80</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> default_server</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> </span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    server_name </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">www.example.com</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> / </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        root </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/usr/share/nginx/html</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">        # alias /usr/share/nginx/html;</span></span>
 <span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        index </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">index.html index.htm</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
 <span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">}</span></span></code></pre>
 
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>If a request comes to this server for <strong>www.example.com</strong>, this block will process the request.</li>
+<li>You could add multiple domain names or subdomains here, separated by spaces. For example, server_name www.example.com example.com; would handle both www.example.com and example.com</li>
+<li>The location block is used to define how to handle specific URL paths (or URI) that are part of the request. The / means &quot;the root&quot; or the main path, and the configuration inside this block applies to all requests to the root of the server or domain.</li>
+<li>When a user visits http://www.example.com, NGINX will serve the content from the directory specified here: /usr/share/nginx/html. For example, if someone visits http://www.example.com/index.html, NGINX will look for the file /usr/share/nginx/html/index.html and serve it.</li>
+<li><strong>alias</strong> is typically used when you want to map a different directory structure to the requested URL.For example, if /usr/share/nginx/html contained subdirectories like /images and /css, the alias directive would be useful to map those paths directly.</li>
+<li><strong>index index.html index.htm</strong> directive specifies which files to look for as the default index file in a directory.</li>
+</ul>
+<h3 id="alias-usage" tabindex="-1"><a class="header-anchor" href="#alias-usage"><span>alias usage</span></a></h3>
+<div class="language-nginx line-numbers-mode" data-ext="nginx" data-title="nginx"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    listen </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">80</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    server_name </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">www.example.com</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # Root location for general web content (HTML, JS, etc.)</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> / </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        root </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/usr/share/nginx/html</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        index </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">index.html index.htm</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # Serve images from /var/www/images when the URL starts with /images/</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> /images/ </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        alias </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/var/www/images/</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # Serve CSS files from /var/www/css when the URL starts with /css/</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> /css/ </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        alias </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/var/www/css/</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # Handle other types of content (e.g., JavaScript, etc.)</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> /js/ </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        alias </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/var/www/js/</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0ADA0;--shiki-dark:#758575DD">    # Error page customization</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    error_page </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">404</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> /404.html</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676"> =</span><span style="--shiki-light:#AB5E3F;--shiki-dark:#C4704F"> /404.html </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        root </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">/usr/share/nginx/html</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        internal</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">}</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="high-performance-load-balancing" tabindex="-1"><a class="header-anchor" href="#high-performance-load-balancing"><span>High-Performance Load Balancing</span></a></h2>
+<ul>
+<li>Load balancing aims to improve performance and availability.</li>
+<li>It enables horizontal scaling by distributing traffic across multiple servers.</li>
+<li>A dynamic load-balancing solution is needed for different infrastructures, including HTTP, TCP, and UDP load balancing</li>
+</ul>
+<h3 id="http-load-balancing" tabindex="-1"><a class="header-anchor" href="#http-load-balancing"><span>HTTP Load Balancing</span></a></h3>
+<p>You need to distribute load between two or more HTTP servers. Use NGINX’s HTTP module to load balance over HTTP servers using the <strong>upstream block</strong>.</p>
+<div class="language-nginx line-numbers-mode" data-ext="nginx" data-title="nginx"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">upstream</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> backend </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">    server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 10.10.12.45:80 </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">weight</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">=</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">1</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    server app.example.com:80 </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">weight</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">=</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">2</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    server spare.example.com:80 backup;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">}</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    location</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> / </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        proxy_pass </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">http://backend</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">}</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>This configuration balances load across two HTTP servers on port 80, and defines one as a backup, which is used when the primary two are unavailable. The <strong>weight</strong> parameter instructs NGINX to pass twice as many requests to the second server, and the weight parameter defaults to 1.</p>
+<h3 id="tcp-load-balancing" tabindex="-1"><a class="header-anchor" href="#tcp-load-balancing"><span>TCP Load Balancing</span></a></h3>
+<p>You need to distribute load between two or more TCP servers.</p>
+<ul>
+<li>Many database systems, such as MySQL or PostgreSQL, use TCP connections to handle queries.</li>
+<li>Applications like chat services use TCP servers to manage live messaging.</li>
+<li>Online multiplayer games use TCP or UDP servers to maintain player state and game synchronization.</li>
+</ul>
+<p><strong>TCP Server vs. UDP Server</strong></p>
+<ul>
+<li><strong>TCP</strong>: Reliable, connection-oriented, ordered, error-checked delivery of data. Great for applications that require data integrity and order (like HTTP, FTP, etc.).</li>
+<li><strong>UDP</strong>: Unreliable, connectionless, no guarantee of order or delivery. Used in real-time applications where speed is more important than reliability (e.g., video streaming, DNS queries, gaming).</li>
+<li><strong>HTTP</strong>: An HTTP server is a specialized type of TCP server that follows the HTTP (Hypertext Transfer Protocol), which is an application-layer protocol (Layer 7 in the OSI model). HTTP is used primarily for web communication, allowing clients (typically web browsers) to request resources like web pages, images, and data from the server.</li>
+</ul>
+<p>Use NGINX’s stream module to load balance over TCP servers using the upstream block</p>
+<div class="language-nginx line-numbers-mode" data-ext="nginx" data-title="nginx"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">stream</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    upstream</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> mysql_read </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> read1.example.com:3306 </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">weight</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">=</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">5</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">        server read2.example.com:3306;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> 10.10.12.34:3306 backup;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        listen </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">3306</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        proxy_pass </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">mysql_read</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">}</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="udp-load-balancing" tabindex="-1"><a class="header-anchor" href="#udp-load-balancing"><span>UDP Load Balancing</span></a></h3>
+<div class="language-nginx line-numbers-mode" data-ext="nginx" data-title="nginx"><button class="copy" title="Copy code" data-copied="Copied"></button><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">stream</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    upstream</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665"> ntp </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">{</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> ntp1.example.com:123 </span><span style="--shiki-light:#B07D48;--shiki-dark:#BD976A">weight</span><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">=</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">2</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">        server ntp2.example.com:123;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676">    server</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> {</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        listen </span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91">123</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE"> udp</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375">        proxy_pass </span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">ntp</span><span style="--shiki-light:#999999;--shiki-dark:#666666">;</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">    }</span></span>
+<span class="line"><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE">}</span></span></code></pre>
+
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
 
 

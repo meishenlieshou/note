@@ -1,3 +1,5 @@
+import "./chunk-7N2WBUNW.js";
+
 // node_modules/@vuepress/shared/dist/index.js
 var isLinkWithProtocol = (link) => /^[a-z][a-z0-9+.-]*:/.test(link) || link.startsWith("//");
 var markdownLinkRegexp = /.md((\?|#).*)?$/;
