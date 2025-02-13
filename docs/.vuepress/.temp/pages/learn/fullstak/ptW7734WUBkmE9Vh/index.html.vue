@@ -20,7 +20,7 @@
 <p>This combination is a popular choice for building modern, full-stack web applications.</p>
 <h2 id="principles-of-nestjs" tabindex="-1"><a class="header-anchor" href="#principles-of-nestjs"><span>Principles of NestJS</span></a></h2>
 <h3 id="modular-architecture" tabindex="-1"><a class="header-anchor" href="#modular-architecture"><span>Modular Architecture</span></a></h3>
-<p><img src="@source/../images/3daeaa901a273e7394d9141da6b580353ccfced8a9927eda33e86e46f568d5a7.png" alt="图 0"></p>
+<p><img src="@source/../images/3daeaa901a273e7394d9141da6b580353ccfced8a9927eda33e86e46f568d5a7.png" alt="图 0" width="1350" height="667"></p>
 <p>--<strong>Modules</strong>-- NestJS applications are organized into modules. Each module encapsulates related components, controllers, and services, promoting code organization and reusability.</p>
 <p>--<strong>Hierarchical Structure</strong>-- Modules can be imported into other modules, creating a hierarchical structure that represents the application's features or domains.</p>
 <h3 id="dependency-injection-di" tabindex="-1"><a class="header-anchor" href="#dependency-injection-di"><span>Dependency Injection (DI)</span></a></h3>
@@ -84,7 +84,7 @@
 <li>Response Sent: The response is sent back to the client.</li>
 <li>Exception Filters: If an exception occurs, it's caught by an exception filter.</li>
 </ol>
-<p><img src="@source/../images/bab91c49780cbd4c497757fbf03909070ba5c52448b924c443594028b26e35c4.png" alt="图 1"></p>
+<p><img src="@source/../images/bab91c49780cbd4c497757fbf03909070ba5c52448b924c443594028b26e35c4.png" alt="图 1" width="720" height="585"></p>
 <p>NestJS application structure</p>
 <h2 id="how-to-build-a-web-application-with-nestjs-and-nextjs-step-by-step" tabindex="-1"><a class="header-anchor" href="#how-to-build-a-web-application-with-nestjs-and-nextjs-step-by-step"><span>How to build a web application with nestJS and Nextjs step by step</span></a></h2>
 <h3 id="create-a-next-js-app" tabindex="-1"><a class="header-anchor" href="#create-a-next-js-app"><span>Create a Next.js app</span></a></h3>

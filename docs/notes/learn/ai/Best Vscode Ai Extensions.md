@@ -26,8 +26,6 @@ Tabnine is the AI code assistant that accelerates and simplifies software develo
 
 Tabnine boosts engineering velocity, code quality, and developer happiness by automating the coding workflow through AI tools customized to your team. Tabnine supports more than 1 million developers across companies in every industry.
 
-@[youtube](https://youtu.be/RlqeJD8KpnI?list=PLO8wFKg6som1Grum5GWPwZKg2iMMv9iF6)
-
 @[youtube](WA_LbhhhkLs)
 
 ## IntelliCode

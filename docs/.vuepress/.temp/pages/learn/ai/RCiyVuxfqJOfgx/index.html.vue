@@ -8,7 +8,7 @@
 <h2 id="tabnine" tabindex="-1"><a class="header-anchor" href="#tabnine"><span>Tabnine</span></a></h2>
 <p>Tabnine is the AI code assistant that accelerates and simplifies software development while keeping your code private, secure, and compliant.</p>
 <p>Tabnine boosts engineering velocity, code quality, and developer happiness by automating the coding workflow through AI tools customized to your team. Tabnine supports more than 1 million developers across companies in every industry.</p>
-<VideoYoutube src="https://www.youtube.com/embed//https://youtu.be/RlqeJD8KpnI?list=PLO8wFKg6som1Grum5GWPwZKg2iMMv9iF6?" width="100%" height="" ratio="" title="undefined" /><VideoYoutube src="https://www.youtube.com/embed//WA_LbhhhkLs?" width="100%" height="" ratio="" title="undefined" /><h2 id="intellicode" tabindex="-1"><a class="header-anchor" href="#intellicode"><span>IntelliCode</span></a></h2>
+<VideoYoutube src="https://www.youtube.com/embed//WA_LbhhhkLs?" width="100%" height="" ratio="" title="undefined" /><h2 id="intellicode" tabindex="-1"><a class="header-anchor" href="#intellicode"><span>IntelliCode</span></a></h2>
 <h2 id="deepcode" tabindex="-1"><a class="header-anchor" href="#deepcode"><span>DeepCode</span></a></h2>
 <h2 id="ai-doc-writer" tabindex="-1"><a class="header-anchor" href="#ai-doc-writer"><span>AI Doc Writer</span></a></h2>
 <h2 id="codet5" tabindex="-1"><a class="header-anchor" href="#codet5"><span>CodeT5</span></a></h2>
@@ -18,6 +18,6 @@
 <li><strong>Annotation Features</strong>: Provides a way to manage AI-generated comments effectively.</li>
 <li><strong>User Control</strong>: Empowers developers to review and edit documentation before finalizing.</li>
 </ul>
-</div></template>
+<VideoYoutube src="https://www.youtube.com/embed//Z_gAoXQHfVc?" width="100%" height="" ratio="" title="undefined" /></div></template>
 
 

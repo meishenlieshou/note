@@ -1,16 +1,3 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/front/UvYWaKydhX/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/front/UvYWaKydhX/\",\"title\":\"5. Jest\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"5. Jest\",\"createTime\":\"2025/02/08 09:44:53\",\"permalink\":\"/learn/front/UvYWaKydhX/\",\"author\":\"Jack\",\"tags\":[\"React\",\"Jest\",\"Unit test\"],\"description\":null,\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":2.97,\"words\":890},\"filePathRelative\":\"notes/learn/techs/5. Jest.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/front/UvYWaKydhX/\",\"title\":\"5. Jest\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"5. Jest\",\"createTime\":\"2025/02/08 09:44:53\",\"permalink\":\"/learn/front/UvYWaKydhX/\",\"author\":\"Jack\",\"tags\":[\"React\",\"Jest\",\"Unit test\"],\"description\":\"What is Jest Jest is a JavaScript testing framework primarily used for testing React applications, but it's also powerful enough for general JavaScript and TypeScript testing. I...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://duduainy.top/learn/front/UvYWaKydhX/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Seasoned Jack\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"5. Jest\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"What is Jest Jest is a JavaScript testing framework primarily used for testing React applications, but it's also powerful enough for general JavaScript and TypeScript testing. I...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-02-08T11:48:05.000Z\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Jack\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"React\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"Jest\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"Unit test\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-02-08T11:48:05.000Z\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"5. Jest\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-02-08T11:48:05.000Z\\\",\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Jack\\\"}]}\"]]},\"headers\":[],\"readingTime\":{\"minutes\":2.97,\"words\":890},\"git\":{\"updatedTime\":1739015285000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":1,\"avatar\":\"https://avatars.githubusercontent.com/meishenlieshou?v=4\",\"url\":\"https://github.com/meishenlieshou\"}],\"changelog\":[{\"hash\":\"d78d8cd7f45e9a57c1f0691612f9cb45d248d256\",\"date\":1739015285000,\"email\":\"meishenlieshou@gmail.com\",\"author\":\"meishenlieshou\",\"message\":\"commit\",\"commitUrl\":\"https://github.com/meishenlieshou/note/commit/d78d8cd7f45e9a57c1f0691612f9cb45d248d256\"}]},\"autoDesc\":true,\"filePathRelative\":\"notes/learn/techs/5. Jest.md\",\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}

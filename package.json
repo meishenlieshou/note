@@ -26,6 +26,7 @@
     "watchpack": "^2.4.2"
   },
   "dependencies": {
+    "artplayer": "^5.2.2",
     "chart.js": "^4.4.7",
     "echarts": "^5.6.0",
     "flowchart.ts": "^3.0.1",

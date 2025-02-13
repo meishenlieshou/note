@@ -8,7 +8,7 @@
 <div class="hint-container note">
 <p class="hint-container-title">Note</p>
 <p>在烧录的第一步，可以进入EDIT SETTINGS设置基本的系统信息，比如用户名、密码，Wifi连接，ssh等。</p>
-<p><img src="@source/../images/0ac58e8df16be00aec603e000c530c586f422d85ff5420a56b5d9e438908d732.png" alt="图 0"></p>
+<p><img src="@source/../images/0ac58e8df16be00aec603e000c530c586f422d85ff5420a56b5d9e438908d732.png" alt="图 0" width="1854" height="1330"></p>
 </div>
 <h3 id="启动系统" tabindex="-1"><a class="header-anchor" href="#启动系统"><span>启动系统</span></a></h3>
 <p>烧录完毕后，取出SD卡插入树莓派主板，上电启动。安装完毕。</p>

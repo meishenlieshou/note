@@ -1,16 +1,3 @@
 import comp from "C:/Users/Administrator/Desktop/workspace/note/docs/.vuepress/.temp/pages/learn/vue/F6sGYs0QcEiC1Pf/index.html.vue"
-const data = JSON.parse("{\"path\":\"/learn/vue/F6sGYs0QcEiC1Pf/\",\"title\":\"展开\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"展开\",\"createTime\":\"2025/01/22 18:49:34\",\"permalink\":\"/learn/vue/F6sGYs0QcEiC1Pf/\",\"author\":\"Jack\",\"tags\":[\"Vue\",\"回顾\"],\"description\":\"description\",\"gitInclude\":[]},\"headers\":[],\"readingTime\":{\"minutes\":1.59,\"words\":478},\"filePathRelative\":\"notes/learn/vue/展开.md\",\"bulletin\":false}")
+const data = JSON.parse("{\"path\":\"/learn/vue/F6sGYs0QcEiC1Pf/\",\"title\":\"展开\",\"lang\":\"en-US\",\"frontmatter\":{\"title\":\"展开\",\"createTime\":\"2025/01/22 18:49:34\",\"permalink\":\"/learn/vue/F6sGYs0QcEiC1Pf/\",\"author\":\"Jack\",\"tags\":[\"Vue\",\"回顾\"],\"description\":\"description\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://duduainy.top/learn/vue/F6sGYs0QcEiC1Pf/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Seasoned Jack\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"展开\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"description\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-02-02T02:54:23.000Z\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Jack\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"Vue\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"回顾\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-02-02T02:54:23.000Z\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"展开\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-02-02T02:54:23.000Z\\\",\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Jack\\\"}]}\"]]},\"headers\":[],\"readingTime\":{\"minutes\":1.59,\"words\":478},\"git\":{\"updatedTime\":1738464863000,\"contributors\":[{\"name\":\"meishenlieshou\",\"username\":\"meishenlieshou\",\"email\":\"meishenlieshou@gmail.com\",\"commits\":3,\"avatar\":\"https://avatars.githubusercontent.com/meishenlieshou?v=4\",\"url\":\"https://github.com/meishenlieshou\"}],\"changelog\":[{\"hash\":\"f4a4370a98fc029569765dd9356497ee306880a8\",\"date\":1737878114000,\"email\":\"meishenlieshou@gmail.com\",\"author\":\"meishenlieshou\",\"message\":\"提交\",\"commitUrl\":\"https://github.com/meishenlieshou/note/commit/f4a4370a98fc029569765dd9356497ee306880a8\"},{\"hash\":\"ad21a3093205b021ecafccde6975c9358c09d597\",\"date\":1738411730000,\"email\":\"meishenlieshou@gmail.com\",\"author\":\"meishenlieshou\",\"message\":\"修改调整\",\"commitUrl\":\"https://github.com/meishenlieshou/note/commit/ad21a3093205b021ecafccde6975c9358c09d597\"},{\"hash\":\"d1e4eccc331618ab9feb2b4252a4e031a80ed07d\",\"date\":1738464863000,\"email\":\"meishenlieshou@gmail.com\",\"author\":\"meishenlieshou\",\"message\":\"提交\",\"commitUrl\":\"https://github.com/meishenlieshou/note/commit/d1e4eccc331618ab9feb2b4252a4e031a80ed07d\"}]},\"filePathRelative\":\"notes/learn/vue/展开.md\",\"bulletin\":false}")
 export { comp, data }
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}
