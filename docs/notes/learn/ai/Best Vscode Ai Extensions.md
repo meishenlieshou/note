@@ -44,3 +44,5 @@ Docify AI enhances documentation processes within VSCode by introducing IComment
 
 - **Annotation Features**: Provides a way to manage AI-generated comments effectively.
 - **User Control**: Empowers developers to review and edit documentation before finalizing.
+
+@[youtube](Z_gAoXQHfVc)
