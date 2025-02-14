@@ -1,0 +1,135 @@
+---
+title: Vitest
+createTime: 2025/02/14 08:42:35
+permalink: /learn/opensource/Vitest/
+author: Jack
+tags:
+  - Vitest
+  - Vite
+  - Unit Test
+  - Jest
+description: description
+---
+
+## What is Vitest
+
+Vitest is a blazing-fast unit testing framework designed for modern JavaScript projects, built on top of Vite. It provides an efficient, lightweight, and Vite-native alternative to Jest, making it an excellent choice for projects using Vite.
+
+## Why Vitest
+
+Vite's out-of-the-box support for common web patterns, features like glob imports and SSR primitives, and its many plugins and integrations are fostering a vibrant ecosystem. Its dev and build story are key to its success. For docs, there are several SSG-based alternatives powered by Vite. Vite's Unit Testing story hasn't been clear though. Existing options like Jest were created in a different context. There is a lot of duplication between Jest and Vite, forcing users to configure two different pipelines.
+
+Using Vite dev server to transform your files during testing, enables the creation of a simple runner that doesn't need to deal with the complexity of transforming source files and can solely focus on providing the best DX during testing. A test runner that uses the same configuration of your App (through vite.config.js), sharing a common transformation pipeline during dev, build, and test time. That is extensible with the same plugin API that lets you and the maintainers of your tools provide first-class integration with Vite. A tool that is built with Vite in mind from the start, taking advantage of its improvements in DX, like its instant Hot Module Reload (HMR). This is Vitest, a next generation testing framework powered by Vite.
+
+Given Jest's massive adoption, Vitest provides a compatible API that allows you to use it as a drop-in replacement in most projects. It also includes the most common features required when setting up your unit tests (mocking, snapshots, coverage). Vitest cares a lot about performance and uses Worker threads to run as much as possible in parallel. Some ports have seen test running an order of magnitude faster. Watch mode is enabled by default, aligning itself with the way Vite pushes for a dev first experience. Even with all these improvements in DX, Vitest stays lightweight by carefully choosing its dependencies (or directly inlining needed pieces).
+
+Vitest aims to position itself as the Test Runner of choice for Vite projects, and as a solid alternative even for projects not using Vite.
+
+## Key Features of Vitest
+
+1. Ultra-Fast Performance
+2. Most Jest APIs (describe, it, expect, mock, etc.) work out of the box
+3. First-Class TypeScript & JSX Support
+4. Similar to Jest, supports vi.fn(), vi.spyOn(), and module mocking (vi.mock())
+5. Works effortlessly with modern JavaScript (import instead of require)
+6. Uses Vite’s fast HMR for instant test updates
+7. Running vitest --watch makes debugging easier
+
+## How to Install and Use Vitest
+
+1. Install Vitest
+```shell
+npm install vitest -D 
+```
+
+2. Update package.json (if using Vite)
+```json
+{
+  "scripts": {
+    "test": "vitest"
+  }
+}
+```
+
+3. Write a Simple Test
+```Javascript
+import { expect, test } from 'vitest';
+
+function sum(a, b) {
+  return a + b;
+}
+
+test('adds numbers correctly', () => {
+  expect(sum(2, 3)).toBe(5);
+});
+
+```
+
+4. Run the Tests
+```shell
+npm run test
+```
+
+## Command Line Interface
+
+### vitest
+
+Start Vitest in the current directory. Will enter the watch mode in development environment and run mode in CI automatically.
+
+You can pass an additional argument as the filter of the test files to run
+```shell
+vitest foobar # Will run only the test file that contains foobar in their paths. This filter only checks inclusion and doesn't support regexp or glob patterns (unless your terminal processes it before Vitest receives the filter)
+```
+
+### vitest run
+
+Perform a single run without watch mode.
+
+### vitest watch
+
+Run all test suites but watch for changes and rerun tests when they change. Same as calling vitest without an argument. Will fallback to vitest run in CI.
+
+### vitest dev
+
+Alias to vitest watch.
+
+### vitest init
+
+vitest init `<name>` can be used to setup project configuration. At the moment, it only supports browser value.
+
+### vitest list
+
+vitest list command inherits all vitest options to print the list of all matching tests. This command ignores reporters option. By default, it will print the names of all tests that matched the file filter and name pattern
+```shell
+vitest list filename.spec.ts -t="some-test"
+```
+```txt
+describe > some-test
+describe > some-test > test 1
+describe > some-test > test 2
+```
+
+You can pass down --json flag to print tests in JSON format or save it in a separate file, If --json flag doesn't receive a value, it will output the JSON into stdout.
+
+## Comparisons with Other Test Runners
+
+### Jest
+
+[Jest](/learn/front/UvYWaKydhX/) took over the Testing Framework space by providing out-of-the-box support for most JavaScript projects, a comfortable API (it and expect), and the full pack of testing features that most setups would require (snapshots, mocks, coverage). We are thankful to the Jest team and community for creating a delightful testing API and pushing forward a lot of the testing patterns that are now a standard in the web ecosystem.
+
+It is possible to use Jest in Vite setups. @sodatea built vite-jest, which aims to provide first-class Vite integration for Jest. The last blockers in Jest have been solved, so this is a valid option for your unit tests.
+
+### Cypress
+
+[Cypress](/learn/opensource/1ws3o8/) is a browser-based test runner and a complementary tool to Vitest. If you'd like to use Cypress, we suggest using Vitest for all headless logic in your application and Cypress for all browser-based logic.
+
+Cypress is known as an end-to-end testing tool, but their new component test runner has great support for testing Vite components and is an ideal choice to test anything that renders in a browser.
+
+Browser-based runners, like Cypress, WebdriverIO and Web Test Runner, will catch issues that Vitest cannot because they use the real browser and real browser APIs.
+
+
+
+
+
+
+

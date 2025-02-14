@@ -5,25 +5,25 @@ permalink: /learn/front/XgIbXL/
 author: Jack
 tags:
   - Web Worker
-  - 原生技术
+  - Native technology
 
 description: description
 ---
 
-## 关于Web worker
+## About Web Worker
 
-Web Worker 是一种浏览器技术，允许在独立线程中运行 JavaScript 代码，从而避免阻塞主线程（UI 线程）。它适合处理耗时的计算任务，例如数据处理、复杂算法等，以提升页面的响应性。
+Web Worker is a browser technology that allows running JavaScript code in an independent thread, avoiding blocking the main thread (UI thread). It is suitable for handling time-consuming computational tasks, such as data processing and complex algorithms, to improve page responsiveness.
 
-## Web Worker 特点
+## Features of Web Worker
 
-1. **`独立线程`**
-2. **`不能直接访问 DOM、window、document 或 localStorage`**
+1. **`Independent thread`**
+2. **`Cannot directly access DOM, window, document, or localStorage`**
 
-## Web Worker 支持哪些类型的 Worker
+## Types of Workers Supported by Web Worker
 
-1. **`Dedicated Worker（专用 Worker）`**： 每个 Worker 只能被一个主线程使用。
+1. **`Dedicated Worker`**: Each worker can only be used by one main thread.
 
-2. **`Shared Worker（共享 Worker）`**:  多个主线程可以共享一个 Worker，适合跨页面通信。
+2. **`Shared Worker`**: Multiple main threads can share a worker, suitable for cross-page communication.
    ```JavaScript
     self.onconnect = function (e) {
       const port = e.ports[0];
@@ -40,16 +40,15 @@ Web Worker 是一种浏览器技术，允许在独立线程中运行 JavaScript 
    ```
 
 3. **`Service Worker`**:  
-   1. 用于拦截网络请求，实现离线缓存。
-   2. 不直接与 UI 线程通信，而是通过 postMessage 或消息通道。
-   [更多请参考](/learn/front/gi23I/)
+   1. Used to intercept network requests and implement offline caching.
+   2. Does not directly communicate with the UI thread but uses postMessage or message channels.
+   [For more details, refer here](/learn/front/gi23I/)
 
-
-## Web Worker 如何加载外部脚本
+## How to Load External Scripts in Web Worker
 
 1. **`importScripts()`**
 
-2. **`通过构造函数传递脚本`**
+2. **`Pass scripts through the constructor`**
 
 ```JavaScript
 // main.js
@@ -64,30 +63,30 @@ const workerCode = `
       result = a - b;
     }
 
-    postMessage(result);  // 返回结果给主线程
+    postMessage(result);  // Return result to the main thread
   }
 `;
 
-const blob = new Blob([workerCode], { type: 'application/javascript' });  // 创建 Blob 对象
-const worker = new Worker(URL.createObjectURL(blob));  // 使用 Blob 创建 Worker 实例
+const blob = new Blob([workerCode], { type: 'application/javascript' });  // Create Blob object
+const worker = new Worker(URL.createObjectURL(blob));  // Create Worker instance using Blob
 
 worker.onmessage = function(e) {
-  console.log('Result from worker:', e.data);  // 输出 Worker 返回的结果
+  console.log('Result from worker:', e.data);  // Output result returned by Worker
 };
 
-worker.postMessage({ a: 5, b: 3, operation: 'add' });  // 向 Worker 发送数据
+worker.postMessage({ a: 5, b: 3, operation: 'add' });  // Send data to Worker
 ```
 
-3. **`ES模式引入脚本`**
+3. **`Import scripts in ES module mode`**
 
 ```JavaScript
 new Worker('path/to/js', { type: 'module' });
 ```
 
-## 能正常使用的原生API
+## Native APIs Available in Web Worker
 
-- **`定时器`**：setTimeout 和 setInterval
-- **`网络请求`**：fetch、XMLHttpRequest
-- **`Web APIs`**：WebSocket、FileReader
-- **`二进制操作`**：ArrayBuffer、Blob
-- **`数据处理`**：crypto、IndexedDB
+- **`Timers`**: setTimeout and setInterval
+- **`Network Requests`**: fetch, XMLHttpRequest
+- **`Web APIs`**: WebSocket, FileReader
+- **`Binary Operations`**: ArrayBuffer, Blob
+- **`Data Processing`**: crypto, IndexedDB

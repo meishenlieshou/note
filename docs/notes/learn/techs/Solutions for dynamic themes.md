@@ -4,35 +4,33 @@ createTime: 2025/01/20 21:21:06
 permalink: /learn/front/fJJYokDUt0660/
 author: Jack
 tags:
-  - 换肤
-  - 主题
-  - CSS变量
+  - Skinning
+  - Theme
+  - CSS Variables
 
 description: description
 ---
 
+## Overview
 
-## 总览
-
-| **方案**                | **适用场景**                                    | **优点**                          | **缺点**                        |
+| **Solution**            | **Applicable Scenarios**                       | **Advantages**                    | **Disadvantages**               |
 |-------------------------|-----------------------------------------------|-----------------------------------|---------------------------------|
-| CSS Variables           | 通用，现代项目                                | 简单、高效、易维护                | 需现代浏览器支持               |
-| CSS 预处理器            | 大型复杂项目                                  | 灵活、支持预编译                  | 动态性稍弱                     |
-| 动态切换类名            | 小型或简单项目                                | 实现简单、兼容性好                | 样式可能冲突                   |
-| 组件库动态换肤          | 使用 Ant Design、Element Plus 等 UI 框架       | 深度集成组件库                    | 需依赖组件库工具               |
-| Tailwind CSS 动态主题    | Tailwind CSS 项目                             | 整合好，原生支持                  | 依赖 Tailwind                  |
+| CSS Variables           | General, modern projects                      | Simple, efficient, easy to maintain | Requires modern browser support |
+| CSS Preprocessor        | Large complex projects                        | Flexible, supports pre-compilation | Less dynamic                   |
+| Dynamic Class Switching | Small or simple projects                      | Easy to implement, good compatibility | Potential style conflicts      |
+| Component Library Theming | Using UI frameworks like Ant Design, Element Plus | Deep integration with component library | Depends on component library tools |
+| Tailwind CSS Dynamic Theme | Tailwind CSS projects                       | Well integrated, native support   | Depends on Tailwind             |
 
+## CSS Variables (CSS Custom Properties)
 
-## CSS Variables（CSS 自定义属性）
+### **`Principle`**
 
-### **`原理`**
+Define global CSS variables (e.g., colors, font sizes) and dynamically modify the values of CSS variables when switching themes.
 
-通过定义全局的 CSS 变量（如颜色、字体大小等），在主题切换时动态修改 CSS 变量的值。
-
-### **`示例`**
+### **`Example`**
 
 ```CSS
-/* 定义变量 */
+/* Define variables */
 :root {
   --primary-color: #007bff;
   --background-color: #ffffff;
@@ -45,7 +43,7 @@ description: description
   --text-color: #ffffff;
 }
 
-/*使用变量*/
+/* Use variables */
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -56,20 +54,20 @@ body {
 ```
 
 ```Javascript
-//JavaScript中切换主题
+// Switch theme in JavaScript
 function switchTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
 }
 switchTheme('dark'); 
 ```
 
-## CSS 预处理器
+## CSS Preprocessor
 
-### **`原理`**
+### **`Principle`**
 
-使用预处理器变量（如 Sass 中的 $变量）管理主题样式，在构建阶段通过工具生成不同的主题文件。
+Use preprocessor variables (e.g., $variables in Sass) to manage theme styles and generate different theme files through tools during the build phase.
 
-### **`示例`**
+### **`Example`**
 ```less
 /*theme/light-theme.less*/
 @primary-color: #007bff;
@@ -82,7 +80,7 @@ switchTheme('dark');
 @text-color: #ffffff;
 
 /*main.less*/
-@import (reference) "./themes/light-theme.less"; // 默认加载浅色主题
+@import (reference) "./themes/light-theme.less"; // Default to light theme
 body {
   background-color: @background-color;
   color: @text-color;
@@ -96,7 +94,7 @@ body {
 ```Javascript
 import less from 'less';
 
-// 主题切换函数
+// Theme switching function
 async function fetchThemeVariables(theme) {
   const response = await fetch(`/themes/${theme}-theme.less`);
   const themeContent = await response.text();
@@ -115,27 +113,26 @@ function parseLessToVariables(lessContent) {
 async function switchTheme(theme) {
   try {
     const themeContent = await fetchThemeVariables(theme);
-    less.modifyVars(parseLessToVariables(themeContent)); //根据规则更新css样式表
+    less.modifyVars(parseLessToVariables(themeContent)); // Update CSS stylesheet based on rules
     console.log(`Switched to ${theme} theme`);
   } catch (error) {
     console.error('Error loading theme:', error);
   }
 }
 
-// 切换到暗黑主题
+// Switch to dark theme
 switchTheme('dark');
 ```
 
+## Dynamic Class Switching
 
-## 动态切换类名
+### **`Principle`**
 
-### **`原理`**
+Dynamically add class names to the root element (e.g., `<html>` or `<body>`) when switching themes to trigger different style rules.
 
-根据主题切换时，在根元素（如 `<html>` 或 `<body>`）上动态添加类名，从而触发不同的样式规则。
-
-### **`示例`**
+### **`Example`**
 ```CSS
-/* 定义变量 */
+/* Define variables */
 body.light {
   --primary-color: #007bff;
   --background-color: #ffffff;
@@ -148,7 +145,7 @@ body.dark {
   --text-color: #ffffff;
 }
 
-/* 使用变量 */
+/* Use variables */
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -156,23 +153,22 @@ body {
 ```
 
 ```Javascript
-//Javascript切换主题
+// Switch theme in JavaScript
 function switchTheme(theme) {
   document.body.className = theme;
 }
 switchTheme('dark');
-
 ```
 
-## 组件库动态换肤(Antd)
+## Component Library Theming (Antd)
 
-### **`原理`**
+### **`Principle`**
 
-对于基于组件库（如 Ant Design、Element Plus）的项目，可以通过动态修改组件主题变量或覆盖全局样式实现换肤
+For projects based on component libraries (e.g., Ant Design, Element Plus), dynamically modify component theme variables or override global styles to achieve theming.
 
-### **`示例`**
+### **`Example`**
 ```Javascript
-//配置文件
+// Configuration file
 module.exports = {
   css: {
     loaderOptions: {
@@ -189,27 +185,26 @@ module.exports = {
   }
 };
 
-//修改主题变量
+// Modify theme variables
 function changeTheme(theme) {
   window.less.modifyVars(theme);
 }
 changeTheme({
   'primary-color': '#ff4d4f'
 });
-
 ```
 
-## 使用 Tailwind CSS 的动态主题
+## Using Tailwind CSS for Dynamic Themes
 
-### **`原理`**
+### **`Principle`**
 
-Tailwind CSS 支持通过 theme.extend 动态扩展主题，结合 darkMode 或 class 实现换肤。
+Tailwind CSS supports dynamic theme extension through theme.extend, combined with darkMode or class to achieve theming.
 
-### **`示例`**
+### **`Example`**
 ```Javascript
-//tailwind.config.js中定义配置
+// Define configuration in tailwind.config.js
 module.exports = {
-  darkMode: 'class', // 开启暗黑模式
+  darkMode: 'class', // Enable dark mode
   theme: {
     extend: {
       colors: {
@@ -221,7 +216,7 @@ module.exports = {
   }
 };
 
-//代码中切换主题
+// Switch theme in code
 function switchTheme(theme) {
   document.documentElement.classList.toggle('dark', theme === 'dark');
 }
@@ -232,5 +227,4 @@ switchTheme('dark');
 <body class="dark">
   <div class="bg-background text-text"></div>
 </body>
-
 ```

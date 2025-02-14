@@ -5,28 +5,28 @@ permalink: /learn/front/rLvfWeWvH3Ft40ll2I3/
 author: Jack
 tags:
   - Less
-  - CSS预处理器
+  - CSS Preprocessor
 
 description: description
 ---
 
-## 关于Less
+## About Less
 
-LESS 是一种扩展了 CSS 的预处理器语言，它在最终生成 CSS 文件之前，会经过编译的步骤，从而允许你使用更高级的语言特性。最终生成的 CSS 文件可以在浏览器中直接使用。
+LESS is a preprocessor language that extends CSS. It goes through a compilation step before generating the final CSS file, allowing you to use more advanced language features. The resulting CSS file can be used directly in the browser.
 
-## 在项目中使用
+## Usage in Projects
 
-Webpack/Vite项目中使用less，需要引入less包，对less文件进行处理。
+To use Less in Webpack/Vite projects, you need to include the Less package and process Less files.
 
-## LESS 的特点
+## Features of LESS
 
-- **`变量`**：在less文件里通过@前缀符定义变量，css规则里引用。
+- **`Variables`**: Define variables with the @ prefix in Less files and reference them in CSS rules.
 
-- **`嵌套规则`**：可以在样式规则中嵌套其他规则，使得 CSS 更加结构化和清晰。
+- **`Nested Rules`**: Allows nesting of rules within other rules, making CSS more structured and clear.
 
-- **`混合（Mixins）`**：可以定义样式规则并在多个地方复用，类似函数调用的概念。
+- **`Mixins`**: Define reusable style rules that can be used in multiple places, similar to function calls.
 ```Less
-//按需传参混合-----------
+// Parameterized mixin
 .rounded-corners(@radius) {
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
@@ -37,7 +37,7 @@ Webpack/Vite项目中使用less，需要引入less包，对less文件进行处�
   .rounded-corners(10px);
 }
 
-//命名混合-----------
+// Named mixin
 .theme {
   .primary {
     color: white;
@@ -53,64 +53,63 @@ Webpack/Vite项目中使用less，需要引入less包，对less文件进行处�
   .theme.primary;
 }
 
-//带逻辑的混合-----------
+// Conditional mixin
 .size(@width, @height) when (@width > 0) and (@height > 0) {
   width: @width;
   height: @height;
 }
 
-
 .image {
-  .size(100px, 50px); // 触发条件，应用样式
+  .size(100px, 50px); // Condition met, apply styles
 }
 .empty {
-  .size(-10px, 0px);  // 条件不满足，不输出样式
+  .size(-10px, 0px);  // Condition not met, no styles applied
 }
 ```
 
-- **`运算`**：支持在变量里、或者css规则里进行数学运算，如加、减、乘、除等。
+- **`Operations`**: Supports mathematical operations such as addition, subtraction, multiplication, and division in variables or CSS rules.
 
-- **`导入（Import）`**：支持 @import 导入其他 LESS 文件，使得代码更加模块化。
+- **`Import`**: Supports @import to import other Less files, making the code more modular.
 
-- **`条件判断`**：支持 if-else 判断，使得 CSS 可以动态调整。
+- **`Conditional Statements`**: Supports if-else statements, allowing CSS to adjust dynamically.
 
-- **`函数`**：可以创建自定义函数，进一步增强样式的灵活性和可重用性。
+- **`Functions`**: Create custom functions to further enhance the flexibility and reusability of styles.
 
-  包括颜色、数学运算、字符串处理、类型检查、用于逻辑判断的if()
+  Includes color, mathematical operations, string manipulation, type checking, and if() for logical conditions.
 
-- **`自定义函数`**
+- **`Custom Functions`**
 
-  在vite或者webpack配置less的参数里，通过plugins引入封装了自定义函数的less插件，同时开启javascriptEnabled。less插件里定义自定义函数的格式为
+  In Vite or Webpack, configure Less parameters by importing a Less plugin that encapsulates custom functions and enabling javascriptEnabled. The format for defining custom functions in a Less plugin is:
   ```Javascript
   export default function MyLessPlugin() {
     return {
       install: function(lessInstance, pluginManager) {
 
-        //新增double函数
+        // Add double function
         lessInstance.functions.functionRegistry.add('double', (value) => {
           //...
         });
 
-        //其它函数
+        // Other functions
       }
     };
   }
   ```
 
-## 常用的选择器
+## Common Selectors
 
-| 类型              | 描述                                                                 | 示例                          |
-|-------------------|----------------------------------------------------------------------|-------------------------------|
-| 嵌套选择器         | 定义层级结构                                                       | `.parent { .child { } }`      |
-| 父选择器 (`&`)    | 引用当前选择器                                                     | `&:hover { }`                 |
-| 属性选择器         | 根据属性匹配元素                                                   | `[type="text"] { }`           |
-| 子选择器 (`>`)    | 选择直接子元素                                                     | `.parent > .child { }`        |
-| 通配符选择器 (`*`) | 选择所有子元素                                                     | `.parent * { }`               |
-| 动态选择器         | 使用变量动态生成选择器                                             | `.@{name} { }`                |
-| 兄弟选择器         | 匹配相邻或通用兄弟元素                                             | `p + p, p ~ p { }`            |
-| 媒体查询嵌套       | 在选择器中嵌套媒体查询                                             | `@media (max-width: 600px)`   |
+| Type                | Description                                                      | Example                        |
+|---------------------|------------------------------------------------------------------|--------------------------------|
+| Nested Selector     | Defines hierarchical structure                                   | `.parent { .child { } }`      |
+| Parent Selector (`&`) | References the current selector                                 | `&:hover { }`                 |
+| Attribute Selector  | Matches elements based on attributes                             | `[type="text"] { }`           |
+| Child Selector (`>`) | Selects direct child elements                                    | `.parent > .child { }`        |
+| Universal Selector (`*`) | Selects all child elements                                   | `.parent * { }`               |
+| Dynamic Selector    | Dynamically generates selectors using variables                  | `.@{name} { }`                |
+| Sibling Selector    | Matches adjacent or general sibling elements                     | `p + p, p ~ p { }`            |
+| Media Query Nesting | Nests media queries within selectors                             | `@media (max-width: 600px)`   |
 
- 
+
 
 
 

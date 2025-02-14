@@ -5,27 +5,27 @@ permalink: /learn/front/gi23I/
 author: Jack
 tags:
   - Service worker
-  - 原生技术
+  - Native technology
 
 description: description
 ---
 
-## 关于Service Worker
+## About Service Worker
 
-Service Worker 是一种运行在浏览器后台的独立线程，它能够拦截网络请求、管理缓存和处理推送通知。它设计用于提升 Web 应用的性能、可靠性和用户体验，尤其是在离线或低网速的情况下。
+Service Worker is an independent thread running in the background of the browser. It can intercept network requests, manage caches, and handle push notifications. It is designed to enhance the performance, reliability, and user experience of web applications, especially in offline or low-speed network conditions.
 
-## 特点
+## Features
 
-- **`独立于主线程`**
-- **`拦截网络请求`**
-- **`支持离线功能`**
-- **`推送通知`**
-- **`严格的生命周期`**，包括安装、激活和更新机制，保证稳定性
-- **`只能在 HTTPS 环境下运行`**，为了安全性，防止中间人攻击。Service Worker 可拦截请求并修改响应，因此需要安全的 HTTPS 环境。
+- **`Independent of the main thread`**
+- **`Intercept network requests`**
+- **`Support offline functionality`**
+- **`Push notifications`**
+- **`Strict lifecycle`**, including installation, activation, and update mechanisms to ensure stability
+- **`Can only run in HTTPS environments`**, for security reasons, to prevent man-in-the-middle attacks. Service Worker can intercept requests and modify responses, so a secure HTTPS environment is required.
 
-## 使用步骤
+## Usage Steps
 
-1. **`在主线程中注册`**
+1. **`Register in the main thread`**
 ```JavaScript
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js').then((registration) => {
@@ -35,21 +35,19 @@ if ('serviceWorker' in navigator) {
   });
 }
 ```
-2. **`监听 install 和 activate 事件`**，完成初始化操作
-3. **`实现自定义的缓存管理逻辑`**。
-4. **`监听 fetch 事件处理网络请求`**。
+2. **`Listen to install and activate events`**, complete initialization operations
+3. **`Implement custom cache management logic`**.
+4. **`Listen to fetch events to handle network requests`**.
 
-
-
-## 生命周期 {#lifecicle}
+## Lifecycle {#lifecicle}
 
 ```Javascript
 /**
- * 安装阶段
+ * Installation phase
  * 
- * 通常用于缓存静态资源
+ * Usually used to cache static resources
  * 
- * caches是标准的缓存接口，[详情参考]()
+ * caches is the standard cache interface, [see details]()
  */
 self.addEventListener('install', (event) => {
   console.log('Service Worker installing...');
@@ -61,9 +59,9 @@ self.addEventListener('install', (event) => {
 });
 
 /**
- * 激活阶段
+ * Activation phase
  * 
- * 通常用于清理旧的缓存或进行版本更新
+ * Usually used to clean up old caches or perform version updates
  */
 self.addEventListener('activate', (event) => {
   console.log('Service Worker activating...');
@@ -77,7 +75,7 @@ self.addEventListener('activate', (event) => {
 });
 
 /**
- * 运行阶段
+ * Running phase
  */
 self.addEventListener('fetch', (event) => {
   event.respondWith(
@@ -87,49 +85,48 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// 注册同步事件  
+// Register sync event  
 self.addEventListener('sync', function(event) {
   if (event.tag === 'sync-data') {
-    event.waitUntil(syncData()); // 同步数据的方法，syncData是自定义同步任务
+    event.waitUntil(syncData()); // Method to sync data, syncData is a custom sync task
   }
 });
 /**
- *  配合 Push API 实现消息推送
+ * Implement push notifications with Push API
  */
 self.addEventListener('push', function(event) {
   let options = {}; //
   event.waitUntil(
-    self.registration.showNotification('推送通知标题', options)
+    self.registration.showNotification('Push Notification Title', options)
   );
 });
 /**
- * 更新阶段
+ * Update phase
  * 
- * 当浏览器发现 Service Worker 脚本发生变化时，会重新下载并进入更新流程。
+ * When the browser detects changes in the Service Worker script, it will re-download and enter the update process.
  */
 
 ```
 
-实际应用中，生命周期不强制定义完整，按需监听即可。
+In practical applications, the lifecycle does not need to be fully defined, just listen as needed.
 
+## Functional Applications
 
-## 功能应用
+### Implement cache management with Cache API {#cache_api}
 
-### 结合Cache API实现缓存管理{#cache_api}
-
-Caches API 是一个浏览器提供的接口，用于程序化地管理缓存的内容。它允许你在 Service Worker 中存储和检索资源，帮助实现 离线功能、提高性能和优化网络请求。常用api包括
+The Caches API is an interface provided by the browser for programmatically managing cached content. It allows you to store and retrieve resources in the Service Worker, helping to achieve offline functionality, improve performance, and optimize network requests. Common APIs include
 
 - **`caches.open(cacheName)`**
 ```JavaScript
 caches.open('my-cache').then(function(cache) {
-  // 成功打开（或创建）缓存
+  // Successfully opened (or created) cache
   console.log('Cache opened');
 });
 ```
 - **`cache.put(request, response)`**
 ```JavaScript
 caches.open('my-cache').then(function(cache) {
-  cache.put('/some-resource', new Response('Hello, World!')); //request 是一个 Request 对象，response 是一个 Response 对象。
+  cache.put('/some-resource', new Response('Hello, World!')); // request is a Request object, response is a Response object.
 });
 ```
 - **`cache.match(request)`**
@@ -137,10 +134,10 @@ caches.open('my-cache').then(function(cache) {
 caches.open('my-cache').then(function(cache) {
   cache.match('/some-resource').then(function(response) {
     if (response) {
-      // 从缓存中找到响应
+      // Found response in cache
       console.log('Cache hit');
     } else {
-      // 响应不在缓存中
+      // Response not in cache
       console.log('Cache miss');
     }
   });
@@ -160,19 +157,16 @@ caches.open('my-cache').then(function(cache) {
 - **`caches.has(cacheName)`**
 - **`caches.keys()`**
 
+**`Cache Strategies`**
+- **`Network First`**: Prioritize fetching resources from the network, fallback to cache if network fails.
+- **`Cache First`**: Prioritize fetching resources from the cache, fallback to network if not in cache.
+- **`Cache and Network Race`**: Fetch resources from both cache and network simultaneously, use the fastest result.
 
-**`缓存策略`**
-- **`网络优先`**：优先从网络获取资源，失败时从缓存读取。
-- **`缓存优先`**：优先从缓存读取，缓存无数据时从网络获取。
-- **`缓存和网络竞争`**：同时从缓存和网络读取，使用最快的结果。
-
-
-
-### 后台推送通知
+### Background Push Notifications
 
 ```JavaScript
 /**
- * self.registration.showNotification是浏览器原生提供的显示通知方法，options里可配置弹窗
+ * self.registration.showNotification is a native method provided by the browser to display notifications, options can configure the popup
  */
 self.addEventListener('push', (event) => {
   const options = {
@@ -184,52 +178,51 @@ self.addEventListener('push', (event) => {
 });
 ```
 >[!NOTE]
->options.actions 属性允许在通知中添加交互按钮，用户点击按钮后，可以触发相关的操作。
+>The options.actions property allows adding interactive buttons to the notification, and you can handle related operations when the user clicks the button.
 >
->- 您可以在 notificationclick 事件中捕获点击的操作并处理相关逻辑。
->- 你可以使用 Notification.requestPermission() 请求权限，允许浏览器弹推送通知窗口。 
->- 如果通知的点击事件发生时，页面未处于前台，您可以通过 self.clients.openWindow() 打开一个新的窗口或标签页。
+>- You can capture the click operation and handle related logic in the notificationclick event.
+>- You can use Notification.requestPermission() to request permission to allow the browser to pop up push notification windows.
+>- If the notification click event occurs when the page is not in the foreground, you can open a new window or tab with self.clients.openWindow().
 
 >[!NOTE]
->相比较Websocket的推送
->1. Service Worker是单向推
->2. 只适合低频推送
->3. 受通知权限限制
->4. 客户端页面最小化也能推
+>Compared to WebSocket push
+>1. Service Worker is one-way push
+>2. Only suitable for low-frequency push
+>3. Subject to notification permission restrictions
+>4. Can push even when the client page is minimized
 
+### Background Sync
 
-### 后台同步
+Use the Background Sync API to automatically complete data synchronization when the network is restored.
 
-使用 Background Sync API 在网络恢复时自动完成数据同步。
+The Background Sync API is a browser API that allows automatically completing previously failed network requests due to network issues when the user's device's network connection is restored.
 
-Background Sync API 是一个浏览器 API，允许在用户设备的网络连接恢复时，自动完成之前因网络问题而未能成功执行的网络请求。
+Usage Steps
 
-使用步骤
-
-1. **`注册 Service Worker`**
-2. **`检查 Background Sync 支持情况`**
-3. **`在 Service Worker 中注册同步任务`** 
+1. **`Register Service Worker`**
+2. **`Check Background Sync support`**
+3. **`Register sync tasks in Service Worker`** 
    
-   [参考示例](#lifecicle)
-4. **`在UI线程里触发 Background Sync 任务`**
+   [Reference Example](#lifecicle)
+4. **`Trigger Background Sync tasks in the UI thread`**
 ```JavaScript
 //...
-// 注册同步任务
+// Register sync task
 navigator.serviceWorker.ready.then(function(registration) {
   return registration.sync.register('sync-data');
 })
 //...
 ```
-1. **`同步请求的触发`**
+1. **`Trigger sync requests`**
 
-当网络恢复时，浏览器会自动触发注册的同步事件，并执行你在 Service Worker 中定义的 syncData 函数。
+When the network is restored, the browser will automatically trigger the registered sync event and execute the syncData function defined in the Service Worker.
 
 > [!NOTE]
-> 后台同步的注意事项
-> - 后台同步不保证立即触发：虽然同步任务会在网络恢复时触发，但它的具体触发时间取决于系统的策略和网络状态，不一定是即时的。不同浏览器可能会有不同的调度策略。
-> - 同步任务限制：目前许多浏览器（如 Chrome）对后台同步任务的注册和触发有一些限制。例如，后台同步只能在用户与设备互动之后注册，并且一个同步任务最多只能注册一次。
-> - 支持情况：Background Sync API 并非所有浏览器都支持（尤其是 iOS 上的 Safari），因此要确保在不支持的环境下提供适当的降级处理。
-> - 存储和队列：通常，待同步的数据会存储在像 IndexedDB 这样的本地存储中。当网络恢复时，Service Worker 会访问这些存储，并自动触发同步请求。
-> - 卸载或关闭应用：当应用被关闭或用户卸载时，尚未同步的数据将丢失。因此，在实现时，可以结合一些策略（如：将数据同步到服务器）来防止数据丢失。
+> Notes on Background Sync
+> - Background sync does not guarantee immediate triggering: Although the sync task will be triggered when the network is restored, the specific trigger time depends on the system's strategy and network status, and it may not be immediate. Different browsers may have different scheduling strategies.
+> - Sync task limitations: Currently, many browsers (such as Chrome) have some limitations on the registration and triggering of background sync tasks. For example, background sync can only be registered after user interaction with the device, and a sync task can only be registered once.
+> - Support: The Background Sync API is not supported by all browsers (especially Safari on iOS), so make sure to provide appropriate fallback handling in unsupported environments.
+> - Storage and queue: Typically, data to be synced is stored in local storage such as IndexedDB. When the network is restored, the Service Worker will access this storage and automatically trigger sync requests.
+> - Uninstall or close the application: When the application is closed or uninstalled by the user, unsynced data will be lost. Therefore, when implementing, you can combine some strategies (e.g., syncing data to the server) to prevent data loss.
 
-### 数据预取
+### Data Prefetch
