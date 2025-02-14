@@ -1,1 +1,0 @@
-export const siteData = JSON.parse("{\"base\":\"/\",\"lang\":\"en-US\",\"title\":\"Seasoned Jack\",\"description\":\"\",\"head\":[[\"link\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\"}],[\"meta\",{\"name\":\"author\",\"content\":\"Jack\"}],[\"meta\",{\"name\":\"keywords\",\"content\":\"Javascript, React, Vue, Front, Web, WebAssembly, GraphQL\"}]],\"locales\":{}}")
