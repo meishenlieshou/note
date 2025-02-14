@@ -18,7 +18,7 @@ const learnNote = defineNoteConfig({
 		},
 		{
 			text: "Open Source",
-			prefix: "/notes/learn/open-source/",
+			prefix: "/notes/learn/opensource/",
 			items: "auto", //自动获取目录下的文件
 			collapsed: true,
 		},
