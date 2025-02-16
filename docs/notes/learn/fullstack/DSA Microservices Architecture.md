@@ -15,64 +15,64 @@ description:
 
 ## CDN 
 
-内容分发网络， 主要用于提高网站或应用的加载速度、降低服务器压力，增强用户体验。项目中，一般是通过选择CDN提供商来实施的这项服务的。
+Content Delivery Network (CDN) is mainly used to improve the loading speed of websites or applications, reduce server pressure, and enhance user experience. In projects, this service is generally implemented by selecting a CDN provider.
 
-大陆境内包括阿里云、腾讯云等各种云服务厂商。境外包括Cloudflare、AWS CloudFront等。
+In mainland China, there are various cloud service providers such as Alibaba Cloud and Tencent Cloud. Overseas, there are providers like Cloudflare and AWS CloudFront.
 
-**作用** 
+**Function** 
 
-CDN主要用于静态资源和大文件分发。
+CDN is mainly used for distributing static resources and large files.
 
-**接入CDN**
+**Integrating CDN**
 
-主要两种方式，CNAME以及反向代理。
+There are two main methods: CNAME and reverse proxy.
 
-- ==CNAME==，即CDN服务控制台里配置cdn域名到源站域名的绑定
-- ==反向代理==，Nginx 配置 proxy_pass 让 CDN 代理你的服务器
+- ==CNAME==, configure the binding of the CDN domain name to the origin domain name in the CDN service console.
+- ==Reverse proxy==, configure proxy_pass in Nginx to let the CDN proxy your server.
 
-**缓存策略**
+**Caching Strategy**
 
-- ==强缓存（浏览器端）==，设置 Cache-Control 头，例如 max-age=86400（缓存 1 天），或者ETag 头（文件变更时自动失效）
-- ==CDN 端缓存==，常见策略是
-1. 静态资源长时间缓存（JS/CSS/图片 max-age=30d）
-2. API 数据短时间缓存（GET 请求 max-age=10s）
-3. URL 版本控制，如 main.css?v=202402
+- ==Strong cache (browser-side)==, set the Cache-Control header, such as max-age=86400 (cache for 1 day), or the ETag header (automatically invalidates when the file changes).
+- ==CDN-side cache==, common strategies are:
+1. Long-term caching of static resources (JS/CSS/images max-age=30d).
+2. Short-term caching of API data (GET requests max-age=10s).
+3. URL version control, such as main.css?v=202402.
 
-**Gzip / Brotli 压缩**
+**Gzip / Brotli Compression**
 
-- 开启 gzip（HTML、CSS、JS 可减少 70% 体积）
-- 开启 Brotli（比 gzip 更高效，适用于现代浏览器）
+- Enable gzip (HTML, CSS, JS can reduce size by 70%).
+- Enable Brotli (more efficient than gzip, suitable for modern browsers).
 
-**持续优化**
-1. 优化缓存策略（调整 max-age）
-2. 分析 CDN 日志（减少回源请求），当CDN节点没有缓存用户请求的资源时，会向源服务器获取资源，这个过程称为回源请求。
-   涉及到**缓存配置优化**，**边缘计算**，**预取**，**回原合并**，**智能路由**等。
+**Continuous Optimization**
+1. Optimize caching strategy (adjust max-age).
+2. Analyze CDN logs (reduce origin requests). When the CDN node does not cache the user's requested resource, it will fetch the resource from the origin server, a process known as origin request.
+   This involves **cache configuration optimization**, **edge computing**, **prefetching**, **origin merge**, **intelligent routing**, etc.
 
-3. 全球加速优化（CloudFront + Edge Location）
+3. Global acceleration optimization (CloudFront + Edge Location).
 
 ## SLB/F5
 
-负载均衡（Load Balancer），SLB即Server Load Balancer。F5 是一家提供企业级硬件负载均衡的公司
+Load Balancer (SLB stands for Server Load Balancer). F5 is a company that provides enterprise-level hardware load balancers.
 
-SLB一般由常见的云服务商提供即可，比如阿里云SLB、AWS ELB、腾讯云CLB等。
+SLB is generally provided by common cloud service providers, such as Alibaba Cloud SLB, AWS ELB, Tencent Cloud CLB, etc.
 
-SLB适用于云端微服务架构，F5适用于私有云，数据中心。
+SLB is suitable for cloud-based microservice architectures, while F5 is suitable for private clouds and data centers.
 
-SLB 连接 Nginx 的工作流程大致为：用户请求受理到SLB负载均衡器之后，SLB会根据均衡算法（如轮询、最小连接、IP哈希）将请求分发到 Nginx 服务器集群。Nginx 接收 SLB 传递的请求，并根据不同的 URL路由反向代理到相应的Web微服务（Spring Boot,Nodejs）
+The workflow of SLB connecting to Nginx is roughly as follows: after the user's request is received by the SLB load balancer, the SLB distributes the request to the Nginx server cluster according to the load balancing algorithm (such as round-robin, least connections, IP hash). Nginx receives the request passed by SLB and reverse proxies it to the corresponding web microservice (Spring Boot, Node.js) based on different URLs.
 
-**SLB实际使用**
-1. 云服务商创建SLB，并添加后端Nginx服务器实例，设置健康检查（如检测nginx 80端口，确认是否活跃。如配置健康检查接口）
-2. 尽量SLB终止https，SLB 处理 HTTPS（SSL），然后以 HTTP 方式转发给 Nginx（减轻 Nginx 负担）
-3. 电商、支付系统常需要保持用户会话。在某些应用场景下，用户的请求需要始终由同一台后端服务器处理，否则可能会导致 登录状态丢失、支付异常、购物车数据丢失等问题。
- 
-==SLB方案==，需云负载均衡（如 AWS ELB、阿里云 SLB）支持 Sticky Session。
-   - 可以基于cookie。SLB 在第一次请求时设置一个 Cookie（如 AWSALB）。之后所有请求都带有这个 Cookie，SLB 会解析它，并把请求路由到相同的后端服务器。
-   - 基于 IP 哈希。SLB 根据用户 IP 地址计算哈希值，把相同 IP 的请求固定到同一服务器。适用于短时间内 Session 绑定，但不适合 IP 变化的情况（如手机用户切换网络）
-    
-==Nginx方案==，可以通过 ip_hash 或 Sticky Cookie 来绑定 Session。
+**SLB Practical Use**
+1. Create SLB with cloud service providers, add backend Nginx server instances, and set health checks (e.g., check Nginx port 80 to confirm if it is active, or configure health check interfaces).
+2. Preferably terminate HTTPS at SLB, SLB handles HTTPS (SSL), then forwards it to Nginx via HTTP (reduces Nginx load).
+3. E-commerce and payment systems often need to maintain user sessions. In some application scenarios, user requests need to be handled by the same backend server consistently, otherwise, it may lead to issues such as lost login status, payment anomalies, and lost shopping cart data.
+
+==SLB Solution==, requires cloud load balancing (such as AWS ELB, Alibaba Cloud SLB) to support Sticky Session.
+   - Can be based on cookies. SLB sets a Cookie (such as AWSALB) on the first request. All subsequent requests carry this Cookie, and SLB parses it to route the request to the same backend server.
+   - Based on IP hash. SLB calculates a hash value based on the user's IP address and fixes requests from the same IP to the same server. Suitable for short-term session binding but not for scenarios where IP changes (such as mobile users switching networks).
+
+==Nginx Solution==, can bind sessions through ip_hash or Sticky Cookie.
 ```Nginx
 upstream backend {
-    ip_hash;  # 保证相同 IP 请求被分配到同一服务器
+    ip_hash;  # Ensure requests from the same IP are allocated to the same server
     server 192.168.1.10;
     server 192.168.1.11;
 }
@@ -83,20 +83,20 @@ upstream backend {
     sticky cookie srv_id expires=1h domain=.example.com path=/;
 }
 ```
-==分布式 Session==，服务器是多实例，仅靠 Session 绑定可能会有问题，如果绑定的服务器宕机，用户 Session 就丢失了。使用 Redis 存储 Session，这样即使负载均衡到不同的服务器，也可以共享 Session。本质上，让所有服务器都可以访问相同的 Session 数据，即使 SLB 负载均衡到不同的服务器，用户的购物车、登录状态也不会丢失。
+==Distributed Session==, servers are multi-instance, relying solely on session binding may have issues. If the bound server goes down, the user session is lost. Use Redis to store sessions so that even if load balancing directs to different servers, sessions can be shared. Essentially, all servers can access the same session data, ensuring that even if SLB load balances to different servers, the user's shopping cart and login status are not lost.
 
-4. Nginx HA 方案实现高可用，High Availability。Nginx 本身不具备高可用功能，因此需要借助第三方工具来实现高可用架构。主要依赖如下技术方案
+4. Nginx HA solution for high availability. Nginx itself does not have high availability features, so third-party tools are needed to achieve a high availability architecture. Mainly rely on the following technical solutions:
    - Keepalived + Nginx
-   - LVS（Linux Virtual Server）+ Keepalived + Nginx
-   - 云端 Nginx HA（云负载均衡 + Nginx）
+   - LVS (Linux Virtual Server) + Keepalived + Nginx
+   - Cloud Nginx HA (cloud load balancing + Nginx)
 
-详情[参考](/learn/om/KGP5ANzssA0XI/)
+Details [reference](/learn/om/KGP5ANzssA0XI/)
 
-## Nginx 配置负载均衡
+## Nginx Load Balancing Configuration
 
-如果 SLB 之后的 Nginx 还要对后端服务器进行二级负载均衡，需要配置 upstream
+If Nginx behind SLB also needs to perform secondary load balancing to backend servers, configure upstream.
 ```Nginx
-# 负载均衡到后端应用服务器
+# Load balance to backend application servers
 upstream backend_servers {
     server 192.168.2.10:8080 weight=3;
     server 192.168.2.11:8080 weight=2;
@@ -116,324 +116,319 @@ server {
 }
 ```
 
-## Gateway网关
+## Gateway
 
-Gateway网关 是服务调用的入口，起到路由分发、权限认证、流量控制、熔断限流等功能。
+Gateway is the entry point for service calls, responsible for routing distribution, authentication, traffic control, circuit breaking, and rate limiting.
 
-**请求路由（Routing）**
+**Request Routing**
 
-- Gateway 负责将客户端请求转发到正确的微服务（Server）。
-- 使用动态路由，通过 [Nacos](#nacos) 发现并调用后端微服务，减少硬编码。
+- Gateway forwards client requests to the correct microservice (Server).
+- Use dynamic routing to discover and call backend microservices through [Nacos](#nacos), reducing hardcoding.
 
-**权限认证（Authentication & Authorization）**
+**Authentication & Authorization**
 
-- 通过 Spring Security + JWT 验证用户身份，拦截未授权请求。
-- 避免所有微服务都要重复实现身份认证，降低开发复杂度。
+- Use Spring Security + JWT to verify user identity and intercept unauthorized requests.
+- Avoids the need for all microservices to repeatedly implement authentication, reducing development complexity.
 
-**限流熔断（Rate Limiting & Circuit Breaker）**
+**Rate Limiting & Circuit Breaker**
 
-- 结合 Sentinel 进行流量控制、熔断降级，防止系统过载。
-- 如果某个微服务异常，网关可以返回友好提示或降级处理。
+- Combine with Sentinel for traffic control and circuit breaking, preventing system overload.
+- If a microservice is abnormal, the gateway can return friendly prompts or degrade processing.
 
 >[!NOTE]
 >Sentinel 
 >
->Sentinel 是阿里巴巴开源的一款面向分布式服务架构的流量控制和熔断降级组件。
+>Sentinel is an open-source traffic control and circuit breaking component for distributed service architecture by Alibaba.
 
+**Request Filtering**
 
-**请求过滤（Request Filtering）**
+- Can validate parameters and intercept malicious requests (such as SQL injection, XSS attacks).
+- Provides black and white list mechanisms to restrict access sources.
 
-- 可以校验参数、拦截恶意请求（如 SQL 注入、XSS 攻击）。
-- 提供黑白名单机制，限制访问来源。
+**Load Balancing**
 
-**负载均衡（Load Balancing）**
+- Combine with [Ribbon](#Ribbon), the gateway can distribute requests among multiple microservice instances, improving availability.
 
-- 结合 [Ribbon](#Ribbon)，网关可以在多个微服务实例之间分配请求，提高高可用性。
+**Request Logging & Monitoring**
 
-**请求日志 & 监控（Logging & Monitoring）**
+- Record all API request logs and combine with ELK, Prometheus for monitoring and analysis.
 
-- 记录所有 API 请求日志，结合 ELK、Prometheus 进行监控分析。
-
-更多细节，请[参考](/learn/fullstack/BBPM1oNLgSBVzX4n/)
-
+For more details, please [reference](/learn/fullstack/BBPM1oNLgSBVzX4n/)
 
 ## Nacos {#nacos}
 
-Nacos Naming and Configuration Service，即“命名与配置服务”，是阿里巴巴开源的一款动态服务发现、配置和管理平台，旨在帮助开发者构建云原生应用和微服务架构。
+Nacos Naming and Configuration Service is an open-source dynamic service discovery, configuration, and management platform by Alibaba, aimed at helping developers build cloud-native applications and microservice architectures.
 
-**服务注册与发现的工作原理**
+**Service Registration and Discovery Principle**
 
-==服务注册==
+==Service Registration==
 
-1. 服务提供者启动时注册服务：
+1. Service provider registers service on startup:
 
-服务提供者（Service Provider）启动时，会通过 Nacos 客户端 SDK 向 Nacos Server 发送注册请求。
+When the service provider (Service Provider) starts, it sends a registration request to the Nacos Server through the Nacos client SDK.
 
-注册信息包括服务名称、IP 地址、端口号、健康状态、元数据等。
+Registration information includes service name, IP address, port number, health status, metadata, etc.
 
-2. Nacos Server 存储服务信息：
+2. Nacos Server stores service information:
 
-Nacos Server 接收到注册请求后，将服务实例信息存储在其内部的注册表中。
+After receiving the registration request, Nacos Server stores the service instance information in its internal registry.
 
-注册表是一个分布式的数据存储，支持高可用性和数据一致性。
+The registry is a distributed data store that supports high availability and data consistency.
 
-3. 心跳机制保持服务活性：
+3. Heartbeat mechanism to maintain service activity:
 
-服务提供者会定期向 Nacos Server 发送心跳包，以表明自己处于健康状态。
+The service provider periodically sends heartbeat packets to the Nacos Server to indicate that it is in a healthy state.
 
-如果 Nacos Server 在一定时间内未收到心跳包，则认为该服务实例不可用，并将其从注册表中移除。
+If the Nacos Server does not receive a heartbeat packet within a certain period, it considers the service instance unavailable and removes it from the registry.
 
-==服务发现==
+==Service Discovery==
 
-1. 服务消费者查询服务列表：
+1. Service consumer queries service list:
 
-服务消费者（Service Consumer）通过 Nacos 客户端 SDK 向 Nacos Server 发送服务发现请求。
+The service consumer (Service Consumer) sends a service discovery request to the Nacos Server through the Nacos client SDK.
 
-请求中指定需要发现的服务名称。
+The request specifies the service name to be discovered.
 
-2. Nacos Server 返回服务实例列表：
+2. Nacos Server returns the service instance list:
 
-Nacos Server 根据服务名称从注册表中查询可用的服务实例列表，并将其返回给服务消费者。
+Nacos Server queries the available service instance list from the registry based on the service name and returns it to the service consumer.
 
-返回的信息包括服务实例的 IP 地址、端口号、健康状态等。
+The returned information includes the service instance's IP address, port number, health status, etc.
 
-3. 负载均衡调用服务：
+3. Load balancing to call services:
 
-服务消费者根据返回的服务实例列表，通过负载均衡策略（如轮询、随机、权重等）选择一个实例进行调用。
+The service consumer selects an instance to call based on the returned service instance list and the load balancing strategy (such as round-robin, random, weight, etc.).
 
-**动态配置管理、服务健康检查**
+**Dynamic Configuration Management, Service Health Check**
 
-原理和上述大致一样，需要Nacos Server起中间协调角色。
+The principle is roughly the same as above, requiring Nacos Server to play an intermediary coordination role.
 
 ## Ribbon
 
- Netflix 开源的一款客户端负载均衡器，主要用于在分布式系统中实现服务调用的负载均衡。2018 年后，Netflix 宣布 Ribbon 进入维护模式，不再积极开发新功能。
+Netflix's open-source client-side load balancer, mainly used to achieve load balancing for service calls in distributed systems. After 2018, Netflix announced that Ribbon entered maintenance mode and no longer actively develops new features.
 
- Spring Cloud 推荐使用 Spring Cloud LoadBalancer 作为 Ribbon 的替代方案。
+Spring Cloud recommends using Spring Cloud LoadBalancer as a replacement for Ribbon.
 
- **Ribbon 的工作原理**
+**Ribbon Working Principle**
 
-1. 获取服务实例列表：
+1. Obtain service instance list:
 
-Ribbon 从服务注册中心（如 Eureka）获取目标服务的实例列表。
+Ribbon obtains the target service's instance list from the service registry (such as Eureka).
 
-2. 负载均衡选择：
+2. Load balancing selection:
 
-根据配置的负载均衡策略（如轮询、随机等），从实例列表中选择一个实例。
+Select an instance from the instance list based on the configured load balancing strategy (such as round-robin, random, etc.).
 
-3. 发起调用：
+3. Initiate call:
 
-向选定的服务实例发起调用。
+Initiate a call to the selected service instance.
 
-4. 故障处理：
+4. Fault handling:
 
-如果调用失败，Ribbon 会根据配置的重试机制，选择其他实例进行重试。
+If the call fails, Ribbon retries other instances based on the configured retry mechanism.
 
-5. 健康检查：
+5. Health check:
 
-定期检查服务实例的健康状态，剔除不健康的实例。
-
+Periodically check the health status of service instances and remove unhealthy instances.
 
 ## Feign 
 
-Feign 是 Spring Cloud 微服务架构的首选 RPC 框架，用于远程调用其他微服务。
+Feign is the preferred RPC framework for Spring Cloud microservice architecture, used for remote calls to other microservices.
 
-相比 RestTemplate，它更简洁、更易维护，支持 Ribbon 负载均衡、Nacos 服务发现、Sentinel 降级。
+Compared to RestTemplate, it is more concise, easier to maintain, and supports Ribbon load balancing, Nacos service discovery, and Sentinel degradation.
 
-在图中，多个 Server 微服务 之间都通过 Feign + Ribbon 进行远程调用。例如：
+In the diagram, multiple Server microservices communicate with each other through Feign + Ribbon for remote calls. For example:
 
-1. Gateway 调用后端微服务（如 订单服务 调用 商品服务）： Feign 负责服务调用，Ribbon 负责负载均衡。
-2. 微服务内部的相互调用（如 用户服务 调用 支付服务）： Feign 让调用像本地方法一样，隐藏 HTTP 细节。
+1. Gateway calls backend microservices (such as order service calling product service): Feign handles service calls, Ribbon handles load balancing.
+2. Internal calls between microservices (such as user service calling payment service): Feign makes the call like a local method, hiding HTTP details.
 
-## 分布式任务调度模块
+## Distributed Task Scheduling Module
 
-分布式任务调度 主要用于管理和执行定时任务、批处理任务、大数据任务等，确保任务可以在多台服务器上并行执行、故障转移，并保证高可用性。
+Distributed task scheduling is mainly used to manage and execute scheduled tasks, batch processing tasks, big data tasks, etc., ensuring tasks can be executed in parallel on multiple servers, failover, and high availability.
 
-在单体应用中，通常使用 @Scheduled 或 crontab 来执行定时任务。但在微服务架构下，单机调度有以下问题：
+In monolithic applications, @Scheduled or crontab is usually used to execute scheduled tasks. However, in microservice architecture, single-machine scheduling has the following problems:
 
-- 单点故障（SPOF）：如果任务调度服务器宕机，所有任务都会失败。
-- 性能瓶颈：单个节点处理任务能力有限，难以支撑大规模任务调度。
-- 并发冲突：多个实例可能会同时执行相同的任务，导致数据不一致。
-- 手动扩展难度大：单机任务无法自动负载均衡，扩展能力有限。
+- Single point of failure (SPOF): If the task scheduling server goes down, all tasks will fail.
+- Performance bottleneck: A single node's task processing capability is limited, making it difficult to support large-scale task scheduling.
+- Concurrency conflicts: Multiple instances may execute the same task simultaneously, leading to data inconsistency.
+- Manual scaling difficulty: Single-machine tasks cannot automatically load balance, limiting scalability.
 
-### 分布式任务调度模块可以采用以下方案
+### Distributed Task Scheduling Module Solutions
 
-1. **XXL-JOB**:  轻量级、开源、支持多语言，适用于互联网企业。
-2. **Elastic-Job（基于 Zookeeper）**:  适用于 大数据、数据同步、定时任务。
-3. **Spring Cloud + Quartz**:  适用于Spring Boot 微服务架构。
+1. **XXL-JOB**: Lightweight, open-source, supports multiple languages, suitable for internet companies.
+2. **Elastic-Job (based on Zookeeper)**: Suitable for big data, data synchronization, scheduled tasks.
+3. **Spring Cloud + Quartz**: Suitable for Spring Boot microservice architecture.
 
-### 分布式任务调度的核心功能
+### Core Functions of Distributed Task Scheduling
 
-1. **任务分片（Shard）**:  将大任务拆分成多个小任务，由不同的机器并行处理，提升任务执行效率
-2. **任务失败重试 & 补偿**:  任务失败后自动重试，或者人工补偿执行
-3. **任务调度高可用**: 任务调度无单点故障，可支持主备切换，如 Leader 选举机制（Zookeeper）。任务失败时自动迁移到其他节点，确保任务按时执行。
-4. **任务动态管理**: 通过 Web 控制台，可以动态添加、删除、修改任务，支持在线调试。
-5. **任务执行日志 & 监控**
+1. **Task Sharding (Shard)**: Split large tasks into multiple small tasks, processed in parallel by different machines, improving task execution efficiency.
+2. **Task Failure Retry & Compensation**: Automatically retry failed tasks or manually compensate execution.
+3. **High Availability of Task Scheduling**: Task scheduling without single point of failure, supporting master-slave switch, such as Leader election mechanism (Zookeeper). When a task fails, it automatically migrates to other nodes, ensuring tasks are executed on time.
+4. **Dynamic Task Management**: Through the web console, dynamically add, delete, modify tasks, and support online debugging.
+5. **Task Execution Logs & Monitoring**
 
-### 实践案例
+### Practical Cases
 
-1. 电商订单超时取消
+1. E-commerce order timeout cancellation
 
-订单创建后 30 分钟未支付，自动取消订单。
+Automatically cancel orders that are not paid within 30 minutes after creation.
 
-2. 定期数据同步
+2. Regular data synchronization
 
-每天凌晨 1 点，将用户数据从 MySQL 同步到 Elasticsearch，用于搜索。
+Synchronize user data from MySQL to Elasticsearch every day at 1 AM for search purposes.
 
-3. 爬虫任务
+3. Crawler tasks
 
-定时爬取各大网站的商品信息，存入数据库。
-
+Regularly crawl product information from major websites and store it in the database.
 
 ## Elasticsearch
 
-Elasticsearch（简称 ES）是分布式搜索和分析引擎，主要用于全文检索、日志分析、实时数据查询等。它在微服务架构中的主要作用包括：
+Elasticsearch (ES) is a distributed search and analysis engine mainly used for full-text search, log analysis, real-time data query, etc. Its main roles in microservice architecture include:
 
-1. **全文检索（Full-Text Search）**
-- 适用于 电商、内容管理、社交平台 等场景，实现快速搜索。
-- 例如：京东、淘宝搜索商品，用户输入 "iPhone" 可快速返回相关商品。
-2. **日志分析（Log Analysis）**
-- 结合 Logstash + Kibana（ELK/EFK），用于监控日志、故障排查。
-- 例如：Nginx、微服务日志采集到 ES，运维人员可实时查询。
-3. **实时数据查询（Real-Time Query）**
-- 比传统数据库查询更快，适用于海量数据查询场景。
-- 例如：金融系统查询历史交易记录，比 MySQL 快数倍。
-4. **推荐系统 & 数据分析**
-- 结合 机器学习（ML）、大数据（Spark、Flink），实现个性化推荐。
-- 例如：电商根据用户搜索历史推荐商品。
+1. **Full-Text Search**
+- Suitable for e-commerce, content management, social platforms, etc., to achieve fast search.
+- For example: Searching for products on JD.com or Taobao, users can quickly return relevant products by entering "iPhone".
+2. **Log Analysis**
+- Combine with Logstash + Kibana (ELK/EFK) for monitoring logs and troubleshooting.
+- For example: Collecting Nginx and microservice logs into ES for real-time query by operations personnel.
+3. **Real-Time Data Query**
+- Faster than traditional database queries, suitable for large-scale data query scenarios.
+- For example: Querying historical transaction records in financial systems, much faster than MySQL.
+4. **Recommendation System & Data Analysis**
+- Combine with machine learning (ML) and big data (Spark, Flink) for personalized recommendations.
+- For example: E-commerce recommends products based on user search history.
 
-### Elasticsearch vs 传统数据库（MySQL）
+### Elasticsearch vs Traditional Database (MySQL)
 
-| 特性            | **Elasticsearch**                 | **MySQL（关系型数据库）**   |
-|---------------|--------------------------------|---------------------------|
-| **数据存储**    | 分布式存储，支持大数据              | 单机或主从存储                 |
-| **查询速度**    | 采用倒排索引，**查询快**            | SQL 查询，**查询慢**         |
-| **全文搜索**    | ✅ **强大**                      | ❌ **不适合**               |
-| **结构化查询**  | ✅ **支持（聚合、过滤）**         | ✅ **强大**                 |
-| **实时性**      | ✅ **毫秒级查询**                | ❌ **较慢**                 |
-| **扩展性**      | ✅ **水平扩展（可扩展到 PB 级数据）** | ❌ **扩展有限**              |
-| **事务支持**    | ❌ 不支持事务                     | ✅ **ACID 事务支持**         |
-| **数据一致性**  | **最终一致性**                    | **强一致性**                 |
-| **适用场景**    | **搜索、日志分析、大数据查询**       | **交易、订单管理、OLTP 系统**  |
+| Feature            | **Elasticsearch**                 | **MySQL (Relational Database)**   |
+|--------------------|-----------------------------------|-----------------------------------|
+| **Data Storage**   | Distributed storage, supports big data | Single or master-slave storage    |
+| **Query Speed**    | Uses inverted index, **fast query** | SQL query, **slow query**         |
+| **Full-Text Search** | ✅ **Powerful**                   | ❌ **Not suitable**               |
+| **Structured Query** | ✅ **Supports (aggregation, filtering)** | ✅ **Powerful**                   |
+| **Real-Time**      | ✅ **Millisecond-level query**     | ❌ **Slower**                     |
+| **Scalability**    | ✅ **Horizontal scaling (up to PB level data)** | ❌ **Limited scalability**        |
+| **Transaction Support** | ❌ Does not support transactions | ✅ **ACID transaction support**   |
+| **Data Consistency** | **Eventual consistency**         | **Strong consistency**            |
+| **Applicable Scenarios** | **Search, log analysis, big data query** | **Transactions, order management, OLTP systems** |
 
+### Fast Performance
 
-### 性能快
+Elasticsearch query speed is usually 10 to 100 times faster than MySQL, especially in scenarios such as full-text search, big data query, and fuzzy matching. **Key Reason**: Elasticsearch's inverted index (Inverted Index).
 
-Elasticsearch 查询速度通常比 MySQL 快 10~100 倍，尤其是在全文搜索、大数据查询、模糊匹配等场景下。**关键原因**：Elasticsearch 的倒排索引（Inverted Index）
+In MySQL, data storage is based on B+ tree index, while in Elasticsearch, the core technology is the inverted index (Inverted Index).
 
-在 MySQL 中，数据存储是基于 B+ 树索引，而在 Elasticsearch 中，核心技术是 倒排索引（Inverted Index）。
+**Inverted Index** is a data structure specifically used for full-text search, similar to the index page of a book:
 
-**倒排索引** 是一种专门用于全文搜索的数据结构，类似于书籍的索引页：
+- MySQL needs to scan a large amount of data during queries, especially for LIKE '%xxx%' queries, which are very inefficient.
+- Elasticsearch first splits the data into tokens and then establishes an index mapping. During queries, it directly finds the relevant documents, making it extremely fast.
 
-- MySQL 查询时，需要扫描大量数据，尤其是 LIKE '%xxx%' 查询时，效率很低。
-- Elasticsearch 先把数据拆分成词条（Token），然后建立索引映射，查询时直接找到相关文档，速度极快。
+**Others**
 
-**其它**
-
-1. Elasticsearch 采用分布式架构，数据被拆分成多个 分片（Shard），多个节点可以并行查询，相比 MySQL 的单机查询更快。
-2. Elasticsearch 采用 文件系统缓存（File System Cache） 和 Lucene 缓存，可以存储查询结果，对于重复查询，速度极快。
-3. Elasticsearch 支持 Trie Tree（前缀树）、FST（有限状态机），适合快速匹配关键词。
+1. Elasticsearch uses a distributed architecture, where data is split into multiple shards, and multiple nodes can query in parallel, making it faster than MySQL's single-machine query.
+2. Elasticsearch uses file system cache and Lucene cache to store query results, making repeated queries extremely fast.
+3. Elasticsearch supports Trie Tree (prefix tree) and FST (finite state machine), suitable for fast keyword matching.
 
 ## Amazon S3
 
-Amazon S3（Simple Storage Service）是 AWS 提供的对象存储服务，用于存储、备份和分发大规模数据。 
-- 支持 PB 级存储，可存储图片、视频、音频、日志、数据库备份等数据。
-- 对象存储（Object Storage），与传统文件存储和块存储不同。
-- 99.999999999%（11 个 9）数据持久性，防止数据丢失。
-- 99.99% 高可用性，数据分布在多个 AWS 数据中心（Region）。
+Amazon S3 (Simple Storage Service) is an object storage service provided by AWS for storing, backing up, and distributing large-scale data. 
+- Supports PB-level storage, can store images, videos, audio, logs, database backups, etc.
+- Object storage, different from traditional file storage and block storage.
+- 99.999999999% (11 nines) data durability to prevent data loss.
+- 99.99% high availability, data distributed across multiple AWS data centers (Regions).
 
-文件以“对象”的形式存储，而不是文件夹/目录结构。每个对象都有 唯一的 Key（文件名），用于访问。 
+Files are stored as "objects" rather than folder/directory structures. Each object has a unique Key (filename) for access. 
 
-在该架构图中，Amazon S3 作为 分布式文件存储 组件，主要用于存储和管理大规模非结构化数据，如：
-- 图片、视频、日志、备份文件 等非结构化数据。
-- 静态资源文件（如网站图片、CSS、JavaScript）。
-- 数据库备份（如 MySQL 备份文件）。
+In this architecture diagram, Amazon S3 is used as a distributed file storage component, mainly for storing and managing large-scale unstructured data, such as:
+- Images, videos, logs, backup files, and other unstructured data.
+- Static resource files (such as website images, CSS, JavaScript).
+- Database backups (such as MySQL backup files).
 
-微服务可以将元数据存入 Elasticsearch 进行索引和快速查询，而实际文件存放在 Amazon S3。适用于 电商、社交平台、文档管理系统。
+Microservices can store metadata in Elasticsearch for indexing and fast querying, while actual files are stored in Amazon S3. Suitable for e-commerce, social platforms, document management systems.
 
-### S3 与 MySQL、Redis 的协同
+### Collaboration of S3 with MySQL and Redis
 
-- MySQL 存储结构化数据，不适合存储大文件，因此将大文件存入 S3，MySQL 仅存路径信息。
-- Redis 用于缓存访问频繁的文件元数据，提高查询效率。
-- S3 负责存储实际文件数据，避免服务端本地存储占用过大。
+- MySQL stores structured data, not suitable for storing large files, so large files are stored in S3, and MySQL only stores the path information.
+- Redis is used to cache frequently accessed file metadata, improving query efficiency.
+- S3 is responsible for storing actual file data, avoiding excessive local storage on the server.
 
 ## Redis 
 
-Redis（Remote Dictionary Server）是一个高性能的分布式缓存和 NoSQL 数据库，用于存储**键值对（Key-Value）**数据。它的主要特点包括：
+Redis (Remote Dictionary Server) is a high-performance distributed cache and NoSQL database used to store **key-value** data. Its main features include:
 
-- 超快读写（基于内存，支持 10 万 QPS 以上）。
-- 多种数据结构（String、List、Set、Hash、ZSet、Bitmap 等）。
-- 支持持久化（RDB、AOF）。
-- 支持分布式架构（主从复制、分片、哨兵、集群）。
+- Ultra-fast read and write (based on memory, supports over 100,000 QPS).
+- Multiple data structures (String, List, Set, Hash, ZSet, Bitmap, etc.).
+- Supports persistence (RDB, AOF).
+- Supports distributed architecture (master-slave replication, sharding, sentinel, cluster).
 
-在这张微服务架构图中，Redis 主要用于：
+In this microservice architecture diagram, Redis is mainly used for:
 
-- 缓存热点数据（如用户信息、商品数据、订单状态等）。
-- 分布式 Session 管理，存储用户登录状态，避免 Session 丢失。
-- 分布式锁（基于 Redis SETNX 实现，高并发场景下控制资源访问）。
-- 消息队列（Stream），缓冲异步任务，解耦业务逻辑。
-- 排行榜 & 计数器（如 PV、UV 统计，点赞、投票系统）。
+- Caching hot data (such as user information, product data, order status, etc.).
+- Distributed session management, storing user login status to avoid session loss.
+- Distributed lock (implemented based on Redis SETNX, controlling resource access in high concurrency scenarios).
+- Message queue (Stream), buffering asynchronous tasks, decoupling business logic.
+- Leaderboard & counter (such as PV, UV statistics, like, voting systems).
 
-### Redis 哨兵模式（Sentinel）
+### Redis Sentinel Mode
 
-Redis 哨兵模式（Sentinel） 是一种高可用架构，用于自动监控 Redis 服务器、故障转移和通知。它的主要功能包括：
+Redis Sentinel Mode is a high availability architecture used to automatically monitor Redis servers, failover, and notification. Its main functions include:
 
-- 监控 Redis 主从实例（检测主服务器是否宕机）。
-- 自动故障转移（主服务器挂了，自动提升一个从服务器为主服务器）。
-- 客户端通知（告知 Redis 客户端新的主服务器地址）。
-- 集群模式下协调多个 Redis 服务器。
+- Monitoring Redis master-slave instances (detecting if the master server is down).
+- Automatic failover (if the master server goes down, automatically promote a slave server to master).
+- Client notification (informing Redis clients of the new master server address).
+- Coordinating multiple Redis servers in cluster mode.
 
-### Redis 哨兵模式工作原理
+### Redis Sentinel Mode Working Principle
 
-在 Redis 主从架构 下（如图中的Redis 高可用模式），哨兵模式保证 Redis 服务器的高可用性：
+In the Redis master-slave architecture (as shown in the Redis high availability mode), Sentinel Mode ensures the high availability of Redis servers:
 
-- **Redis 主从（Master-Slave）架构**
-1. 主服务器（Master） 处理读写请求，并同步数据给 从服务器（Slave）。
-2. 从服务器（Slave） 只提供只读访问，可用作数据备份和负载均衡。
+- **Redis Master-Slave Architecture**
+1. The master server (Master) handles read and write requests and synchronizes data to the slave servers (Slave).
+2. The slave servers (Slave) provide read-only access and can be used for data backup and load balancing.
 
-- **哨兵（Sentinel）进程**
-1. 哨兵进程持续监测主 Redis 服务器的状态（PING）。
-2. 如果主服务器 宕机，哨兵会从多个从服务器中选出一个晋升为新的主服务器。
-3. 通过 发布/订阅机制 通知客户端使用新的主服务器。
+- **Sentinel Process**
+1. The Sentinel process continuously monitors the status of the master Redis server (PING).
+2. If the master server goes down, the Sentinel promotes one of the slave servers to the new master server.
+3. Notifies clients of the new master server through the publish/subscribe mechanism.
 
-## 集群模式(Redis Cluster)
+## Cluster Mode (Redis Cluster)
 
-Redis Cluster 是 Redis 的分布式架构，用于解决单机 Redis 容量、吞吐量、单点故障等问题。它通过数据分片（Sharding）和去中心化设计，实现 高可用 & 水平扩展。
+Redis Cluster is Redis's distributed architecture used to solve issues such as single-machine Redis capacity, throughput, and single point of failure. It achieves high availability and horizontal scaling through data sharding and decentralized design.
 
-### Redis Cluster 的核心特点
+### Core Features of Redis Cluster
 
-- **数据分片（Sharding）**
-1. 采用 哈希槽（Hash Slot）分区 机制，将数据分布到不同的 Redis 节点上。
-2. 每个 Redis 节点负责 16384 个哈希槽中的一部分，均衡存储数据，避免某个节点存储过多数据。
+- **Data Sharding**
+1. Uses a hash slot partitioning mechanism to distribute data across different Redis nodes.
+2. Each Redis node is responsible for a portion of the 16384 hash slots, balancing data storage and avoiding overloading a single node.
 
-- **去中心化架构**
-1. 没有单点故障，所有节点都存储集群信息，不依赖中央调度节点（不像 Sentinel 依赖哨兵）。
-2. 任何节点都能接受客户端请求，并将请求转发给正确的节点。
+- **Decentralized Architecture**
+1. No single point of failure, all nodes store cluster information, and it does not rely on a central scheduling node (unlike Sentinel, which relies on Sentinel).
+2. Any node can accept client requests and forward them to the correct node.
 
-**高可用（Failover 机制）**
-1. 每个主节点（Master）都有从节点（Slave），当主节点宕机时，集群会自动选举新的主节点。
+**High Availability (Failover Mechanism)**
+1. Each master node has slave nodes, and when the master node goes down, the cluster automatically elects a new master node.
 
-**水平扩展**
-1. 可以动态增加/减少节点，适用于大规模存储需求（如 PB 级数据）。
-2. 客户端可通过 哈希槽重分配 访问新增节点，无需手动修改代码。
+**Horizontal Scaling**
+1. Can dynamically add/remove nodes, suitable for large-scale storage needs (such as PB-level data).
+2. Clients can access new nodes through hash slot reallocation without manually modifying the code.
 
-**多主架构**
-1. 支持 多主（Master-Master），可分散读写压力，提升性能。
+**Multi-Master Architecture**
+1. Supports multi-master (Master-Master), dispersing read and write pressure and improving performance.
 
+### Redis Cluster vs. Traditional Redis Comparison
 
-### Redis Cluster vs. 传统 Redis 对比
-
-| **对比项**     | **Redis 单机** | **Redis Sentinel（哨兵）** | **Redis Cluster（集群）** |
-|--------------|--------------|------------------|------------------|
-| **架构**     | 单节点       | 主从架构（Master-Slave） | 多主多从架构 |
-| **扩展性**   | 无法扩展     | 读扩展（主从复制），写受限 | 水平扩展 |
-| **高可用性** | 无，单点故障 | 具备主从切换能力  | 具备主从切换能力 |
-| **数据分片** | 不支持       | 不支持          | **支持（自动分片 16384 Slot）** |
-| **吞吐量**   | 受单机限制   | 受主节点限制      | **高吞吐量，多节点并行处理** |
-| **主从切换** | 不支持       | 自动切换（由 Sentinel 监控） | **自动切换（Cluster 内部投票选主）** |
-| **数据一致性** | 高（单机存储） | 高（复制一致性） | **最终一致性，部分情况下可能丢失数据** |
-| **运维复杂度** | 简单       | 适中          | **较复杂，需要手动分片管理** |
-| **使用场景** | 小型项目，低并发 | 需要高可用但流量不大 | **高并发，大规模存储，高可用场景** |
+| **Comparison Item** | **Redis Single Machine** | **Redis Sentinel** | **Redis Cluster** |
+|---------------------|--------------------------|---------------------|-------------------|
+| **Architecture**    | Single node              | Master-Slave        | Multi-Master      |
+| **Scalability**     | Cannot scale             | Read scaling        | Horizontal scaling|
+| **High Availability** | No, single point of failure | Master-Slave switch | Master-Slave switch |
+| **Data Sharding**   | Not supported            | Not supported       | Supported         |
+| **Throughput**      | Limited by single machine | Limited by master node | High throughput  |
+| **Master-Slave Switch** | Not supported          | Automatic switch    | Automatic switch  |
+| **Data Consistency** | High (single machine)    | High (replication consistency) | Eventual consistency |
+| **Operational Complexity** | Simple              | Moderate            | Complex           |
+| **Usage Scenarios** | Small projects, low concurrency | High availability but low traffic | High concurrency, large-scale storage, high availability scenarios |
+````
 
 
 
