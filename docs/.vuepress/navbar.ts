@@ -7,7 +7,8 @@ export const navbar = defineNavbarConfig([
 	{ text: "Archives", link: "/blog/archives/" },
 	{
 		text: "Learnings",
-		link: "/notes/learn/",
+		link: "/learn/react/News in React19.md",
+		activeMatch: "^/notes/learn/",
 	},
 	{
 		text: "Problems",
