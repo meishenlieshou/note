@@ -1,5 +1,5 @@
 ---
-title: Intro of nextjs
+title: Nestjs
 createTime: 2025/02/06 20:57:38
 permalink: /learn/fullstak/ptW7734WUBkmE9Vh/
 author: Jack

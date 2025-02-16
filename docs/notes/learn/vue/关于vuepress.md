@@ -1,5 +1,5 @@
 ---
-title: 关于vuepress
+title: About VuePress
 createTime: 2024/10/11 08:24:36
 permalink: /learn/vue/jifdakxk3s/
 author: JamesLeo
@@ -7,20 +7,20 @@ categories:
   - vue
   - vuepress
 tags:
-  - 技术
+  - Technology
 description:
 ---
 
-# vuepress是什么
+# What is VuePress
 
-VuePress 是一个以 Markdown 为中心的静态网站生成器。
+VuePress is a static site generator centered around Markdown.
 
-## 工作原理
+## How It Works
 
-VuePress本质上是一个由 Vue 和 Vue Router 驱动的单页面应用 (SPA)。
+VuePress is essentially a single-page application (SPA) driven by Vue and Vue Router.
 
-路由会根据你的 Markdown 文件的相对路径来自动生成。每个 Markdown 文件都通过 markdown-it 编译为 HTML ，然后将其作为 Vue 组件的模板。因此，你可以在 Markdown 文件中直接使用 Vue 语法，便于你嵌入一些动态内容。
+Routes are automatically generated based on the relative paths of your Markdown files. Each Markdown file is compiled into HTML using markdown-it and then used as a template for Vue components. Therefore, you can directly use Vue syntax in Markdown files, making it easy to embed dynamic content.
 
-开发模式，它会启动一个dev server，并将 VuePress 站点作为一个常规的 SPA。
+In development mode, it starts a dev server and serves the VuePress site as a regular SPA.
 
-构建过程中，我们会为 VuePress 站点创建一个服务端渲染 (SSR) 的版本，然后通过虚拟访问每一条路径来渲染对应的 HTML。
+During the build process, a server-rendered (SSR) version of the VuePress site is created, and each path is virtually accessed to render the corresponding HTML.

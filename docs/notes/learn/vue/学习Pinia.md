@@ -1,11 +1,11 @@
 ---
-title: 学习Pinia
+title: Learning Pinia
 createTime: 2024/11/20 06:02:23
 permalink: /learn/vue/m7j8raxn/
 author: Jack
 tags:
   - Vue
-  - 状态容器
+  - State Management
 
 description: description
 
@@ -14,33 +14,32 @@ description: description
 
 ## Pinia
 
-Pinia 是 Vue 官方推荐的状态管理库，作为 Vuex 的现代替代品。它拥有更简单的 API、更少的样板代码，并支持 TypeScript 和模块化开发，非常适合 Vue 3 应用
+Pinia is the state management library officially recommended by Vue, serving as a modern alternative to Vuex. It features a simpler API, less boilerplate code, and supports TypeScript and modular development, making it ideal for Vue 3 applications.
 
-## 特点
+## Features
 
-1. **`轻量易用`**   无需繁杂的 mutations 和 actions，直接操作状态。
-2. **`模块化设计`**   每个 store 独立管理，按需加载，支持代码拆分。
-3. **`完全支持 TypeScript`**
-4. **`与 Vue Devtools 集成，可追踪状态变化`**
+1. **`Lightweight and Easy to Use`**: No need for complex mutations and actions, directly manipulate the state.
+2. **`Modular Design`**: Each store manages its own state independently, supports code splitting and on-demand loading.
+3. **`Full TypeScript Support`**
+4. **`Integration with Vue Devtools, Track State Changes`**
 
-## 基本使用
+## Basic Usage
 
-具体可参考[示例](/learn/vue/SLAu3fcLNid/)
+Refer to [example](/learn/vue/SLAu3fcLNid/)
 
+## Disposal
 
-## 销毁
+When there are multiple Pinia instances in the application, you may need to dispose of an instance. Call **`disposePinia(pinia)`** to dispose of the specified Pinia instance.
 
-当应用中存在多个pinia实例时，可能需要销毁实例的情况，调用 **`disposePinia(pinia)`** 用于销毁指定的Pinia实例。
+## Common Pinia-Related Questions
 
-## 常见pinia相关问题
+### How to Use Modular Stores in Pinia? Does It Support On-Demand Loading?
 
-### 如何在 Pinia 中使用模块化 Store？是否支持按需加载？
+**`By creating multiple stores`**, each store can manage its own state and logic.
 
-**`通过创建多个 Store 来实现的`**，每个 Store 都可以管理一个独立的状态和逻辑。
+Pinia **`supports on-demand loading of stores`** through Vue's lazy loading mechanism.
 
-Pinia **`支持按需加载 Store`**，通过 Vue 的懒加载机制实现。
-
-```Javascript
+```JavaScript
 <script setup>
   import { defineAsyncComponent } from 'vue';
 
@@ -51,47 +50,44 @@ Pinia **`支持按需加载 Store`**，通过 Vue 的懒加载机制实现。
     import('@/stores/cart').then(module => module.useCartStore)
   );
 
-// 现在可以在代码中使用这些 Store
+// Now you can use these stores in your code
 </script>
 ```
-**`defineAsyncComponent`**  用于加载按需加载的组件（比如路由组件），或者某些组件较大且并非总是需要在页面初始加载时呈现。方法支持传入配置对象，通过对象指定占位组件，错误处理等。
+**`defineAsyncComponent`** is used to load components on demand (such as route components) or for components that are large and not always needed during initial page load. The method supports passing a configuration object to specify placeholder components, error handling, etc.
 
-和普通的()=>import('something')相比，defineAsyncComponent内置了生命周期管理，占位显示，延迟加载、错误处理等。而后者只是简单翻译各Promise。
-
-
+Compared to the simple ()=>import('something'), defineAsyncComponent has built-in lifecycle management, placeholder display, delayed loading, error handling, etc., while the latter only translates promises.
 
 >[!NOTE]
->它和Suspense区别
->Suspense是一个组件，用于在父组件中等待多个异步内容完成加载，同时对整个异步子树进行控制，允许嵌套。更多[参考](/learn/vue/SjtYkCII3u0BI/#Suspense)
+>Difference from Suspense
+>Suspense is a component used to wait for multiple asynchronous contents to load in the parent component, controlling the entire asynchronous subtree and allowing nesting. More [reference](/learn/vue/SjtYkCII3u0BI/#Suspense)
 
+### What Are the Similarities and Differences Between Pinia's Getters and Vue Component's Computed?
 
-### Pinia 的 Getters 与 Vue 组件的 Computed 有什么相同点和不同点？
+- Similarities:
 
-- 相同点：
+1. **`Lazy Loading and Caching Based on Dependencies`**: Both return values do not change if dependencies remain unchanged.
+2. **`Read-Only`**: Computed can be configured to be read-write, [reference](/learn/vue/SjtYkCII3u0BI/#基于依赖的懒加载和缓存)
 
-1. **`基于依赖的懒加载和缓存`**， 即依赖不变，返回值都不会变。
-2. **`都只读`**，Computed可以配置为可读写，[参考](/learn/vue/SjtYkCII3u0BI/#基于依赖的懒加载和缓存)
+- Differences:
 
-- 不同点：
+1. **`Different Access Methods`**
+2. **`Different Scopes`**
 
-1. **`访问方式不一样`**
-2. **`作用域不一样`**
-  
-### 如何在 Pinia 中管理异步操作？比如从后端获取数据并更新状态。
+### How to Manage Asynchronous Operations in Pinia? For Example, Fetching Data from the Backend and Updating the State.
 
-直接在actions里编写异步操作逻辑即可，[参考](/learn/vue/SLAu3fcLNid/#sync_action)
+Directly write asynchronous operation logic in actions, [reference](/learn/vue/SLAu3fcLNid/#sync_action)
 
-### Pinia 支持哪些方式的持久化状态管理？如何实现状态持久化？
+### What Methods of Persistent State Management Does Pinia Support? How to Implement State Persistence?
 
-所谓持久化，本质上就是将状态同步到localStorage、sessionStorage，或者其它介质中。可借助于插件，或者手动维护。
+Persistence essentially means synchronizing the state to localStorage, sessionStorage, or other media. This can be done using plugins or manually maintained.
 
-### 如何在多个 Store 之间共享状态或方法？
+### How to Share State or Methods Between Multiple Stores in Pinia?
 
-1. 通过import，然后在actions、getters方法里直接引用即可
-2. **`通过Pinia 的插件`**   一个 Pinia 插件是一个函数，它接收 Pinia 实例和选项作为参数，并可以返回一个对象，这个对象会被合并到每个 store 中
-   
+1. Import and directly reference in actions or getters methods.
+2. **`Through Pinia Plugins`**: A Pinia plugin is a function that receives the Pinia instance and options as parameters and can return an object that will be merged into each store.
+
 ```JavaScript
-//定义插件 plugins/global.js
+// Define plugin plugins/global.js
 export const globalPlugin = (context) => {
   context.store.$onAction(({ name, store }) => {
     if (name === 'addItem') {
@@ -99,48 +95,48 @@ export const globalPlugin = (context) => {
     }
   });
 };
-//注册使用
+// Register and use
 // stores/index.js
 import { createPinia } from 'pinia';
 import { globalPlugin } from '@/plugins/global';
 
 const pinia = createPinia();
 pinia.use(globalPlugin);
-//这样，当任何 Store 中的 addItem 方法被调用时，globalPlugin 插件就会输出日志
+// This way, when the addItem method is called in any store, the globalPlugin plugin will log the output.
 ```
 
-### Pinia 是否支持动态注册 Store？如果支持，如何实现？
+### Does Pinia Support Dynamic Store Registration? If So, How to Implement It?
 
-支持，且支持动态加载，例如：
-```Javascript
+Yes, it supports dynamic loading, for example:
+```JavaScript
 <script setup>
 import { createPinia } from 'pinia';
 
 const pinia = createPinia();
 
-// 动态导入和注册 Store
+// Dynamically import and register store
 async function loadUserStore() {
   const { useUserStore } = await import('@/stores/user');
-  pinia.use(() => useUserStore()); // 动态注册 Store
+  pinia.use(() => useUserStore()); // Dynamically register store
 }
 
 loadUserStore();
 
-// 在组件中使用 Store
+// Use store in component
 const userStore = useUserStore();
 userStore.setUser('Alice', 'alice@example.com');
 </script>
 ```
 
-### 如何在 Pinia 中实现服务端渲染（SSR）支持？需要注意哪些事项？
+### How to Implement Server-Side Rendering (SSR) Support in Pinia? What Should Be Noted?
 
-和客户端使用相比，需要额外处理
-1. SSR中的状态结果有效传递给客户端，可通过HTML中嵌入序列化JSON。客户端正确恢复好状态。
-2. 如果Store中有异常报错，确保页面渲染时所有的异常操作均已完成。
+Compared to client-side usage, additional handling is required:
+1. Ensure the state results in SSR are effectively passed to the client, which can be done by embedding serialized JSON in HTML. The client should correctly restore the state.
+2. If there are errors in the store, ensure all error operations are completed before page rendering.
 
-可以通过在组件的生命周期钩子中进行异步操作，或者在服务端进行预先数据加载。例如
+You can perform asynchronous operations in the component's lifecycle hooks or pre-load data on the server side. For example:
 
-```Javascript
+```JavaScript
 <template>
   <div>
     <h1>{{ user.name }}</h1>
@@ -154,18 +150,17 @@ import { useUserStore } from '@/stores/user';
 const userStore = useUserStore();
 const user = ref({ name: '' });
 
-// 在 onMounted 钩子中加载数据
+// Load data in onMounted hook
 onMounted(async () => {
-  await userStore.fetchUserData();  // 假设这是一个异步请求
-  user.value = userStore.user;  // 获取异步请求结果并设置到组件的 `user` 状态中
+  await userStore.fetchUserData();  // Assume this is an asynchronous request
+  user.value = userStore.user;  // Get the asynchronous request result and set it to the component's `user` state
 });
 </script>
-
 ```
 
-服务器端预加载
+Server-side pre-loading
 ```JavaScript
-// server.js (服务端入口文件)
+// server.js (server entry file)
 import { createPinia } from 'pinia';
 import { createSSRApp } from 'vue';
 import { renderToString } from '@vue/server-renderer';
@@ -179,45 +174,44 @@ async function createApp() {
 
   const userStore = useUserStore();
 
-  // 服务器端加载数据
-  await userStore.fetchUserData();  // 这里进行异步请求
+  // Load data on the server side
+  await userStore.fetchUserData();  // Perform asynchronous request here
   return { app, pinia };
 }
 
 export async function renderPage() {
   const { app, pinia } = await createApp();
 
-  // 获取服务器端渲染的 Pinia 状态
+  // Get the server-rendered Pinia state
   const appContent = await renderToString(app);
 
   return {
     appContent,
-    piniaState: pinia.state.value,  // 将状态传递到客户端
+    piniaState: pinia.state.value,  // Pass the state to the client
   };
 }
 ```
 
-### 当需要监听某个状态的变化时，Pinia 提供了哪些方法来实现？
+### What Methods Does Pinia Provide to Listen to State Changes?
 
-1. **`组件里直接引用`**: Pinia基于Vue的reactive、ref响应机制实现，组件里直接使用会被vue自动跟踪。
-1. **`$subscribe()`**：适合在全局范围内监听状态变化，处理副作用。
-2. **`computed`**：适合在组件中响应式地访问状态，实时获取更新。
-3. **`watch`**：适合在组件中对特定状态或属性进行精细化的监控，并执行副作用。
+1. **`Direct Reference in Component`**: Pinia is based on Vue's reactive and ref reactivity mechanism. Direct use in components will be automatically tracked by Vue.
+2. **`$subscribe()`**: Suitable for listening to state changes globally and handling side effects.
+3. **`computed`**: Suitable for reactively accessing state in components and getting updates in real-time.
+4. **`watch`**: Suitable for fine-grained monitoring of specific states or properties in components and executing side effects.
 
+### How to Gracefully Handle Errors in Pinia Store?
 
-### 如何优雅地在 Pinia Store 中处理错误？
-
-1. **`提供错误状态`**: 供UI使用
-2. **`提供全局错误处理`**
-  - 使用pinia插件，集中统一处理错误
-  - 提供错误边界组件，组件错误时触发边界组件，而不至于整个应用崩溃
+1. **`Provide Error State`**: For UI use.
+2. **`Provide Global Error Handling`**:
+  - Use Pinia plugins to handle errors centrally and uniformly.
+  - Provide error boundary components to trigger boundary components when a component error occurs, preventing the entire application from crashing.
 
   ```JavaScript
-  //错误处理插件示例 errorHandlingPlugin.js
+  // Error handling plugin example errorHandlingPlugin.js
   export const errorHandlingPlugin = (context) => {
     const { store } = context;
 
-    // 捕获所有 actions 中的错误
+    // Capture all errors in actions
     store.$onAction(({ name, args, after, onError }) => {
       onError((error) => {
         console.error(`Error in action "${name}":`, error);
@@ -227,22 +221,21 @@ export async function renderPage() {
       });
     });
   };
-
   ```
 
-### Pinia 是否适合与其他框架或工具（如 Nuxt.js、Meteor.js）结合使用？为什么？
+### Is Pinia Suitable for Use with Other Frameworks or Tools (e.g., Nuxt.js, Meteor.js)? Why?
 
-可以，以Meteor.js全栈框架为例。
+Yes, for example, with the Meteor.js full-stack framework.
 
-在Meteor中如果前端使用的Vue，完全可以使用pinia作为状态管理工具。
+If the frontend uses Vue in Meteor, Pinia can be used as the state management tool.
 
-### Pinia 在大型项目中有哪些最佳实践？
+### What Are the Best Practices for Using Pinia in Large Projects?
 
-1. **`模块化store`**
-2. **`使用getter派生状态计算`**，避免在多个地方重复计算相同逻辑
-3. **`actions中封装异常错误`**，避免业务逻辑混杂在组件里
-4. **`开启状态持久化`**
-5. **`避免过渡的依赖全局状态`**，单一引用状态，下放到组件或者模块
-6. **`懒加载store`**
-7. **`集中错误处理`**
+1. **`Modularize Stores`**
+2. **`Use Getters to Derive State Calculations`**: Avoid repeating the same logic in multiple places.
+3. **`Encapsulate Error Handling in Actions`**: Avoid mixing business logic in components.
+4. **`Enable State Persistence`**
+5. **`Avoid Over-Reliance on Global State`**: Use single references to state and delegate to components or modules.
+6. **`Lazy Load Stores`**
+7. **`Centralize Error Handling`**
 
