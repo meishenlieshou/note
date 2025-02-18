@@ -101,7 +101,7 @@ const pitNote = defineNoteConfig({
 const researchNote = defineNoteConfig({
 	dir: "Research",
 	link: "/research",
-	sidebar: [{ text: "Evers", items: [] }],
+	sidebar: "auto",
 });
 
 export const notes = defineNotesConfig({
