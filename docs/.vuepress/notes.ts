@@ -101,7 +101,7 @@ const pitNote = defineNoteConfig({
 const researchNote = defineNoteConfig({
 	dir: "Research",
 	link: "/research",
-	sidebar: "auto",
+	sidebar: [{ text: "Spanish", link: "/research/WrmHvcacG3FoYTFAKid/" }],
 });
 
 export const notes = defineNotesConfig({
