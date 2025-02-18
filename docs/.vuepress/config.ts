@@ -57,8 +57,8 @@ export default defineUserConfig({
 				year: "numeric",
 			},
 		},
-		contributors: true,
-		changelog: true,
+		contributors: false,
+		changelog: false,
 
 		/**
 		 * 博客
