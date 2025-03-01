@@ -1,7 +1,7 @@
 ---
 title: nginx
 createTime: 2025/01/13 20:38:43
-permalink: /learn/om/vLu6E/
+permalink: /learn/devops/vLu6E/
 author: Jack
 tags:
   - 运维

@@ -65,8 +65,8 @@ const learnNote = defineNoteConfig({
 			collapsed: true,
 		},
 		{
-			text: "Ops",
-			prefix: "/notes/learn/om/",
+			text: "DevOps",
+			prefix: "/notes/learn/devops/",
 			items: "auto",
 			collapsed: true,
 		},
