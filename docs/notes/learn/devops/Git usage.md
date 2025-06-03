@@ -29,6 +29,7 @@ git push origin --delete v1.0.18_test_20250410  # Push the delete change to remo
 
 ## How to Sync 
 ```shell
+git branch  # To check which branch the current repository is with all the branches listed along
 git checkout main # Make sure you are on the right brach
 git pull origin main  # This updates your local code with the latest version from the remote main branch. If you are on o different branch(e.g., dev), change main to dev
 git add .  # Add your changes
