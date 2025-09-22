@@ -103,7 +103,8 @@ const researchNote = defineNoteConfig({
 	link: "/research",
 	sidebar: [
 		{ text: "Spanish", link: "/research/WrmHvcacG3FoYTFAKid/" },
-		{ text: "AI industrial", link: "/research/fdsakfdfdsa932fdsaa/" }
+		{ text: "AI industrial", link: "/research/fdsakfdfdsa932fdsaa/" },
+		{ text: "RKLB", link: "/research/fkfdsafds33kf/" }
 	],
 });
 
